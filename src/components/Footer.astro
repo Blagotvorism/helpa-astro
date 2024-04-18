@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import BSCScanLogo from '../images/logos/BSCScan.png';
+import coinMarketCapLogo from '../images/logos/CoinMarketCap.png';
+import pancakeswapLogo from '../images/logos/pancakeswap.png';
+import links from '../data/links.json';
+import "../styles/global.css";
+---
+<footer>
+    <div class="full-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                {links.map(link => {
+                    return (
+                        <a href={link.url} class="footer-link">{link.text}</a>
+                    )
+                })}
+            </div>
+            <div class="footer-logos">
+                <a href="/" class="header-logo-link"><Image src={coinMarketCapLogo} class="header-logo" alt="helpa-project-logo" /></a>
+                <div class="logo-link__container">
+                    <a href="/" class="header-logo-link"><Image src={BSCScanLogo} class="header-logo" alt="helpa-project-logo" /></a>
+                </div>
+                <a href="/" class="header-logo-link"><Image src={pancakeswapLogo} class="header-logo" alt="helpa-project-logo" /></a>
+            </div>
+        </div>
+        <p class="cr">© 2024 Astroway</p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        height: 29.25rem;
+        background-color: var(--black);
+        color: var(--dark-grey);
+        position: relative;
+        text-align: center;
+    }
+
+    .full-footer {
+        width: 54.1875rem;
+        height: 100%;
+        position: absolute;
+        top: 8.1875rem;
+        left: calc((100vw - var(--full-width)) / 2 + 8.1875rem);
+    }
+
+    .footer-container {
+        display: flex;
+        width: 100%;
+        height: 10.125rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 3.1875rem;
+        align-content: space-between;
+        width: 30.4375rem;
+        height: 100%;
+    }
+
+    .footer-link {
+        align-self: flex-start;
+        display: inline-block;
+        font-family: --var(--font-inter);
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+    .footer-link:active, 
+    .footer-link:hover {
+        color: var(--light-grey);
+    }
+
+    .footer-logos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .logo-link__container {
+        display: block;
+        background-color: var(--white);
+        border-radius: 1rem;
+    }
+
+    .header-logo-link {
+        display: inline-block;
+        width: 12.625rem;
+        height: 2.5rem;
+    }
+
+    .header-logo {
+        width: 100%;
+        height: 100%;
+    }
+
+    .cr {
+        margin-top: 4.4375rem;
+    }
+</style>

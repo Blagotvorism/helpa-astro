@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import headerLogo from '../images/logos/logo-grey.svg';
+import "../styles/global.css";
+import links from '../data/links.json'
+---
+
+<header class="header">
+    <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47" /></a>
+    <nav class="nav-links">
+        {links.map(link => {
+            return (
+                <a href={link.url} class="nav-link" >{link.text}</a>
+            )
+        })}
+    </nav>
+</header>
+
+<style >
+    header {
+        z-index: 99;
+        display: flex;
+        justify-content: space-between;
+        width: 70rem;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 1rem;
+    }
+
+    .header-logo {
+        display: block;
+    }
+
+    .nav-links {
+        width: 64rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        font-family: var(--font-inter);
+        font-size: 1rem;
+        text-decoration: none;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    .nav-link:hover, 
+    .nav-link:active {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+</style>
