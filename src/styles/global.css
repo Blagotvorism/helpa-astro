@@ -1,36 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
 @font-face {
-    font-family: "Lulo-OneBold";
-    src: url("/FontsFree-Net-Lulo-Clean-W01-One-Bold.ttf");
-  }
-  @font-face {
-    font-family: "Lulo-Clean";
-    src: url("/Inter-VariableFont_slnt,wght.ttf");
-  }
+  font-family: "Lulo-OneBold";
+  src: url("/FontsFree-Net-Lulo-Clean-W01-One-Bold.ttf");
+}
 
-  html {
-    font-size: 18;
-  }
-  body {
-    width: 100vw;
-    margin: 0;
-    line-height: normal;
-  }
+@font-face {
+  font-family: "Lulo-Clean";
+  src: url("/Inter-VariableFont_slnt,wght.ttf");
+}
 
-  :root {
-    /* Fonts */
-    --font-lulo-clean: Lulo-Clean;
-    --font-lulo-bold: Lulo-OneBold;
-    --font-inter: Inter;
-    /* Colors */
-    --gradient: linear-gradient(#094A6F, #64C8BD);
-    --white: #FFFFFF;
-    --light-grey: #ECECEC;
-    --dark-grey: #898989;
-    --black: #000000;
-    --green: #204A53;
+*,
+*::before,
+*:: after {
+  box-sizing: border-box;
+  margin: 0;
+}
 
-    /* Dimensions */
-    --full-width: 75rem;
-  }
+html {
+  font-size: 18;
+}
+body {
+  width: 100vw;
+  margin: 0;
+  line-height: normal;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+
+:root {
+  /* Fonts */
+  --font-lulo-clean: Lulo-Clean;
+  --font-lulo-bold: Lulo-OneBold;
+  --font-inter: Inter;
+  /* Colors */
+  --gradient: linear-gradient(to top, #094A6F, #64C8BD);
+  --white: #FFFFFF;
+  --light-grey: #ECECEC;
+  --dark-grey: #898989;
+  --black: #000000;
+  --green: #204A53;
+
+  /* Dimensions */
+  --full-width: 75rem;
+  --reduced-width: 70rem;
+}
 

@@ -6,7 +6,7 @@ import links from '../data/links.json'
 ---
 
 <header class="header">
-    <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47" /></a>
+    <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47"  loading="eager" decoding="async"/></a>
     <nav class="nav-links">
         {links.map(link => {
             return (
@@ -23,10 +23,9 @@ import links from '../data/links.json'
         justify-content: space-between;
         width: 70rem;
         position: absolute;
-        top: 0%;
+        top: 1rem;
         left: 50%;
         transform: translateX(-50%);
-        margin-top: 1rem;
     }
 
     .header-logo {
