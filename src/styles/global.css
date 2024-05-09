@@ -11,7 +11,7 @@
 
 *,
 *::before,
-*:: after {
+*::after {
   box-sizing: border-box;
   margin: 0;
 }
@@ -27,6 +27,14 @@ body {
 
 h1, h2, h3 {
   text-transform: uppercase;
+}
+
+.radial_gradient {
+  display: block;
+  width: 33rem;
+  height: 33rem;
+  position: absolute;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(100, 200, 189, 0.3) 0%, rgba(100, 200, 189, 0) 100%);
 }
 
 :root {

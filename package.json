@@ -12,7 +12,9 @@
   "dependencies": {
     "@astrojs/solid-js": "^4.1.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/mdi": "^1.1.66",
     "astro": "^4.6.1",
+    "astro-icon": "^1.1.0",
     "solid-js": "^1.8.16"
   },
   "devDependencies": {
