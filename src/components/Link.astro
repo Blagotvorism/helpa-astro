@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+
+interface Props {
+    href: string;
+    theme?: 
+        | "primary"
+        | "text"
+        | "slider-round"
+        | "slider-square"
+        | "tab-link";
+    classes?: string;
+}
+
+const { href, theme, classes } = Astro.props;
+---
+<a href={href} class={classes} id={theme === 'slider-square' ? 'svg_color': ''}>
+    <slot />
+</a>
+
+<style>
+    .link {
+        cursor: pointer;
+        font-family: var(--font-inter);
+        font-size: 1rem;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link_primary {
+        height: 3.5rem;
+        width: 16.6rem;
+        border-radius: 1.875rem;
+        border: 2px solid #64C8BD;
+        background: rgb(255, 255, 255, .6);
+    }
+
+    .link_primary:hover,
+    .link_primary:active {
+        background: var(--gradient);
+        color: var(--white);
+        border: none;
+    }
+
+    .link_text {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        width: auto;
+        display: flex;
+        gap: 0.625rem;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* max-width: 9.125rem; */
+    }
+
+    /* Button square */
+    .link_square {
+        border-radius: 1rem 0 1.875rem 0;
+        width: 3.6rem;
+        height: 3.6rem;
+        background-color: var(--white);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .link_about_card {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    .link_square:hover,
+    .link_square:active {
+        background: var(--gradient);
+    }
+
+    .link_square:hover #right_arrow_svg path {
+        fill: white !important;
+    }
+
+</style>
+

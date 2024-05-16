@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+interface Props {
+	mainHeading: string;
+	text?: string;
+	containerWidth: string;
+	containerHeight: string;
+	textWidth?: string;
+}
+
+const { mainHeading, text, containerWidth, containerHeight, textWidth = '28.7rem' } = Astro.props;
+---
+<section class="main_intro">
+    <div class="main_intro__container">
+        <h2 class="main_intro__title">
+            {mainHeading}
+        </h2>
+		{text && <h4 class="main_intro__text">{text}</h4>}
+    </div>
+</section>
+
+<style define:vars={{containerWidth, containerHeight, textWidth}}>
+    .main_intro {
+		position: relative;
+		display: block;
+		width: 100vw;
+		height: 45rem;
+		background-image: url('../images/main/interBG.jpg');
+		background-size: cover;
+	}
+	.main_intro__container {
+		display: block;
+		color: white;
+		width: var(--containerWidth);
+		height: var(--containerHeight);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: start;
+	}
+	.main_intro__title {
+		display: inline;
+		font-size: 3.125rem;
+		line-height: 4rem;
+		font-family: var(--font-lulo-bold);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: inherit;
+	}
+
+	.main_intro__text {
+		font-family: var(--font-inter);
+		display: inline;
+		width: var(--textWidth);
+		font-size: 1rem;
+		line-height: 1.25rem;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+</style>

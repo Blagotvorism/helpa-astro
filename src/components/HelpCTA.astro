@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import Link from './Link.astro';
+---
+<div class="help__cta">
+    <div class="help__cta-1">
+        <h3 class="help__cta-h3">Приобрести криптоактив HELPA</h3>
+        <p class="help_text">и помогать проекту финансово за счет совершения трансказаций.</p>
+        <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+    </div>
+    <div class="help__cta-1">
+        <h3 class="help__cta-h3">Стать участником наших экологических акций</h3>
+        <p class="help_text">и принимать непосредственное участие в спасении планеты.</p>
+        <Link href="/" theme='primary' classes="link link_primary">Присоединиться</Link>
+    </div>
+</div>
+
+<style>
+    .help__cta {
+        display: flex;
+        width: 54rem;
+        justify-content: space-between;
+        font-family: var(--font-inter);
+    }
+
+    .help__cta-1 {
+        display: block;
+        width: 18.75rem;
+        height: 13.5rem;
+    }
+
+    h3 {
+        display: inline-block;
+        width: inherit;
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+        color: var(--dark-grey);
+        margin-bottom: 2.5rem;
+    }
+</style>

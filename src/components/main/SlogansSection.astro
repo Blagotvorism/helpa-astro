@@ -1,0 +1,20 @@
+---
+import Slogan from "../Slogan.astro";
+import '../../styles/global.css';
+
+const { sloganBG1, sloganBG2 } = Astro.props;
+---
+<section class="slogans">
+    <div class="slogans_container">
+        <Slogan sloganBG={sloganBG1} sloganTitle='опережая время' altText='Паутина' />
+        <Slogan sloganTitle='ASTROWAY' />
+        <Slogan sloganBG={sloganBG2} sloganTitle='создавая новый мир' altText='Иммерсивная выставка' />
+    </div>
+</section>
+
+<style>
+    .slogans_container {
+		display: flex;
+		width: 100vw;
+	}
+</style>

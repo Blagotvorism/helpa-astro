@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "category": "eco",
+        "imageDescr": "Камни на берегу моря",
+        "imageNumber": 1,
+        "imagePath": "../images/eco/ecoConcept1.jpg"
+    },
+    {
+        "id": 2,
+        "category": "eco",
+        "imageDescr": "Пляж",
+        "imageNumber": 2,
+        "imagePath": "../images/eco/ecoConcept2.jpg"
+    },
+    {
+        "id": 3,
+        "category": "eco",
+        "imageDescr": "Дерево на пляже",
+        "imageNumber": 3,
+        "imagePath": "../images/eco/ecoConcept3.jpg"
+    }
+]

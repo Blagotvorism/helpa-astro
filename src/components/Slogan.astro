@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+
+interface Props {
+    sloganBG?;
+    sloganTitle: string;
+    altText?: string;
+}
+
+const {sloganBG, sloganTitle, altText } = Astro.props;
+---
+<div class="slogan_part">
+    {(sloganBG) && <Image src={sloganBG} alt={altText} loading='eager' class='slogan_bg'/>}
+    {(!sloganBG) && <div class="slogan_bgcolor"></div>}
+    <h1 class="slogan_title">{sloganTitle}</h1>
+</div>
+
+<style>
+    .slogan_part {
+        position: relative;
+        display: block;
+        width: calc(100vw / 3);
+        height: 37.5rem;
+        text-align: center;
+    }
+
+    .slogan_bg,
+    .slogan_bgcolor {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        z-index: -1;
+    }
+
+    .slogan_bgcolor {
+        background: linear-gradient(0deg, #094A6F 0%, #64C8BD 100%);
+    }
+
+    .slogan_title {
+        position: absolute;
+        color: white;
+        display: inline-block;
+        font-family: var(--font-lulo-bold);
+        font-size: 2.25rem;
+        letter-spacing: 2px;
+        width: 18.5rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>

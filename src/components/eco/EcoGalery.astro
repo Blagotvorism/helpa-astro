@@ -1,0 +1,75 @@
+---
+import '../../styles/global.css';
+import EcoGaleryCard from './EcoGaleryCard.astro';
+import galeryData from '../../data/eco_galery.json';
+---
+<section class="eco_galery">
+    <div class="eco_galery__container">
+        <div class="row row-1">
+            {
+                galeryData.map((card) => (
+                        card.id < 4 &&  
+                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
+                    )   
+                )
+            }
+        </div>
+        <div class="row row-2">
+            {
+                galeryData.map((card) => (
+                        card.id > 3 && card.id < 8 &&  
+                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
+                    )   
+                )
+            }
+        </div>
+        <div class="row row-3">
+            {
+                galeryData.map((card) => (
+                        card.id > 7 &&  
+                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
+                    )   
+                )
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: block;
+        position: relative;
+        width: 100vw;
+        height: 50.3rem;
+    }
+
+    .eco_galery__container {
+        display: block;
+        position: absolute;
+        width: var(--full-width);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-x: scroll;
+        scrollbar-width: none;
+        margin: -2rem;
+        padding: 2rem;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 1.25rem;
+    }
+
+    .row-2 {
+        width: 93.75rem;
+        margin-left: -9.375rem;
+    }
+
+    .row-3 {
+        width: 93.75rem;
+        margin-left: 2.5rem;
+    }
+</style>

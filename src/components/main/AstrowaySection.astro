@@ -1,0 +1,151 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+import Link from "../Link.astro";
+
+const {mainBackgroundImage, mainLogo} = Astro.props;
+---
+<section class="astroway">
+    <Image src={mainBackgroundImage} alt='background of planet Earth' class="bg-image"  loading="eager" decoding="async"/>
+    <div class="main">
+        <div class="headings-container">
+            <h1 class="main_title-1">Astr</h1>
+            <h1 class="main_title-2">way</h1>
+            <h2 class="main_subtitle">Help planet</h2>
+            <Image src={mainLogo} alt='big Helpa project logo' class="main-logo"  loading="eager" decoding="async"/>
+        </div>
+        <div class="main_description">
+            <h3 class="main_description-title">Первая благотворительная криптовалюта</h3>
+            <p class="main_description-text">Реализуйте криптовалюту и помогайте нашей планете и людям</p>
+        </div>
+        <div class="main_cta">
+            <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+            <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+        </div>
+    </div>
+</section>
+
+<style>
+    .astroway {
+        width: 100vw;
+        height: 45rem;
+    }
+
+    .main {
+        display: block;
+        width: var(--reduced-width);
+        height: inherit;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .bg-image {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .headings-container {
+        display: inline-block;
+        position: absolute;
+        top: 9.3125rem;
+        height: 12.0625rem;
+        width: 100%;
+    }
+
+    .main_title-1, .main_title-2 {
+        position: absolute;
+        top: 0%;
+        font-family: var(--font-lulo-bold);
+        font-size: 8.125rem;
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    .main_title-1 {
+        left: 0;
+    }
+
+    .main_title-2 {
+        right: -1.85rem;
+    }
+
+    .main_subtitle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: var(--font-lulo-clean);
+        font-size: 1.5rem;
+        color: var(--dark-grey);
+        letter-spacing: 0.445rem;
+    }
+
+    .main-logo {
+        position: absolute;
+        top: 0%;
+        left: 31.972rem;
+        width: 11.875rem;
+        height: 11.875rem;
+    }
+
+    .main_description {
+        display: inline-block;
+        position: absolute;
+        top: 24.25rem;
+        left: 0;
+        width: 50.9375rem;
+    }
+
+    .main_description-title {
+        color: black;
+        font-size: 3.125rem;
+        font-family: var(--font-lulo-bold);
+        letter-spacing: 0.05rem;
+        line-height: 4rem;
+    }
+
+    .main_description-text {
+        display: inline-block;
+        width: 20.3125rem;
+        margin-top: .5rem;
+        font-size: 1rem;
+        font-family: var(--font-inter);
+        color: var(--dark-grey);
+        letter-spacing: .05rem;
+    }
+
+    .main_cta {
+        position: absolute;
+        top: 38.25rem;
+        height: 3.625rem;
+        width: 26.875rem;
+        display: flex;
+        justify-content: space-between;
+        background: transparent;
+    }
+
+    .btn_arrow {
+        font-family: serif;
+        position: absolute;
+        right: -5px;
+        top: 1.38rem;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 100;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    [data-icon] {
+        font-size: 1rem;
+    }
+</style>
+

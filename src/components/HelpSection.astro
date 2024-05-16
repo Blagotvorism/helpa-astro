@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import '../styles/global.css';
+import Link from './Link.astro';
+import HelpCTA from './HelpCTA.astro';
+
+interface Props {
+    page: string;
+    img?;
+    imgDescr?: string;
+}   
+
+const {page, img, imgDescr = ''} = Astro.props;
+
+let heading_start;
+let heading_gradient;
+let heading_finish;
+let sectionHeight;
+
+switch(page) {
+    case 'eco':
+        heading_start = 'Чтобы ';
+        heading_gradient = 'быть полезным природе, заботиться ';
+        heading_finish = 'о своём доме под названием планета Земля, можно';
+        sectionHeight = '36rem';
+        break;
+}
+---
+<section class="help_section">
+    <div class="help__container">
+        {heading_start && <h2 class="help__heading">{heading_start}<span>{heading_gradient}</span>{heading_finish}</h2>}
+        <HelpCTA />
+        {img && <Image src={img} alt={imgDescr} class='help__img' loading='eager'/>}
+    </div>
+</section>
+
+<style define:vars={{sectionHeight}}>
+    section {
+        display: block;
+        position: relative;
+        width: 100vw;
+        height: var(--sectionHeight);
+    }
+
+    .help__container {
+        display: block;
+        position: absolute;
+        width: 60.7rem;
+        height: inherit;
+        top: 0;
+        left: calc((100vw - var(--reduced-width)) / 2);
+    }
+
+    .help__heading {
+        display: inline-block;
+        width: 55rem;
+        line-height: 4rem;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        margin-bottom: 5rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    .help__img {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: -10rem;
+        height: 22rem;
+        width: 13rem;
+    }
+</style>

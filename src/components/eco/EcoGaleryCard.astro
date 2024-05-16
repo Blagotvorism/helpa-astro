@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import '../../styles/global.css';
+
+const { cardImage, cardText, imgDescr, fontSize } = Astro.props;
+---
+<div class="galery_card__container">
+    {cardImage && <Image src={import(cardImage)} alt={imgDescr} class="galery_card__img" loading='eager' />}
+    {cardText &&  <p>{cardText}</p>}
+</div>
+
+<style define:vars={{fontSize}}>
+    .galery_card__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 22.5rem;
+        height: 12.8rem;
+        border-radius: 1.875rem;
+        background-color: white;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .galery_card__img {
+        display: block;
+        height: inherit;
+        width: inherit;
+        border-radius: inherit;
+        object-fit: cover;
+    }
+
+    p {
+        display: inline-block;
+        width: 15.25rem;
+        font-family: var(--font-inter);
+        font-size: var(--fontSize);
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+</style>

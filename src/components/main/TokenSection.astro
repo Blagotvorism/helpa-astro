@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+import Link from "../Link.astro";
+---
+<section class="main_token">
+    <div class="main_token__container">
+        <div class="token_title">
+            <h1 class="token_heading-1">Helpa</h1>
+            <h1 class="token_heading-2">-</h1>
+            <h1 class="token_heading-3">это</h1>
+        </div>
+        <div class="token_description">
+            <h3 class="token_heading--descr">криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за трансказацию, которая идет на развитие благотворительности.</h3>
+            <p class="token_descr">Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров.</p>
+            <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+        </div>
+    </div>
+</section>
+
+<style>
+    .main_token {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100vw;
+		height: 28.25rem;
+	}
+
+	.main_token__container {
+		display: flex;
+		justify-content: space-between;
+		width: var(--reduced-width);
+		height: 19rem;
+	}
+
+	.token_title {
+		display: flex;
+		width: 26.375rem;
+		justify-content: space-between;
+		align-self: self-start;
+		font-family: var(--font-lulo-bold);
+		font-size: 3.125rem;
+	}
+
+	.token_heading-1,
+	.token_heading-2 {
+		background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+	}
+	
+	.token_description {
+		margin-top: 2rem;
+		display: block;
+		width: 40.3rem;
+	}
+	
+	.token_heading--descr {
+		font-family: var(--font-inter);
+		line-height: 1.875rem;
+		font-size: 1.4rem;
+	}
+	
+	.token_descr {
+		font-family: var(--font-inter);
+		font-size: 1rem;
+		color: var(--dark-grey);
+		margin-top: 1.25rem;
+		line-height: 1.25rem;
+		margin-bottom: 2.5rem;
+	}
+
+	[data-icon] {
+        font-size: 1rem;
+    }
+</style>

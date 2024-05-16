@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "category": "nature",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard1.jpg"
+    },
+    {
+        "id": 2,
+        "category": "nature",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard2.jpg"
+    },
+    {
+        "id": 3,
+        "category": "healthcare",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard3.jpg"
+    },
+    {
+        "id": 4,
+        "category": "healthcare",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard4.jpg"
+    },
+    {
+        "id": 5,
+        "category": "healthcare",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard5.jpg"
+    },
+    {
+        "id": 6,
+        "category": "loan",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard6.jpg"
+    },
+    {
+        "id": 7,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard7.jpg"
+    },
+    {
+        "id": 8,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard8.jpg"
+    },
+    {
+        "id": 9,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard9.jpg"
+    },
+    {
+        "id": 10,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard10.jpg"
+    },
+    {
+        "id": 11,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard11.jpg"
+    },
+    {
+        "id": 12,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard12.jpg"
+    },
+    {
+        "id": 13,
+        "category": "sport",
+        "title": "Очистка береговой линии",
+        "description": "Краткое описание мероприятия",
+        "link": "/",
+        "imageURL": "../images/main/event_cards/EventCard13.jpg"
+    }
+]

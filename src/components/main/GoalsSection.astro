@@ -1,0 +1,90 @@
+---
+import '../../styles/global.css';
+import GoalsBusinessCard from '../GoalsBusinessCard.astro';
+import GoalsCard from '../GoalsCard.astro';
+---
+
+<section class="main_goals">
+    <div class="goals_container">
+        <div class="goals_title">
+            <h1 class="goals_heading-1">Наши</h1>
+            <h1 class="goals_heading-2">долгосрочные</h1>
+            <h1 class="goals_heading-1">цели</h1>
+        </div>
+        <div class="goals_cards">
+            <GoalsCard goalsIcon="goalsIcon1" goalsDescr="Развитие цивилизации" />
+            <GoalsCard goalsIcon="goalsIcon2" goalsDescr="Эффективная экономика" />
+            <GoalsCard goalsIcon="goalsIcon3" goalsDescr="Повышение общей грамотности населения" cardId={3} />
+            <GoalsCard goalsIcon="goalsIcon4" goalsDescr="Улучшение качества жизни" />
+            <GoalsBusinessCard />
+            <GoalsCard goalsIcon="goalsIcon5" goalsDescr="Чистая среда обитания" />
+            <GoalsCard goalsIcon="goalsIcon6" goalsDescr="Улучшение здоровья" />
+            <GoalsCard goalsIcon="goalsIcon7" goalsDescr="Свободная миграция" />
+        </div>
+        <div class="radial_gradient radial_gradient__goals-1"></div>
+        <div class="radial_gradient radial_gradient__goals-2"></div>
+    </div>
+</section>
+
+<style>
+    .main_goals {
+		display: flex;
+		width: 100vw;
+		height: 44.8rem;
+		justify-content: center;
+	}
+
+	.goals_container {
+		position: relative;
+		display: block;
+		text-align: start;
+		width: var(--reduced-width);
+
+	}
+	
+	.goals_title {
+		display: flex;
+		justify-content: space-between;
+		width: 49.75rem;
+		font-family: var(--font-lulo-bold);
+		font-size: 3.125rem;
+		margin-bottom: 3.75rem;
+	}
+
+	.goals_heading-2 {
+		background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+	}
+
+	.goals_cards {
+		display: flex;
+		width: inherit;
+		height: 28.5rem;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	#thirdCard {
+        display: inline-block;
+        width: 12rem !important;
+    }
+
+	.radial_gradient__goals-1 {
+		position: absolute;
+		right: -2rem;
+		z-index: -10;
+		top: -5rem;
+	}
+
+	.radial_gradient__goals-2 {
+		position: absolute;
+		right: 6.4rem;
+		bottom: -3rem;
+		z-index: -10;
+	}
+</style>

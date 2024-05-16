@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import '../../styles/global.css';
+import Link from "../Link.astro";
+import { Icon } from "astro-icon/components";;
+
+const { welcomeImg } = Astro.props;
+---
+<section class="welcome">
+    <div class="welcome_container">
+        <div class="container_left">
+            <div class="welcome_text">
+                <h1 class="welcome_title">
+                    <span class="welcome_span">добро пожаловать</span>
+                    <span class="community_span">в наше сообщество</span>
+                </h1>
+                <p class="welcome_descr">
+                    экоактивистов, криптоэнтузиастов, спортсменов, 
+                    интеллектуалов, волонтёров, меценатов, философов, 
+                    предпринимателей, учёных, деятелей искусств и свободных людей. 
+                </p>
+            </div>
+            <Link href="/" theme='primary' classes="link link_primary">Присоединиться</Link>
+        </div>
+        <div class="container_right">
+            <!-- <Image src={welcomeImg} alt='Logo of people connected to each other' class="welcome_img" loading="eager" decoding="async"> -->
+			<Icon name='connectedLogo' class="welcome_img" />
+        </div>
+    </div>
+</section>
+
+<style>
+    .welcome {
+		display: flex;
+		width: 100vw;
+		height: 30.7rem;
+		justify-content: center;
+	}
+
+	.welcome_container {
+		display: flex;
+		justify-content: space-between;
+		width: var(--reduced-width);
+		height: 22.1rem;
+		margin-top: 4.375rem;
+	}
+
+	.container_left {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 38.75rem;
+	}
+
+	.container_right {
+		height: 100%;
+		width: 22.1rem;
+	}
+
+	.welcome_text {
+		display: inline-block;
+	}
+
+	.welcome_title {
+		font-family: var(--font-lulo-bold);
+		font-size: 3.125rem;
+		line-height: 3.2rem;
+		letter-spacing: 2px;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1.25rem;
+	}
+
+	.welcome_span {
+		background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+	}
+
+	.welcome_descr {
+		display: inline-block;
+		width: 27.7rem;
+		font-family: var(--font-inter);
+		font-size: 1rem;
+		line-height: 1.25rem;
+		color: var(--dark-grey);
+	}
+
+	.welcome_img {
+		display: block;
+		width: 30.2rem;
+		height: 100%;
+	}
+</style>

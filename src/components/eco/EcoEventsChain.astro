@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+import Link from '../Link.astro';
+import EcoEventChainCard from './EcoEventChainCard.astro';
+import RadialGradient from '../RadialGradient.astro';
+---
+<section class="eco_events_chain">
+    <div class="eco_events_chain__container">
+        <RadialGradient topPosition="-15rem" leftPosition="-15rem" />
+        <EcoEventChainCard text="Загрязнение окружающей среды" />
+        <Icon name='arrowLong' />
+        <EcoEventChainCard text="Нарушение естественных экосистем" />
+        <Icon name='arrowLong' />
+        <EcoEventChainCard text="Нарушение естественных экосистем" />
+        <Icon name='arrowLong' id='vertical_arrow'/>
+        <div class="eco_events_chain__text">
+            <h3 class="eco_events_chain-h3">
+                Посмотрите на эту пугающую цепочку событий
+            </h3>
+            <h4 class="eco_events_chain-h4">Но в наших силах ее прекратить!</h4>
+            <Link href="/" theme='text' classes="link link_text">
+                <span class="link_innertext_secondary">Читать подробнее о последствиях загрязнений</span>
+                <Icon name="arrowText" />
+            </Link>
+        </div>
+        <EcoEventChainCard text="Нарушение естественных экосистем" />
+        <Icon name='arrowLong' id="rotate_arrow"/>
+        <EcoEventChainCard text="Нарушение естественных экосистем" />
+    </div>
+</section>
+
+<style>
+    .eco_events_chain {
+        position: relative;
+        display: block;
+        width: 100vw;
+        height: 33.125rem;
+    }
+
+    .eco_events_chain__container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: space-between;
+        width: var(--reduced-width);
+        height: 25rem;
+    }
+
+    #vertical_arrow {
+        display: inline-block;
+        position: absolute;
+        right: 7rem;
+        transform: rotate(90deg);
+        width: 2.5rem;
+        stroke: url(#a);
+        stroke-width: 4px;
+    }
+
+    #rotate_arrow {
+        transform: rotate(180deg);
+    }
+
+    .eco_events_chain__text {
+        font-family: var(--font-inter);
+        display: inline-block;
+        width: 21.875rem;
+        height: 10rem;
+        margin-right: 4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+        color: var(--dark-grey);
+        margin-bottom: 1.875rem;
+    }
+
+    a {
+        width: inherit;
+    }
+</style>

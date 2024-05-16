@@ -1,0 +1,171 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<"button"> {
+    type?: "button" | "submit";
+    isFilled?: boolean;
+    theme?: 
+        | "primary"
+        | "text"
+        | "slider-round"
+        | "slider-square"
+        | "tab-link";
+    classes?: string;
+}
+const {
+    type = "button",
+    isFilled = false,
+    theme = "primary",
+    classes,
+    ...rest
+} = Astro.props;
+
+let backGround;
+let foreGround;
+let borderRadius;
+let buttonWidth;
+let buttonHeight = "3.5rem";
+
+switch (theme) {
+    case "primary":
+        backGround = "transparent";
+        foreGround = "var(--black)";
+        borderRadius = "1.875rem";
+        buttonWidth = "16.5625rem";
+        break;
+    case "text":
+        backGround = "transparent";
+        foreGround = "var(--gradient)";
+        buttonWidth = "9.1rem";
+        break;
+    case "slider-round":
+        backGround = "var(--white)";
+        foreGround = "var(--gradient)";
+        borderRadius = "50%";
+        buttonWidth = "4rem";
+        break;
+    case "slider-square":
+        backGround = "var(--white)";
+        foreGround = "var(--gradient)";
+        borderRadius = "1rem 0 1.875rem 0";
+        buttonWidth = "3.6rem";
+        break;
+    default:
+        backGround = "transparent";
+        foreGround = "transparent";
+        borderRadius = "1.875rem";
+        buttonWidth = "inherit";
+        buttonHeight = "inherit";
+}
+---
+<button 
+    class:list={[classes, {filled: isFilled}]}
+    {type}
+    {...rest}
+>
+    <slot />
+</button>
+
+
+<style define:vars={{
+    foreGround,
+    backGround,
+    borderRadius,
+    buttonWidth,
+    buttonHeight
+}}>
+    button {
+        /* resetes */
+        font-family: var(--font-inter);
+        cursor: pointer;
+
+        /* default styles */
+        color: var(--black);
+        border-radius: var(--borderRadius);
+
+        width: var(--buttonWidth);
+        height: var(--buttonHeight);
+    }
+
+    .btn_text {
+        display: flex;
+        width: var(--buttonWidth);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    /* Primary Button */
+    .btn_primary {
+        background: rgb(255, 255, 255, .6);
+        /* border-bottom: 1px solid #094A6F;
+        border-top: 1px solid #64C8BD; */
+        border: 2px solid #64C8BD;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .btn_primary:hover,
+    .btn_primary:active {
+        background: var(--gradient);
+        color: var(--white);
+        border: none;
+    }
+
+    /* Button square */
+    .btn_square {
+        background-color: var(--white);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn_square:hover,
+    .btn_square:active {
+        background: var(--gradient);
+    }
+
+    .btn_square:hover,
+    .btn_square:active .arrow_logo {
+        mask-size: 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        background-color: red;
+    }
+
+    .btn_tab-link {
+        display: inline-block;
+        padding: inherit;
+        width: var(--buttonWidth);
+        height: var(--buttonHeight);
+        border: transparent;
+        border-radius: var(--borderRadius);
+        padding: .5rem 1.5rem .5rem 1.5rem;
+    }
+
+    .active {
+        color: white;
+        background: var(--gradient);   
+    }
+
+    .btn-round {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--buttonWidth);
+        height: var(--buttonWidth);
+        border-radius: var(--borderRadius);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+        background-color: white;
+    }
+
+    .btn-round-left img {
+        transform: rotate(180deg);
+    }
+
+    .btn-round:hover,
+    .btn-round:active {
+        background: var(--gradient);
+    }
+
+</style>

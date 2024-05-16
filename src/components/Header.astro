@@ -3,21 +3,25 @@ import { Image } from 'astro:assets';
 import headerLogo from '../images/logos/logo-grey.svg';
 import "../styles/global.css";
 import links from '../data/links.json';
----
 
-<header class="header">
-    <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47"  loading="eager" decoding="async"/></a>
-    <nav class="nav-links">
-        {links.map(link => {
-            return (
-                <a href={link.url} class="nav-link" >{link.text}</a>
-            )
-        })}
-    </nav>
+const { mainPage } = Astro.props;
+---
+<header class:list={mainPage ? "": " header_bg"}>
+    <dev class="header">
+        <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47"  loading="eager" decoding="async"/></a>
+        <nav class="nav-links">
+            {links.map(link => {
+                return (
+                    <a href={link.url} class="nav-link" >{link.text}</a>
+                )
+            })}
+        </nav>
+    </dev>
 </header>
 
-<style >
-    header {
+
+<style>
+    .header {
         z-index: 99;
         display: flex;
         justify-content: space-between;
@@ -26,6 +30,17 @@ import links from '../data/links.json';
         top: 1rem;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .header_bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100vw;
+        height: 4.625rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-bottom-right-radius: 1.875rem;
     }
 
     .header-logo {

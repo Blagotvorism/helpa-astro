@@ -10,7 +10,7 @@ import AstrowaySection from '../components/main/AstrowaySection.astro';
 import WelcomeSection from '../components/main/WelcomeSection.astro';
 import AboutSection from '../components/main/AboutSection.astro';
 import EventsSection from '../components/main/EventsSection.astro';
-import IntroSection from '../components/main/IntroSection.astro';
+import IntroSection from '../components/IntroSection.astro';
 import TokenSection from '../components/main/TokenSection.astro';
 import GoalsSection from '../components/main/GoalsSection.astro';
 import SlogansSection from '../components/main/SlogansSection.astro';
@@ -22,7 +22,11 @@ import SlogansSection from '../components/main/SlogansSection.astro';
 		<WelcomeSection welcomeImg={welcomeImg} />
 		<AboutSection />
 		<EventsSection />
-		<IntroSection />
+		<IntroSection 
+			mainHeading='Мы создали уникальный проект и сейчас покажем, как он работает' 
+			containerWidth='52.2rem' 
+			containerHeight="12.2rem"
+			/>
 		<TokenSection />
 		<GoalsSection />
 		<SlogansSection sloganBG1={sloganBG1} sloganBG2={sloganBG2} />

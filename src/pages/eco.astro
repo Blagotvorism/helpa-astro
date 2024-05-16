@@ -1,0 +1,53 @@
+---
+import HeroSection from '../components/HeroSection.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import coverImg from '../images/eco/ecoCover.jpg';
+import EcoAbout from '../components/eco/EcoAbout.astro';
+import EcoPolutionSection from '../components/eco/EcoPolutionSection.astro';
+import ConceptSection from '../components/ConceptSection.astro';
+import IntroSection from '../components/IntroSection.astro';
+import EcoEventsChain from '../components/eco/EcoEventsChain.astro';
+import EcoGalery from '../components/eco/EcoGalery.astro';
+import HelpSection from '../components/HelpSection.astro';
+import ecoHelpImg from '../images/eco/ecoHelp.PNG';
+import SocialSection from '../components/SocialSection.astro';
+---
+<Layout title="Welcome to Astro">
+    <main>
+        <HeroSection 
+            heroImage={coverImg} 
+            heroImageDescr='Зеленые горы' 
+            heading='ECOTIME DAY' 
+            pageTitle="eco" 
+            subheading='Добро пожаловать' 
+        />
+        <EcoAbout />
+        <EcoPolutionSection />
+        <ConceptSection 
+            pagePath='eco'
+            mainHeading="Концепция проекта"
+            subHeading='Уборка берегового пространства, являющееся фактически границей двух миров - земного и водного.'
+            text='Последствиями загрязнения этой зоны является колоссальный урон обеим экосистемам. Волонтёров проекта можно назвать защитниками естественных границ экосистем.'
+        />
+        <IntroSection 
+            mainHeading='Eco Time Day - люди, верящие в будущее и делающие для него всё возможное.' 
+            text='Люди увлечённые и увлекающие других своим примером. Мы осознаем, что наше общее пространство влияет на каждого из нас и наших потомков, на цивилизацию, а значит и на нашу дальнейшую жизнь, судьбу наших дел, опыта, открытий, судьбу открытой нами информации и её сохранение. '
+            containerWidth='53.8rem' 
+            containerHeight='21.5rem'
+        />
+        <EcoEventsChain />
+        <EcoGalery />
+        <HelpSection page='eco' img={ecoHelpImg} imgDescr='Знак мира в виде рогатки' />
+        <SocialSection page="eco" />
+    </main>
+</Layout>
+
+<style>
+	main {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+</style>

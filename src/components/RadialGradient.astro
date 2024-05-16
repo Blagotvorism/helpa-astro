@@ -1,0 +1,23 @@
+---
+import '../styles/global.css';
+const { topPosition, leftPosition } = Astro.props;
+console.log('Radial gradient top margin: ', topPosition);
+console.log('Radial gradient left margin: ', leftPosition);
+---
+<div class="radial_gradient">
+
+</div>
+
+<style define:vars={{ topPosition, leftPosition }}>
+    .radial_gradient {
+        position: absolute;
+        z-index: -1;
+        top: var(--topPosition);
+        left: var(--leftPosition);
+        display: inline-block;
+        width: 33.125rem;
+        height: 33.125rem;
+        overflow: hidden;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(9, 74, 111, 0.3) 0%, rgba(100, 200, 189, 0) 100%);
+    }
+</style>

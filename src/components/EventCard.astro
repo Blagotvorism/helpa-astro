@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import '../styles/global.css';
+import Button from './Button.astro';
+import eventImage from '../images/main/event_cards/eventCard1.JPG';
+interface Props {
+    "category": string;
+    "description": string;
+    "id": number;
+    "imageURL": string;
+    "link": string;
+    "title": string;
+    "imageDescr": string;
+}
+
+const {category, description, id, imageURL, link, title, imageDescr} = Astro.props;
+---
+<div class="event_card">
+    <Image src={eventImage} alt='image1' class='event_card-img' />
+    <div class="event_card-text">
+        <h3 class="event_card-title">Заголовок</h3>
+        <p class="event_card-descr">Описание карточки с мероприятием бла-бла-бла</p>
+        <Button id=`event_card-btn${id}` theme='text' class="btn btn_text btn_event-link" !isFilled><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow"> ❯ </span></Button>
+    </div>
+</div>
+
+<style>
+    .event_card {
+        display: flex;
+        flex-direction: row;
+        width: 34.375rem;
+        height: 18.125rem;
+        border-radius: 1.875rem;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .event_card-img {
+        display: block;
+        height: inherit;
+        width: 16.5625rem;
+        border-top-left-radius: 1.875rem;
+        border-bottom-left-radius: 1.875rem;
+    }
+
+    .event_card-text {
+        display: block;
+        height: inherit;
+        width: 17.8125rem;
+    }
+
+    .event_card-title {
+        display: inline-block;
+        width: 15.375rem;
+        height: 3rem;
+        color: black;
+        font-family: var(--font-inter);
+        font-size: 1.4rem;
+        line-height: 1.875rem;
+        margin-left: 1.25rem;
+        margin-bottom: 2.5rem;
+        margin-top: 1.875rem;
+    }
+
+    .event_card-descr {
+        display: inline-block;
+        width: 15.375rem;
+        height: 6.125rem;
+        margin-left: 1.25rem;
+        font-family: var(--font-inter);
+        font-size: 1rem;
+        color: var(--dark-grey);
+    }
+
+    .btn_event-link,
+    .btn_arrow {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    .btn_event-link {
+        padding: 0;
+        margin-left: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn_arrow {
+        margin-left: .4rem;
+        margin-top: 2px;
+    }
+</style>
