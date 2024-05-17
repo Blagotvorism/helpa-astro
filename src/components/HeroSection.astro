@@ -5,49 +5,68 @@ import img from '../images/eco/ecoCover.jpg'
 interface Props {
     heroImage;
     heroImageDescr: string;
-    heading: string;
     subheading?:string;
     subheading2?: string;
     description?:string;
     pageTitle: string;
 }
-const { heroImage, heroImageDescr, heading, subheading, subheading2, description, pageTitle } = Astro.props;
+const { heroImage, heroImageDescr, subheading, subheading2, description, pageTitle } = Astro.props;
 let headingClip1;
 let headingClip2;
 let usualHeading;
 let topPosition;
 let leftDelta;
+let color;
 let imageUrl;
 let imgCover;
 
-if(pageTitle === 'eco') {
-    // text values
-    headingClip1 = 'ECO';
-    headingClip2 = 'DAY';
-    usualHeading = 'TIME';
+switch(pageTitle) {
+    case 'eco':
+        // text values
+        headingClip1 = 'ECO';
+        headingClip2 = 'DAY';
+        usualHeading = 'TIME';
+        color = 'black';
 
-    topPosition = '9.375rem';
-    leftDelta = '21.25rem';
+        // topPosition = '9.375rem';
+        // leftDelta = '21.25rem';
+        leftDelta = '0rem';
+        break;
+    
+    case 'low-income-families':
+        headingClip1 = 'RE';
+        usualHeading = 'PAY';
+        color = "white";
+
+        topPosition = '9.375rem';
+        leftDelta = '10.625rem';
+        break;
 }
+
+
 
 console.log(pageTitle);
 ---
 <section class:list={pageTitle}>
     <Image src={heroImage} alt={heroImageDescr} class='hero_img' loading='eager'/>
     <div class="cover"></div>
-    <h1 id="hero_heading">
-        {headingClip1}<br /><span class="usual-text">{usualHeading}</span>{headingClip2}
-        <!-- {headingClip1 && <span class="clip-text clip-text-1">{headingClip1}</span>}
-        {usualHeading && <span class="usual-text">{usualHeading}</span>}
-        {headingClip2 && <span class="clip-text clip-text-2"> {headingClip2}</span>} -->
-    </h1>
+    {pageTitle === 'eco' && 
+        <h1 id="hero_heading">
+            {headingClip1}<br /><span class="usual-text">{usualHeading}</span>{headingClip2}
+        </h1>
+    }
+    {pageTitle === 'low-income-families' &&
+        <h1 id="hero_heading">
+            {headingClip1}<span class="usual-text">{usualHeading}</span>
+        </h1>
+    }
     
     {subheading && <h2 class="hero-subheading">{subheading}</h2>}
     {subheading2 && <h3 class="hero-subheading2">subheading2</h3>}
     {description && <p class="hero-description">description</p>}
 </section>
 
-<style>
+<style define:vars={{color, leftDelta, topPosition}}>
     section {
         position: relative;
         display: flex;
@@ -63,6 +82,8 @@ console.log(pageTitle);
         width: inherit;
         height: inherit;
         z-index: -1;
+        object-fit: cover;
+        object-position: 0 -4.625rem;
     }
 
     .cover {
@@ -90,7 +111,7 @@ console.log(pageTitle);
     .clip-text {
         display: inline;
         position: absolute;
-        left: calc((100vw - var(--reduced-width)) / 2);
+        left: calc((100vw - var(--reduced-width)) / 2 - var(--leftDelta));
     }
 
     .clip-text-1 {
@@ -102,7 +123,7 @@ console.log(pageTitle);
     }
 
     .usual-text {
-        color: black;
+        color: var(--color);
         position: absolute;
         top: 0;
         left: 33rem;
@@ -125,9 +146,17 @@ console.log(pageTitle);
     const currentUrl = window.location.pathname;
     console.log(currentUrl);
     let imgCover;
+    let headingWidth, headingHeight;
     switch(currentUrl) {
         case "/eco":
             imgCover = 'src/images/eco/ecoCover.jpg';
+            headingWidth = '91.25rem';
+            headingHeight = '35.7rem';
+            break;
+        case "/low-income-families":
+            imgCover = 'src/images/lowIncome/heroCover.jpg';
+            headingWidth = '91.25rem';
+            headingHeight = '35.7rem';
             break;
         default:
             imgCover = '';
@@ -140,6 +169,6 @@ console.log(pageTitle);
     heading.style.backgroundClip = 'text';
     heading.style.color = 'transparent';
     heading.style.overflow = 'hidden';
-    heading.style.width = '91.25rem';
-    heading.style.height = '35.7rem';
+    heading.style.width = headingWidth;
+    heading.style.height = headingHeight;
 </script>

@@ -1,0 +1,97 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+import Link from '../Link.astro';
+import DebtProblemCard from './DebtProblemCard.astro';
+---
+<section class="debt_problem">
+    <div class="debt_problem__container">
+        <div class="debt_problem__text">
+            <h2><span>Проблема закредитованности </span>населения планеты остается значительной в многих странах</h2>
+            <h3>Она может иметь серьезные последствия для экономики и благополучия людей. Вот некоторые основные аспекты этой проблемы:</h3>
+            <div class="debt_problem__text-link">
+                <Link href="/" theme='text' classes="link link_text debt_problem__text-link"><span class="link_innertext_secondary">Подробнее о последствиях</span><Icon name="arrowText" /></Link>
+            </div>
+        </div>
+        <div class="debt_problem__cards">
+            <DebtProblemCard 
+                heading="Личная финансовая нагрузка" 
+                text="Многие люди сталкиваются с высоким уровнем закредитованности из-за кредитных карт, студенческих займов, ипотечных кредитов и других форм потребительского кредитования. Это может привести к финансовому стрессу, увеличению долговой нагрузки и затруднениям с выплатой долгов." 
+            />
+            <DebtProblemCard 
+                heading="Снижение способности к сбережению и инвестированию" 
+                text="Закредитованность может снижать возможности для накопления сбережений и инвестирования на будущее. Люди, обремененные долгами, могут испытывать трудности в формировании финансового резерва и планировании на пенсию." 
+            />
+            <DebtProblemCard 
+                heading="Экономическая нестабильность" 
+                text="Крупная закредитованность населения может стать источником экономической нестабильности, так как уровень потребительского спроса, финансовые риски и системные риски могут возрасти, что в конечном итоге может сказаться на экономическом росте." 
+            />
+            <DebtProblemCard 
+                heading="Риск финансового кризиса" 
+                text="Коллективная закредитованность может увеличить вероятность возникновения финансового кризиса, особенно если многие заемщики одновременно столкнутся с невыплатами кредитов." 
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 73.5rem;
+        justify-content: center;
+    }
+
+    .debt_problem__container {
+        display: block;
+        width: var(--reduced-width);
+        height: 63.5rem;
+        margin-top: 5rem;
+    }
+
+    .debt_problem__text {
+        display: block;
+        width: inherit;
+        height: 23.875rem;
+        margin-bottom: 5rem;
+    }
+
+    h2 {
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        line-height: 4rem;
+        margin-bottom: 3.25rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    h3 {
+        display: inline-block;
+        width: 34.5rem;
+        font-family: var(--font-inter);
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .debt_problem__text-link {
+        width: 13.125rem;
+    }
+
+    .debt_problem__cards {
+        display: flex;
+        width: inherit;
+        height: 34.5rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 2.5rem;
+    }
+</style>

@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import '../styles/global.css';
-import Link from './Link.astro';
 import HelpCTA from './HelpCTA.astro';
 
 interface Props {
@@ -12,10 +11,8 @@ interface Props {
 
 const {page, img, imgDescr = ''} = Astro.props;
 
-let heading_start;
-let heading_gradient;
-let heading_finish;
-let sectionHeight;
+let heading_start, heading_gradient, heading_finish;
+let sectionHeight, headingWidth;
 
 switch(page) {
     case 'eco':
@@ -23,6 +20,14 @@ switch(page) {
         heading_gradient = 'быть полезным природе, заботиться ';
         heading_finish = 'о своём доме под названием планета Земля, можно';
         sectionHeight = '36rem';
+        headingWidth = '55rem';
+        break;
+    case 'low-income-families':
+        heading_start = 'Чтобы ';
+        heading_gradient = 'быть полезным людям ';
+        heading_finish = 'и поддержать проект, можно';
+        sectionHeight = '30rem';
+        headingWidth = '57.4375rem';
         break;
 }
 ---
@@ -34,7 +39,7 @@ switch(page) {
     </div>
 </section>
 
-<style define:vars={{sectionHeight}}>
+<style define:vars={{sectionHeight, headingWidth}}>
     section {
         display: block;
         position: relative;
@@ -53,7 +58,7 @@ switch(page) {
 
     .help__heading {
         display: inline-block;
-        width: 55rem;
+        width: var(--headingWidth);
         line-height: 4rem;
         font-family: var(--font-lulo-bold);
         font-size: 3.125rem;

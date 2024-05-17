@@ -1,0 +1,89 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+---
+<section class="ride_philosophy">
+    <div class="ride_philosophy__container">
+        <div class="ride_philosophy__text">
+            <h2><span>философия проекта </span>заключается</h2>
+            <h3>в безграничной интернациональной дружбе на основе интереса, любви к спорту и доступности каждому, 
+                а значит предполагает бесплатный характер мероприятий.
+            </h3>
+            <p>Каждый участник даёт сообществу то, что он может, делая вклад в популяризацию спорта, здоровья, дружбы и взаимопомощи, 
+                а следовательно мира, эффективной коммуникации и как результат - развитие человеческой цивилизации. 
+            </p>
+        </div>
+        <div class="ride_philosophy__logo">
+            <Icon name="rideLogo" class="logo" />
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        width: 100vw;
+        height: 34.625rem;
+        justify-content: center;
+    }
+
+    .ride_philosophy__container {
+        display: flex;
+        margin-top: 5rem;
+        justify-content: space-between;
+        width: var(--reduced-width);
+        height: 25rem;
+    }
+
+    .ride_philosophy__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .ride_philosophy__text {
+        display: block;
+        width: 38.5rem;
+    }
+
+    h2 {
+        display: inline-block;
+        width: inherit;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        line-height: 4rem;
+        margin-bottom: 2.5rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    h3 {
+        font-family: var(--font-inter);
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    p {
+        display: inline-block;
+        width: 33.75rem;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: var(--dark-grey);
+    }
+
+
+
+    .logo {
+        display: block;
+        width: 19.4375rem;
+        height: 16.875rem;
+    }
+</style>

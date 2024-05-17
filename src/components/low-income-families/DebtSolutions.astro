@@ -1,0 +1,84 @@
+---
+import '../../styles/global.css';
+---
+<section class="debt_solutions">
+    <div class="debt_solutions__container">
+        <h2>Преодоление проблемы закредитованности требует <span class="gradient">системного подхода</span>, включающего в себя</h2>
+        <ul>
+            <li><span class="number">1</span><span class="text first_el">Финансовую грамотность</span></li>
+            <li class="end"><span class="number">2</span><span class="text">Регулирование потребительского кредитования</span></li>
+            <li><span class="number">3</span><span class="text">Предоставление доступных альтернатив для финансирования</span></li>
+            <li class="end"><span class="number">4</span><span class="text">Адекватную поддержку заемщиков в трудных ситуациях.</span></li>
+        </ul>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        width: 100vw;
+        height: 53.3rem;
+        justify-content: center;
+    }
+
+    .debt_solutions__container {
+        display: block;
+        width: var(--reduced-width);
+        height: 44.4rem;
+    }
+
+    h2 {
+        display: inline-block;
+        width: 52.2rem;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        line-height: 4rem;
+        margin-bottom: 3.25rem;
+    }
+
+    .gradient {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    ul {
+        display: flex;
+        width: inherit;
+        height: 28.125rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    li {
+        position: relative;
+        height: 18.6rem;
+    }
+
+    .end {
+        align-self: flex-end;
+    }
+
+    .number {
+        font-family: var(--font-lulo-bold);
+        font-size: 12.5rem;
+        color: #ECECEC;
+    }
+
+    .text {
+        font-size: 1.5rem;
+        display: inline-block;
+        position: absolute;
+        left: 2.75rem;
+        bottom: 5.125rem;
+        width: 18rem;
+    }
+
+    .first_el {
+        width: 12.5rem;
+    }
+</style>
