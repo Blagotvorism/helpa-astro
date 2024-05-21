@@ -1,0 +1,110 @@
+---
+import '../../styles/global.css';
+---
+<section class="profit">
+    <div class="profit__container">
+        <h2>ваша <span>польза</span></h2>
+        <div class="profit__cards">
+            <div class="profit_row row-center">
+                <div class="card">
+                    <p>Возможность участия в проектах без приобретения токена в качестве волонтера</p>
+                </div>
+                <div class="card">
+                    <p>Позитивный эффект на окружающую среду от реализации проектов</p>
+                </div>
+            </div>
+            <div class="profit_row row-middle">
+                <div class="card">
+                    <p>Создание благоприятной социальной среды</p>
+                </div>
+                <div class="card">
+                    <p>Сохранение и приумножение капитала</p>
+                </div>
+                <div class="card">
+                    <p>Благотворительность без специальной траты времени и средств</p>
+                </div>
+            </div>
+            <div class="profit_row row-center">
+                <div class="card">
+                    <p>Позитивный эффект на экономическую ситему</p>
+                </div>
+                <div class="card">
+                    <p>Резонирование позитивного эффекта за счет трансляции положительного примера поведения</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 54.6875rem;
+    }
+
+    .profit__container {
+        display: block;
+        width: var(--reduced-width);
+        height: 50rem;
+    }
+
+    h2 {
+        display: inline-block;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        margin-bottom: 5rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    .profit__cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 41rem;
+    }
+
+    .profit_row {
+        display: flex;
+        width: 100%;
+        height: 12.8125rem;
+    }
+
+    .row-middle {
+        justify-content: space-between;
+    }
+
+    .row-center {
+        column-gap: 1.25rem;
+        justify-content: center;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 22.5rem;
+        border-radius: 1.875rem;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    p {
+        display: inline-block;
+        width: 14.5rem;
+        height: auto;
+        font-family: var(--font-inter);
+        font-size: 1rem;
+    }
+</style>

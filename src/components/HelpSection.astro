@@ -12,7 +12,7 @@ interface Props {
 const {page, img, imgDescr = ''} = Astro.props;
 
 let heading_start, heading_gradient, heading_finish;
-let sectionHeight, headingWidth;
+let sectionHeight, headingWidth, topPosition = '0rem';
 
 switch(page) {
     case 'eco':
@@ -29,6 +29,14 @@ switch(page) {
         sectionHeight = '30rem';
         headingWidth = '57.4375rem';
         break;
+    case 'ride':
+        heading_start = 'Чтобы ';
+        heading_gradient = 'сделать мир спортивнее ';
+        heading_finish = 'и поддержать проект, можно';
+        sectionHeight = '39.4rem';
+        headingWidth = '59rem';
+        topPosition = '9.375rem';
+        break;
 }
 ---
 <section class="help_section">
@@ -39,7 +47,7 @@ switch(page) {
     </div>
 </section>
 
-<style define:vars={{sectionHeight, headingWidth}}>
+<style define:vars={{sectionHeight, headingWidth, topPosition}}>
     section {
         display: block;
         position: relative;
@@ -52,7 +60,7 @@ switch(page) {
         position: absolute;
         width: 60.7rem;
         height: inherit;
-        top: 0;
+        top: var(--topPosition);
         left: calc((100vw - var(--reduced-width)) / 2);
     }
 

@@ -1,0 +1,69 @@
+---
+import '../../styles/global.css';
+
+interface Props {
+    num: string;
+    heading: string;
+    text?: string;
+}
+
+const { num, heading, text } = Astro.props;
+
+let alignFlex;
+num === '2' || num === '4' ? alignFlex = 'flex-end': alignFlex = 'flex-start';
+---
+<div class="nums">
+    <h2 class="num_heading">{num}</h2>
+    <p class="text_heading">
+        <span class="heading">{heading}</span>
+        <span class="facts_text" set:html={text} />
+    </p>
+</div>
+
+<style define:vars={{alignFlex}}>
+    .nums {
+        display: block;
+        position: relative;
+        width: 22rem;
+        height: auto;
+        align-self: var(--alignFlex);
+    }
+
+    .num_heading {
+        position: relative;
+        display: inline;
+        height: inherit;
+        width: inherit;
+        font-family: var(--font-lulo-bold);
+        font-size: 12.5rem;
+        color: rgba(236, 236, 236, 1);
+    }
+
+    .text_heading {
+        display: inline-block;
+        position: absolute;
+        width: 19.125rem;
+        height: 8.125rem;
+        top: 11.5rem;
+        left: 2.75rem;
+        font-size: 2.5rem;
+        line-height: 2.85rem;
+        color: black;
+        margin-bottom: 0.75rem;
+    }
+
+    .heading {
+        text-transform: uppercase;
+        display: block;
+        width: 17.5rem;
+        line-height: 3.5rem;
+    }
+
+    .facts_text {
+        display: inline-block;
+        font-size: 1rem;
+        color: var(--dark-grey);
+        line-height: 1.4rem;
+        width: 19.125rem;
+    }
+</style>

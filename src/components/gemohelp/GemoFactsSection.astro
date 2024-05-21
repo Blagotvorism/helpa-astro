@@ -1,0 +1,117 @@
+---
+import '../../styles/global.css';
+import GemoFactsImg from './GemoFactsImg.astro';
+import GemoFactsNums from './GemoFactsNums.astro';
+import img1 from '../../images/gemohelp/gemoConceptCard1.jpg';
+import img2 from '../../images/gemohelp/gemoConceptCard2.jpeg';
+import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
+---
+<section class="gemo_facts">
+    <div class="gemo_facts__container">
+        <h2 class="gemo_facts__container-heading">Несколько фактов о <span class="gemo_facts__container-span">лейкемии</span></h2>
+        <div class="facts">
+            <GemoFactsNums 
+                num='1' 
+                heading='Лейкемия' 
+                text='Лейкемия - это онкологическое заболевание крови и кроветворных клеток в костном мозге. Они делятся на две основные категории: острые (развиваются внезапно и имеют кратковременный характер) и хронические (развиваются в течение длительного периода времени и носят долгосрочный характер). Лейкемия подразделяется на другие типы, названные по типу клеток, которые становятся злокачественными.'
+            />
+            <GemoFactsNums 
+                num='2' 
+                heading='Типы лейкемии' 
+                text='Острый лимфолейкоз (ОЛЛ)<br> Острый миелоидный лейкоз (ОМЛ)<br> Хронический лимфолейкоз (ХЛЛ)<br> Хронический миелоидный лейкоз (ХМЛ)<br> Хронический миеломоноцитарный лейкоз (CMML)'
+            />
+            <GemoFactsNums 
+                num='3' 
+                heading='Возраст заболевших' 
+                text='В 2015-2019 годах в среднем у 18 мужчин из 100 000 ежегодно диагностировалась лейкемия, и в среднем у 11 женщин из 100 000 ежегодно диагностировалось это заболевание.<br> Лейкемия является наиболее распространенным видом рака у детей, но она по-прежнему встречается редко. Наиболее распространенным типом лейкоза у детей является острый лимфоцитарный лейкоз, за которым следует острый миелоидный лейкоз. У детей в возрасте до 15 лет, 5,3 из 100 000, в 2019 году был диагностирован лейкоз.<br> Последние тенденции заболеваемости лейкемией по SEER с поправкой на возраст, 2000-2019 гг.. Средний возраст на момент постановки диагноза составляет 67 лет. У мужчин лейкемия диагностируется чаще, чем у женщин, а у взрослых - чаще, чем у детей.'
+            />
+            <GemoFactsImg 
+                img1={img1} imgDescr1='Сравнение крови при лийкемии и без' 
+                img2={img2} imgDescr2='Тромбоциты' 
+                img3={img3} imgDescr3='Лийкемия' 
+            />
+            <GemoFactsNums 
+            num='4' 
+            heading='Происхождение' 
+            text='Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно.'
+            />
+            <GemoFactsNums 
+                num='5' 
+                heading='Выживаемость' 
+                text='В целом по ОЛЛ пятилетняя выживаемость составляет почти 66%. Выживаемость примерно одинакова среди людей любого пола. Пятилетняя выживаемость у детей младше 15 лет составляет 88%. Однако существуют мутации, влияющие на более тяжёлое течение болезни. В связи с этим, данный средний процент выживаемости иногда падает ниже 20%. При неоказании своевременной медицинской помощи смерть наступает в течении нескольких месяцев.'
+            />
+        </div>
+        <div class="afterfacts_text">
+            <h2 class="afterfacts_heading">из этого следует <span>Вывод</span></h2>
+            <h3>Исходя из статистики, опроса населения и личного мониторинга, мы наблюдаем серьёзный недостаток медикаментов по всему миру</h3>
+            <p>начиная с дорогостоящих химиопрепаратов, до обычных пластырей, катетеров и вспомогательных таблеток, смягчающих негативный эффект от тяжёлого лечения.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 140rem;
+    }
+
+    .gemo_facts__container {
+        display: block;
+        width: var(--reduced-width);
+        height: 132.6rem;
+    }
+
+    h2 {
+        display: inline-block;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+    }
+
+    .gemo_facts__container-heading {
+        width: 35.625rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    .facts {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .afterfacts_text {
+        display: block;
+        width: 45.75rem;
+        height: 17.1875rem;
+        margin-top: 7.1875rem;
+    }
+
+    .afterfacts_heading {
+        margin-bottom: 2.5rem;
+    }
+
+    h3 {
+        margin-bottom: 1.25rem;
+        font-family: var(--font-inter);
+        font-size: 1.3rem;
+        width: 39.3rem;
+    }
+
+    p {
+        font-family: var(--font-inter);
+        font-size: 1rem;
+        color: var(--dark-grey);
+        width: 34.75rem;
+    }
+</style>

@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import videoCover from '../../images/longLongRide/videoCover.jpg';
+---
+<section class="ride_video">
+    <Image src={videoCover} alt="Группа лонгобордистов на фоне фонтана ВДНХ" loading='eager' class='img_cover'/>
+    <div class="ride_video__container">
+        <p class="ride_video__heading">LONG LONG RIDE</p>
+        <div class="ride_video__watch">
+            <a href="/" aria-label="ссылка на видео с проектом LongLongRide">
+                <Icon name='rideVideo' class='logo' />
+            </a>
+            <p>Смотреть</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 45rem;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .img_cover {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: inherit;
+        object-fit: cover;
+        z-index: -1;
+        
+    }
+
+    .ride_video__container {
+        display: block;
+        width: var(--reduced-width);
+        height: inherit;
+        position: relative;
+        color: white;
+    }
+
+    .ride_video__heading {
+        display: inline-block;
+        width: 40rem;
+        position: absolute;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ride_video__watch {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 12rem;
+        width: 12.625rem;
+        height: 4.2rem;
+    }
+
+    .ride_video__watch p {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        height: inherit;
+        width: 4.2rem;
+    }
+</style>

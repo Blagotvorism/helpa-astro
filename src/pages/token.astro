@@ -1,0 +1,25 @@
+---
+import HeroSection from '../components/HeroSection.astro';
+import HelpaSection from '../components/token/HelpaSection.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import tokenCover from '../images/token/tokenCover.jpg';
+import TransactionSection from '../components/token/TransactionSection.astro';
+import CharitySection from '../components/token/CharitySection.astro';
+import TradingStrategySection from '../components/token/TradingStrategySection.astro';
+import ProfitSection from '../components/token/ProfitSection.astro';
+import SocialSection from '../components/SocialSection.astro';
+import SlogansSection from '../components/main/SlogansSection.astro';
+---
+<Layout title="token">
+    <main>
+        <HeroSection heroImage={tokenCover} heroImageDescr='Планета земля со спутника' pageTitle="token"/>
+        <HelpaSection />
+        <TransactionSection />
+        <CharitySection />
+        <TradingStrategySection />
+        <ProfitSection />
+        <SocialSection />
+        <SlogansSection />
+    </main>
+</Layout>

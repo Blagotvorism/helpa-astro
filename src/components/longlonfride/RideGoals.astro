@@ -1,0 +1,115 @@
+---
+import '../../styles/global.css';
+import RideGoalCard from './RideGoalCard.astro';
+
+interface Props {
+    page: string;
+    usualTextStart: string;
+    gradientText: string;
+    usualTextFinish: string;
+    subheading: string;
+    text: string;
+}
+
+const { page, usualTextStart, gradientText, usualTextFinish, subheading, text } = Astro.props;
+
+let textWidth, sectionHeight, containerHeight;
+switch(page) {
+    case 'ride':
+        textWidth = '36.8rem';
+        containerHeight = '40.125rem';
+        sectionHeight = '52.6rem';
+        break;
+    case 'gemohelp':
+        textWidth = '39.8rem';
+        containerHeight = '24.3rem';
+        sectionHeight = '34.375rem';
+        break;
+}
+---
+<section class="ride_goals">
+    <div class="ride_goals__containers">
+        {
+            page === 'ride' && 
+            <div class="ride_goals__cards">
+                <RideGoalCard iconName="rideGoal1" cardText="Привлечение новых участников" />
+                <RideGoalCard iconName="rideGoal2" cardText="Повышение узнаваемости" />
+                <RideGoalCard iconName="rideGoal3" cardText="Информирование масс" />
+                <RideGoalCard iconName="rideGoal4" cardText="Повышение мотивации" />
+            </div>
+        }
+        <div class="ride_goals__text">
+            <h2>{usualTextStart}<span>{gradientText}</span>{usualTextFinish}</h2>
+            <h3>{subheading}</h3>
+            <p>{text}</p>
+        </div>
+    </div>
+</section>
+
+<style define:vars={{sectionHeight, textWidth, containerHeight}}>
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: var(--sectionHeight);
+    }
+
+    .ride_goals__containers {
+        display: block;
+        width: var(--reduced-width);
+        height: var(--containerHeight);
+    }
+
+    .ride_goals__cards {
+        display: flex;
+        justify-content: space-between;
+        width: inherit;
+        height: 13.625rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .ride_goals__text {
+        display: block;
+        position: relative;
+        width: inherit;
+        height: 24rem;
+    }
+
+    h2 {
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+        width: 63.5rem;
+        line-height: 4rem;
+        margin-bottom: 2.5rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+
+    h3, p {
+        display: inline-block;
+        font-family: var(--font-inter);
+        width: var(--textWidth);
+        margin-left: 29.6875rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+        color: var(--dark-grey);
+    }
+
+
+</style>

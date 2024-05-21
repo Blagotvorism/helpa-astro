@@ -5,6 +5,12 @@ import '../styles/global.css';
 import rideCover from '../images/longLongRide/rideCover.jpg';
 import RidePhilosophy from '../components/longlonfride/RidePhilosophy.astro';
 import ConceptSection from '../components/ConceptSection.astro';
+import IntroSection from '../components/IntroSection.astro';
+import RideGoals from '../components/longlonfride/RideGoals.astro';
+import EcoGalery from '../components/eco/EcoGalery.astro';
+import RideVideoSection from '../components/longlonfride/RideVideoSection.astro';
+import HelpSection from '../components/HelpSection.astro';
+import SocialSection from '../components/SocialSection.astro';
 ---
 <Layout title='Long Long Ride'>
     <main>
@@ -21,5 +27,24 @@ import ConceptSection from '../components/ConceptSection.astro';
             subHeading='В это время лонгбординг в России начал терять популярность, поэтому мы решили поддержать любимый вид спорта, являющийся частью нашей жизни.'
             text='Мы начали проводить массовые заезды на лонгбордах. Со временем к нам присоединились участники на скейтах, роликах, велосипедах. Сейчас же мы организуем заезды на всём, что катится и скользит, по снегу или воде.'
         />
+        <IntroSection 
+            mainHeading="Нам важно единение людей, а ничто так не объединяет, как общий путь" 
+            text="Не важен вид транспорта, не важно, какая стихия" 
+            containerWidth="43.25rem"
+            containerHeight="16.25rem"
+            textWidth="14.375rem"
+        />
+        <RideGoals 
+            page='ride'
+            usualTextStart='и это лишь '
+            gradientText='часть задач, '
+            usualTextFinish='стоящих перед нами'
+            subheading='Мы рады каждому новому доброму участнику нашего сообщества, поэтому предлагаем и Вам стать частью нашей команды.'
+            text='Некоторые участники нашего сообщества являются так же участниками других волонтёрских организаций, в том числе ECO TIME DAY, и принимают активное участие в достижении нашей общей глобальной цели - комфортное и мирное сосуществование и единение с природой и всеми, её наполняющими жизнью, жителями.'
+        />
+        <EcoGalery page="ride" />
+        <RideVideoSection />
+        <HelpSection page='ride' />
+        <SocialSection />
     </main>
 </Layout>

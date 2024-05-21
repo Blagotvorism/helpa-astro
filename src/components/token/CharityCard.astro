@@ -1,0 +1,62 @@
+---
+import '../../styles/global.css';
+
+const { heading, subheading, text } = Astro.props;
+let marginBottom, marginTop;
+heading.includes('<br>') ? marginBottom = '1.8rem': marginBottom = '2.775rem';
+heading.includes('<br>') ? marginTop = '1.8rem': marginTop = '2.6rem';
+
+---
+<div class="card">
+    <div class="text">
+        <p class="heading" set:html={heading} />
+        <p class="subheading">{subheading}</p>
+        <p class="text">{text}</p>
+    </div>
+</div>
+
+<style define:vars={{marginBottom, marginTop}}>
+    .card {
+        display: flex;
+        justify-content: center;
+        width: 16.5625rem;
+        height: 17.5rem;
+        background-color: white;
+        border-radius: 1.875rem;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .text {
+        display: block;
+        width: 11rem;
+    }
+
+    p {
+        display: inline-block;
+        width: 100%;
+        color: black;
+    }
+
+    .heading {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: var(--font-lulo-bold);
+        font-size: 1.125rem;
+        margin-bottom: var(--marginBottom);
+        margin-top: var(--marginTop);
+    }
+
+    .subheading, .text {
+        font-family: var(--font-inter);
+    }
+
+    .subheading {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .text {
+        color: var(--dark-grey);
+        font-size: 0.75rem;
+    }
+</style>

@@ -1,0 +1,40 @@
+---
+import HeroSection from '../components/HeroSection.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import gemoCover from '../images/gemohelp/gemoCover.jpg';
+import RideGoals from '../components/longlonfride/RideGoals.astro';
+import GemoStatistics from '../components/gemohelp/GemoStatistics.astro';
+import GemoCommunicationSection from '../components/gemohelp/GemoCommunicationSection.astro';
+import GemoFactsSection from '../components/gemohelp/GemoFactsSection.astro';
+import IntroSection from '../components/IntroSection.astro';
+import SocialSection from '../components/SocialSection.astro';
+import SlogansSection from '../components/main/SlogansSection.astro';
+---
+<Layout title="gemohepl">
+    <main>
+        <HeroSection 
+            heroImage={gemoCover} 
+            heroImageDescr='Велосепедисты на велопараде'
+            pageTitle = 'longlongride'
+        />
+        <RideGoals 
+            page='gemohelp'
+            usualTextStart='Почему мы '
+            gradientText='думаем о других, '
+            usualTextFinish='когда могли бы думать о себе?'
+            subheading='Помимо милосердия на языке математики без цифр на пальцах вносим теоретическое разъяснение.'
+            text='Сохранение чужой жизни является ведущей задачей поддержания благоприятной экосистемы на планете. Человек меняет мир каждый день и оказывает прямое влияние на будущее видов. Формирование позитивных принципов у вида человек разумный положительно сказывается на развитии цивилизации. Таким образом создаётся благоприятная среда для наших потомков. Такие принципы значительно увеличивают шансы на выживаемость всего вида.'
+        />
+        <GemoCommunicationSection />
+        <GemoStatistics />
+        <GemoFactsSection />
+        <IntroSection 
+            mainHeading="Мы приложим все усилия, чтобы однажды переломить эту ситуацию!" 
+            containerWidth="43.25rem"
+            containerHeight='16.25rem'
+        />
+        <SocialSection />
+        <SlogansSection />
+    </main>
+</Layout>

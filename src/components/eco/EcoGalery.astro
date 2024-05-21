@@ -1,32 +1,57 @@
 ---
 import '../../styles/global.css';
 import EcoGaleryCard from './EcoGaleryCard.astro';
-import galeryData from '../../data/eco_galery.json';
+import galeryData from '../../data/galery.json';
+
+const { page } = Astro.props;
 ---
 <section class="eco_galery">
     <div class="eco_galery__container">
         <div class="row row-1">
+            {page === 'eco' && 
+                galeryData.map((card) => (
+                        card.id < 4 &&  card.category === 'eco' && 
+                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
+                    )   
+                )
+            }
             {
                 galeryData.map((card) => (
-                        card.id < 4 &&  
+                        [12, 13, 14].includes(card.id) &&  card.category === 'ride' && 
                         <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
                     )   
                 )
             }
         </div>
         <div class="row row-2">
-            {
+            {page === 'eco' && 
                 galeryData.map((card) => (
-                        card.id > 3 && card.id < 8 &&  
+                        card.id > 3 && page < 8 &&  card.category === 'eco' && 
+                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
+                    )   
+                )
+            }
+            {page === 'ride' && 
+                galeryData.map((card) => (
+                        [15, 16, 17, 18].includes(card.id) &&  card.category === 'ride' && 
                         <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
                     )   
                 )
             }
         </div>
         <div class="row row-3">
-            {
+            {page === 'eco' && 
                 galeryData.map((card) => (
-                        card.id > 7 &&  
+                        card.id > 7 &&  card.category === 'eco' && 
+                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
+                    )   
+                )
+            }
+        </div>
+        <div class="row row-1">
+            {page === 'ride' && 
+                galeryData.map((card) => (
+                        [19, 20, 21].includes(card.id) &&  card.category === 'ride' && 
                         <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
                     )   
                 )

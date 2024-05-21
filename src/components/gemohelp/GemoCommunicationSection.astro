@@ -1,0 +1,42 @@
+---
+import '../../styles/global.css';
+---
+<section class="communication">
+    <div class="communication__container">
+        <h2>Коммуникация позволила виду <span>действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</h2>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 10rem;
+    }
+
+    .communication__container {
+        display: block;
+        width: var(--reduced-width);
+        height: 4rem;
+        overflow-x: hidden;
+        scrollbar-width: none;
+    }
+
+    h2 {
+        display: block;
+        width: 250rem;
+        font-family: var(--font-lulo-bold);
+        font-size: 3.125rem;
+    }
+
+    span {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+    }
+</style>
