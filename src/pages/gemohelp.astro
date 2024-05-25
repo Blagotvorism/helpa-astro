@@ -1,5 +1,5 @@
 ---
-import HeroSection from '../components/HeroSection.astro';
+import HeroSection from '../components/eco/EcoHeroSection.astro';
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 import gemoCover from '../images/gemohelp/gemoCover.jpg';
@@ -10,14 +10,11 @@ import GemoFactsSection from '../components/gemohelp/GemoFactsSection.astro';
 import IntroSection from '../components/IntroSection.astro';
 import SocialSection from '../components/SocialSection.astro';
 import SlogansSection from '../components/main/SlogansSection.astro';
+import GemoHeroSection from '../components/gemohelp/GemoHeroSection.astro';
 ---
 <Layout title="gemohepl">
     <main>
-        <HeroSection 
-            heroImage={gemoCover} 
-            heroImageDescr='Велосепедисты на велопараде'
-            pageTitle = 'longlongride'
-        />
+        <GemoHeroSection />
         <RideGoals 
             page='gemohelp'
             usualTextStart='Почему мы '

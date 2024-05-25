@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+---
+<body>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-text">
+                <span class="highlight" id="eco">RE</span>PAY 
+            </h1>
+            <p class="welcome-text">Добро пожаловать</p>
+        </div>
+    </header>
+</body>
+
+<style>
+   .hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('../images/eco/ecoCover.jpg') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.hero-text {
+    font-size: 10vw;
+    font-weight: 900;
+    line-height: 1;
+    position: relative;
+    color: transparent;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.hero-text .highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/eco/ecoCover.jpg') no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#eco {
+    width: 1em; /* Adjust width to match the size of 'ECO' */
+    background-position: 50% 50%; /* Center of the background image */
+    background-size: 100vw 100vh; /* Cover entire viewport */
+}
+
+#day {
+    width: 1em; /* Adjust width to match the size of 'DAY' */
+    background-position: 50% 50%; /* Center of the background image */
+    background-size: 100vw 100vh; /* Cover entire viewport */
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    background: white;
+    z-index: -1;
+}
+
+.welcome-text {
+    font-size: 2vw;
+    font-weight: 700;
+    margin-top: 20px;
+    color: white;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: white;
+    z-index: 0;
+}
+</style>

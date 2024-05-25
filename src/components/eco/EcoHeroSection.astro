@@ -1,0 +1,100 @@
+---
+import '../../styles/global.css';
+---
+<section class="eco_hero">
+    <div class="eco_hero__container">
+        <div class="hero_text">
+            <h1 class="hero_heading">
+                <span class="highlight" id="eco">eco</span><span class="usual_text">time </span>
+                <span class="highlight" id="day">day</span>
+            </h1>
+            <h2 class="hero-subheading">Добро пожаловать</h2>
+        </div>
+    </div>
+</section>
+
+<style>
+    .eco_hero {
+        position: relative;
+        display: flex;
+        width: 100vw;
+        height: 45rem;
+        justify-content: center;
+        background: url(../../images/eco/ecoCover.jpg) no-repeat center center/cover;
+        overflow: hidden;
+    }
+
+    .eco_hero__container {
+        position: relative;
+        width: 66.875rem;
+        z-index: 1;
+        font-family: var(--font-lulo-bold);
+        color: white;
+    }
+
+    .hero_heading {
+        position: relative;
+        width: 100%;
+        height: 29.125rem;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        
+        font-size: 9.8125rem;
+        line-height: 14.5remrem;
+        margin-top: 9.375rem;
+        
+    }
+
+    .hero_heading .highlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('../../images/eco/ecoCover.jpg') no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    #eco {
+        width: 3em; /* Adjust width to match the size of 'ECO' */
+        background-position: 10% 34%; /* Center of the background image */
+        background-size: 100vw 100vh; /* Cover entire viewport */
+    }
+
+    #day {
+        margin-top: 16rem;
+        width: 3em; /* Adjust width to match the size of 'ECO' */
+        background-position: 14% 79%; /* Center of the background image */
+        background-size: 100vw 100vh; /* Cover entire viewport */
+    }
+
+    .usual_text {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-family: var(--font-lulo-bold);
+        font-size: 9.8125rem;
+        line-height: 14.6rem;
+        color: white;
+    }
+
+    .hero-subheading {
+        position: absolute;
+        right: 0;
+        bottom: 7.7rem;
+        font-size: 3.125rem;
+
+    }
+
+    .eco_hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 46.5%;
+        height: 100%;
+        background: white;
+        z-index: 0;
+    }
+</style>

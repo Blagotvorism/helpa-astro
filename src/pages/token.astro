@@ -1,5 +1,5 @@
 ---
-import HeroSection from '../components/HeroSection.astro';
+import HeroSection from '../components/eco/EcoHeroSection.astro';
 import HelpaSection from '../components/token/HelpaSection.astro';
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
@@ -10,10 +10,11 @@ import TradingStrategySection from '../components/token/TradingStrategySection.a
 import ProfitSection from '../components/token/ProfitSection.astro';
 import SocialSection from '../components/SocialSection.astro';
 import SlogansSection from '../components/main/SlogansSection.astro';
+import TokenHeroSection from '../components/token/TokenHeroSection.astro';
 ---
 <Layout title="token">
     <main>
-        <HeroSection heroImage={tokenCover} heroImageDescr='Планета земля со спутника' pageTitle="token"/>
+        <TokenHeroSection />
         <HelpaSection />
         <TransactionSection />
         <CharitySection />

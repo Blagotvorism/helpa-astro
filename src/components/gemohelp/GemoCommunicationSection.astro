@@ -19,7 +19,8 @@ import '../../styles/global.css';
         display: block;
         width: var(--reduced-width);
         height: 4rem;
-        overflow-x: hidden;
+        overflow: auto;
+        white-space: nowrap;
         scrollbar-width: none;
     }
 
@@ -40,3 +41,17 @@ import '../../styles/global.css';
         -moz-text-fill-color: transparent;
     }
 </style>
+
+<script>
+    function transformScroll(event) {
+    if (!event.deltaY) {
+        return;
+    }
+
+    event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+    event.preventDefault();
+    }
+
+    var element = document.scrollingElement || document.documentElement;
+    element.addEventListener('wheel', transformScroll);
+</script>

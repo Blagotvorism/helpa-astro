@@ -1,0 +1,122 @@
+---
+import '../../styles/global.css';
+---
+<section class="ride_hero">
+    <div class="ride_hero__container">
+        <div class="hero_text">
+            <h1 class="hero_heading">
+                <span class="highlight" id="long">LONG</span><span class="usual_text1">long</span>
+                <span class="usual_text2">Ride</span>
+            </h1>
+            <div class="hero_subtext">
+                <p class="hero-subheading">Международное спортивное сообщество</p>
+                <p class="hero-descr">Регулярные заезды по всему миру</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .ride_hero {
+        position: relative;
+        display: flex;
+        width: 100vw;
+        height: 45rem;
+        justify-content: center;
+        background: url(../../images/longLongRide/rideCover.jpg) no-repeat center center/cover;
+        overflow: hidden;
+    }
+
+    .ride_hero__container {
+        position: relative;
+        width: var(--reduced-width);
+        height: 100%;
+        z-index: 1;
+        font-family: var(--font-lulo-bold);
+        color: white;
+    }
+
+    .hero_text {
+        display: block;
+        width: 60rem;
+        height: 19.375rem;
+        margin-top: 15.1875rem;
+    }
+
+    .hero_heading {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        
+        font-size: 6.875rem;
+    }
+
+    .hero_heading .highlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('../../images/longLongRide/rideCover.jpg') no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    #long {
+        width: 4em; /* Adjust width to match the size of 'ECO' */
+        background-position: 9% 46%; /* Center of the background image */
+        background-size: 100vw 100vh; /* Cover entire viewport */
+    }
+
+    .usual_text1 {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .usual_text2 {
+        position: absolute;
+        right: 4rem;
+        bottom: 0;
+    }
+
+    .hero_subtext {
+        position: absolute;
+        bottom: 12.175rem;
+        left: .4rem;
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        display: block;
+        width: 22rem;
+        height: 5.625rem;
+    }
+
+    .hero-subheading {
+        display: inline-block;
+        font-family: var(--font-inter);
+        color: black;
+        width: 100%;
+        font-size: 1.3rem;
+    }
+
+    .hero-descr {
+        display: inline-block;
+        font-family: var(--font-inter);
+        color: var(--dark-grey);
+        font-size: 1rem;
+    }
+
+    .ride_hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 42.5%;
+        height: 100%;
+        background: white;
+        z-index: 0;
+    }
+</style>

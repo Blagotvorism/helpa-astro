@@ -1,0 +1,94 @@
+---
+import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import img from '../../images/gemohelp/gemoCover.jpg';
+import Link from '../Link.astro';
+import { Icon } from 'astro-icon/components';
+---
+<section class="eco_hero">
+    <Image src={img} alt='Капельница' class='hero_img' loading='eager' />
+    <div class="cover"></div>
+    <div class="eco_hero__container">
+        <div class="hero_text">
+            <h1 class="hero_heading">
+                <span class="img_text">gemo</span><span class="white">help </span>
+            </h1>
+            <h3 class="hero-subheading">90% пациентов в отделении гематологии являются онкобольными</h3>
+            <div class="link_container">
+                <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+            </div>  
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        display: flex;
+        width: 100vw;
+        height: 45rem;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .hero_img {
+        display: block;
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        z-index: -1;
+        object-fit: cover;
+        object-position: 4.5rem -4.325rem;
+    }
+
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        background: white;
+        height: inherit;
+        width: calc((100vw - var(--reduced-width)) / 2 + 29rem);
+    }
+
+    .eco_hero__container {
+        display: block;
+        position: relative;
+        width: var(--reduced-width);
+        height: 29.125rem;
+        margin-top: 9.375rem;
+    }
+
+    h1 {
+        font-family: var(--font-lulo-bold);
+        font-size: 6.875rem;
+        line-height: 14rem;
+        background: #548085;
+        background-size: fill;
+        background-clip: text;
+        background-position-x: 132rem;
+        background-position-y: -31rem;
+        overflow: hidden;
+    }
+
+    h3 {
+        display: inline-block;
+        width: 25rem;
+        font-family: var(--font-inter);
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .link_container {
+        display: block;
+        width: 9rem;
+    }
+
+    .img_text {
+        color: transparent;
+    }
+
+    .white {
+        color: white;
+    }
+</style>

@@ -1,24 +1,17 @@
 ---
-import HeroSection from '../components/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
-import heroCover from '../images/lowIncome/heroCover.jpg';
 import DebtProblem from '../components/low-income-families/DebtProblem.astro';
 import DebtSolutions from '../components/low-income-families/DebtSolutions.astro';
 import IntroSection from '../components/IntroSection.astro';
 import ConceptSection from '../components/ConceptSection.astro';
-import HelpCTA from '../components/HelpCTA.astro';
 import HelpSection from '../components/HelpSection.astro';
 import SocialSection from '../components/SocialSection.astro';
+import LowIncomeHeroSection from '../components/low-income-families/LowIncomeHeroSection.astro';
 ---
 <Layout title="Welcome to Astro">
     <main>
-        <HeroSection  
-            pageTitle='low-income-families' 
-            heroImage={heroCover} 
-            heroImageDescr="Многодетная семья"
-        />
-
+        <LowIncomeHeroSection />
         <DebtProblem />
         <DebtSolutions />
         <IntroSection  

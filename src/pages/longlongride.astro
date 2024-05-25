@@ -1,5 +1,5 @@
 ---
-import HeroSection from '../components/HeroSection.astro';
+import HeroSection from '../components/eco/EcoHeroSection.astro';
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 import rideCover from '../images/longLongRide/rideCover.jpg';
@@ -11,14 +11,11 @@ import EcoGalery from '../components/eco/EcoGalery.astro';
 import RideVideoSection from '../components/longlonfride/RideVideoSection.astro';
 import HelpSection from '../components/HelpSection.astro';
 import SocialSection from '../components/SocialSection.astro';
+import RideHeroSection from '../components/longlonfride/RideHeroSection.astro';
 ---
 <Layout title='Long Long Ride'>
     <main>
-        <HeroSection 
-            heroImage={rideCover} 
-            heroImageDescr='Велосепедисты на велопараде'
-            pageTitle = 'longlongride'
-        />
+        <RideHeroSection />
         <RidePhilosophy />
         <ConceptSection 
             pagePath="longlongride"
