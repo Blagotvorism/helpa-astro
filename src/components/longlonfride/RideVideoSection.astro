@@ -18,11 +18,22 @@ import videoCover from '../../images/longLongRide/videoCover.jpg';
 </section>
 
 <style>
+    .ride_video {
+        --section-height: 45rem;
+        --heading-width: 40rem;
+        --heading-font-size: 3.125rem;
+        --watch-width: 12.625rem;
+        --watch-height: 4.2rem;
+        --logo-size: 4.2rem;
+        --watch-font-size: 1.5rem;
+        --bottom-spacing: 12rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 45rem;
+        height: var(--section-height);
         position: relative;
         background-color: rgba(0, 0, 0, 0.5);
     }
@@ -36,7 +47,6 @@ import videoCover from '../../images/longLongRide/videoCover.jpg';
         height: inherit;
         object-fit: cover;
         z-index: -1;
-        
     }
 
     .ride_video__container {
@@ -49,10 +59,10 @@ import videoCover from '../../images/longLongRide/videoCover.jpg';
 
     .ride_video__heading {
         display: inline-block;
-        width: 40rem;
+        width: var(--heading-width);
         position: absolute;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
+        font-size: var(--heading-font-size);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -65,17 +75,17 @@ import videoCover from '../../images/longLongRide/videoCover.jpg';
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 12rem;
-        width: 12.625rem;
-        height: 4.2rem;
+        bottom: var(--bottom-spacing);
+        width: var(--watch-width);
+        height: var(--watch-height);
     }
 
     .ride_video__watch p {
-        font-size: 1.5rem;
+        font-size: var(--watch-font-size);
     }
 
     .logo {
-        height: inherit;
-        width: 4.2rem;
+        height: var(--logo-size);
+        width: var(--logo-size);
     }
 </style>

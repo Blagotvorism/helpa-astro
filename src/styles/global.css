@@ -14,18 +14,18 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
-html {
-  font-size: 18;
-}
-body {
+html, body {
+  font-size: 16px;
+  font-family: Inter;
   width: 100vw;
-  margin: 0;
+  overflow-x: hidden;
   line-height: normal;
 }
 
-h1, h2, h3 {
+h1, h2 {
   text-transform: uppercase;
 }
 
@@ -50,8 +50,22 @@ h1, h2, h3 {
   --black: #000000;
   --green: #204A53;
 
+  /* shadows */
+  --box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+
   /* Dimensions */
   --full-width: 75rem;
   --reduced-width: 70rem;
+  --border-radius: 1.875rem;
+  --section-width: 100vw;
 }
 
+.gradient_span {
+  background-color: var(--green);
+  background-image: var(--gradient);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}

@@ -1,10 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="transaction">
     <div class="transaction__container">
-        <h2><span>0,6%</span> комиссия за трансказацию:</h2>
+        <RadialGradient topPosition="7.875rem" leftPosition="56rem" />
+        <h2><span class="gradient_span">0,6%</span> комиссия за трансказацию:</h2>
         <div class="transaction__container-box">
             <Icon name='transactionLogo' class='transactionLogo'/>
             <div class="transaction__container-text">
@@ -14,15 +16,15 @@ import '../../styles/global.css';
         </div>
         <div class="transaction_values">
             <div class="transaction_value">
-                <p class="text-bold"><span>0,1%</span></p>
+                <p class="text-bold"><span class="gradient_span">0,1%</span></p>
                 <p class="text_descr">от каждой трансказации сгорает</p>
             </div>
             <div class="transaction_value">
-                <p class="text-bold"><span>0,5%</span></p>
+                <p class="text-bold"><span class="gradient_span">0,5%</span></p>
                 <p class="text_descr">от каждой трансказации откладывается на благотворительность</p>
             </div>
             <div class="transaction_value">
-                <p class="text-bold"><span>0,1%</span></p>
+                <p class="text-bold"><span class="gradient_span">0,1%</span></p>
                 <p class="text_descr">каждая трансказация повышает стоимость токена на 0,1% от трансказации</p>
             </div>
         </div>
@@ -30,88 +32,100 @@ import '../../styles/global.css';
 </section>
 
 <style>
+    .transaction {
+        --transaction-section-height: 54.3125rem;
+        --transaction-container-height: 44.9375rem;
+        --transaction-container-margin-top: 4.6875rem;
+        --transaction-heading-font-size: 3.125rem;
+        --transaction-heading-margin-bottom: 3.75rem;
+        --transaction-box-height: 16.5625rem;
+        --transaction-box-width: 57.5rem;
+        --transaction-box-margin-bottom: 6.25rem;
+        --transaction-logo-width: 16.5625rem;
+        --transaction-text-width: 33.75rem;
+        --transaction-text-height: 10.625rem;
+        --transaction-values-width: 100%;
+        --transaction-value-width: 21.5625rem;
+        --text-bold-font-size: 3.125rem;
+        --text-bold-margin-bottom: 1.25rem;
+        --text-common-font-size: 1rem;
+        --text-descr-font-size: 1.5rem;
+        --text-descr-margin-top: 1.25rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 54.3125rem;
+        height: var(--transaction-section-height);
     }
 
     .transaction__container {
-        margin-top: 4.6875rem;
+        position: relative;
+        margin-top: var(--transaction-container-margin-top);
         display: block;
         width: var(--reduced-width);
-        height: 44.9375rem;
+        height: var(--transaction-container-height);
     }
 
     h2, .text-bold {
         display: inline-block;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
+        font-size: var(--transaction-heading-font-size);
     }
 
     h2 {
-        margin-bottom: 3.75rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        margin-bottom: var(--transaction-heading-margin-bottom);
     }
 
     .transaction__container-box {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 16.5625rem;
-        width: 57.5rem;
+        height: var(--transaction-box-height);
+        width: var(--transaction-box-width);
         margin: auto;
-        margin-bottom: 6.25rem;
+        margin-bottom: var(--transaction-box-margin-bottom);
     }
 
     .transactionLogo {
         display: block;
         height: 100%;
-        width: 16.5625rem;
+        width: var(--transaction-logo-width);
     }
 
     .transaction__container-text {
         display: block;
-        width: 33.75rem;
-        height: 10.625rem;
+        width: var(--transaction-text-width);
+        height: var(--transaction-text-height);
     }
 
     h3 {
         font-family: var(--font-inter);
         font-size: 1.3rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: var(--text-bold-margin-bottom);
     }
 
     .transaction__container-text p {
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--text-common-font-size);
         color: var(--dark-grey);
     }
 
     .transaction_values {
         display: flex;
-        width: 100%;
+        width: var(--transaction-values-width);
         justify-content: space-between;
     }
 
     .transaction_value {
         display: block;
-        width: 21.5625rem;
+        width: var(--transaction-value-width);
     }
 
     .text_descr {
         font-family: var(--font-inter);
-        font-size: 1.5rem;
-        margin-top: 1.25rem;
+        font-size: var(--text-descr-font-size);
+        margin-top: var(--text-descr-margin-top);
     }
 </style>

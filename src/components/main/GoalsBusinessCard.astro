@@ -1,0 +1,59 @@
+---
+import '../../styles/global.css';
+import Link from '../Link.astro';
+---
+
+<div class="business-card">
+    <div class="business-container">
+        <div class="business-title">
+            <h3 class="business-heading">Тогда нам по пути!</h3>
+            <h4 class="business-subheading">Имеете схожие цели?</h4>
+        </div>
+        <Link href='/' theme='primary' classes="link link_primary">Присоединиться</Link>
+    </div>
+</div>
+
+<style>
+    .business-card {
+        --card-height: 13.625rem;
+        --container-width: 16.6rem;
+        --container-height: 9.6rem;
+        --margin-bottom: 2.8rem;
+        --margin-left: 0.5rem;
+        --heading-font-size: 1.1rem;
+        --subheading-font-size: 1rem;
+    }
+
+    .business-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: var(--card-height);
+    }
+
+    .business-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: var(--container-width);
+        height: var(--container-height);
+    }
+
+    .business-title {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: var(--margin-bottom);
+        font-family: var(--font-inter);
+        margin-left: var(--margin-left);
+    }
+
+    .business-heading {
+        font-size: var(--heading-font-size);
+    }
+
+    .business-subheading {
+        font-size: var(--subheading-font-size);
+        color: var(--dark-grey);
+    }
+</style>

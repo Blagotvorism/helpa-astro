@@ -14,11 +14,19 @@ interface Props {
 
 const { href, theme, classes } = Astro.props;
 ---
-<a href={href} class={classes} id={theme === 'slider-square' ? 'svg_color': ''}>
+<a href={href} class={`link ${theme ? `link_${theme}` : ''} ${classes ? classes : ''}`} id={theme === 'slider-square' ? 'svg_color' : ''}>
     <slot />
 </a>
 
 <style>
+    a {
+        --primary-color: #64C8BD;
+        --link-width: 16.6rem;
+        --link-height: 3.5rem;
+        --square-size: 3.6rem;
+        --text-gap: 0.625rem;
+    }
+
     .link {
         cursor: pointer;
         font-family: var(--font-inter);
@@ -30,18 +38,22 @@ const { href, theme, classes } = Astro.props;
     }
 
     .link_primary {
-        height: 3.5rem;
-        width: 16.6rem;
-        border-radius: 1.875rem;
-        border: 2px solid #64C8BD;
-        background: rgb(255, 255, 255, .6);
+        --color1: rgba(255, 255, 255, 0.6);
+        --color2: rgba(255, 255, 255, 0.6);
+        height: var(--link-height);
+        width: var(--link-width);
+        border-radius: var(--border-radius);
+        border: 2px solid var(--primary-color);
+        background: linear-gradient(to top, var(--color1), var(--color2));
     }
+
 
     .link_primary:hover,
     .link_primary:active {
-        background: var(--gradient);
-        color: var(--white);
+        --color1: #094A6F;
+        --color2: #64C8BD;
         border: none;
+        color: white;
     }
 
     .link_text {
@@ -50,22 +62,21 @@ const { href, theme, classes } = Astro.props;
         height: auto;
         width: auto;
         display: flex;
-        gap: 0.625rem;
+        gap: var(--text-gap);
         justify-content: space-between;
         font-size: 0.875rem;
         background: var(--gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        /* max-width: 9.125rem; */
     }
 
-    /* Button square */
     .link_square {
         border-radius: 1rem 0 1.875rem 0;
-        width: 3.6rem;
-        height: 3.6rem;
+        width: var(--square-size);
+        height: var(--square-size);
         background-color: var(--white);
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+        transition: background 0.3s;
     }
 
     .link_about_card {
@@ -83,6 +94,4 @@ const { href, theme, classes } = Astro.props;
     .link_square:hover #right_arrow_svg path {
         fill: white !important;
     }
-
 </style>
-

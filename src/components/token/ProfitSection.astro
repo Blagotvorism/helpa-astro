@@ -1,9 +1,12 @@
 ---
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="profit">
     <div class="profit__container">
-        <h2>ваша <span>польза</span></h2>
+        <RadialGradient topPosition="var(--radial-gradient-top1)" leftPosition="var(--radial-gradient-left1)" />
+        <RadialGradient topPosition="var(--radial-gradient-top2)" leftPosition="var(--radial-gradient-left2)" />
+        <h2>ваша <span class="gradient_span">польза</span></h2>
         <div class="profit__cards">
             <div class="profit_row row-center">
                 <div class="card">
@@ -26,7 +29,7 @@ import '../../styles/global.css';
             </div>
             <div class="profit_row row-center">
                 <div class="card">
-                    <p>Позитивный эффект на экономическую ситему</p>
+                    <p>Позитивный эффект на экономическую систему</p>
                 </div>
                 <div class="card">
                     <p>Резонирование позитивного эффекта за счет трансляции положительного примера поведения</p>
@@ -37,34 +40,42 @@ import '../../styles/global.css';
 </section>
 
 <style>
+    .profit {
+        --radial-gradient-top1: -1.6875rem;
+        --radial-gradient-left1: 58.75rem;
+        --radial-gradient-top2: 17.3125rem;
+        --radial-gradient-left2: -7.9375rem;
+        --section-height: 54.6875rem;
+        --container-height: 50rem;
+        --heading-font-size: 3.125rem;
+        --heading-margin-bottom: 5rem;
+        --cards-height: 41rem;
+        --row-height: 12.8125rem;
+        --card-width: 22.5rem;
+        --card-bg-color: white;
+        --p-width: 14.5rem;
+        --p-font-size: 1rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 54.6875rem;
+        height: var(--section-height);
     }
 
     .profit__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 50rem;
+        height: var(--container-height);
     }
 
     h2 {
         display: inline-block;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        margin-bottom: 5rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--heading-font-size);
+        margin-bottom: var(--heading-margin-bottom);
     }
 
     .profit__cards {
@@ -72,13 +83,13 @@ import '../../styles/global.css';
         flex-direction: column;
         justify-content: space-between;
         width: 100%;
-        height: 41rem;
+        height: var(--cards-height);
     }
 
     .profit_row {
         display: flex;
         width: 100%;
-        height: 12.8125rem;
+        height: var(--row-height);
     }
 
     .row-middle {
@@ -95,16 +106,17 @@ import '../../styles/global.css';
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 22.5rem;
-        border-radius: 1.875rem;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+        width: var(--card-width);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        background-color: var(--card-bg-color);
     }
 
     p {
         display: inline-block;
-        width: 14.5rem;
+        width: var(--p-width);
         height: auto;
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--p-font-size);
     }
 </style>

@@ -1,13 +1,15 @@
 ---
 import EventsTab from "../EventsTab.astro";
 import '../../styles/global.css';
+import RadialGradient from "../RadialGradient.astro";
 ---
 <section class="main_events">
     <div class="events_container">
+		<RadialGradient topPosition="13.0625rem" leftPosition="-8.375rem" />
         <div class="events_text">
             <div class="events_title">
                 <h4 class="events_heading-1">Мы не просто вносим пожертвования в благотворительные организации</h4>
-                <h2 class="events_heading-2">а также проводим мероприятия самостоятельно</h2>
+                <h2 class="events_heading-2 gradient_span">а также проводим мероприятия самостоятельно</h2>
             </div>
             <div class="events_descr">
                 <h3 class="events_heading-3">Вы можете принять участие в наших событиях без покупки и использования криптовалюты.</h3>
@@ -66,13 +68,6 @@ import '../../styles/global.css';
 		font-family: var(--font-lulo-bold);
 		font-size: 3.125rem;
 		line-height: 3.5rem;
-		background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
 	}
 	
 	.events_heading-3 {

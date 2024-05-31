@@ -10,18 +10,22 @@ import "../styles/global.css";
     <div class="full-footer">
         <div class="footer-container">
             <div class="footer-links">
-                {links.map(link => {
-                    return (
-                        <a href={link.url} class="footer-link">{link.text}</a>
-                    )
-                })}
+                {links.map(link => (
+                    <a href={link.url} class="footer-link">{link.text}</a>
+                ))}
             </div>
             <div class="footer-logos">
-                <a href="/" class="header-logo-link"><Image src={coinMarketCapLogo} class="header-logo" alt="helpa-project-logo"  loading="eager" decoding="async"/></a>
-                <div class="logo-link__container">
-                    <a href="/" class="header-logo-link"><Image src={BSCScanLogo} class="header-logo" alt="helpa-project-logo"  loading="eager" decoding="async"/></a>
+                <a href="/" class="footer-logo-link">
+                    <Image src={coinMarketCapLogo} class="footer-logo" alt="CoinMarketCap Logo" loading="eager" decoding="async" />
+                </a>
+                <div class="logo-link-container">
+                    <a href="/" class="footer-logo-link">
+                        <Image src={BSCScanLogo} class="footer-logo" alt="BSCScan Logo" loading="eager" decoding="async" />
+                    </a>
                 </div>
-                <a href="/" class="header-logo-link"><Image src={pancakeswapLogo} class="header-logo" alt="helpa-project-logo"  loading="eager" decoding="async"/></a>
+                <a href="/" class="footer-logo-link">
+                    <Image src={pancakeswapLogo} class="footer-logo" alt="PancakeSwap Logo" loading="eager" decoding="async" />
+                </a>
             </div>
         </div>
         <p class="cr">© 2024 Astroway</p>
@@ -30,26 +34,41 @@ import "../styles/global.css";
 
 <style>
     footer {
-        width: 100%;
-        height: 29.25rem;
-        background-color: var(--black);
+        --footer-width: 54.1875rem;
+        --footer-height: 29.25rem;
+        --footer-content-top: 8.1875rem;
+        --footer-content-left: calc((100vw - var(--full-width)) / 2 + 8.1875rem);
+        --footer-container-height: 10.125rem;
+        --footer-links-width: 30.4375rem;
+        --footer-links-gap: 3.1875rem;
+        --footer-link-font-size: 1rem;
+        --logo-container-border-radius: 1rem;
+        --logo-width: 12.625rem;
+        --logo-height: 2.5rem;
+        --cr-margin-top: 4.4375rem;
+    }
+
+    footer {
+        width: 100vw;
+        height: var(--footer-height);
+        background-color: black;
         color: var(--dark-grey);
         position: relative;
         text-align: center;
     }
 
     .full-footer {
-        width: 54.1875rem;
+        width: var(--footer-width);
         height: 100%;
         position: absolute;
-        top: 8.1875rem;
-        left: calc((100vw - var(--full-width)) / 2 + 8.1875rem);
+        top: var(--footer-content-top);
+        left: var(--footer-content-left);
     }
 
     .footer-container {
         display: flex;
         width: 100%;
-        height: 10.125rem;
+        height: var(--footer-container-height);
         flex-direction: row;
         justify-content: space-between;
     }
@@ -58,21 +77,21 @@ import "../styles/global.css";
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        gap: 3.1875rem;
+        gap: var(--footer-links-gap);
         align-content: space-between;
-        width: 30.4375rem;
+        width: var(--footer-links-width);
         height: 100%;
     }
 
     .footer-link {
         align-self: flex-start;
         display: inline-block;
-        font-family: --var(--font-inter);
-        font-size: 1rem;
-        transition: all 0.3s;
+        font-family: var(--font-inter);
+        font-size: var(--footer-link-font-size);
+        transition: color 0.3s;
     }
 
-    .footer-link:active, 
+    .footer-link:active,
     .footer-link:hover {
         color: var(--light-grey);
     }
@@ -83,24 +102,26 @@ import "../styles/global.css";
         justify-content: space-between;
     }
 
-    .logo-link__container {
+    .logo-link-container {
         display: block;
-        background-color: var(--white);
-        border-radius: 1rem;
+        background-color: white;
+        border-radius: var(--logo-container-border-radius);
     }
 
-    .header-logo-link {
+    .footer-logo-link {
         display: inline-block;
-        width: 12.625rem;
-        height: 2.5rem;
+        width: var(--logo-width);
+        height: var(--logo-height);
     }
 
-    .header-logo {
+    .footer-logo {
         width: 100%;
         height: 100%;
     }
 
     .cr {
-        margin-top: 4.4375rem;
+        margin-top: var(--cr-margin-top);
+        font-family: var(--font-inter);
     }
 </style>
+

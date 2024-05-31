@@ -3,7 +3,9 @@ import '../../styles/global.css';
 ---
 <section class="communication">
     <div class="communication__container">
-        <h2>Коммуникация позволила виду <span>действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</h2>
+        <div class="scroll_content">
+            <h2 class="scroll-content">Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</h2>
+        </div>
     </div>
 </section>
 
@@ -19,39 +21,20 @@ import '../../styles/global.css';
         display: block;
         width: var(--reduced-width);
         height: 4rem;
-        overflow: auto;
-        white-space: nowrap;
-        scrollbar-width: none;
+        overflow: hidden;
+    }
+
+    .scroll_content {
+        display: block;
+        width: 250rem;
+        transform: translateX(0);
+        transition: transform 0.3s ease-out;
     }
 
     h2 {
         display: block;
-        width: 250rem;
+        width: 100%;
         font-family: var(--font-lulo-bold);
         font-size: 3.125rem;
     }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
-    }
 </style>
-
-<script>
-    function transformScroll(event) {
-    if (!event.deltaY) {
-        return;
-    }
-
-    event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-    event.preventDefault();
-    }
-
-    var element = document.scrollingElement || document.documentElement;
-    element.addEventListener('wheel', transformScroll);
-</script>

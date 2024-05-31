@@ -5,40 +5,58 @@ import Link from '../Link.astro';
 import EcoEventChainCard from './EcoEventChainCard.astro';
 import RadialGradient from '../RadialGradient.astro';
 ---
-<section class="eco_events_chain">
-    <div class="eco_events_chain__container">
-        <RadialGradient topPosition="-15rem" leftPosition="-15rem" />
+
+<section class="eco-events-chain">
+    <div class="eco-events-chain__container">
+        <RadialGradient topPosition="-16.8125rem" leftPosition="-14.625rem" />
+        <RadialGradient topPosition="3.75rem" leftPosition="45.1875rem" />
         <EcoEventChainCard text="Загрязнение окружающей среды" />
-        <Icon name='arrowLong' />
+        <Icon name="arrowLong" />
         <EcoEventChainCard text="Нарушение естественных экосистем" />
-        <Icon name='arrowLong' />
-        <EcoEventChainCard text="Нарушение естественных экосистем" />
-        <Icon name='arrowLong' id='vertical_arrow'/>
-        <div class="eco_events_chain__text">
-            <h3 class="eco_events_chain-h3">
+        <Icon name="arrowLong" />
+        <EcoEventChainCard text="Ухудшение состояния животных и растений" />
+        <Icon name="arrowLong" id="vertical-arrow" />
+        <div class="eco-events-chain__text">
+            <h3 class="eco-events-chain__heading">
                 Посмотрите на эту пугающую цепочку событий
             </h3>
-            <h4 class="eco_events_chain-h4">Но в наших силах ее прекратить!</h4>
-            <Link href="/" theme='text' classes="link link_text">
+            <h4 class="eco-events-chain__subheading">Но в наших силах ее прекратить!</h4>
+            <Link href="/" theme="text" classes="link link_text">
                 <span class="link_innertext_secondary">Читать подробнее о последствиях загрязнений</span>
                 <Icon name="arrowText" />
             </Link>
         </div>
-        <EcoEventChainCard text="Нарушение естественных экосистем" />
-        <Icon name='arrowLong' id="rotate_arrow"/>
-        <EcoEventChainCard text="Нарушение естественных экосистем" />
+        <EcoEventChainCard text="Уменьшение биологического разнообразия животных и растений" />
+        <Icon name="arrowLong" id="rotate-arrow" />
+        <EcoEventChainCard text="Исчезновение видов" />
     </div>
 </section>
 
 <style>
-    .eco_events_chain {
-        position: relative;
-        display: block;
-        width: 100vw;
-        height: 33.125rem;
+    .eco-events-chain {
+        --chain-height: 33.125rem;
+        --container-height: 25rem;
+        --vertical-arrow-right: 7rem;
+        --vertical-arrow-width: 2.5rem;
+        --vertical-arrow-stroke-width: 4px;
+        --text-width-no-card: 21.875rem;
+        --text-height: 10rem;
+        --text-margin-right: 4rem;
+        --heading-font-size: 1.2rem;
+        --heading-margin-bottom: 1.25rem;
+        --subheading-font-size: 1rem;
+        --subheading-color: var(--dark-grey);
+        --subheading-margin-bottom: 1.875rem;
     }
 
-    .eco_events_chain__container {
+    .eco-events-chain {
+        position: relative;
+        display: block;
+        width: var(--section-width);
+        height: var(--chain-height);
+    }
+
+    .eco-events-chain__container {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -49,40 +67,40 @@ import RadialGradient from '../RadialGradient.astro';
         align-items: center;
         align-content: space-between;
         width: var(--reduced-width);
-        height: 25rem;
+        height: var(--container-height);
     }
 
-    #vertical_arrow {
+    #vertical-arrow {
         display: inline-block;
         position: absolute;
-        right: 7rem;
+        right: var(--vertical-arrow-right);
         transform: rotate(90deg);
-        width: 2.5rem;
+        width: var(--vertical-arrow-width);
         stroke: url(#a);
-        stroke-width: 4px;
+        stroke-width: var(--vertical-arrow-stroke-width);
     }
 
-    #rotate_arrow {
+    #rotate-arrow {
         transform: rotate(180deg);
     }
 
-    .eco_events_chain__text {
+    .eco-events-chain__text {
         font-family: var(--font-inter);
         display: inline-block;
-        width: 21.875rem;
-        height: 10rem;
-        margin-right: 4rem;
+        width: var(--text-width-no-card);
+        height: var(--text-height);
+        margin-right: var(--text-margin-right);
     }
 
-    h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1.25rem;
+    .eco-events-chain__heading {
+        font-size: var(--heading-font-size);
+        margin-bottom: var(--heading-margin-bottom);
     }
 
-    h4 {
-        font-size: 1rem;
-        color: var(--dark-grey);
-        margin-bottom: 1.875rem;
+    .eco-events-chain__subheading {
+        font-size: var(--subheading-font-size);
+        color: var(--subheading-color);
+        margin-bottom: var(--subheading-margin-bottom);
     }
 
     a {

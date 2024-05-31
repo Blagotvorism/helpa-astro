@@ -1,26 +1,29 @@
 ---
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="helpa">
     <div class="helpa__container">
-        <h2 class="helpa__container-heading">HELP PLANET (<span>HELPA</span>)</h2>
+        <RadialGradient topPosition="-19rem" leftPosition="58.125rem" />
+        <RadialGradient topPosition="14.6875rem" leftPosition="-23rem" />
+        <h2 class="helpa__container-heading">HELP PLANET (<span class="gradient_span">HELPA</span>)</h2>
         <p class="helpa__container-text">Контракт: 0x6B8686BDF9Df£41790B0147d4096BF0c44b9c90f</p>
         <div class="helpa__container_cards">
             <div class="card">
                 <div class="text1">
                     <p class="card_name">Общее количество токена составляет:</p>
-                    <p class="card_text-bold"><span>12345678987654321</span></p>
+                    <p class="card_text-bold"><span class="gradient_span">12345678987654321</span></p>
                 </div>
             </div>
             <div class="card">
                 <div class="text2">
-                    <p class="card_name">Токенсейл <span>до 1%</span> ЕЖЕГОДНО</p>
+                    <p class="card_name">Токенсейл <span class="gradient_span">до 1%</span> ЕЖЕГОДНО</p>
                     <p class="card_text-common">Нераспроданное количество токенов переносится на следующий год</p>
                 </div>
             </div>
             <div class="card">
                 <div class="text3">
-                    <p class="card_name-h2"><span>100%</span></p>
+                    <p class="card_name-h2"><span class="gradient_span">100%</span></p>
                     <p class="card_text-black">Полная продажа токена рассчитана на 100 лет</p>
                 </div>
             </div>
@@ -29,50 +32,58 @@ import '../../styles/global.css';
 </section>
 
 <style>
+    .helpa {
+        --helpa-section-height: 42rem;
+        --helpa-container-height: 26.375rem;
+        --helpa-container-margin-top: 9.375rem;
+        --helpa-heading-font-size: 3.125rem;
+        --helpa-heading-margin-bottom: 1.25rem;
+        --helpa-text-font-size: 1rem;
+        --helpa-text-margin-bottom: 3.25rem;
+        --card-width: 22.5rem;
+        --card-height: 16.6rem;
+        --card-name-font-size: 1.5rem;
+        --card-text-bold-font-size: 1.0625rem;
+        --card-text-common-font-size: 1rem;
+        --card-name-h2-font-size: 3.125rem;
+        --card-text-black-font-size: 0.75rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 42rem;
+        height: var(--helpa-section-height);
     }
 
     .helpa__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 26.375rem;
-        margin-top: 9.375rem;
+        height: var(--helpa-container-height);
+        margin-top: var(--helpa-container-margin-top);
     }
 
     h2 {
         display: inline-block;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
+        font-size: var(--helpa-heading-font-size);
         letter-spacing: 1px;
-        margin-bottom: 1.25rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        margin-bottom: var(--helpa-heading-margin-bottom);
     }
 
     .helpa__container-text {
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--helpa-text-font-size);
         color: var(--dark-grey);
-        margin-bottom: 3.25rem;
+        margin-bottom: var(--helpa-text-margin-bottom);
     }
 
     .helpa__container_cards {
         display: flex;
         justify-content: space-between;
         width: inherit;
-        height: 16.6rem;
+        height: var(--card-height);
     }
 
     .card {
@@ -81,10 +92,10 @@ import '../../styles/global.css';
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 22.5rem;
+        width: var(--card-width);
         background-color: white;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-        border-radius: 1.875rem;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius);
     }
 
     .text1, .text2, .text3 {
@@ -111,7 +122,7 @@ import '../../styles/global.css';
     .card_name {
         text-align: center;
         font-family: var(--font-inter);
-        font-size: 1.5rem;
+        font-size: var(--card-name-font-size);
         margin-bottom: 2.5rem;
     }
 
@@ -121,20 +132,20 @@ import '../../styles/global.css';
 
     .card_text-bold {
         font-family: var(--font-lulo-bold);
-        font-size: 1.0625rem;
+        font-size: var(--card-text-bold-font-size);
     }
 
     .card_text-common {
-        font-size: 1rem;
+        font-size: var(--card-text-common-font-size);
         color: var(--dark-grey);
     }
 
     .card_name-h2 {
-        font-size: 3.125rem;
+        font-size: var(--card-name-h2-font-size);
         margin-bottom: 0.625rem;
     }
 
     .card_text-black {
-        font-size: 0.75rem;
+        font-size: var(--card-text-black-font-size);
     }
 </style>

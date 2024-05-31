@@ -1,5 +1,6 @@
 ---
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 import RideGoalCard from './RideGoalCard.astro';
 
 interface Props {
@@ -16,19 +17,26 @@ const { page, usualTextStart, gradientText, usualTextFinish, subheading, text } 
 let textWidth, sectionHeight, containerHeight;
 switch(page) {
     case 'ride':
-        textWidth = '36.8rem';
-        containerHeight = '40.125rem';
-        sectionHeight = '52.6rem';
+        textWidth = 'var(--text-width-ride)';
+        containerHeight = 'var(--container-height-ride)';
+        sectionHeight = 'var(--section-height-ride)';
         break;
     case 'gemohelp':
-        textWidth = '39.8rem';
-        containerHeight = '24.3rem';
-        sectionHeight = '34.375rem';
+        textWidth = 'var(--text-width-gemohelp)';
+        containerHeight = 'var(--container-height-gemohelp)';
+        sectionHeight = 'var(--section-height-gemohelp)';
         break;
 }
 ---
 <section class="ride_goals">
     <div class="ride_goals__containers">
+        {page === 'gemohelp' && 
+            <>
+                <RadialGradient topPosition="-9.3125rem" leftPosition="59.6875rem" />
+                <RadialGradient topPosition="9.4375rem" leftPosition="-23.375rem" />
+            </>
+        }
+        {page === 'ride' && <RadialGradient topPosition="5.625rem" leftPosition="54.875rem" />}
         {
             page === 'ride' && 
             <div class="ride_goals__cards">
@@ -39,7 +47,7 @@ switch(page) {
             </div>
         }
         <div class="ride_goals__text">
-            <h2>{usualTextStart}<span>{gradientText}</span>{usualTextFinish}</h2>
+            <h2>{usualTextStart}<span class="gradient_span">{gradientText}</span>{usualTextFinish}</h2>
             <h3>{subheading}</h3>
             <p>{text}</p>
         </div>
@@ -47,6 +55,28 @@ switch(page) {
 </section>
 
 <style define:vars={{sectionHeight, textWidth, containerHeight}}>
+    .ride_goals {
+        /* Specific page configurations */
+        --text-width-ride: 36.8rem;
+        --container-height-ride: 40.125rem;
+        --section-height-ride: 52.6rem;
+
+        --text-width-gemohelp: 39.8rem;
+        --container-height-gemohelp: 24.3rem;
+        --section-height-gemohelp: 34.375rem;
+
+        /* General configurations */
+        --card-height: 13.625rem;
+        --h2-font-size: 3.125rem;
+        --h2-width: 63.5rem;
+        --h2-line-height: 4rem;
+        --h2-margin-bottom: 2.5rem;
+        --h3-font-size: 1.5rem;
+        --h3-margin-bottom: 1.25rem;
+        --p-font-size: 1rem;
+        --margin-left: 29.6875rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
@@ -56,6 +86,7 @@ switch(page) {
     }
 
     .ride_goals__containers {
+        position: relative;
         display: block;
         width: var(--reduced-width);
         height: var(--containerHeight);
@@ -65,8 +96,8 @@ switch(page) {
         display: flex;
         justify-content: space-between;
         width: inherit;
-        height: 13.625rem;
-        margin-bottom: 2.5rem;
+        height: var(--card-height);
+        margin-bottom: var(--h2-margin-bottom);
     }
 
     .ride_goals__text {
@@ -78,38 +109,26 @@ switch(page) {
 
     h2 {
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        width: 63.5rem;
-        line-height: 4rem;
-        margin-bottom: 2.5rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--h2-font-size);
+        width: var(--h2-width);
+        line-height: var(--h2-line-height);
+        margin-bottom: var(--h2-margin-bottom);
     }
 
     h3, p {
         display: inline-block;
         font-family: var(--font-inter);
         width: var(--textWidth);
-        margin-left: 29.6875rem;
+        margin-left: var(--margin-left);
     }
 
     h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1.25rem;
+        font-size: var(--h3-font-size);
+        margin-bottom: var(--h3-margin-bottom);
     }
 
     p {
-        font-size: 1rem;
+        font-size: var(--p-font-size);
         color: var(--dark-grey);
     }
-
-
 </style>

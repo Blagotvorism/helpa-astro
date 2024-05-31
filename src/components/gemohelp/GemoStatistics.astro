@@ -3,14 +3,16 @@ import '../../styles/global.css';
 import GemoStatisticsObj from './GemoStatisticsObj.astro';
 import euGraph from '../../images/gemohelp/gemoGraph1.png';
 import usGraph from '../../images/gemohelp/gemoGraph2.png';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="statistics">
     <div class="statistics__container">
-        <h2>Немного <span>статистики</span></h2>
+        <RadialGradient topPosition="-3.8125rem" leftPosition="60.3125rem" />
+        <h2>Немного <span class="gradient_span">статистики</span></h2>
         <div class="statistics__graphs">
             <GemoStatisticsObj 
                 img={euGraph}
-                altText='Грфмк болезней в Европе'
+                altText='График болезней в Европе'
                 imgDescr='Количество стран ЕС, сообщивших о нехватке лекарственных препаратов'
             />
             <GemoStatisticsObj
@@ -23,7 +25,7 @@ import usGraph from '../../images/gemohelp/gemoGraph2.png';
             />
             <GemoStatisticsObj 
                 img={usGraph}
-                altText='Грфмк изобретения лекарств в США'
+                altText='График изобретения лекарств в США'
                 imgDescr='Количество стран ЕС, сообщивших о нехватке лекарственных препаратов'
             />
             <GemoStatisticsObj
@@ -39,33 +41,31 @@ import usGraph from '../../images/gemohelp/gemoGraph2.png';
 </section>
 
 <style>
+    .statistics {
+        --section-height: 59.375rem;
+        --container-height: 50rem;
+        --h2-margin-bottom: 5rem;
+        --graphs-height: 36.25rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 59.375rem;
+        height: var(--section-height);
     }
 
     .statistics__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 50rem;
+        height: var(--container-height);
     }
 
     h2 {
         font-family: var(--font-lulo-bold);
         font-size: 3.125rem;
-        margin-bottom: 5rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        margin-bottom: var(--h2-margin-bottom);
     }
 
     .statistics__graphs {
@@ -75,6 +75,6 @@ import usGraph from '../../images/gemohelp/gemoGraph2.png';
         row-gap: 4rem;
         flex-wrap: wrap;
         width: inherit;
-        height: 36.25rem;
+        height: var(--graphs-height);
     }
 </style>

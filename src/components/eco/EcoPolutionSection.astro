@@ -3,19 +3,19 @@ import '../../styles/global.css';
 import PolutionCard from '../GoalsCard.astro';
 import RadialGradient from '../RadialGradient.astro';
 ---
-<section class="eco_polutions">
-    <div class="eco_polutions__container">
+<section class="eco-pollutions">
+    <div class="eco-pollutions__container">
         <RadialGradient topPosition="1rem" leftPosition="43.75rem" />
-        <div class="eco_polutions_text">
-            <h2 class="eco_polutions__heading">
+        <div class="eco-pollutions__text">
+            <h2 class="eco-pollutions__heading">
                 Основными
-                <span class="eco_polutions__heading-gradient">
+                <span class="gradient_span">
                     областями загрязнения
                 </span>
             </h2>
-            <h3 class="eco_polutions__subheading">окружающей среды являются:</h3>
+            <h3 class="eco-pollutions__subheading">окружающей среды являются:</h3>
         </div>
-        <div class="eco_polutions_cards">
+        <div class="eco-pollutions__cards">
             <PolutionCard goalsIcon='Air' goalsDescr='Воздух' />
             <PolutionCard goalsIcon='Water' goalsDescr='Вода' />
             <PolutionCard goalsIcon='Ground' goalsDescr='Почва' />
@@ -24,56 +24,51 @@ import RadialGradient from '../RadialGradient.astro';
 </section>
 
 <style>
-    .eco_polutions {
+    .eco-pollutions {
+        --section-height: 35.2rem;
+        --container-height: 25.8rem;
+        --heading-font-size: 3.125rem;
+        --subheading-font-size: 1.5rem;
+        --cards-width: 52.2rem;
+    }
+
+    .eco-pollutions {
         position: relative;
         display: block;
         max-width: 100vw;
-        height: 35.2rem;
+        height: var(--section-height);
     }
 
-    .eco_polutions__container {
+    .eco-pollutions__container {
         display: block;
         width: var(--reduced-width);
-        height: 25.8rem;
+        height: var(--container-height);
         position: absolute;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .eco_polutions_text {
+    .eco-pollutions__text {
         display: inline-block;
-        width: inherit;
+        width: 100%;
     }
 
-    .eco_polutions__heading {
-        text-align: center;
+    .eco-pollutions__heading {
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
+        font-size: var(--heading-font-size);
         margin-bottom: 1.25rem;
     }
 
-    .eco_polutions__heading-gradient {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
-    }
-
-    .eco_polutions__subheading {
+    .eco-pollutions__subheading {
         font-family: var(--font-inter);
-        font-size: 1.25rem;
-        margin-left: 2rem;
-        margin-bottom: 5rem;
+        font-size: var(--subheading-font-size);
+        margin: 0 1rem 5rem;
     }
 
-    .eco_polutions_cards {
+    .eco-pollutions__cards {
         display: flex;
-        flex-direction: row;
-        width: 52.2rem;
         justify-content: space-between;
+        width: var(--cards-width);
     }
 </style>

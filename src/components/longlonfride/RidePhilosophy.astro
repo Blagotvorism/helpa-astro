@@ -1,11 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="ride_philosophy">
     <div class="ride_philosophy__container">
+        <RadialGradient topPosition="-9.3125rem" leftPosition="59.875rem" />
+        <RadialGradient topPosition="9.4375rem" leftPosition="-23.1875rem" />
         <div class="ride_philosophy__text">
-            <h2><span>философия проекта </span>заключается</h2>
+            <h2><span class="gradient_span">философия проекта </span>заключается</h2>
             <h3>в безграничной интернациональной дружбе на основе интереса, любви к спорту и доступности каждому, 
                 а значит предполагает бесплатный характер мероприятий.
             </h3>
@@ -20,19 +23,38 @@ import '../../styles/global.css';
 </section>
 
 <style>
+    .ride_philosophy {
+        --section-height: 34.625rem;
+        --container-height: 25rem;
+        --container-margin-top: 5rem;
+        --text-width: 38.5rem;
+        --h2-font-size: 3.125rem;
+        --h2-line-height: 4rem;
+        --h2-margin-bottom: 2.5rem;
+        --h3-font-size: 1.3rem;
+        --h3-line-height: 1.5rem;
+        --h3-margin-bottom: 1.25rem;
+        --p-width: 33.75rem;
+        --p-font-size: 1rem;
+        --p-line-height: 1.25rem;
+        --logo-width: 19.4375rem;
+        --logo-height: 16.875rem;
+    }
+
     section {
         display: flex;
         width: 100vw;
-        height: 34.625rem;
+        height: var(--section-height);
         justify-content: center;
     }
 
     .ride_philosophy__container {
+        position: relative;
         display: flex;
-        margin-top: 5rem;
+        margin-top: var(--container-margin-top);
         justify-content: space-between;
         width: var(--reduced-width);
-        height: 25rem;
+        height: var(--container-height);
     }
 
     .ride_philosophy__logo {
@@ -42,48 +64,36 @@ import '../../styles/global.css';
 
     .ride_philosophy__text {
         display: block;
-        width: 38.5rem;
+        width: var(--text-width);
     }
 
     h2 {
         display: inline-block;
         width: inherit;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        line-height: 4rem;
-        margin-bottom: 2.5rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--h2-font-size);
+        line-height: var(--h2-line-height);
+        margin-bottom: var(--h2-margin-bottom);
     }
 
     h3 {
         font-family: var(--font-inter);
-        font-size: 1.3rem;
-        line-height: 1.5rem;
-        margin-bottom: 1.25rem;
+        font-size: var(--h3-font-size);
+        line-height: var(--h3-line-height);
+        margin-bottom: var(--h3-margin-bottom);
     }
 
     p {
         display: inline-block;
-        width: 33.75rem;
-        font-size: 1rem;
-        line-height: 1.25rem;
+        width: var(--p-width);
+        font-size: var(--p-font-size);
+        line-height: var(--p-line-height);
         color: var(--dark-grey);
     }
 
-
-
     .logo {
         display: block;
-        width: 19.4375rem;
-        height: 16.875rem;
+        width: var(--logo-width);
+        height: var(--logo-height);
     }
 </style>

@@ -6,26 +6,32 @@ import links from '../data/links.json';
 
 const { mainPage } = Astro.props;
 ---
-<header class:list={mainPage ? "": " header_bg"}>
-    <dev class="header">
-        <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47"  loading="eager" decoding="async"/></a>
+<header class:list={mainPage ? "" : "header_bg"}>
+    <div class="header">
+        <a href="/"><Image src={headerLogo} class="header-logo" alt="helpa-project-logo" width="47" height="47" loading="eager" decoding="async" /></a>
         <nav class="nav-links">
-            {links.map(link => {
-                return (
-                    <a href={link.url} class="nav-link" >{link.text}</a>
-                )
-            })}
+            {links.map(link => (
+                <a href={link.url} class="nav-link">{link.text}</a>
+            ))}
         </nav>
-    </dev>
+    </div>
 </header>
 
-
 <style>
+    header {
+    --header-bg-color: rgba(255, 255, 255, 0.8);
+    --header-width: 70rem;
+    --header-height: 4.625rem;
+    --nav-links-width: 64rem;
+}
+
+/* Add any other global styles you need */
+
     .header {
         z-index: 99;
         display: flex;
         justify-content: space-between;
-        width: 70rem;
+        width: var(--header-width);
         position: absolute;
         top: 1rem;
         left: 50%;
@@ -39,9 +45,9 @@ const { mainPage } = Astro.props;
         left: 0;
         display: block;
         width: 100vw;
-        height: 4.625rem;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-bottom-right-radius: 1.875rem;
+        height: var(--header-height);
+        background-color: var(--header-bg-color);
+        border-bottom-right-radius: var(--border-radius);
     }
 
     .header-logo {
@@ -49,7 +55,7 @@ const { mainPage } = Astro.props;
     }
 
     .nav-links {
-        width: 64rem;
+        width: var(--nav-links-width);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -59,7 +65,7 @@ const { mainPage } = Astro.props;
     .nav-link {
         display: inline-block;
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--font-size);
         text-decoration: none;
     }
 
@@ -77,5 +83,4 @@ const { mainPage } = Astro.props;
         -webkit-text-fill-color: transparent; 
         -moz-text-fill-color: transparent;
     }
-
 </style>

@@ -5,10 +5,13 @@ import GemoFactsNums from './GemoFactsNums.astro';
 import img1 from '../../images/gemohelp/gemoConceptCard1.jpg';
 import img2 from '../../images/gemohelp/gemoConceptCard2.jpeg';
 import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="gemo_facts">
     <div class="gemo_facts__container">
-        <h2 class="gemo_facts__container-heading">Несколько фактов о <span class="gemo_facts__container-span">лейкемии</span></h2>
+        <RadialGradient topPosition="6.1875rem" leftPosition="58.125rem" />
+        <RadialGradient topPosition="89.875rem" leftPosition="-24.375rem" />
+        <h2 class="gemo_facts__container-heading">Несколько фактов о <span class="gemo_facts__container-span gradient_span">лейкемии</span></h2>
         <div class="facts">
             <GemoFactsNums 
                 num='1' 
@@ -31,9 +34,9 @@ import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
                 img3={img3} imgDescr3='Лийкемия' 
             />
             <GemoFactsNums 
-            num='4' 
-            heading='Происхождение' 
-            text='Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно.'
+                num='4' 
+                heading='Происхождение' 
+                text='Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно.'
             />
             <GemoFactsNums 
                 num='5' 
@@ -42,7 +45,7 @@ import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
             />
         </div>
         <div class="afterfacts_text">
-            <h2 class="afterfacts_heading">из этого следует <span>Вывод</span></h2>
+            <h2 class="afterfacts_heading">из этого следует <span class="gradient_span">Вывод</span></h2>
             <h3>Исходя из статистики, опроса населения и личного мониторинга, мы наблюдаем серьёзный недостаток медикаментов по всему миру</h3>
             <p>начиная с дорогостоящих химиопрепаратов, до обычных пластырей, катетеров и вспомогательных таблеток, смягчающих негативный эффект от тяжёлого лечения.</p>
         </div>
@@ -50,37 +53,42 @@ import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
 </section>
 
 <style>
+    .gemo_facts {
+        --section-height: 140rem;
+        --container-height: 132.6rem;
+        --h2-width: 35.625rem;
+        --afterfacts-text-width: 45.75rem;
+        --afterfacts-text-height: 17.1875rem;
+        --afterfacts-margin-top: 7.1875rem;
+        --h3-width: 39.3rem;
+        --p-width: 34.75rem;
+        --h2-font-size: 3.125rem;
+        --h3-font-size: 1.3rem;
+        --p-font-size: 1rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 140rem;
+        height: var(--section-height);
     }
 
     .gemo_facts__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 132.6rem;
+        height: var(--container-height);
     }
 
     h2 {
         display: inline-block;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
+        font-size: var(--h2-font-size);
     }
 
     .gemo_facts__container-heading {
-        width: 35.625rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        width: var(--h2-width);
     }
 
     .facts {
@@ -92,9 +100,9 @@ import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
 
     .afterfacts_text {
         display: block;
-        width: 45.75rem;
-        height: 17.1875rem;
-        margin-top: 7.1875rem;
+        width: var(--afterfacts-text-width);
+        height: var(--afterfacts-text-height);
+        margin-top: var(--afterfacts-margin-top);
     }
 
     .afterfacts_heading {
@@ -104,14 +112,14 @@ import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
     h3 {
         margin-bottom: 1.25rem;
         font-family: var(--font-inter);
-        font-size: 1.3rem;
-        width: 39.3rem;
+        font-size: var(--h3-font-size);
+        width: var(--h3-width);
     }
 
     p {
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--p-font-size);
         color: var(--dark-grey);
-        width: 34.75rem;
+        width: var(--p-width);
     }
 </style>

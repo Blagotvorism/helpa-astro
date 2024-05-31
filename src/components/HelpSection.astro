@@ -2,10 +2,11 @@
 import { Image } from 'astro:assets';
 import '../styles/global.css';
 import HelpCTA from './HelpCTA.astro';
+import RadialGradient from './RadialGradient.astro';
 
 interface Props {
     page: string;
-    img?;
+    img?: string;
     imgDescr?: string;
 }   
 
@@ -41,13 +42,27 @@ switch(page) {
 ---
 <section class="help_section">
     <div class="help__container">
-        {heading_start && <h2 class="help__heading">{heading_start}<span>{heading_gradient}</span>{heading_finish}</h2>}
+        {page === 'eco' && <RadialGradient topPosition="4.4375rem" leftPosition="43.375rem" />}
+        {page === 'low-income-families' && <RadialGradient topPosition="12.8125rem" leftPosition="58.9375rem" />}
+        {page === 'ride' && 
+            <>
+                <RadialGradient topPosition="-21.0625rem" leftPosition="-22.5rem" />
+                <RadialGradient topPosition="2.625rem" leftPosition="60.125rem" />
+            </>
+        }
+        {heading_start && <h2 class="help__heading">{heading_start}<span class="gradient_span">{heading_gradient}</span>{heading_finish}</h2>}
         <HelpCTA />
         {img && <Image src={img} alt={imgDescr} class='help__img' loading='eager'/>}
     </div>
 </section>
 
 <style define:vars={{sectionHeight, headingWidth, topPosition}}>
+    .help_section {
+        --sectionHeight: 36rem;
+        --headingWidth: 55rem;
+        --topPosition: 0rem;
+    }
+
     section {
         display: block;
         position: relative;
@@ -58,7 +73,7 @@ switch(page) {
     .help__container {
         display: block;
         position: absolute;
-        width: 60.7rem;
+        width: var(--reduced-width);
         height: inherit;
         top: var(--topPosition);
         left: calc((100vw - var(--reduced-width)) / 2);
@@ -71,16 +86,6 @@ switch(page) {
         font-family: var(--font-lulo-bold);
         font-size: 3.125rem;
         margin-bottom: 5rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
     }
 
     .help__img {

@@ -9,37 +9,37 @@ interface Props {
 
 const { num, heading, text } = Astro.props;
 
-let textHeight, textWidth, textSpanWidth;
-switch(num) {
-    case '1':
-        textHeight = '26.3rem';
-        textWidth = '32.375rem';
-        textSpanWidth = '28rem';
-        break;
-    case '2':
-        textHeight = '26.6rem';
-        textWidth = '29rem';
-        textSpanWidth = '26.3rem';
-        break;
+const textConfig = {
+    '1': {
+        height: 'var(--text-height-1)',
+        width: 'var(--text-width-1)',
+        spanWidth: 'var(--text-span-width-1)'
+    },
+    '2': {
+        height: 'var(--text-height-2)',
+        width: 'var(--text-width-2)',
+        spanWidth: 'var(--text-span-width-2)'
+    },
+    '3': {
+        height: 'var(--text-height-3)',
+        width: 'var(--text-width-3)',
+        spanWidth: 'var(--text-span-width-3)'
+    },
+    '4': {
+        height: 'var(--text-height-4)',
+        width: 'var(--text-width-4)',
+        spanWidth: 'var(--text-span-width-4)'
+    },
+    '5': {
+        height: 'var(--text-height-5)',
+        width: 'var(--text-width-5)',
+        spanWidth: 'var(--text-span-width-5)'
+    }
+};
 
-    case '3':
-        textHeight = '40.875rem';
-        textWidth = '32.375rem';
-        textSpanWidth = '29.75rem';
-        break;
-    case '4':
-        textHeight = '22.6rem';
-        textWidth = '32.375rem';
-        textSpanWidth = '26.3rem';
-        break;
-    case '5':
-        textHeight = '27.875rem';
-        textWidth = '30.8rem';
-        textSpanWidth = '27.75rem';
-        break;
-}
+const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 ---
-<div class="nums">
+<div class="nums" style={`--textHeight: ${height}; --textWidth: ${width}; --textSpanWidth: ${spanWidth};`}>
     <h2 class="num_heading">{num}</h2>
     <p class="text_heading">
         <span class="heading">{heading}</span>
@@ -47,7 +47,39 @@ switch(num) {
     </p>
 </div>
 
-<style define:vars={{textHeight, textWidth, textSpanWidth}}>
+<style>
+    /* variables.css */
+    .nums {
+        --text-height-1: 26.3rem;
+        --text-height-2: 26.6rem;
+        --text-height-3: 40.875rem;
+        --text-height-4: 22.6rem;
+        --text-height-5: 27.875rem;
+        
+        --text-width-1: 32.375rem;
+        --text-width-2: 29rem;
+        --text-width-3: 32.375rem;
+        --text-width-4: 32.375rem;
+        --text-width-5: 30.8rem;
+        
+        --text-span-width-1: 28rem;
+        --text-span-width-2: 26.3rem;
+        --text-span-width-3: 29.75rem;
+        --text-span-width-4: 26.3rem;
+        --text-span-width-5: 27.75rem;
+
+        --num-font-size: 12.5rem;
+        --heading-font-size: 3.125rem;
+        --facts-text-font-size: 1rem;
+        --line-height-heading: 3.5rem;
+        --line-height-facts: 1.4rem;
+        --text-margin-top: 1.25rem;
+        --text-margin-bottom: 0.75rem;
+        --text-top: 11.5rem;
+        --text-left: 2.75rem;
+        --fact-height: 8.125rem;
+    }
+
     .nums {
         display: block;
         position: relative;
@@ -60,7 +92,7 @@ switch(num) {
         display: inline;
         height: inherit;
         font-family: var(--font-lulo-bold);
-        font-size: 12.5rem;
+        font-size: var(--num-font-size);
         color: rgba(236, 236, 236, 1);
     }
 
@@ -68,26 +100,26 @@ switch(num) {
         display: inline-block;
         position: absolute;
         width: inherit;
-        height: 8.125rem;
-        top: 11.5rem;
-        left: 2.75rem;
-        font-size: 3.125rem;
+        height: var(--fact-height);
+        top: var(--text-top);
+        left: var(--text-left);
+        font-size: var(--heading-font-size);
         color: black;
-        margin-bottom: 0.75rem;
+        margin-bottom: var(--text-margin-bottom);
     }
 
     .heading {
         display: block;
         width: 25rem;
-        line-height: 3.5rem;
+        line-height: var(--line-height-heading);
     }
 
     .facts_text {
         display: inline-block;
-        font-size: 1rem;
+        font-size: var(--facts-text-font-size);
         color: var(--dark-grey);
-        line-height: 1.4rem;
+        line-height: var(--line-height-facts);
         width: var(--textSpanWidth);
-        margin-top: 1.25rem;
+        margin-top: var(--text-margin-top);
     }
 </style>

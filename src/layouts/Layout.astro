@@ -6,9 +6,12 @@ interface Props {
 	title: string;
 	description?: string;
 	image?: string;
+	mainPage?: boolean;
 }
 
-const { title, description = "Community", image = "/images/band.jpg" } = Astro.props;
+const { title, description = "Community", image = "/images/band.jpg", mainPage } = Astro.props;
+let bgIndex;
+mainPage ? bgIndex = true: bgIndex = false;
 ---
 
 <!doctype html>
@@ -23,7 +26,7 @@ const { title, description = "Community", image = "/images/band.jpg" } = Astro.p
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen">
-		<Header />
+		<Header mainPage={bgIndex} />
 		<slot />
 		<Footer />
 	</body>

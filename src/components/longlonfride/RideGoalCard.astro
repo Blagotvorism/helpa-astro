@@ -10,28 +10,39 @@ const { iconName, cardText } = Astro.props;
 
 <style>
     .card {
+        --card-width: 16.6rem;
+        --card-height: 13.625rem;
+        --card-border-radius: 1.875rem;
+        --logo-size: 2.8rem;
+        --logo-margin-bottom: 1.625rem;
+        --text-width: 9rem;
+        --text-font-size: 1rem;
+    }
+
+    .card {
         display: flex;
         flex-direction: column;
         text-align: center;
-        width: 16.6rem;
-        height: 13.625rem;
-        border-radius: 1.875rem;
+        width: var(--card-width);
+        height: var(--card-height);
+        border-radius: var(--card-border-radius);
         justify-content: center;
         align-items: center;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--box-shadow);
+        background-color: white;
     }
 
     .logo {
         display: block;
-        width: 2.8rem;
-        height: 2.8rem;
-        margin-bottom: 1.625rem;
+        width: var(--logo-size);
+        height: var(--logo-size);
+        margin-bottom: var(--logo-margin-bottom);
     }
 
     p {
         display: block;
-        width: 9rem;
+        width: var(--text-width);
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--text-font-size);
     }
 </style>

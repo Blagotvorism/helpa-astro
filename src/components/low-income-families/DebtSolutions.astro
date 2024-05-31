@@ -1,62 +1,76 @@
 ---
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="debt_solutions">
     <div class="debt_solutions__container">
-        <h2>Преодоление проблемы закредитованности требует <span class="gradient">системного подхода</span>, включающего в себя</h2>
+        <RadialGradient topPosition="1rem" leftPosition="57.25rem" />
+        <RadialGradient topPosition="33.6875rem" leftPosition="-20.5rem" />
+        <h2>Преодоление проблемы закредитованности требует <span class="gradient_span">системного подхода</span>, включающего в себя</h2>
         <ul>
             <li><span class="number">1</span><span class="text first_el">Финансовую грамотность</span></li>
             <li class="end"><span class="number">2</span><span class="text">Регулирование потребительского кредитования</span></li>
             <li><span class="number">3</span><span class="text">Предоставление доступных альтернатив для финансирования</span></li>
-            <li class="end"><span class="number">4</span><span class="text">Адекватную поддержку заемщиков в трудных ситуациях.</span></li>
+            <li class="end ml"><span class="number">4</span><span class="text">Адекватную поддержку заемщиков в трудных ситуациях.</span></li>
         </ul>
     </div>
 </section>
 
 <style>
+    .debt_solutions {
+        --section-height: 53.3rem;
+        --container-height: 44.4rem;
+        --heading-width: 52.2rem;
+        --heading-font-size: 3.125rem;
+        --heading-line-height: 4rem;
+        --heading-margin-bottom: 3.25rem;
+        --list-height: 28.125rem;
+        --number-font-size: 12.5rem;
+        --number-color: #ECECEC;
+        --text-font-size: 1.5rem;
+        --text-left: 2.75rem;
+        --text-bottom: 5.125rem;
+        --text-width: 18rem;
+        --first-el-width: 12.5rem;
+        --column-gap: 8rem;
+        --li-height: 18.6rem;
+    }
+
     section {
         display: flex;
         width: 100vw;
-        height: 53.3rem;
+        height: var(--section-height);
         justify-content: center;
     }
 
     .debt_solutions__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 44.4rem;
+        height: var(--container-height);
     }
 
     h2 {
         display: inline-block;
-        width: 52.2rem;
+        width: var(--heading-width);
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        line-height: 4rem;
-        margin-bottom: 3.25rem;
-    }
-
-    .gradient {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--heading-font-size);
+        line-height: var(--heading-line-height);
+        margin-bottom: var(--heading-margin-bottom);
     }
 
     ul {
         display: flex;
-        width: inherit;
-        height: 28.125rem;
+        width: 100%;
+        height: var(--list-height);
         flex-direction: row;
-        justify-content: space-between;
+        column-gap: var(--column-gap);
     }
 
     li {
         position: relative;
-        height: 18.6rem;
+        height: var(--li-height);
+        width: auto;
     }
 
     .end {
@@ -65,20 +79,20 @@ import '../../styles/global.css';
 
     .number {
         font-family: var(--font-lulo-bold);
-        font-size: 12.5rem;
-        color: #ECECEC;
+        font-size: var(--number-font-size);
+        color: var(--number-color);
     }
 
     .text {
-        font-size: 1.5rem;
+        font-size: var(--text-font-size);
         display: inline-block;
         position: absolute;
-        left: 2.75rem;
-        bottom: 5.125rem;
-        width: 18rem;
+        left: var(--text-left);
+        bottom: var(--text-bottom);
+        width: var(--text-width);
     }
 
     .first_el {
-        width: 12.5rem;
+        width: var(--first-el-width);
     }
 </style>

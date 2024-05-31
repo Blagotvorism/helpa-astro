@@ -14,21 +14,32 @@ const { img, altText = '', imgDescr, heading, text } = Astro.props;
 ---
 <div class="statistics_obj">
     {img && 
-        <p class="img_descr">{imgDescr}</p>
-        <Image src={img} alt={altText} loading='lazy' class="img"/>
+        <>
+            <p class="img_descr">{imgDescr}</p>
+            <Image src={img} alt={altText} loading='eager' class="img"/>
+        </>
     }
     {!img && 
-        <p class="heading">{heading}</p>
-        <p class="text">{text}</p>
+        <>
+            <p class="heading">{heading}</p>
+            <p class="text">{text}</p>
+        </>
     }
 </div>
 
 <style>
     .statistics_obj {
+        --statistics-obj-width: 21.5rem;
+        --statistics-obj-height: 18.125rem;
+        --statistics-obj-width-2nd-child: 16rem;
+        --statistics-obj-width-5th-child: 16.5rem;
+    }
+
+    .statistics_obj {
         display: flex;
         flex-direction: column;
-        width: 21.5rem;
-        height: 18.125rem;
+        width: var(--statistics-obj-width);
+        height: var(--statistics-obj-height);
         font-family: var(--font-inter);
     }
 
@@ -50,10 +61,10 @@ const { img, altText = '', imgDescr, heading, text } = Astro.props;
     }
 
     .statistics_obj:nth-child(2) {
-        width: 16rem;
+        width: var(--statistics-obj-width-2nd-child);
     }
 
     .statistics_obj:nth-child(5) {
-        width: 16.5rem;
+        width: var(--statistics-obj-width-5th-child);
     }
 </style>

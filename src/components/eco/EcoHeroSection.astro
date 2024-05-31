@@ -1,11 +1,11 @@
 ---
 import '../../styles/global.css';
 ---
-<section class="eco_hero">
-    <div class="eco_hero__container">
-        <div class="hero_text">
-            <h1 class="hero_heading">
-                <span class="highlight" id="eco">eco</span><span class="usual_text">time </span>
+<section class="eco-hero">
+    <div class="eco-hero__container">
+        <div class="hero-text">
+            <h1 class="hero-heading">
+                <span class="highlight" id="eco">eco</span><span class="usual-text">time </span>
                 <span class="highlight" id="day">day</span>
             </h1>
             <h2 class="hero-subheading">Добро пожаловать</h2>
@@ -14,39 +14,46 @@ import '../../styles/global.css';
 </section>
 
 <style>
-    .eco_hero {
+    .eco-hero {
+        --hero-height: 45rem;
+        --container-width: 66.875rem;
+        --heading-font-size: 9.8125rem;
+        --heading-line-height: 14.5rem;
+        --subheading-font-size: 3.125rem;
+        --highlight-bg-size: 100vw 100vh;
+        --highlight-bg-position-eco: 10% 34%;
+        --highlight-bg-position-day: 14% 79%;
+    }
+
+    .eco-hero {
         position: relative;
         display: flex;
-        width: 100vw;
-        height: 45rem;
         justify-content: center;
-        background: url(../../images/eco/ecoCover.jpg) no-repeat center center/cover;
+        width: 100vw;
+        height: var(--hero-height);
+        background: url('../../images/eco/ecoCover.jpg') no-repeat center center/cover;
         overflow: hidden;
     }
 
-    .eco_hero__container {
+    .eco-hero__container {
         position: relative;
-        width: 66.875rem;
+        width: var(--container-width);
         z-index: 1;
         font-family: var(--font-lulo-bold);
         color: white;
+        text-align: center;
     }
 
-    .hero_heading {
+    .hero-heading {
         position: relative;
         width: 100%;
-        height: 29.125rem;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        
-        font-size: 9.8125rem;
-        line-height: 14.5remrem;
+        font-size: var(--heading-font-size);
+        line-height: var(--heading-line-height);
         margin-top: 9.375rem;
-        
+        white-space: nowrap;
     }
 
-    .hero_heading .highlight {
+    .highlight {
         position: absolute;
         top: 0;
         left: 0;
@@ -58,24 +65,24 @@ import '../../styles/global.css';
 
     #eco {
         width: 3em; /* Adjust width to match the size of 'ECO' */
-        background-position: 10% 34%; /* Center of the background image */
-        background-size: 100vw 100vh; /* Cover entire viewport */
+        background-position: var(--highlight-bg-position-eco);
+        background-size: var(--highlight-bg-size);
     }
 
     #day {
         margin-top: 16rem;
         width: 3em; /* Adjust width to match the size of 'ECO' */
-        background-position: 14% 79%; /* Center of the background image */
-        background-size: 100vw 100vh; /* Cover entire viewport */
+        background-position: var(--highlight-bg-position-day);
+        background-size: var(--highlight-bg-size);
     }
 
-    .usual_text {
+    .usual-text {
         position: absolute;
         right: 0;
         top: 0;
         font-family: var(--font-lulo-bold);
-        font-size: 9.8125rem;
-        line-height: 14.6rem;
+        font-size: var(--heading-font-size);
+        line-height: var(--heading-line-height);
         color: white;
     }
 
@@ -83,11 +90,10 @@ import '../../styles/global.css';
         position: absolute;
         right: 0;
         bottom: 7.7rem;
-        font-size: 3.125rem;
-
+        font-size: var(--subheading-font-size);
     }
 
-    .eco_hero::before {
+    .eco-hero::before {
         content: '';
         position: absolute;
         top: 0;

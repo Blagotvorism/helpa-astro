@@ -3,14 +3,17 @@ import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import Link from '../Link.astro';
 import DebtProblemCard from './DebtProblemCard.astro';
+import RadialGradient from '../RadialGradient.astro';
 ---
 <section class="debt_problem">
     <div class="debt_problem__container">
+        <RadialGradient topPosition="6.6875rem" leftPosition="59.6875rem" />
+        <RadialGradient topPosition="29.125rem" leftPosition="-23.375rem" />
         <div class="debt_problem__text">
-            <h2><span>Проблема закредитованности </span>населения планеты остается значительной в многих странах</h2>
+            <h2><span class="gradient_span">Проблема закредитованности </span>населения планеты остается значительной в многих странах</h2>
             <h3>Она может иметь серьезные последствия для экономики и благополучия людей. Вот некоторые основные аспекты этой проблемы:</h3>
             <div class="debt_problem__text-link">
-                <Link href="/" theme='text' classes="link link_text debt_problem__text-link"><span class="link_innertext_secondary">Подробнее о последствиях</span><Icon name="arrowText" /></Link>
+                <Link href="/" theme='text' classes="link link_text debt_problem__text-link"><span class="link_innertext_secondary gradient_span">Подробнее о последствиях</span><Icon name="arrowText" /></Link>
             </div>
         </div>
         <div class="debt_problem__cards">
@@ -35,63 +38,70 @@ import DebtProblemCard from './DebtProblemCard.astro';
 </section>
 
 <style>
+    .debt_problem {
+        --section-height: 73.5rem;
+        --container-height: 63.5rem;
+        --text-height: 23.875rem;
+        --heading-font-size: 3.125rem;
+        --heading-line-height: 4rem;
+        --heading-margin-bottom: 3.25rem;
+        --subheading-width: 34.5rem;
+        --subheading-font-size: 1.25rem;
+        --subheading-margin-bottom: 2.5rem;
+        --link-width: 13.125rem;
+        --cards-height: 34.5rem;
+        --row-gap: 2.5rem;
+        --margin-top: 5rem;
+    }
+
     section {
         display: flex;
         position: relative;
         width: 100vw;
-        height: 73.5rem;
+        height: var(--section-height);
         justify-content: center;
     }
 
     .debt_problem__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 63.5rem;
-        margin-top: 5rem;
+        height: var(--container-height);
+        margin-top: var(--margin-top);
     }
 
     .debt_problem__text {
         display: block;
         width: inherit;
-        height: 23.875rem;
-        margin-bottom: 5rem;
+        height: var(--text-height);
+        margin-bottom: var(--heading-margin-bottom);
     }
 
     h2 {
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        line-height: 4rem;
-        margin-bottom: 3.25rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--heading-font-size);
+        line-height: var(--heading-line-height);
+        margin-bottom: var(--heading-margin-bottom);
     }
 
     h3 {
         display: inline-block;
-        width: 34.5rem;
+        width: var(--subheading-width);
         font-family: var(--font-inter);
-        font-size: 1.25rem;
-        margin-bottom: 2.5rem;
+        font-size: var(--subheading-font-size);
+        margin-bottom: var(--subheading-margin-bottom);
     }
 
     .debt_problem__text-link {
-        width: 13.125rem;
+        width: var(--link-width);
     }
 
     .debt_problem__cards {
         display: flex;
         width: inherit;
-        height: 34.5rem;
+        height: var(--cards-height);
         flex-wrap: wrap;
         justify-content: space-between;
-        row-gap: 2.5rem;
+        row-gap: var(--row-gap);
     }
 </style>

@@ -4,63 +4,48 @@ import EcoGaleryCard from './EcoGaleryCard.astro';
 import galeryData from '../../data/galery.json';
 
 const { page } = Astro.props;
+
+const ecoRows = {
+    row1: galeryData.filter(card => card.id < 4 && card.category === page),
+    row2: galeryData.filter(card => [4, 5, 6, 7].includes(card.id) && card.category === page),
+    row3: galeryData.filter(card => card.id > 7 && card.category === page),
+};
+
+const rideRows = {
+    row4: galeryData.filter(card => [12, 13, 14].includes(card.id) && card.category === page),
+    row5: galeryData.filter(card => [15, 16, 17, 18].includes(card.id) && card.category === page),
+    row6: galeryData.filter(card => [19, 20, 21].includes(card.id) && card.category === page),
+};
+
+const rows = page === 'eco' ? ecoRows : rideRows;
+
 ---
-<section class="eco_galery">
-    <div class="eco_galery__container">
-        <div class="row row-1">
-            {page === 'eco' && 
-                galeryData.map((card) => (
-                        card.id < 4 &&  card.category === page && 
-                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
-                    )   
-                )
-            }
-            {
-                galeryData.map((card) => (
-                        [12, 13, 14].includes(card.id) &&  card.category === page && 
-                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
-                    )   
-                )
-            }
-        </div>
-        <div class="row row-2">
-            {page === 'eco' && 
-                galeryData.map((card) => (
-                        [4, 5, 6, 7].includes(card.id) &&  card.category === page && 
-                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
-                    )   
-                )
-            }
-            {page === 'ride' && 
-                galeryData.map((card) => (
-                        [15, 16, 17, 18].includes(card.id) &&  card.category === page && 
-                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
-                    )   
-                )
-            }
-        </div>
-        <div class="row row-3">
-            {page === 'eco' && 
-                galeryData.map((card) => (
-                        card.id > 7 &&  card.category === page && 
-                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
-                    )   
-                )
-            }
-        </div>
-        <div class="row row-1">
-            {page === 'ride' && 
-                galeryData.map((card) => (
-                        [19, 20, 21].includes(card.id) &&  card.category === page && 
-                        <EcoGaleryCard cardImage={card.imgPath} cardText={card.cardText} imgDescr={card.imgDescr} fontSize={card.fontSize} />
-                    )   
-                )
-            }
-        </div>
+
+<section class="eco-galery">
+    <div class="eco-galery__container">
+        {Object.keys(rows).map((row, index) => (
+            <div class={page === 'eco' ? `row row-${index + 1}`: `row row-${index + 4}`}>
+                {rows[row].map(card => (
+                    <EcoGaleryCard 
+                        cardImage={card.imgPath} 
+                        cardText={card.cardText} 
+                        imgDescr={card.imgDescr} 
+                        fontSize={card.fontSize} 
+                    />
+                ))}
+            </div>
+        ))}
     </div>
 </section>
 
 <style>
+    .eco-galery {
+        --container-padding: 2rem;
+        --row-width: 93.75rem;
+        --row-margin-left-2: -9.375rem;
+        --row-margin-left-3: 2.5rem;
+    }
+
     section {
         display: block;
         position: relative;
@@ -68,17 +53,16 @@ const { page } = Astro.props;
         height: 50.3rem;
     }
 
-    .eco_galery__container {
+    .eco-galery__container {
         display: block;
         position: absolute;
         width: var(--full-width);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        overflow-x: scroll;
-        scrollbar-width: none;
-        margin: -2rem;
-        padding: 2rem;
+        overflow-x: hidden;
+        padding: var(--container-padding);
+        margin: -(var(--container-padding));
     }
 
     .row {
@@ -88,13 +72,24 @@ const { page } = Astro.props;
         margin-bottom: 1.25rem;
     }
 
-    .row-2 {
-        width: 93.75rem;
-        margin-left: -9.375rem;
+    .row-2, .row-5 {
+        width: var(--row-width);
+        margin-left: var(--row-margin-left-2);
     }
 
     .row-3 {
-        width: 93.75rem;
-        margin-left: 2.5rem;
+        width: var(--row-width);
+        margin-left: var(--row-margin-left-3);
+    }
+
+    /* Hide scrollbar for Webkit browsers */
+    .eco-galery__container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for other browsers */
+    .eco-galery__container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 </style>

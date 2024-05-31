@@ -3,11 +3,11 @@ import { Image } from 'astro:assets';
 import '../../styles/global.css';
 
 interface Props {
-    img1;
+    img1: string;
     imgDescr1: string;
-    img2;
+    img2: string;
     imgDescr2: string;
-    img3;
+    img3: string;
     imgDescr3: string;
 }
 
@@ -15,64 +15,71 @@ const { img1, imgDescr1, img2, imgDescr2, img3, imgDescr3 } = Astro.props;
 ---
 <div class="img_facts">
     <div class="horizontal_images">
-        <div class="img1">
-            <Image src={img1} alt={imgDescr1} loading='lazy' />
+        <div class="img_wrapper">
+            <Image src={img1} alt={imgDescr1} loading='eager' />
         </div>
-        <div class="img1">
-            <Image src={img2} alt={imgDescr2} loading='lazy' />
+        <div class="img_wrapper">
+            <Image src={img2} alt={imgDescr2} loading='eager' />
         </div>
     </div>
     <div class="main_img">
-        <div class="img2">
-            <Image src={img3} alt={imgDescr3} loading='lazy' />
+        <div class="img_wrapper">
+            <Image src={img3} alt={imgDescr3} loading='eager' />
         </div>
     </div>
 </div>
 
 <style>
+    /* variables.css */
+    .img_facts {
+        --spacing-small: 1.25rem;
+        --img-container-width: 34.375rem;
+        --img-container-height: 35.9375rem;
+        --horizontal-img-height: 12.125rem;
+        --main-img-height: 22.6rem;
+        --margin-top: 4.7rem;
+    }
+
     .img_facts {
         display: flex;
         flex-direction: column;
-        row-gap: 1.25rem;
+        row-gap: var(--spacing-small);
         align-content: space-between;
-        width: 34.375rem;
-        height: 35.9375rem;
-        margin-top: 4.7rem;
+        width: var(--img-container-width);
+        height: var(--img-container-height);
+        margin-top: var(--margin-top);
     }
 
     .horizontal_images {
         display: flex;
         flex-direction: row;
-        column-gap: 1.25rem;
+        column-gap: var(--spacing-small);
         justify-content: space-between;
         width: inherit;
-        height: 12.125rem;
+        height: var(--horizontal-img-height);
     }
 
     .main_img {
         display: block;
-        height: 22.6rem;
-        width: 34.375rem;
+        height: var(--main-img-height);
+        width: var(--img-container-width);
     }
 
-    .img1, .img2 {
+    .img_wrapper {
         display: block;
         height: inherit;
-        border-radius: 1.875rem;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-    }
-
-    .img1 {
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
         width: 16.5625rem;
     }
 
-    .img1 {
+    .main_img .img_wrapper {
         width: inherit;
     }
 
     img {
         display: block;
-        border-radius: 1.875rem;
+        border-radius: var(--border-radius);
         object-fit: cover;
         width: 100%;
         height: 100%;

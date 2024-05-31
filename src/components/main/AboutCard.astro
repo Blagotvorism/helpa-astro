@@ -1,0 +1,72 @@
+---
+import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import Link from '../Link.astro';
+import RightArrowIcon from '../RightArrowIcon.astro';
+
+interface Props {
+    imagePath: string;
+    imageDescription: string;
+    cardDescription: string;
+    href: string;
+}
+
+const { imagePath, imageDescription, cardDescription, href } = Astro.props;
+---
+<div class="about-card">
+    <a href={href} class="card-link" aria-label="Карточка с описанием направлений проектов">
+        <div class="about-bg">
+            <Image src={import(`../../images/main/about_cards/${imagePath}.jpg`)} alt={imageDescription} class='about-card-img' loading='eager'/>
+            <Link href={href} theme='slider-square' classes="link link_square link_about_card">
+                <RightArrowIcon />
+            </Link>
+        </div>
+        <p class="about-card-descr">{cardDescription}</p>
+    </a>
+</div>
+
+<style>
+    .about-card {
+        --card-width: 16.6rem;
+        --card-height: 21.75rem;
+        --bg-height: 18.125rem;
+        --descr-margin-top: 1.25rem;
+        --descr-font-size: 1rem;
+    }
+
+    .about-card {
+        display: block;
+        width: var(--card-width);
+        height: var(--card-height);
+    }
+
+    .card-link {
+        border-radius: var(--border-radius);
+        width: inherit;
+        height: inherit;
+        text-decoration: none; /* Ensures links have no text decoration */
+    }
+
+    .about-bg {
+        position: relative;
+        width: inherit;
+        height: var(--bg-height);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+    }
+
+    .about-card-img {
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        object-fit: cover;
+    }
+
+    .about-card-descr {
+        display: inline-block;
+        width: inherit;
+        margin-top: var(--descr-margin-top);
+        font-family: var(--font-inter);
+        font-size: var(--descr-font-size);
+    }
+</style>

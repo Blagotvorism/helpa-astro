@@ -1,116 +1,114 @@
 ---
-import AboutCard from "../AboutCard.astro";
+import AboutCard from "../../components/main/AboutCard.astro";
 import '../../styles/global.css';
+import RadialGradient from "../RadialGradient.astro";
 ---
-<section class="about_prj">
-    <div class="radial_gradient radial_gradient__about-1"></div>
-    <div class="radial_gradient radial_gradient__about-2"></div>
-    <div class="about_container">
-        <div class="about_text">
-            <div class="about_title">
-                <h1 class="about_heading">
-                    <span class="about_heading-1">О проекте</span>
-                    <span class="about_heading-2">ASTROWAY<span class="dash_span">-</span></span>
+<section class="about-prj">
+    <div class="about-container">
+        <RadialGradient topPosition="26.75rem" leftPosition="34.125rem" />
+        <RadialGradient topPosition="7rem" leftPosition="42.3125rem" />
+        <div class="about-text">
+            <div class="about-title">
+                <h1 class="about-heading">
+                    <span class="about-heading-1">О проекте</span>
+                    <span class="gradient_span">ASTROWAY<span class="dash-span">-</span></span>
                 </h1>
             </div>
-            <div class="about_descr">
-                <p class="about_descr-1">благотворительное криптофутурологическое сообщество, 
+            <div class="about-descr">
+                <p class="about-descr-1">благотворительное криптофутурологическое сообщество, 
                     меняющее мир, используя последние технические достижения человечества и собственные 
                     экономические модели и стратегии.</p>
-                <p class="about_descr-2">Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:</p>
+                <p class="about-descr-2">Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:</p>
             </div>
         </div>
-        <div class="about_cards">
-			<AboutCard href="/" cardDescription='Защита природы' imagePath='forestCard' imageDescription='Лес на хребте горы' />
+        <div class="about-cards">
+            <AboutCard href="/" cardDescription='Защита природы' imagePath='forestCard' imageDescription='Лес на хребте горы' />
             <AboutCard href="/" cardDescription='Помощь онкобольным' imagePath='medicalCard' imageDescription='Два человека держат руки' /> 
             <AboutCard href="/" cardDescription='Помощь закредитованным малоимущим семьям' imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
-            <AboutCard href="/" cardDescription='Развитие спорта' imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на флне заката' />
+            <AboutCard href="/" cardDescription='Развитие спорта' imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на фоне заката' />
         </div>
     </div>
 </section>
 
 <style>
-    .about_prj {
-		position: relative;
-		display: flex;
-		width: 100vw;
-		justify-content: center;
-	}
+    .about-prj {
+        --title-width: 29.125rem;
+        --descr-width: 40.3rem;
+        --margin-top: 7rem;
+        --margin-bottom-cards: 9.375rem;
+        --margin-bottom-title: 5rem;
+        --margin-top-descr: 4.375rem;
+        --margin-bottom-descr-1: 1.25rem;
+        --heading-font-size: 3.125rem;
+        --heading-line-height: 3.5rem;
+        --dash-font-size: 3.25rem;
+        --descr-1-font-size: 1.5rem;
+        --descr-1-line-height: 1.875rem;
+        --descr-2-font-size: 1rem;
+        --descr-2-line-height: 1.25rem;
+    }
 
-	.radial_gradient__about-1 {	
-		top: 23rem;
-		left: calc((100vw - var(--full-width)) / 2 + 44.8rem);
-	}
+    .about-prj {
+        position: relative;
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+    }
 
-	.radial_gradient__about-2 {	
-		top: 31rem;
-		right: calc((100vw - var(--full-width)) / 2 + 7rem);
-	}
+    .about-container {
+        position: relative;
+        display: block;
+        width: var(--reduced-width);
+        margin-top: var(--margin-top);
+    }
 
-	.about_container {
-		display: block;
-		width: var(--reduced-width);
-		margin-top: 7rem;
-	}
+    .about-text {
+        display: flex;
+        margin-bottom: var(--margin-bottom-title);
+        justify-content: space-between;
+        width: 100%;
+    }
 
-	.about_text {
-		display: flex;
-		margin-bottom: 5rem;
-		justify-content: space-between;
-		width: 100%;
-	}
+    .about-title {
+        display: block;
+        width: var(--title-width);
+    }
 
-	.about_title {
-		display: block;
-		width: 29.125rem;
-	}
+    .about-heading {
+        font-family: var(--font-lulo-bold);
+        font-size: var(--heading-font-size);
+        line-height: var(--heading-line-height);
+    }
 
-	.about_heading {
-		font-family: var(--font-lulo-bold);
-		font-size: 3.125rem;
-		line-height: 3.5rem;
-	}
+    .dash-span {
+        margin-left: 1rem;
+        font-size: var(--dash-font-size);
+    }
 
-	.about_heading-2 {
-		background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
-	}
+    .about-descr {
+        display: inline-block;
+        width: var(--descr-width);
+        margin-top: var(--margin-top-descr);
+    }
 
-	.dash_span {
-		margin-left: 1rem;
-		font-size: 3.25rem;
-	}
+    .about-descr-1 {
+        font-family: var(--font-inter);
+        font-size: var(--descr-1-font-size);
+        line-height: var(--descr-1-line-height);
+        margin-bottom: var(--margin-bottom-descr-1);
+    }
 
-	.about_descr {
-		display: inline-block;
-		width: 40.3rem;
-		margin-top: 4.375rem;
-	}
+    .about-descr-2 {
+        font-family: var(--font-inter);
+        font-size: var(--descr-2-font-size);
+        line-height: var(--descr-2-line-height);
+        color: var(--dark-grey);
+    }
 
-	.about_descr-1 {
-		font-family: var(--font-inter);
-		font-size: 1.5rem;
-		line-height: 1.875rem;
-		margin-bottom: 1.25rem;
-	}
-
-	.about_descr-2 {
-		font-family: var(--font-inter);
-		font-size: 1rem;
-		line-height: 1.25rem;
-		color: var(--dark-grey);
-	}
-
-	.about_cards {
-		display: flex;
-		width: 100%;
-		justify-content: space-between;
-		margin-bottom: 9.375rem;
-	}
-
+    .about-cards {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: var(--margin-bottom-cards);
+    }
 </style>

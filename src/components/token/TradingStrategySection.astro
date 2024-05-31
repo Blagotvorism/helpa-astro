@@ -1,68 +1,72 @@
 ---
 import '../../styles/global.css';
+import RadialGradient from '../RadialGradient.astro';
 import TradingStrategy from '../token/TradingStrategy.astro';
 ---
 <section class="trading">
     <div class="trading__container">
-        <h2>наша торговая <span>стратегия</span></h2>
+        <RadialGradient topPosition="var(--radial-gradient-top1)" leftPosition="var(--radial-gradient-left1)" />
+        <RadialGradient topPosition="var(--radial-gradient-top2)" leftPosition="var(--radial-gradient-left2)" />
+        <h2>наша торговая <span class="gradient_span">стратегия</span></h2>
         <div class="strategy_nums">
             <TradingStrategy
                 num="1"
-                heading='Закрытый токенсейл'
-                text='между людьми, активно принимающими участие в запуске проекта'
+                heading="Закрытый токенсейл"
+                text="между людьми, активно принимающими участие в запуске проекта"
             />
             <TradingStrategy 
                 num="2"
-                heading='Открытый токенсейл'
-                text='между людьми, активно принимающими участие в запуске проекта'
+                heading="Открытый токенсейл"
+                text="между людьми, активно принимающими участие в запуске проекта"
             />
             <TradingStrategy 
                 num="3"
-                heading='открытый токенсейл'
-                text='между людьми, активно принимающими участие в запуске проекта'
+                heading="открытый токенсейл"
+                text="между людьми, активно принимающими участие в запуске проекта"
             />
             <TradingStrategy 
                 num="4"
-                heading='Выход на биржи'
+                heading="Выход на биржи"
             />
         </div>
     </div>
 </section>
 
 <style>
+    .trading {
+        --radial-gradient-top1: -16.8125rem;
+        --radial-gradient-left1: 58.125rem;
+        --radial-gradient-top2: 16.6875rem;
+        --radial-gradient-left2: -22.75rem;
+        --container-height: 43.75rem;
+        --h2-font-size: 3.125rem;
+        --spacing-between-strategies: 40rem;
+    }
+
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 53.125rem;
+        height: calc(var(--container-height) + 9.375rem);
     }
 
     .trading__container {
+        position: relative;
         display: block;
         width: var(--reduced-width);
-        height: 43.75rem;
+        height: var(--container-height);
     }
 
     h2 {
         display: inline-block;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--h2-font-size);
     }
 
     .strategy_nums {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 40rem;
+        height: var(--spacing-between-strategies);
     }
 </style>

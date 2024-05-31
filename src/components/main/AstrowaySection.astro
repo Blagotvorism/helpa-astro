@@ -10,26 +10,41 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
     <Image src={mainBackgroundImage} alt='background of planet Earth' class="bg-image"  loading="eager" decoding="async"/>
     <div class="main">
         <div class="headings-container">
-            <h1 class="main_title-1">Astr</h1>
-            <h1 class="main_title-2">way</h1>
-            <h2 class="main_subtitle">Help planet</h2>
+            <h1 class="main-title-1 gradient_span">Astr</h1>
+            <h1 class="main-title-2 gradient_span">way</h1>
+            <h2 class="main-subtitle">Help planet</h2>
             <Image src={mainLogo} alt='big Helpa project logo' class="main-logo"  loading="eager" decoding="async"/>
         </div>
-        <div class="main_description">
-            <h3 class="main_description-title">Первая благотворительная криптовалюта</h3>
-            <p class="main_description-text">Реализуйте криптовалюту и помогайте нашей планете и людям</p>
+        <div class="main-description">
+            <h3 class="main-description-title">Первая благотворительная криптовалюта</h3>
+            <p class="main-description-text">Реализуйте криптовалюту и помогайте нашей планете и людям</p>
         </div>
-        <div class="main_cta">
-            <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
-            <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+        <div class="main-cta">
+            <Link href="/" theme='primary' classes="link link-primary">Приобрести</Link>
+            <Link href="/" theme='text' classes="link link-text"><span class="link-innertext-secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
         </div>
     </div>
 </section>
 
 <style>
     .astroway {
+        --section-height: 45rem;
+        --title-font-size: 8.125rem;
+        --subtitle-font-size: 1.5rem;
+        --logo-width: 11.875rem;
+        --logo-height: 11.875rem;
+        --descr-width: 50.9375rem;
+        --descr-title-font-size: 3.125rem;
+        --descr-title-line-height: 4rem;
+        --descr-text-width: 21rem;
+        --descr-text-font-size: 1rem;
+        --cta-height: 3.625rem;
+        --cta-width: 26.875rem;
+    }
+
+    .astroway {
         width: 100vw;
-        height: 45rem;
+        height: var(--section-height);
     }
 
     .main {
@@ -55,34 +70,27 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
         width: 100%;
     }
 
-    .main_title-1, .main_title-2 {
+    .main-title-1, .main-title-2 {
         position: absolute;
         top: 0%;
         font-family: var(--font-lulo-bold);
-        font-size: 8.125rem;
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        font-size: var(--title-font-size);
     }
 
-    .main_title-1 {
+    .main-title-1 {
         left: 0;
     }
 
-    .main_title-2 {
+    .main-title-2 {
         right: -1.85rem;
     }
 
-    .main_subtitle {
+    .main-subtitle {
         position: absolute;
         top: 0;
         right: 0;
         font-family: var(--font-lulo-clean);
-        font-size: 1.5rem;
+        font-size: var(--subtitle-font-size);
         color: var(--dark-grey);
         letter-spacing: 0.445rem;
     }
@@ -91,61 +99,43 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
         position: absolute;
         top: 0%;
         left: 31.972rem;
-        width: 11.875rem;
-        height: 11.875rem;
+        width: var(--logo-width);
+        height: var(--logo-height);
     }
 
-    .main_description {
+    .main-description {
         display: inline-block;
         position: absolute;
         top: 24.25rem;
         left: 0;
-        width: 50.9375rem;
+        width: var(--descr-width);
     }
 
-    .main_description-title {
+    .main-description-title {
         color: black;
-        font-size: 3.125rem;
+        font-size: var(--descr-title-font-size);
         font-family: var(--font-lulo-bold);
         letter-spacing: 0.05rem;
-        line-height: 4rem;
+        line-height: var(--descr-title-line-height);
     }
 
-    .main_description-text {
+    .main-description-text {
         display: inline-block;
-        width: 20.3125rem;
+        width: var(--descr-text-width);
         margin-top: .5rem;
-        font-size: 1rem;
+        font-size: var(--descr-text-font-size);
         font-family: var(--font-inter);
         color: var(--dark-grey);
         letter-spacing: .05rem;
     }
 
-    .main_cta {
+    .main-cta {
         position: absolute;
         top: 38.25rem;
-        height: 3.625rem;
-        width: 26.875rem;
+        height: var(--cta-height);
+        width: var(--cta-width);
         display: flex;
         justify-content: space-between;
         background: transparent;
     }
-
-    .btn_arrow {
-        font-family: serif;
-        position: absolute;
-        right: -5px;
-        top: 1.38rem;
-        display: inline-block;
-        font-size: 1rem;
-        font-weight: 100;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    [data-icon] {
-        font-size: 1rem;
-    }
 </style>
-

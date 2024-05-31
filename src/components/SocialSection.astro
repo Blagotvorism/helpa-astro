@@ -1,23 +1,23 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
-import RadialGradient from './RadialGradient.astro';
 import { Image } from 'astro:assets';
 import ecoLogo from '../images/eco/ecoSocial.PNG';
+import RadialGradient from './RadialGradient.astro';
 
 const { page } = Astro.props;
 ---
 <section class="social">
     <div class="social__container">
-        <RadialGradient />
-        <div class="white_round">
-            {!page && <Icon name='mainLogoSocial' class='main_logo' />}
-            {page && <Image src={ecoLogo} alt='Логотиа проекта эко день' loading='eager' />}
+        <div class="white-round">
+            <RadialGradient topPosition="-8.9rem" leftPosition="-8.9rem" />
+            {!page && <Icon name='mainLogoSocial' class='main-logo' />}
+            {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='eager' />}
         </div>
         <div class="social__text">
-            <h2 class="social__heading"><span>Подписывайтесь</span> на наши социальные сети</h2>
+            <h2 class="social__heading"><span class="gradient-span">Подписывайтесь</span> на наши социальные сети</h2>
             <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
-            <div class="socil__logos">
+            <div class="social__logos">
                 <a href="/" aria-label="логотип телеграма"><Icon name='tgSocial' /></a>
                 <a href="/" aria-label="логотип ютуба"><Icon name='youtubeSocial' /></a>
                 <a href="/" aria-label="логотип IG"><Icon name='instSocial' /></a>
@@ -27,6 +27,21 @@ const { page } = Astro.props;
 </section>
 
 <style>
+    .social {
+        --container-width: 68.25rem;
+        --container-height: 33.125rem;
+        --white-round-size: 17.875rem;
+        --main-logo-size: 11.875rem;
+        --text-width: 34.375rem;
+        --text-height: 21.9rem;
+        --heading-font-size: 3.125rem;
+        --heading-line-height: 4rem;
+        --subheading-font-size: 1.3rem;
+        --logos-width: 15rem;
+        --logos-height: 2.5rem;
+        --logo-size: 2.5rem;
+    }
+
     .social {
         position: relative;
         display: block;
@@ -39,30 +54,30 @@ const { page } = Astro.props;
         position: absolute;
         top: 3.375rem;
         left: calc((100vw - var(--full-width)) / 2 - 6.8rem);
-        width: 68.25rem;
-        height: 33.125rem;
+        width: var(--container-width);
+        height: var(--container-height);
     }
 
-    .white_round {
+    .white-round {
         display: block;
         position: absolute;
         left: 9.375rem;
         top: 8.7rem;
-        width: 17.875rem;
-        height: 17.875rem;
+        width: var(--white-round-size);
+        height: var(--white-round-size);
         border-radius: 50%;
         background-color: white;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
     }
 
-    .main_logo {
+    .main-logo {
         display: block;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 11.875rem;
-        height: 11.875rem;
+        width: var(--main-logo-size);
+        height: var(--main-logo-size);
     }
 
     .social__text {
@@ -70,43 +85,33 @@ const { page } = Astro.props;
         position: absolute;
         right: 0;
         top: 6.125rem;
-        width: 34.375rem;
-        height: 21.9rem;
+        width: var(--text-width);
+        height: var(--text-height);
     }
 
     h2 {
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        line-height: 4rem;
+        font-size: var(--heading-font-size);
+        line-height: var(--heading-line-height);
         margin-bottom: 1.25rem;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
     }
 
     h3 {
         font-family: var(--font-inter);
-        font-size: 1.3rem;
+        font-size: var(--subheading-font-size);
         margin-bottom: 2.5rem;
     }
 
-    .socil__logos {
+    .social__logos {
         display: flex;
-        width: 15rem;
-        height: 2.5rem;
+        width: var(--logos-width);
+        height: var(--logos-height);
         justify-content: space-between;
         align-items: center;
     }
 
-    .socil__logos svg {
-        height: inherit;
-        width: 2.5rem;
+    .social__logos svg {
+        height: var(--logo-size);
+        width: var(--logo-size);
     }
 </style>

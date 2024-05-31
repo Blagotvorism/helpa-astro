@@ -6,77 +6,89 @@ import Link from "../Link.astro";
 <section class="main_token">
     <div class="main_token__container">
         <div class="token_title">
-            <h1 class="token_heading-1">Helpa</h1>
-            <h1 class="token_heading-2">-</h1>
+            <h1 class="gradient_span">Helpa</h1>
+            <h1 class="gradient_span">-</h1>
             <h1 class="token_heading-3">это</h1>
         </div>
         <div class="token_description">
             <h3 class="token_heading--descr">криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за трансказацию, которая идет на развитие благотворительности.</h3>
             <p class="token_descr">Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров.</p>
-            <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+            <div class="link_container">
+                <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
     .main_token {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100vw;
-		height: 28.25rem;
-	}
+        --title-width: 26.375rem;
+        --title-font-size: 3.125rem;
+        --description-width: 40.3rem;
+        --description-margin-top: 2rem;
+        --heading-descr-line-height: 1.875rem;
+        --heading-descr-font-size: 1.4rem;
+        --descr-font-size: 1rem;
+        --descr-margin-top: 1.25rem;
+        --descr-line-height: 1.25rem;
+        --descr-margin-bottom: 2.5rem;
+        --link-container-width: 9.125rem;
+        --icon-font-size: 1rem;
+        --section-height: 28.25rem;
+        --container-height: 19rem;
+    }
 
-	.main_token__container {
-		display: flex;
-		justify-content: space-between;
-		width: var(--reduced-width);
-		height: 19rem;
-	}
+    .main_token {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: var(--section-height);
+    }
 
-	.token_title {
-		display: flex;
-		width: 26.375rem;
-		justify-content: space-between;
-		align-self: self-start;
-		font-family: var(--font-lulo-bold);
-		font-size: 3.125rem;
-	}
+    .main_token__container {
+        display: flex;
+        justify-content: space-between;
+        width: var(--reduced-width);
+        height: var(--container-height);
+    }
 
-	.token_heading-1,
-	.token_heading-2 {
-		background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
-	}
-	
-	.token_description {
-		margin-top: 2rem;
-		display: block;
-		width: 40.3rem;
-	}
-	
-	.token_heading--descr {
-		font-family: var(--font-inter);
-		line-height: 1.875rem;
-		font-size: 1.4rem;
-	}
-	
-	.token_descr {
-		font-family: var(--font-inter);
-		font-size: 1rem;
-		color: var(--dark-grey);
-		margin-top: 1.25rem;
-		line-height: 1.25rem;
-		margin-bottom: 2.5rem;
-	}
+    .token_title {
+        display: flex;
+        width: var(--title-width);
+        justify-content: space-between;
+        align-self: flex-start;
+        font-family: var(--font-lulo-bold);
+        font-size: var(--title-font-size);
+    }
 
-	[data-icon] {
-        font-size: 1rem;
+    .token_description {
+        margin-top: var(--description-margin-top);
+        display: block;
+        width: var(--description-width);
+    }
+
+    .token_heading--descr {
+        font-family: var(--font-inter);
+        line-height: var(--heading-descr-line-height);
+        font-size: var(--heading-descr-font-size);
+    }
+
+    .token_descr {
+        font-family: var(--font-inter);
+        font-size: var(--descr-font-size);
+        color: var(--dark-grey);
+        margin-top: var(--descr-margin-top);
+        line-height: var(--descr-line-height);
+        margin-bottom: var(--descr-margin-bottom);
+    }
+
+    .link_container {
+        width: var(--link-container-width);
+    }
+
+    [data-icon] {
+        font-size: var(--icon-font-size);
     }
 </style>

@@ -10,7 +10,7 @@ interface Props {
 const { num, heading, text } = Astro.props;
 
 let alignFlex;
-num === '2' || num === '4' ? alignFlex = 'flex-end': alignFlex = 'flex-start';
+num === '2' || num === '4' ? alignFlex = 'flex-end' : alignFlex = 'flex-start';
 ---
 <div class="nums">
     <h2 class="num_heading">{num}</h2>
@@ -20,7 +20,24 @@ num === '2' || num === '4' ? alignFlex = 'flex-end': alignFlex = 'flex-start';
     </p>
 </div>
 
-<style define:vars={{alignFlex}}>
+<style define:vars={{ alignFlex }}>
+    .nums {
+        --num-font-size: 12.5rem;
+        --num-color: rgba(236, 236, 236, 1);
+        --text-heading-width: 19.125rem;
+        --text-heading-height: 8.125rem;
+        --text-heading-top: 11.5rem;
+        --text-heading-left: 2.75rem;
+        --text-heading-font-size: 2.5rem;
+        --text-heading-line-height: 2.85rem;
+        --text-heading-margin-bottom: 0.75rem;
+        --heading-width: 17.5rem;
+        --heading-line-height: 3.5rem;
+        --facts-text-font-size: 1rem;
+        --facts-text-line-height: 1.4rem;
+        --facts-text-width: 19.125rem;
+    }
+
     .nums {
         display: block;
         position: relative;
@@ -35,35 +52,35 @@ num === '2' || num === '4' ? alignFlex = 'flex-end': alignFlex = 'flex-start';
         height: inherit;
         width: inherit;
         font-family: var(--font-lulo-bold);
-        font-size: 12.5rem;
-        color: rgba(236, 236, 236, 1);
+        font-size: var(--num-font-size);
+        color: var(--num-color);
     }
 
     .text_heading {
         display: inline-block;
         position: absolute;
-        width: 19.125rem;
-        height: 8.125rem;
-        top: 11.5rem;
-        left: 2.75rem;
-        font-size: 2.5rem;
-        line-height: 2.85rem;
+        width: var(--text-heading-width);
+        height: var(--text-heading-height);
+        top: var(--text-heading-top);
+        left: var(--text-heading-left);
+        font-size: var(--text-heading-font-size);
+        line-height: var(--text-heading-line-height);
         color: black;
-        margin-bottom: 0.75rem;
+        margin-bottom: var(--text-heading-margin-bottom);
     }
 
     .heading {
         text-transform: uppercase;
         display: block;
-        width: 17.5rem;
-        line-height: 3.5rem;
+        width: var(--heading-width);
+        line-height: var(--heading-line-height);
     }
 
     .facts_text {
         display: inline-block;
-        font-size: 1rem;
+        font-size: var(--facts-text-font-size);
         color: var(--dark-grey);
-        line-height: 1.4rem;
-        width: 19.125rem;
+        line-height: var(--facts-text-line-height);
+        width: var(--facts-text-width);
     }
 </style>

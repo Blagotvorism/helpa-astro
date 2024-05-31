@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import imagesData from '../data/concepts.json';
+import RadialGradient from './RadialGradient.astro';
 
 interface Props {
     mainHeading: string;
@@ -13,96 +14,136 @@ interface Props {
 
 const { mainHeading, subHeading, text, pagePath, usualHeading } = Astro.props;
 
-let containerHeight, sectionHeight, imgContainerHeight, topPosition;
-let horizontalImgHeight;
-let gap;
-let fontSize, color;
+const pageConfig = {
+    'eco': {
+        containerHeight: 'var(--container-height-eco)',
+        gap: 'var(--gap)',
+        fontSize: 'var(--font-size-eco)',
+        color: 'var(--dark-grey)',
+        sectionHeight: 'var(--section-height-eco)',
+        topPosition: 'var(--top-position-eco)',
+        imgContainerHeight: 'var(--img-container-height-eco)',
+        horizontalImgHeight: 'var(--horizontal-img-height-eco)',
+    },
+    'low-income-families': {
+        containerHeight: 'var(--container-height-low-income-families)',
+        gap: 'var(--gap)',
+        fontSize: 'var(--font-size-low-income-families)',
+        color: 'black',
+        sectionHeight: 'var(--section-height-low-income-families)',
+        topPosition: 'var(--top-position-low-income-families)',
+        imgContainerHeight: 'var(--img-container-height-low-income-families)',
+        horizontalImgHeight: 'var(--horizontal-img-height-low-income-families)',
+    },
+    'longlongride': {
+        containerHeight: 'var(--container-height-longlongride)',
+        gap: 'var(--gap)',
+        fontSize: 'var(--font-size-longlongride)',
+        color: 'var(--dark-grey)',
+        sectionHeight: 'var(--section-height-longlongride)',
+        topPosition: 'var(--top-position-longlongride)',
+        imgContainerHeight: 'var(--img-container-height-longlongride)',
+        horizontalImgHeight: 'var(--horizontal-img-height-longlongride)',
+    },
+};
 
-switch(pagePath) {
-    case('eco'):
-        containerHeight = '20rem';
-        gap = '1.25rem';
-        fontSize = "1rem";
-        color = "var(--dark-grey)";
-        sectionHeight = "25rem";
-        topPosition = "0rem";
-        imgContainerHeight = '18.875rem';
-        horizontalImgHeight = '8.8rem';
-        break;
-    case('low-income-families'):
-        containerHeight = '21.875rem';
-        fontSize = "1.5rem";
-        color = "black";
-        sectionHeight = "37.5rem";
-        gap = '1.25rem';
-        topPosition = "6.25rem";
-        imgContainerHeight = '18.875rem';
-        horizontalImgHeight = '8.8rem';
-        break;
-    case('longlongride'):
-        containerHeight = '26.875rem';
-        fontSize = "1rem";
-        color = "var(--dark-grey)";
-        sectionHeight = "38rem";
-        gap = '1.25rem';
-        topPosition = "6.25rem";
-        imgContainerHeight = '25.5rem';
-        horizontalImgHeight = '12.1rem';
-        break;
-    default:
-        containerHeight = '20rem';
-        gap = '1.25rem';
-        sectionHeight = "25rem";
-        imgContainerHeight = '18.875rem';
-        fontSize = "1rem";
-        color = "var(--dark-grey)";
-        topPosition = "0rem";
-        horizontalImgHeight = '8.8rem';
-}
-console.log(topPosition);
+const config = pageConfig[pagePath] || pageConfig['eco'];
 ---
-<section class="eco_concept">
-    <div class="eco_concept__container" id="container">
-        <div class="eco_concept__text">
-            {usualHeading && <h2 class="eco_concept__heading">{usualHeading}<span>{mainHeading}</span></h2>}
-            {!usualHeading && <h2 class="eco_concept__heading"><span>{mainHeading}</span></h2>}
-            {subHeading && <h3 class="eco_concept__subheading">{subHeading}</h3>}
-            <p class="eco_concept__description">
+<section class="eco-concept">
+    <div class="eco-concept__container">
+        {pagePath === 'low-income-families' && <RadialGradient topPosition="0" leftPosition="24.25rem" />}
+        {pagePath === 'longlongride' && <RadialGradient topPosition="17.1875rem" leftPosition="25.1875rem" />}
+        <div class="eco-concept__text">
+            {usualHeading ? (
+                <h2 class="eco-concept__heading">{usualHeading}<span class="gradient_span">{mainHeading}</span></h2>
+            ) : (
+                <h2 class="eco-concept__heading"><span class="gradient_span">{mainHeading}</span></h2>
+            )}
+            {subHeading && <h3 class="eco-concept__subheading">{subHeading}</h3>}
+            <p class="eco-concept__description">
                 {text}
             </p>
         </div>
-        <div class="eco_concept__images">
-            <div class="eco_concept__images-1">
-               {imagesData.map((image) => (
-                    image.category === pagePath && 
-                    image.imageNumber < 3 && 
-                    <div class="eco_concept_img-1">
-                        <Image src={import(image.imagePath)} alt={image.imageDescr} loading='eager' class='eco_concept-img-1'/>
+        <div class="eco-concept__images">
+            <div class="eco-concept__images-1">
+               {imagesData.filter(image => image.category === pagePath && image.imageNumber < 3).map(image => (
+                    <div class="eco-concept__img-1">
+                        <Image src={import(image.imagePath)} alt={image.imageDescr} loading='eager' class='eco-concept__img-1'/>
                     </div>
                ))}
             </div>
-            <div class="eco_concept__images-2">
-                {imagesData.map((image) => (
-                     image.category === pagePath && 
-                     image.imageNumber === 3 && 
-                     <div class="eco_concept_img-2">
-                         <Image src={import(image.imagePath)} alt={image.imageDescr} loading='eager' class='eco_concept_img-2'/>
-                     </div>
+            <div class="eco-concept__images-2">
+                {imagesData.filter(image => image.category === pagePath && image.imageNumber === 3).map(image => (
+                    <div class="eco-concept__img-2">
+                        <Image src={import(image.imagePath)} alt={image.imageDescr} loading='eager' class='eco-concept__img-2'/>
+                    </div>
                 ))}
-             </div>
+            </div>
         </div>
     </div>
 </section>
 
-<style define:vars={{containerHeight, gap, fontSize, color, sectionHeight, topPosition, imgContainerHeight, horizontalImgHeight}}>
-    .eco_concept {
+<style define:vars={{
+    containerHeight: config.containerHeight,
+    gap: config.gap,
+    fontSize: config.fontSize,
+    color: config.color,
+    sectionHeight: config.sectionHeight,
+    topPosition: config.topPosition,
+    imgContainerHeight: config.imgContainerHeight,
+    horizontalImgHeight: config.horizontalImgHeight,
+}}>
+    .eco-concept {       
+        /* Sizes */
+        --section-height-eco: 25rem;
+        --section-height-low-income-families: 37.5rem;
+        --section-height-longlongride: 38rem;
+
+        --container-height-eco: 20rem;
+        --container-height-low-income-families: 21.875rem;
+        --container-height-longlongride: 26.875rem;
+
+        --gap: 1.25rem;
+
+        --font-size-eco: 1rem;
+        --font-size-low-income-families: 1.5rem;
+        --font-size-longlongride: 1rem;
+
+        --top-position-eco: 0rem;
+        --top-position-low-income-families: 6.25rem;
+        --top-position-longlongride: 6.25rem;
+
+        --img-container-height-eco: 18.875rem;
+        --img-container-height-low-income-families: 18.875rem;
+        --img-container-height-longlongride: 25.5rem;
+
+        --horizontal-img-height-eco: 8.8rem;
+        --horizontal-img-height-low-income-families: 8.8rem;
+        --horizontal-img-height-longlongride: 12.1rem;
+
+        --h2-font-size: 3.125rem;
+        --h2-line-height: 3.5rem;
+        --h2-margin-bottom: 2.5rem;
+
+        --h3-font-size: 1.5rem;
+        --h3-margin-bottom: 1.25rem;
+        --h3-width: 34.6rem;
+
+        --text-width: 37.5rem;
+
+        --images-width: 28.5rem;
+        --images-1-width: 16.6rem;
+        --images-2-width: 10.7rem;
+    }
+
+    .eco-concept {
         display: block;
         position: relative;
         width: 100vw;
         height: var(--sectionHeight);
     }
 
-    .eco_concept__container {
+    .eco-concept__container {
         position: absolute;
         top: var(--topPosition);
         left: 50%;
@@ -114,36 +155,26 @@ console.log(topPosition);
         height: var(--containerHeight);
     }
 
-    .eco_concept__text {
+    .eco-concept__text {
         display: inline-block;
-        width: 37.5rem;
+        width: var(--text-width);
         height: inherit;
     }
 
     h2 {
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        line-height: 3.5rem;
-        margin-bottom: 2.5rem;
+        font-size: var(--h2-font-size);
+        line-height: var(--h2-line-height);
+        margin-bottom: var(--h2-margin-bottom);
         color: black;
-    }
-
-    span {
-        background-color: var(--green);
-        background-image: var(--gradient);
-        background-size: 100%;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
     }
 
     h3 {
         display: inline-block;
-        width: 34.6rem;
+        width: var(--h3-width);
         font-family: var(--font-inter);
-        font-size: 1.3rem;
-        margin-bottom: 1.25rem;
+        font-size: var(--h3-font-size);
+        margin-bottom: var(--h3-margin-bottom);
     }
 
     p {
@@ -156,52 +187,59 @@ console.log(topPosition);
         object-fit: cover;
     }
 
-    .eco_concept__images {
+    .eco-concept__images {
         display: flex;
         justify-content: space-between;
-        width: 28.5rem;
+        width: var(--images-width);
         height: var(--imgContainerHeight);
     }
 
-    .eco_concept__images-1 {
+    .eco-concept__images-1 {
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         align-content: space-between;
-        gap: var(--gap);
-        width: 16.6rem;
+        row-gap: 1.25rem;
+        width: var(--images-1-width);
         height: inherit;
-        border-radius: 1.875rem;
+        border-radius: var(--border-radius);
     }
 
-    .eco_concept_img-1 {
+    .eco-concept__img-1 {
         display: block;
         width: inherit;
         height: var(--horizontalImgHeight);
         border-radius: inherit;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--box-shadow);
     }
 
-    .eco_concept-img-1 {
+    .eco-concept__img-1 img {
         display: block;
         width: inherit;
         height: inherit;
         border-radius: inherit;
     }
 
-    .eco_concept__images-2 {
+    .eco-concept__images-2 {
         display: block;
-        width: 10.7rem;
+        width: var(--images-2-width);
         height: inherit;
-        border-radius: 1.875rem;
+        border-radius: var(--border-radius);
     }
 
-    .eco_concept_img-2 {
+    .eco-concept__img-2 {
         display: block;
         width: inherit;
         height: inherit;
         border-radius: inherit;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--box-shadow);
+    }
+
+    .eco-concept__img-2 img {
+        display: block;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
     }
 </style>
