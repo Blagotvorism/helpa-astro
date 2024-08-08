@@ -12,10 +12,10 @@ const { page } = Astro.props;
         <div class="white-round">
             <RadialGradient topPosition="-8.9rem" leftPosition="-8.9rem" />
             {!page && <Icon name='mainLogoSocial' class='main-logo' />}
-            {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='eager' />}
+            {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='eager' class="main-logo" />}
         </div>
         <div class="social__text">
-            <h2 class="social__heading"><span class="gradient-span">Подписывайтесь</span> на наши социальные сети</h2>
+            <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>
             <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
             <div class="social__logos">
                 <a href="/" aria-label="логотип телеграма"><Icon name='tgSocial' /></a>
@@ -36,7 +36,7 @@ const { page } = Astro.props;
         --text-height: 21.9rem;
         --heading-font-size: 3.125rem;
         --heading-line-height: 4rem;
-        --subheading-font-size: 1.3rem;
+        --subheading-font-size: 1.5rem;
         --logos-width: 15rem;
         --logos-height: 2.5rem;
         --logo-size: 2.5rem;

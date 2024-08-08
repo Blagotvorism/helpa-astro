@@ -16,24 +16,24 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
             <Image src={mainLogo} alt='big Helpa project logo' class="main-logo"  loading="eager" decoding="async"/>
         </div>
         <div class="main-description">
-            <h3 class="main-description-title">Первая благотворительная криптовалюта</h3>
+            <h2 class="main-description-title">Первая благотворительная криптовалюта</h2>
             <p class="main-description-text">Реализуйте криптовалюту и помогайте нашей планете и людям</p>
         </div>
         <div class="main-cta">
-            <Link href="/" theme='primary' classes="link link-primary">Приобрести</Link>
-            <Link href="/" theme='text' classes="link link-text"><span class="link-innertext-secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+            <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+            <Link href="/" theme='text' classes="link link_text"><span class="link-innertext-secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
         </div>
     </div>
 </section>
 
 <style>
     .astroway {
-        --section-height: 45rem;
+        --section-height: var(--full-height);
         --title-font-size: 8.125rem;
         --subtitle-font-size: 1.5rem;
         --logo-width: 11.875rem;
         --logo-height: 11.875rem;
-        --descr-width: 50.9375rem;
+        --descr-width: 53rem;
         --descr-title-font-size: 3.125rem;
         --descr-title-line-height: 4rem;
         --descr-text-width: 21rem;

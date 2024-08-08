@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import { Image } from 'astro:assets';
 import Link from '../Link.astro';
 import RightArrowIcon from '../RightArrowIcon.astro';
+import ArrowButton from '../ArrowButton.svelte';
 
 interface Props {
     imagePath: string;
@@ -17,9 +18,7 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
     <a href={href} class="card-link" aria-label="Карточка с описанием направлений проектов">
         <div class="about-bg">
             <Image src={import(`../../images/main/about_cards/${imagePath}.jpg`)} alt={imageDescription} class='about-card-img' loading='eager'/>
-            <Link href={href} theme='slider-square' classes="link link_square link_about_card">
-                <RightArrowIcon />
-            </Link>
+            <ArrowButton url={href} theme='slider-square' />
         </div>
         <p class="about-card-descr">{cardDescription}</p>
     </a>

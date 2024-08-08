@@ -1,5 +1,6 @@
 ---
-import EventsTab from "../EventsTab.astro";
+import Events from "./Events.svelte";
+import EventsTab from "./EventsTab.svelte";
 import '../../styles/global.css';
 import RadialGradient from "../RadialGradient.astro";
 ---
@@ -16,10 +17,8 @@ import RadialGradient from "../RadialGradient.astro";
                 <h4 class="events_heading-4">Посмотрите анонс ближайших мероприятий и выберете то, что интересно именно Вам.</h4>
             </div>
         </div>
-        <EventsTab />
-        <div class="event_cards">
-
-        </div>
+		<Events client:load />
+		 <!-- <EventsTab client:load /> -->
     </div>
 </section>
 
@@ -28,7 +27,7 @@ import RadialGradient from "../RadialGradient.astro";
 		position: relative;
 		display: block;
 		width: 100vw;
-		min-height: 47.8rem;
+		min-height: 58.875rem;
 	}
 	
 	.events_container {
@@ -72,8 +71,8 @@ import RadialGradient from "../RadialGradient.astro";
 	
 	.events_heading-3 {
 		font-family: var(--font-inter);
-		font-size: 1.25rem;
-		line-height: 1.5rem;
+		font-size: 1.5rem;
+		line-height: 1.75rem;
 		margin-bottom: 1.25rem;
 	}
 	
@@ -83,9 +82,5 @@ import RadialGradient from "../RadialGradient.astro";
 		font-family: var(--font-inter);
 		font-size: 1rem;
 		color: var(--dark-grey);
-	}
-	
-	.event_cards {
-
 	}
 </style>

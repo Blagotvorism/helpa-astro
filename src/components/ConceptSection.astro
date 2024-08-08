@@ -59,10 +59,8 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             ) : (
                 <h2 class="eco-concept__heading"><span class="gradient_span">{mainHeading}</span></h2>
             )}
-            {subHeading && <h3 class="eco-concept__subheading">{subHeading}</h3>}
-            <p class="eco-concept__description">
-                {text}
-            </p>
+            {subHeading && <h3 class="eco-concept__subheading" set:html={subHeading} />}
+            <p class="eco-concept__description" set:html={text} />
         </div>
         <div class="eco-concept__images">
             <div class="eco-concept__images-1">

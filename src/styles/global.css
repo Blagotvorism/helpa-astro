@@ -18,15 +18,28 @@
 }
 
 html, body {
+  font-weight: 400;
   font-size: 16px;
-  font-family: Inter;
   width: 100vw;
   overflow-x: hidden;
   line-height: normal;
 }
 
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
 h1, h2 {
   text-transform: uppercase;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
+}
+
+button, button:hover, button:active, button:visited, button:focus {
+  outline: none;
+  border: 1px solid transparent;
 }
 
 .radial_gradient {
@@ -55,6 +68,7 @@ h1, h2 {
 
   /* Dimensions */
   --full-width: 75rem;
+  --full-height: 100vh;
   --reduced-width: 70rem;
   --border-radius: 1.875rem;
   --section-width: 100vw;

@@ -1,17 +1,17 @@
 ---
 import '../../styles/global.css';
 
-const { text } = Astro.props;
+const { text, textWidth } = Astro.props;
 ---
 <div class="eco-event-chain-card">
-    <h4 class="eco-event-chain-card__text">{text}</h4>
+    <p class="eco-event-chain-card__text" set:html={text} />
 </div>
 
-<style>
+<style define:vars={{textWidth}}>
     .eco-event-chain-card {
         --card-width: 16.6rem;
         --card-height: 10rem;
-        --text-width: 12.75rem;
+        --text-width: var(--textWidth);
     }
 
     .eco-event-chain-card {
@@ -31,6 +31,5 @@ const { text } = Astro.props;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        text-align: center;
     }
 </style>

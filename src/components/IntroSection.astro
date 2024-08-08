@@ -8,7 +8,7 @@ interface Props {
 	textWidth?: string;
 }
 
-const { mainHeading, text, containerWidth, containerHeight, textWidth = '28.7rem' } = Astro.props;
+const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem' } = Astro.props;
 ---
 <section class="main_intro">
     <div class="main_intro__container">
@@ -57,7 +57,7 @@ const { mainHeading, text, containerWidth, containerHeight, textWidth = '28.7rem
 		font-size: 1rem;
 		line-height: 1.25rem;
 		position: absolute;
-		right: 0;
-		bottom: .6rem;
+		right: -1rem;
+		bottom: 0;
 	}
 </style>

@@ -18,7 +18,7 @@ import RadialGradient from '../RadialGradient.astro';
             <div class="card">
                 <div class="text2">
                     <p class="card_name">Токенсейл <span class="gradient_span">до 1%</span> ЕЖЕГОДНО</p>
-                    <p class="card_text-common">Нераспроданное количество токенов переносится на следующий год</p>
+                    <p class="card_text-common">Нераспроданное количество <br/> токенов переносится <br/> на следующий год</p>
                 </div>
             </div>
             <div class="card">
@@ -136,8 +136,10 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     .card_text-common {
+        display: inline-block;
         font-size: var(--card-text-common-font-size);
         color: var(--dark-grey);
+        width: 15.2rem;
     }
 
     .card_name-h2 {

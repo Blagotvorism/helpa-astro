@@ -4,7 +4,7 @@ import '../../styles/global.css';
 <section class="communication">
     <div class="communication__container">
         <div class="scroll_content">
-            <h2 class="scroll-content">Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</h2>
+            <h2 class="scroll-content">Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним <br/> природа.</h2>
         </div>
     </div>
 </section>
@@ -14,21 +14,14 @@ import '../../styles/global.css';
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 10rem;
+        height: 33.5125rem;
     }
 
     .communication__container {
         display: block;
         width: var(--reduced-width);
-        height: 4rem;
+        height: inherit;
         overflow: hidden;
-    }
-
-    .scroll_content {
-        display: block;
-        width: 250rem;
-        transform: translateX(0);
-        transition: transform 0.3s ease-out;
     }
 
     h2 {
@@ -36,5 +29,7 @@ import '../../styles/global.css';
         width: 100%;
         font-family: var(--font-lulo-bold);
         font-size: 3.125rem;
+        line-height: 4.0625rem;
+        margin-bottom: 13.2rem;
     }
 </style>
