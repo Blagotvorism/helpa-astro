@@ -163,9 +163,11 @@
         width: 34.375rem;
         height: 18.125rem;
         border-radius: 1.875rem;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
         background-color: white;
+        position: relative;
+        border: 1px solid #eee;
     }
+
 
     .event_card-img {
         display: block;
@@ -214,5 +216,9 @@
     .btn_arrow {
         margin-left: .4rem;
         margin-top: 2px;
+    }
+
+    button {
+        cursor: pointer;
     }
 </style>

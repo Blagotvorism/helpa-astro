@@ -60,6 +60,7 @@
         justify-content: center;
         align-items: center;
         z-index: 1000;
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
     }
     .modal {

@@ -6,10 +6,7 @@
 
 <style>
 	.carousel {
-		position: relative;
 		width: 100%;
-		justify-content: center;
-		align-items: center;
 	}
 </style>
 
