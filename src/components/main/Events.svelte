@@ -6,13 +6,83 @@
     let slider;
     let category;
     let cards;
+    let scrollable = true;
+    let myComponent;
+
+    const wheel = (node, options) => {
+        let { scrollable } = options;
+        
+        const handler = e => {
+            if (!scrollable) e.preventDefault();
+        };
+        
+        node.addEventListener('wheel', handler, { passive: false });
+        
+        return {
+            update(options) {
+                scrollable = options.scrollable;
+            },
+            destroy() {
+                node.removeEventListener('wheel', handler, { passive: false });
+            }
+        };
+    };
 
     export function findCards(category) {
         category !== 'all' ? cards = events.filter(cards => cards.category === category).length : cards = events.length;
         return cards;
     }
 
+    function scrollIntoView() {
+		const el = document.getElementById('component-container');
+		// if (!el) return;
+        el.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    function handleReceivedValue(varName, varValue) {
+        if(varName === 'disabledScroll') {
+            scrollable = !varValue;
+        }
+    }
+
+    function renderComponent(target, props = {}) {
+        // Destroy any existing component before creating a new one
+        if (myComponent) {
+            myComponent.$destroy();
+        }
+
+        // Create a new instance of the component
+        myComponent = new Modal({
+            target: target, // The DOM element where the component should be rendered
+            props: props,   // Pass props to the component if needed
+        });
+
+        // Listen for the custom event from the component
+        myComponent.$on('disabledScroll', (event) => {
+            handleReceivedValue('disabledScroll', event.detail.disabledScroll);
+        });
+    }
+
+    export function destroyComponent() {
+        if (myComponent) {
+            myComponent.$destroy(); // Destroy the component and clean up
+            myComponent = null; // Reset the reference to avoid errors
+        }
+    }
+
+    export function handleClick(event) {
+        let eventCard = event;
+        const container = document.getElementById('component-container');
+        renderComponent(container, {event: eventCard, scrollable: scrollable});
+        scrollIntoView();
+        scrollable = false;
+    }
+
 </script>
+
+<svelte:window use:wheel={{scrollable}} />
 
 <div class="cards_container">
     <EventsTab bind:category btnAction={slider} cards={cards} />
@@ -23,11 +93,11 @@
                     {#if category === 'all'}
                         {#each events as event, index (index)}
                             <div class="event_card">
-                                <img src={event.imageURL} alt={event.description} class='event_card-img' />
+                                <img src={event.imageURL} alt={event.title} class='event_card-img' />
                                 <div class="event_card-text">
                                     <h3 class="event_card-title">{event.title}</h3>
-                                    <p class="event_card-descr">{event.description}</p>
-                                    <button class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <p class="event_card-descr">{event.descriptionShort}</p>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                         {/each}
@@ -35,11 +105,11 @@
                         {#each events as event, index (index)}
                             {#if category === event.category}
                             <div class="event_card">
-                                <img src={event.imageURL} alt={event.description} class='event_card-img' />
+                                <img src={event.imageURL} alt={event.title} class='event_card-img' />
                                 <div class="event_card-text">
                                     <h3 class="event_card-title">{event.title}</h3>
-                                    <p class="event_card-descr">{event.description}</p>
-                                    <button class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <p class="event_card-descr">{event.descriptionShort}</p>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                             {/if}
@@ -103,6 +173,7 @@
         width: 16.5625rem;
         border-top-left-radius: 1.875rem;
         border-bottom-left-radius: 1.875rem;
+        object-fit: cover;
     }
 
     .event_card-text {
@@ -144,5 +215,4 @@
         margin-left: .4rem;
         margin-top: 2px;
     }
-
 </style>

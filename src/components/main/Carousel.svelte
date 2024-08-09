@@ -27,9 +27,16 @@
 	export let threshold = 20;
 	export let rtl = false;
     export let siemaItems;
+	export let theme;
 	
 	let siema;
 	let slider;
+
+	if(theme === 'img_slider') {
+		perPage = 1;
+	} else {
+		perPage = siemaItems >= 2 ? perPage : siemaItems;
+	}
 
     export function left () {
 		slider.prev();
@@ -42,7 +49,7 @@
 	onMount(() => {
 		slider = new Siema({
 			selector: siema,
-			perPage: siemaItems >= 2 ? perPage : siemaItems,
+			perPage: perPage,
 			loop: loop,
   			duration: duration,
   			easing: easing,

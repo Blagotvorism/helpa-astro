@@ -22,7 +22,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
 ---
 
 <section class="eco-galery">
-    <div class="eco-galery__container">
+    <div class="eco-galery__container" id="scrollHorizontal">
         {Object.keys(rows).map((row, index) => (
             <div class={page === 'eco' ? `row row-${index + 1}`: `row row-${index + 4}`}>
                 {rows[row].map(card => (
@@ -40,7 +40,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
 
 <style>
     .eco-galery {
-        --container-padding: 2rem;
+        --container-padding: 9.375rem;
         --row-width: 93.75rem;
         --row-margin-left-2: -9.375rem;
         --row-margin-left-3: 2.5rem;
@@ -51,18 +51,27 @@ const rows = page === 'eco' ? ecoRows : rideRows;
         position: relative;
         width: 100vw;
         height: 50.3rem;
+        overflow: auto;
     }
 
     .eco-galery__container {
         display: block;
-        position: absolute;
+        position: relative;
         width: var(--full-width);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        overflow-x: hidden;
-        padding: var(--container-padding);
         margin: -(var(--container-padding));
+        overflow-x: auto;
+        scrollbar-width: none; /* For Firefox */
+        -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    }
+
+    .scroll-container::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
+        width: 0;
+        height: 0;
+        -webkit-appearance: none;
     }
 
     .row {
@@ -73,23 +82,21 @@ const rows = page === 'eco' ? ecoRows : rideRows;
     }
 
     .row-2, .row-5 {
+        margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
+        transition: margin-left 0.5s ease-in-out;
         width: var(--row-width);
-        margin-left: var(--row-margin-left-2);
     }
 
     .row-3 {
         width: var(--row-width);
         margin-left: var(--row-margin-left-3);
+        transition: margin-left 0.5s ease-in-out;
     }
 
-    /* Hide scrollbar for Webkit browsers */
-    .eco-galery__container::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for other browsers */
-    .eco-galery__container {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+    .eco-galery__container:focus-within .row:nth-child(2),
+    .eco-galery__container:hover .row:nth-child(2),
+    .eco-galery__container:focus-within .row:nth-child(3),
+    .eco-galery__container:hover .row:nth-child(3) {
+        margin-left: 0; /* This brings the 2nd row into full view on scroll */
     }
 </style>

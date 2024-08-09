@@ -1,10 +1,9 @@
 ---
 import Events from "./Events.svelte";
-import EventsTab from "./EventsTab.svelte";
 import '../../styles/global.css';
 import RadialGradient from "../RadialGradient.astro";
 ---
-<section class="main_events">
+<section class="main_events" id="component-container">
     <div class="events_container">
 		<RadialGradient topPosition="13.0625rem" leftPosition="-8.375rem" />
         <div class="events_text">
@@ -18,7 +17,6 @@ import RadialGradient from "../RadialGradient.astro";
             </div>
         </div>
 		<Events client:load />
-		 <!-- <EventsTab client:load /> -->
     </div>
 </section>
 
