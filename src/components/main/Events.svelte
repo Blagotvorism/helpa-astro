@@ -3,6 +3,7 @@
     import EventsTab from './EventsTab.svelte';
     import Modal from './Modal.svelte';
 	import events from '../../data/events.json';
+	import SelectDropDown from '../SelectDropDown.svelte';
     let slider;
     let category;
     let cards;
@@ -29,6 +30,7 @@
     };
 
     export function findCards(category) {
+        console.log('Category in Events: ', category);
         category !== 'all' ? cards = events.filter(cards => cards.category === category).length : cards = events.length;
         return cards;
     }
@@ -86,6 +88,7 @@
 
 <div class="cards_container">
     <EventsTab bind:category btnAction={slider} cards={cards} />
+    <SelectDropDown events={events} />
     <div class="event_cards">
         {#if findCards(category) !== 0}
             {#key category}
@@ -129,9 +132,48 @@
 
 <style>
     .cards_container {
+        /* Container vars */
+        --cards-container-width: var(--reduced-width);
+        --cards-container-heigth: 30.85rem;
+        --no-cards-container-width: 23.75rem;
+        --no-cards-container-mt: 6.875rem;
+
+        /* no cards vars */
+        --no-cards-fs: 1.25rem;
+
+        /* Event card vars */
+        --event-card-width: 34.375rem;
+        --event-card-heigth: 18.125rem;
+        --event-card-img-width: 16.5625rem;
+        --event-card-text-width: 17.8125rem;
+
+        /* Event card title vars */
+        --event-card-title-width: 15.375rem;
+        --event-card-title-height: 3rem;
+        --event-card-title-font-size: 1.5rem;
+        --event-card-title-line-height: 1.875rem;
+        --event-card-title-margin-left: 1.25rem;
+        --event-card-title-margin-bottom: 2.5rem;
+        --event-card-title-margin-top: 1.875rem;
+
+        /* Event card descr vars */
+        --event-card-descr-width: 15.375rem;
+        --event-card-descr-height: 7.35rem;
+        --event-card-descr-margin-left: 1.25rem;
+        --event-card-descr-font-size: 1rem;
+
+        /* button */
+        --button-font-size: 0.875rem;
+        --button-width: 4.6875rem;
+        --button-ml: 1.25rem;
+        --button-mb: 2rem;
+    }
+
+    .cards_container {
+        position: relative;
         display: block;
-        width: 70rem;
-        height: 24.6rem;
+        width: var(--cards-container-width);
+        height: var(--cards-container-heigth);
     }
 
     .event_cards {
@@ -142,17 +184,19 @@
     }
 
     .no_cards_container {
+        position: absolute;
         display: block;
-        width: 23.75rem;
-        margin: auto;
-        margin-top: 6.875rem;
+        width: var(--no-cards-container-width);
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .no_cards {
         display: inline-block;
         width: inherit;
         text-align: center;
-        font-size: 1.25rem;
+        font-size: var(--no-cards-fs);
         color: black;
         text-decoration: none;
     }
@@ -160,9 +204,9 @@
     .event_card {
         display: flex;
         flex-direction: row;
-        width: 34.375rem;
-        height: 18.125rem;
-        border-radius: 1.875rem;
+        width: var(--event-card-width);
+        height: var(--event-card-heigth);
+        border-radius: var(--border-radius);
         background-color: white;
         position: relative;
         border: 1px solid #eee;
@@ -172,45 +216,46 @@
     .event_card-img {
         display: block;
         height: inherit;
-        width: 16.5625rem;
-        border-top-left-radius: 1.875rem;
-        border-bottom-left-radius: 1.875rem;
+        width: var(--event-card-img-width);
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
         object-fit: cover;
     }
 
     .event_card-text {
         display: block;
         height: inherit;
-        width: 17.8125rem;
+        width: var(--event-card-text-width);
     }
 
     .event_card-title {
         display: inline-block;
-        width: 15.375rem;
-        height: 3rem;
+        width: var(--event-card-title-width);
+        height: var(--event-card-title-height);
         color: black;
         font-family: var(--font-inter);
-        font-size: 1.4rem;
-        line-height: 1.875rem;
-        margin-left: 1.25rem;
-        margin-bottom: 2.5rem;
-        margin-top: 1.875rem;
+        font-size: var(--event-card-title-font-size);
+        line-height: var(--event-card-title-line-height);
+        margin-left: var(--event-card-title-margin-left);
+        margin-bottom: var(--event-card-title-margin-bottom);
+        margin-top: var(--event-card-title-margin-top);
     }
 
     .event_card-descr {
         display: inline-block;
-        width: 15.375rem;
-        height: 6.125rem;
-        margin-left: 1.25rem;
+        width: var(--event-card-descr-width);
+        height: var(--event-card-descr-height);
+        margin-left: var(--event-card-descr-margin-left);
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--event-card-descr-font-size);
         color: var(--dark-grey);
     }
 
     .btn_event-link {
+        cursor: pointer;
         padding: 0;
-        margin-left: 1.25rem;
-        margin-bottom: 2rem;
+        margin-left: var(--button-ml);
+        margin-bottom:  var(--button-mb);
     }
 
     .btn_arrow {
@@ -218,7 +263,195 @@
         margin-top: 2px;
     }
 
-    button {
-        cursor: pointer;
+    .btn_innertext_secondary {
+        font-family: var(--font-inter);
+        font-size: var(--button-font-size);
+    }
+
+    @media (960px <= width < 1200px) {
+        .cards_container {
+            /* Container vars */
+            --cards-container-width: var(--reduced-width);
+            --cards-container-heigth: 26.25rem;
+            --no-cards-container-width: 23.6875rem;
+            --no-cards-container-mt: 9.375rem;
+
+            /* no cards vars */
+            --no-cards-fs: 1.25rem;
+
+            /* Event card vars */
+            --event-card-width: 28.125rem;
+            --event-card-heigth: 14.875rem;
+            --event-card-img-width: 13.5625rem;
+            --event-card-text-width: 14.5625rem;
+
+            /* Event card title vars */
+            --event-card-title-width: 12.125rem;
+            --event-card-title-height: auto;
+            --event-card-title-font-size: 1.25rem;
+            --event-card-title-line-height: 1.5rem;
+            --event-card-title-margin-left: 1.1rem;
+            --event-card-title-margin-bottom: 1.25rem;
+            --event-card-title-margin-top: 1.5rem;
+
+            /* Event card descr vars */
+            --event-card-descr-width: 11.875rem;
+            --event-card-descr-height: 5.75rem;
+            --event-card-descr-margin-left: 1.1rem;
+            --event-card-descr-font-size: 0.75rem;
+
+            /* button */
+            --button-font-size: 0.875rem;
+            --button-width: 6.0625rem;
+            --button-ml: 1.1rem;
+            --button-mb: 1.75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .cards_container {
+            /* Container vars */
+            --cards-container-width: var(--reduced-width);
+            --cards-container-heigth: 20.875rem;
+            --no-cards-container-width: 23.75rem;
+            --no-cards-container-mt: 9.375rem;
+
+            /* no cards vars */
+            --no-cards-fs: 1.25rem;
+
+            /* Event card vars */
+            --event-card-width: 18.625rem;
+            --event-card-heigth: 10.8125rem;
+            --event-card-img-width: 9rem;
+            --event-card-text-width: calc(var(--event-card-width) - var(--event-card-img-width));
+
+            /* Event card title vars */
+            --event-card-title-width: 7.3125rem;
+            --event-card-title-height: auto;
+            --event-card-title-font-size: 0.75rem;
+            --event-card-title-line-height: 1rem;
+            --event-card-title-margin-left: 0.75rem;
+            --event-card-title-margin-bottom: 0.625rem;
+            --event-card-title-margin-top: 1.5rem;
+
+            /* Event card descr vars */
+            --event-card-descr-width: 8rem;
+            --event-card-descr-height: 3.7rem;
+            --event-card-descr-margin-left: 0.75rem;
+            --event-card-descr-font-size: 0.625rem;
+
+            /* button */
+            --button-font-size: 0.625rem;
+            --button-width: 4.6875rem;
+            --button-ml: 0.75rem;
+            --button-mb: 1rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .cards_container {
+            /* Container vars */
+            --cards-container-width: 38.125rem;
+            --cards-container-heigth: 18.375rem;
+            --no-cards-container-width: 14.625rem;
+            --no-cards-container-mt: 9.375rem;
+
+            /* no cards vars */
+            --no-cards-fs: 0.75rem;
+
+            /* Event card vars */
+            --event-card-width: 18.5625rem;
+            --event-card-heigth: 10.8125rem;
+            --event-card-img-width: 9rem;
+            --event-card-text-width: calc(var(--event-card-width) - var(--event-card-img-width));
+
+            /* Event card title vars */
+            --event-card-title-width: 7.3125rem;
+            --event-card-title-height: auto;
+            --event-card-title-font-size: 0.75rem;
+            --event-card-title-line-height: 1rem;
+            --event-card-title-margin-left: 0.75rem;
+            --event-card-title-margin-bottom: 0.625rem;
+            --event-card-title-margin-top: 1.5rem;
+
+            /* Event card descr vars */
+            --event-card-descr-width: 8rem;
+            --event-card-descr-height: 3.7rem;
+            --event-card-descr-margin-left: 0.75rem;
+            --event-card-descr-font-size: 0.625rem;
+
+            /* button */
+            --button-font-size: 0.625rem;
+            --button-width: 4.6875rem;
+            --button-ml: 0.75rem;
+            --button-mb: 1rem;
+        }
+
+        .no_cards_container {
+            position: absolute;
+            display: block;
+            width: var(--no-cards-container-width);
+            top: 75%;
+            left: 50%;
+            transform: translate(-87.5%, -75%);
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .cards_container {
+            /* Container vars */
+            --cards-container-width: var(--reduced-width);
+            --cards-container-heigth: 15.875rem;
+            --no-cards-container-width: 14.625rem;
+            --no-cards-container-mt: 9.375rem;
+
+            /* no cards vars */
+            --no-cards-fs: 0.75rem;
+
+            /* Event card vars */
+            --event-card-width: 18.5625rem;
+            --event-card-heigth: 10.8125rem;
+            --event-card-img-width: 9rem;
+            --event-card-text-width: calc(var(--event-card-width) - var(--event-card-img-width));
+
+            /* Event card title vars */
+            --event-card-title-width: 7.3125rem;
+            --event-card-title-height: auto;
+            --event-card-title-font-size: 0.75rem;
+            --event-card-title-line-height: 1rem;
+            --event-card-title-margin-left: 0.75rem;
+            --event-card-title-margin-bottom: 0.625rem;
+            --event-card-title-margin-top: 1.5rem;
+
+            /* Event card descr vars */
+            --event-card-descr-width: 8rem;
+            --event-card-descr-height: 3.7rem;
+            --event-card-descr-margin-left: 0.75rem;
+            --event-card-descr-font-size: 0.625rem;
+
+            /* button */
+            --button-font-size: 0.625rem;
+            --button-width: 4.6875rem;
+            --button-ml: 0.75rem;
+            --button-mb: 1rem;
+        }
+
+        .cards_container {
+            /* min-height: 20.75rem; */
+            height: auto;
+        }
+
+        .event_cards {
+            display: none;
+        }
+
+        .no_cards_container {
+            position: absolute;
+            display: block;
+            width: var(--no-cards-container-width);
+            top: 87.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 </style>

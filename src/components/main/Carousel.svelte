@@ -8,6 +8,19 @@
 	.carousel {
 		width: 100%;
 	}
+
+	@media (480px <= width < 640px) {
+		.carousel {
+			width: inherit;
+		}
+	}
+
+	@media (320px <= width < 480px) {
+		.slides {
+			display: flex;
+			flex-direction: column;
+		}
+	}
 </style>
 
 <script>

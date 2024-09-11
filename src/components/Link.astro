@@ -25,12 +25,42 @@ const { href, theme, classes } = Astro.props;
         --link-height: 3.5rem;
         --square-size: 3.6rem;
         --text-gap: 0.625rem;
+        --font-size-link: 1rem;
     }
 
+    @media (640px <= width < 1200px) {
+        a {
+            --link-width: 13.4375rem;
+            --link-height: 2.625rem;
+            --square-size: 3.6rem;
+            --text-gap: 0.625rem;
+            --font-size-link: 0.875rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        a {
+            --link-width: 13.0625rem;
+            --link-height: 1.875rem;
+            --square-size: 2.8125rem;
+            --text-gap: 0.625rem;
+            --font-size-link: 0.625rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        a {
+            --link-width: 8.125rem;
+            --link-height: 1.875rem;
+            --square-size: 3.6rem;
+            --text-gap: 0.625rem;
+            --font-size-link: 0.625rem;
+        }
+    }
     .link {
         cursor: pointer;
         font-family: var(--font-inter);
-        font-size: 1rem;
+        font-size: var(--font-size-link);
         color: black;
         display: flex;
         justify-content: center;
@@ -64,7 +94,7 @@ const { href, theme, classes } = Astro.props;
         display: flex;
         gap: var(--text-gap);
         justify-content: space-between;
-        font-size: 0.875rem;
+        font-size: var(--font-size-link);
         background: var(--gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

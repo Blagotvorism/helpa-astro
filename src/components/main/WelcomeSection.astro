@@ -2,8 +2,6 @@
 import '../../styles/global.css';
 import Link from "../Link.astro";
 import { Icon } from "astro-icon/components";
-
-const { welcomeImg } = Astro.props;
 ---
 <section class="welcome">
     <div class="welcome_container">
@@ -14,12 +12,14 @@ const { welcomeImg } = Astro.props;
                     <span class="community_span">в наше сообщество</span>
                 </h1>
                 <p class="welcome_descr">
-                    экоактивистов, криптоэнтузиастов, спортсменов, 
+                    Экоактивистов, криптоэнтузиастов, спортсменов, 
                     интеллектуалов, волонтёров, меценатов, философов, 
                     предпринимателей, учёных, деятелей искусств <br/> и свободных людей. 
                 </p>
             </div>
-            <Link href="/" theme='primary' classes="link link_primary">Присоединиться</Link>
+            <div class="welcome_link">
+                <Link href="https://t.me/astrowayhelpplanet" theme='primary' classes="link link_primary">Присоединиться</Link>
+            </div>  
         </div>
         <div class="container_right">
             <Icon name='connectedLogo' class="welcome_img" />
@@ -32,7 +32,9 @@ const { welcomeImg } = Astro.props;
 	.welcome {
 		--welcome-height: 30.7rem;
 		--welcome-container-height: 22.1rem;
+        --welcome-container-width: 66.375rem;
 		--welcome-container-margin-top: 4.375rem;
+        --welcome-container-margin-left: -2rem;
 		--container-left-width: 41rem;
 		--container-right-width: 22.1rem;
 		--welcome-title-font-size: 3.125rem;
@@ -42,7 +44,7 @@ const { welcomeImg } = Astro.props;
 		--welcome-descr-width: 27.7rem;
 		--welcome-descr-font-size: 1rem;
 		--welcome-descr-line-height: 1.25rem;
-		--welcome-img-width: 30.2rem;
+		--welcome-img-width: 22.0625rem;
 	}
 
     .welcome {
@@ -55,9 +57,10 @@ const { welcomeImg } = Astro.props;
     .welcome_container {
         display: flex;
         justify-content: space-between;
-        width: var(--reduced-width);
+        width: var(--welcome-container-width);
         height: var(--welcome-container-height);
         margin-top: var(--welcome-container-margin-top);
+        margin-left: var(--welcome-container-margin-left);
     }
 
     .container_left {
@@ -68,7 +71,7 @@ const { welcomeImg } = Astro.props;
     }
 
     .container_right {
-        height: 100%;
+        height: var(--container-right-width);
         width: var(--container-right-width);
     }
 
@@ -97,7 +100,112 @@ const { welcomeImg } = Astro.props;
 
     .welcome_img {
         display: block;
-        width: var(--welcome-img-width);
-        height: 100%;
+        width: inherit;
+        height: inherit;
+    }
+
+    @media (960px <= width < 1200px) {
+        .welcome {
+            --welcome-height: 19.5rem;
+            --welcome-container-height: 17rem;
+            --welcome-container-width: 53.875rem;
+            --welcome-container-margin-top: 2.5rem;
+            --welcome-container-margin-left: -3rem;
+            --container-left-width: 32rem;
+            --container-right-width: 17rem;
+            --welcome-title-font-size: 2.5rem;
+            --welcome-title-line-height: 3rem;
+            --welcome-title-letter-spacing: 2px;
+            --welcome-title-margin-bottom: 1.25rem;
+            --welcome-descr-width: 27.7rem;
+            --welcome-descr-font-size: 0.875rem;
+            --welcome-descr-line-height: 1rem;
+	    }
+    }
+
+    @media (640px <= width < 960px) {
+        .welcome {
+            --welcome-height: 17.8125rem;
+            --welcome-container-height: 14.6875rem;
+            --welcome-container-width: var(--reduced-width);
+            --welcome-container-margin-top: 3.125rem;
+            --welcome-container-margin-left: 0;
+            --container-left-width: 29rem;
+            --container-right-width: 8.8125rem;
+            --welcome-title-font-size: 2.29rem;
+            --welcome-title-line-height: 2.7rem;
+            --welcome-title-letter-spacing: 2px;
+            --welcome-title-margin-bottom: 1.25rem;
+            --welcome-descr-width: 27.7rem;
+            --welcome-descr-font-size: 0.875rem;
+            --welcome-descr-line-height: 1rem;
+	    }
+
+        .container_right {
+            display: inline-block;
+            margin-top: 3.5rem;
+            margin-right: .5rem;
+        }
+        .welcome_img {
+            transform: rotateY(180deg);
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .welcome {
+            --welcome-height: 13.375rem;
+            --welcome-container-height: 11rem;
+            --welcome-container-width: 27.5rem;
+            --welcome-container-margin-top: 2.375rem;
+            --welcome-container-margin-left: 0;
+            --container-left-width: 16.6875rem;
+            --container-right-width: 8.8125rem;
+            --welcome-title-font-size: 1rem;
+            --welcome-title-line-height: 1.25rem;
+            --welcome-title-letter-spacing: 2px;
+            --welcome-title-margin-bottom: 1.25rem;
+            --welcome-descr-width: 16.6875rem;
+            --welcome-descr-font-size: 0.625rem;
+            --welcome-descr-line-height: 1rem;
+	    }
+    }
+
+    @media (320px <= width < 480px) {
+        .welcome {
+            --welcome-height: 21.75rem;
+            --welcome-container-height: 16rem;
+            --welcome-container-width: var(--reduced-width);
+            --welcome-container-margin-top: 2.375rem;
+            --welcome-container-margin-left: 0;
+            --container-left-width: 16.6875rem;
+            --container-right-width: 7.5625rem;
+            --welcome-title-font-size: 1rem;
+            --welcome-title-line-height: 1.25rem;
+            --welcome-title-letter-spacing: 2px;
+            --welcome-title-margin-bottom: 0.625rem;
+            --welcome-descr-width: 16.6875rem;
+            --welcome-descr-font-size: 0.625rem;
+            --welcome-descr-line-height: 1rem;
+	    }
+
+        .welcome_container {
+            flex-direction: column;
+        }
+
+        .container_left {
+            display: block;
+            position: relative;
+        }
+
+        .container_right {
+            align-self: center;
+        }
+
+        .welcome_link {
+            position: absolute;
+            top: 17.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 </style>

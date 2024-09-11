@@ -9,13 +9,18 @@ import Link from '../Link.astro';
             <h3 class="business-heading">Тогда нам по пути!</h3>
             <h4 class="business-subheading">Имеете схожие цели?</h4>
         </div>
-        <Link href='/' theme='primary' classes="link link_primary">Присоединиться</Link>
+        <div class="business-card_link">
+            <Link href='/' theme='primary' classes="link link_primary">Присоединиться</Link>
+        </div>
+        <div class="business-card_link-small">
+            <a href='/' class="link link_primary">Присоединиться</a>
+        </div>
     </div>
 </div>
 
 <style>
     .business-card {
-        --card-height: 13.625rem;
+        --card-height: 9.125rem;
         --container-width: 16.6rem;
         --container-height: 9.6rem;
         --margin-bottom: 2.8rem;
@@ -56,4 +61,123 @@ import Link from '../Link.astro';
         font-size: var(--subheading-font-size);
         color: var(--dark-grey);
     }
+
+    .business-card_link-small {
+        display: none;
+    }
+
+    .link_primary {
+        --color1: rgba(255, 255, 255, 0.6);
+        --color2: rgba(255, 255, 255, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 0.75rem;
+        height: inherit;
+        width: inherit;
+        border-radius: var(--border-radius);
+        border: 2px solid #64C8BD;;
+        background: linear-gradient(to top, var(--color1), var(--color2));
+    }
+
+
+    .link_primary:hover,
+    .link_primary:active {
+        --color1: #094A6F;
+        --color2: #64C8BD;
+        border: none;
+        color: white;
+    }
+
+    @media (960px <= width < 1200px) {
+        .business-card {
+            --card-height: 11.25rem;
+            --container-width: 13.4375rem;
+            --container-height: 9.6rem;
+            --margin-bottom: 2.5rem;
+            --margin-left: 0.5rem;
+            --heading-font-size: 1.25rem;
+            --subheading-font-size: 0.75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .business-card {
+            --card-height: 9.125rem;
+            --container-width: 8.8125rem;
+            --container-height: 9.125rem;
+            --margin-bottom: 1.6875rem;
+            --margin-left: 0.5rem;
+            --heading-font-size: 0.75rem;
+            --subheading-font-size: 0.625rem;
+        }
+
+        .busines_card-link {
+            width: 8.8125rem;
+        }
+
+        .business-card_link-small {
+            display: block;
+            width: 8.8125rem;
+            height: 2rem;
+        }
+
+        .business-card_link {
+            display: none;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .business-card {
+            --card-height: 4.375rem;
+            --container-width: 13.125rem;
+            --container-height: 4.375rem;
+            --margin-bottom: 0.75rem;
+            --margin-left: 0.5rem;
+            --heading-font-size: 0.75rem;
+            --subheading-font-size: 0.625rem;
+        }
+
+        .business-card {
+            order: -1;
+        }
+
+        .business-card_link-small {
+            display: block;
+            width: 13.125rem;
+            height: 2rem;
+        }
+
+        .business-card_link {
+            display: none;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .business-card {
+            --card-height: 5.8125rem;
+            --container-width: 8.125rem;
+            --container-height: 5.8125rem;
+            --margin-bottom: 1.5rem;
+            --margin-left: 0.5rem;
+            --heading-font-size: 0.75rem;
+            --subheading-font-size: 0.625rem;
+        }
+
+        .business-card {
+            order: -1;
+        }
+
+        .business-card_link-small {
+            display: block;
+            width: 8.125rem;
+            height: 2.2rem;
+        }
+
+        .business-card_link {
+            display: none;
+        }
+    }
+
 </style>

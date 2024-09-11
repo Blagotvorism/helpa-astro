@@ -6,9 +6,26 @@ interface Props {
 	containerWidth: string;
 	containerHeight: string;
 	textWidth?: string;
+	page?: string;
 }
 
-const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem' } = Astro.props;
+const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem', page } = Astro.props;
+
+let containerWidth_960, containerWidth_640, containerWidth_480, containerWidth_320;
+let containerHeight_960, containerHeight_640, containerHeight_480, containerHeight_320;
+
+switch (page) {
+	case 'home':
+		containerWidth_960 = '40.875rem';
+		containerWidth_640 = '27.25rem';
+		containerWidth_480 = '16.3125rem';
+		containerWidth_320 = '10rem';
+		containerHeight_960 = '9rem';
+		containerHeight_640 = '15rem';
+		containerHeight_480 = '3.9375rem';
+		containerHeight_320 = '6.25rem';
+		break;
+}
 ---
 <section class="main_intro" id="main_intro">
     <div class="main_intro__container">
@@ -19,12 +36,23 @@ const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem' 
     </div>
 </section>
 
-<style define:vars={{containerWidth, containerHeight, textWidth}}>
+<style define:vars=
+	{{
+		containerWidth, containerHeight, textWidth, 
+		containerWidth_960, containerWidth_640, containerWidth_480, containerWidth_320,
+		containerHeight_960, containerHeight_640, containerHeight_480, containerHeight_320
+	}}>
+	.main_intro {
+		--section-height: 45rem;
+		--font-size-title: 3.125rem;
+		--line-height-title: 4rem;
+	}
+
     .main_intro {
 		position: relative;
 		display: block;
 		width: 100vw;
-		height: 45rem;
+		height: var(--section-height);
 		background-image: url('../images/main/interBG.jpg');
 		background-size: cover;
 	}
@@ -41,8 +69,8 @@ const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem' 
 	}
 	.main_intro__title {
 		display: inline;
-		font-size: 3.125rem;
-		line-height: 4rem;
+		font-size: var(--font-size-title);
+		line-height: var(--line-height-title);
 		font-family: var(--font-lulo-bold);
 		position: absolute;
 		top: 0;
@@ -59,5 +87,57 @@ const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem' 
 		position: absolute;
 		right: -1rem;
 		bottom: 0;
+	}
+
+	@media (960px <= width < 1200px) {
+		.main_intro {
+			--section-height: 45rem;
+			--font-size-title: 2.5rem;
+			--line-height-title: 3rem;
+		}
+
+		.main_intro__container {
+			width: var(--containerWidth_960);
+			height: var(--containerHeight_960);
+		}
+	}
+
+	@media (640px <= width < 960px) {
+		.main_intro {
+			--section-height: 51.8125rem;
+			--font-size-title: 2.5rem;
+			--line-height-title: 3rem;
+		}
+
+		.main_intro__container {
+			width: var(--containerWidth_640);
+			height: var(--containerHeight_640);
+		}
+	}
+
+	@media (480px <= width < 640px) {
+		.main_intro {
+			--section-height: 16.25rem;
+			--font-size-title: 1rem;
+			--line-height-title: 1.25rem;
+		}
+
+		.main_intro__container {
+			width: var(--containerWidth_480);
+			height: var(--containerHeight_480);
+		}
+	}
+
+	@media (320px <= width < 480px) {
+		.main_intro {
+			--section-height: 30rem;
+			--font-size-title: 1rem;
+			--line-height-title: 1.25rem;
+		}
+
+		.main_intro__container {
+			width: var(--containerWidth_320);
+			height: var(--containerHeight_320);
+		}
 	}
 </style>

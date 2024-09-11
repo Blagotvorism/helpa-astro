@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
-import { Image } from 'astro:assets';
 import imagesData from '../data/concepts.json';
 import RadialGradient from './RadialGradient.astro';
+import { Image } from 'astro:assets';
 
 interface Props {
     mainHeading: string;
@@ -66,14 +66,14 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             <div class="eco-concept__images-1">
                {imagesData.filter(image => image.category === pagePath && image.imageNumber < 3).map(image => (
                     <div class="eco-concept__img-1">
-                        <Image src={import(image.imagePath)} alt={image.imageDescr} loading='eager' class='eco-concept__img-1'/>
+                        <img src={image.imagePath} alt={image.imageDescr} class='eco-concept__img-1' />
                     </div>
                ))}
             </div>
             <div class="eco-concept__images-2">
                 {imagesData.filter(image => image.category === pagePath && image.imageNumber === 3).map(image => (
                     <div class="eco-concept__img-2">
-                        <Image src={import(image.imagePath)} alt={image.imageDescr} loading='eager' class='eco-concept__img-2'/>
+                        <img src={image.imagePath} alt={image.imageDescr} class='eco-concept__img-2' />
                     </div>
                 ))}
             </div>

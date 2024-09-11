@@ -4,62 +4,62 @@
         "category": "eco",
         "imageDescr": "Камни на берегу моря",
         "imageNumber": 1,
-        "imagePath": "../images/eco/ecoConcept1.jpg"
+        "imagePath": "/images/eco/ecoConcept1.jpg"
     },
     {
         "id": 2,
         "category": "eco",
         "imageDescr": "Пляж",
         "imageNumber": 2,
-        "imagePath": "../images/eco/ecoConcept2.jpg"
+        "imagePath": "/images/eco/ecoConcept2.jpg"
     },
     {
         "id": 3,
         "category": "eco",
         "imageDescr": "Дерево на пляже",
         "imageNumber": 3,
-        "imagePath": "../images/eco/ecoConcept3.jpg"
+        "imagePath": "/images/eco/ecoConcept3.jpg"
     },
     {
         "id": 4,
         "category": "low-income-families",
         "imageDescr": "Офисный рабочий стол",
         "imageNumber": 1,
-        "imagePath": "../images/lowIncome/lowIncomeConcept1.jpg"
+        "imagePath": "/images/lowIncome/lowIncomeConcept1.jpg"
     },
     {
         "id": 5,
         "category": "low-income-families",
         "imageDescr": "Группа людей на лекции",
         "imageNumber": 2,
-        "imagePath": "../images/lowIncome/lowIncomeConcept2.jpg"
+        "imagePath": "/images/lowIncome/lowIncomeConcept2.jpg"
     },
     {
         "id": 6,
         "category": "low-income-families",
         "imageDescr": "Отрывок из газеты",
         "imageNumber": 3,
-        "imagePath": "../images/lowIncome/lowIncomeConcept3.jpg"
+        "imagePath": "/images/lowIncome/lowIncomeConcept3.jpg"
     },
     {
         "id": 7,
         "category": "longlongride",
         "imageDescr": "Гонка велосепедистов",
         "imageNumber": 1,
-        "imagePath": "../images/longLongRide/rideConcept1.jpg"
+        "imagePath": "/images/longLongRide/rideConcept1.jpg"
     },
     {
         "id": 8,
         "category": "longlongride",
         "imageDescr": "Группа роллеров",
         "imageNumber": 2,
-        "imagePath": "../images/longLongRide/rideConcept2.jpg"
+        "imagePath": "/images/longLongRide/rideConcept2.jpg"
     },
     {
         "id": 9,
         "category": "longlongride",
         "imageDescr": "Скейтер делает Олли",
         "imageNumber": 3,
-        "imagePath": "../images/longLongRide/rideConcept3.jpg"
+        "imagePath": "/images/longLongRide/rideConcept3.jpg"
     }
 ]

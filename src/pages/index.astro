@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import mainBackgroundImage from "../images/main/main-background.png";
 import mainLogo from "../images/main/mainLogo.png";
-import welcomeImg from "../images/main/welcome.png";
 import '../styles/global.css';
 import AstrowaySection from '../components/main/AstrowaySection.astro';
 import WelcomeSection from '../components/main/WelcomeSection.astro';
@@ -17,10 +16,11 @@ import SlogansSection from '../components/main/SlogansSection.astro';
 <Layout title="ASTROWAY" mainPage>
 	<main>
 		<AstrowaySection mainBackgroundImage={mainBackgroundImage} mainLogo={mainLogo} />
-		<WelcomeSection welcomeImg={welcomeImg} />
+		<WelcomeSection />
 		<AboutSection />
 		<EventsSection />
 		<IntroSection 
+			page="home"
 			mainHeading='Мы создали уникальный проект и сейчас покажем, как он работает' 
 			containerWidth='54.2rem' 
 			containerHeight="12.2rem"

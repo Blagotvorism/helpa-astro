@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 import ecoLogo from '../images/eco/ecoSocial.PNG';
 import RadialGradient from './RadialGradient.astro';
 
-const { page } = Astro.props;
+const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
 ---
 <section class="social">
     <div class="social__container">
@@ -18,9 +18,9 @@ const { page } = Astro.props;
             <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>
             <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
             <div class="social__logos">
-                <a href="/" aria-label="логотип телеграма"><Icon name='tgSocial' /></a>
-                <a href="/" aria-label="логотип ютуба"><Icon name='youtubeSocial' /></a>
-                <a href="/" aria-label="логотип IG"><Icon name='instSocial' /></a>
+                <a href={tg_link} aria-label="логотип телеграма"><Icon name='tgSocial' /></a>
+                <a href={yt_link} aria-label="логотип ютуба"><Icon name='youtubeSocial' /></a>
+                <a href={inst_link} aria-label="логотип IG"><Icon name='instSocial' /></a>
             </div>
         </div>
     </div>

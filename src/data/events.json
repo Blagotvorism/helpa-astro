@@ -6,9 +6,9 @@
         "year": "2018",
         "descriptionShort": "Начало организации наших заездов было положено в 2018 году ...",
         "descriptionFull": "Начало организации наших заездов было положено в 2018 году, во время окончательного падения популярности лонгбординга, г. Москва.",
-        "link": "/longlongride",
-        "imageURL": "/src/images/longLongRide/2018/LLR2018.jpg",
-        "sliderImages": ["/src/images/longLongRide/2018/LLR2018.jpg"]
+        "link": "https://t.me/longlongride",
+        "imageURL": "/images/longLongRide/2018/LLR2018.jpg",
+        "sliderImages": ["/images/longLongRide/2018/LLR2018.jpg"]
     },
     {
         "id": 2,
@@ -18,14 +18,14 @@
         "descriptionShort": "Слава, придумай текст",
         "descriptionFull": "Слава, придумай большой текст. В папке 2019 года пустой txt файл",
         "link": "/longlongride",
-        "imageURL": "/src/images/longLongRide/2019/LLR20196.jpg",
+        "imageURL": "/images/longLongRide/2019/LLR20196.jpg",
         "sliderImages": [
-                            "/src/images/longLongRide/2019/LLR20191.jpg", 
-                            "/src/images/longLongRide/2019/LLR20192.jpg",
-                            "/src/images/longLongRide/2019/LLR20193.jpg", 
-                            "/src/images/longLongRide/2019/LLR20194.jpg",
-                            "/src/images/longLongRide/2019/LLR20195.jpg",
-                            "/src/images/longLongRide/2019/LLR20196.jpg"
+                            "/images/longLongRide/2019/LLR20191.jpg", 
+                            "/images/longLongRide/2019/LLR20192.jpg",
+                            "/images/longLongRide/2019/LLR20193.jpg", 
+                            "/images/longLongRide/2019/LLR20194.jpg",
+                            "/images/longLongRide/2019/LLR20195.jpg",
+                            "/images/longLongRide/2019/LLR20196.jpg"
                         ]
     },
     {
@@ -35,12 +35,12 @@
         "year": "2021",
         "descriptionShort": "Заезд от 6.08.2021. После пандемии 2020 года ...",
         "descriptionFull": "Заезд от 6.08.2021. После пандемии 2020 года, когда была введена самоизоляция, 2021 год был свежим глотком воздуха. На волне усталости от изоляции люди начали проявлять больший интерес.",
-        "link": "/longlongride",
-        "imageURL": "/src/images/longLongRide/2021/LLR20211.jpg",
+        "link": "https://t.me/longlongride",
+        "imageURL": "/images/longLongRide/2021/LLR20211.jpg",
         "sliderImages": [
-                            "/src/images/longLongRide/2021/LLR20211.jpg", 
-                            "/src/images/longLongRide/2021/LLR20212.jpg",
-                            "/src/images/longLongRide/2021/LLR20213.jpg"
+                            "/images/longLongRide/2021/LLR20211.jpg", 
+                            "/images/longLongRide/2021/LLR20212.jpg",
+                            "/images/longLongRide/2021/LLR20213.jpg"
                         ]
     },
     {
@@ -50,14 +50,14 @@
         "year": "2022",
         "descriptionShort": "Заезды 2022 года продолжились, интерес у людей возрос и достиг результатов ...",
         "descriptionFull": "Заезды 2022 года продолжились, интерес у людей возрос и достиг результатов выше пиков 2014-15 годов, когда была волна моды на лонгборд. Если в те годы тренд был определён интересом, связанным с появлением чего-то нового в массах, то тенденция 2022 года была связана с интересом, связанным с оригинальностью подхода в организации, экспериментами, доступностью для всех уровней подготовки и возрастов. С в связи с повышенным интересом у людей, мы начали более тщательно подходить к безопасности заездов, а так же уделять внимание соблюдением норм поведения на мероприятии. В этом же году мы расширили границы и сделали наше сообщество международным, открыв сообщество в Грузии. В городе Батуми были проведены первые заезды.",
-        "link": "/longlongride",
-        "imageURL": "/src/images/longLongRide/2022/LLR20221.jpg",
+        "link": "https://t.me/longlongride",
+        "imageURL": "/images/longLongRide/2022/LLR20221.jpg",
         "sliderImages": [
-                            "/src/images/longLongRide/2022/LLR20221.jpg", 
-                            "/src/images/longLongRide/2022/LLR20222.jpg",
-                            "/src/images/longLongRide/2022/LLR20223.jpg",
-                            "/src/images/longLongRide/2022/LLR20224.jpg",
-                            "/src/images/longLongRide/2022/LLR20225.jpg"
+                            "/images/longLongRide/2022/LLR20221.jpg", 
+                            "/images/longLongRide/2022/LLR20222.jpg",
+                            "/images/longLongRide/2022/LLR20223.jpg",
+                            "/images/longLongRide/2022/LLR20224.jpg",
+                            "/images/longLongRide/2022/LLR20225.jpg"
                         ]
     },
     {
@@ -67,19 +67,19 @@
         "year": "2023",
         "descriptionShort": "2023 год стал годом появления новых сообществ в направлении массовых заездов ...",
         "descriptionFull": "2023 год стал годом появления новых сообществ в направлении массовых заездов на лонгборде, что говорит о росте интереса и хотя мода данного вида спорта давно минула, лонгбординг стал закреплять свои позиции среди уже катающихся и понемногу усиливаться за счёт возвратившихся и вновь прибывших. Наше сообщество объединяет и пробуждает интерес к массовым заездам.",
-        "link": "/longlongride",
-        "imageURL": "/src/images/longLongRide/2023/LLR20231.jpg",
+        "link": "https://t.me/longlongride",
+        "imageURL": "/images/longLongRide/2023/LLR20231.jpg",
         "sliderImages": [
-                            "/src/images/longLongRide/2023/LLR20231.jpg", 
-                            "/src/images/longLongRide/2023/LLR20232.jpg",
-                            "/src/images/longLongRide/2023/LLR20233.jpg",
-                            "/src/images/longLongRide/2023/LLR20234.jpg",
-                            "/src/images/longLongRide/2023/LLR20235.jpg",
-                            "/src/images/longLongRide/2023/LLR20236.jpg", 
-                            "/src/images/longLongRide/2023/LLR20237.jpg",
-                            "/src/images/longLongRide/2023/LLR20238.jpg",
-                            "/src/images/longLongRide/2023/LLR20239.jpg",
-                            "/src/images/longLongRide/2023/LLR202310.jpg"
+                            "/images/longLongRide/2023/LLR20231.jpg", 
+                            "/images/longLongRide/2023/LLR20232.jpg",
+                            "/images/longLongRide/2023/LLR20233.jpg",
+                            "/images/longLongRide/2023/LLR20234.jpg",
+                            "/images/longLongRide/2023/LLR20235.jpg",
+                            "/images/longLongRide/2023/LLR20236.jpg", 
+                            "/images/longLongRide/2023/LLR20237.jpg",
+                            "/images/longLongRide/2023/LLR20238.jpg",
+                            "/images/longLongRide/2023/LLR20239.jpg",
+                            "/images/longLongRide/2023/LLR202310.jpg"
                         ]
     },
     {
@@ -89,19 +89,19 @@
         "year": "2024",
         "descriptionShort": "2024 год наше сообщество продолжило организацию костюмированных массовых заездов ...",
         "descriptionFull": "2024 год наше сообщество продолжило организацию костюмированных массовых заездов. На каждом мероприятии примерно 40%-60% новых людей, что не может не радовать и говорит о популяризации нашими силами катания в обществе единомышленников и друзей, которых они находят в наших рядах. В эпоху индивидуализма и популяризации методов удаленного взаимодействия индивидов, очень важно чувствовать себя частью чего-то большего, социального. Ведь на самом деле мы живём в социуме, где почти каждый не чувствует себя его частью. Появление таких сообществ решает эту проблематику и улучшает психологическое здоровье в условиях современных реалий. ",
-        "link": "/longlongride",
-        "imageURL": "/src/images/longLongRide/2023/LLR20231.jpg",
+        "link": "https://t.me/longlongride",
+        "imageURL": "/images/longLongRide/2024/LLR20241.jpg",
         "sliderImages": [
-                            "/src/images/longLongRide/2024/LLR20241.jpg", 
-                            "/src/images/longLongRide/2024/LLR20242.jpg",
-                            "/src/images/longLongRide/2024/LLR20243.jpg",
-                            "/src/images/longLongRide/2024/LLR20244.jpg",
-                            "/src/images/longLongRide/2024/LLR20245.jpg",
-                            "/src/images/longLongRide/2024/LLR20246.jpg", 
-                            "/src/images/longLongRide/2024/LLR20247.jpg",
-                            "/src/images/longLongRide/2024/LLR20248.jpg",
-                            "/src/images/longLongRide/2024/LLR20249.jpg",
-                            "/src/images/longLongRide/2024/LLR202410.jpg"
+                            "/images/longLongRide/2024/LLR20241.jpg", 
+                            "/images/longLongRide/2024/LLR20242.jpg",
+                            "/images/longLongRide/2024/LLR20243.jpg",
+                            "/images/longLongRide/2024/LLR20244.jpg",
+                            "/images/longLongRide/2024/LLR20245.jpg",
+                            "/images/longLongRide/2024/LLR20246.jpg", 
+                            "/images/longLongRide/2024/LLR20247.jpg",
+                            "/images/longLongRide/2024/LLR20248.jpg",
+                            "/images/longLongRide/2024/LLR20249.jpg",
+                            "/images/longLongRide/2024/LLR202410.jpg"
                         ]
     },
     {
@@ -111,15 +111,15 @@
         "year": "14.02.2022",
         "descriptionShort": "Наша первая экологическая акция прошла 14.02.2022 в Шри-Ланке ...",
         "descriptionFull": "Наша первая экологическая акция прошла 14.02.2022 в Шри-Ланке, городе Велигама. В акции приняли участие граждане из России, Украины, Белоруссии, а так же местные жители.",
-        "link": "/eco",
-        "imageURL": "/src/images/eco/20220214/14021.jpg",
+        "link": "https://t.me/ecotimeday",
+        "imageURL": "/images/eco/20220214/14021.jpg",
         "sliderImages": [
-                            "/src/images/eco/20220214/14021.jpg", 
-                            "/src/images/eco/20220214/14022.jpg",
-                            "/src/images/eco/20220214/14023.jpg",
-                            "/src/images/eco/20220214/14024.jpg",
-                            "/src/images/eco/20220214/14025.jpg",
-                            "/src/images/eco/20220214/14026.jpg"
+                            "/images/eco/20220214/14021.jpg", 
+                            "/images/eco/20220214/14022.jpg",
+                            "/images/eco/20220214/14023.jpg",
+                            "/images/eco/20220214/14024.jpg",
+                            "/images/eco/20220214/14025.jpg",
+                            "/images/eco/20220214/14026.jpg"
                         ]
     },
     {
@@ -129,11 +129,11 @@
         "year": "13.11.2022",
         "descriptionShort": "Слава, придумай текст",
         "descriptionFull": "Слава, придумай большой текст. В папке 2019 года пустой txt файл.",
-        "link": "/eco",
-        "imageURL": "/src/images/eco/20221113/IMG_5371.JPG",
+        "link": "https://t.me/ecotimeday",
+        "imageURL": "/images/eco/20221113/IMG_5371.JPG",
         "sliderImages": [
-                            "/src/images/eco/20221113/IMG_5371.JPG", 
-                            "/src/images/eco/20221113/IMG_5375.JPG"
+                            "/images/eco/20221113/IMG_5371.JPG", 
+                            "/images/eco/20221113/IMG_5375.JPG"
                         ]
     },
     {
@@ -143,16 +143,16 @@
         "year": "20.11.2023",
         "descriptionShort": "Третья экологическая акция прошла 20.11.2023 в Грузии, городе Батуми ...",
         "descriptionFull": "Третья экологическая акция прошла 20.11.2023 в Грузии, городе Батуми. Акцию посетили люди из разных стран: Грузии, России, Украины и Белоруссии.",
-        "link": "/eco",
-        "imageURL": "/src/images/eco/20221120/20111.jpg",
+        "link": "https://t.me/ecotimeday",
+        "imageURL": "/images/eco/20221120/20111.jpg",
         "sliderImages": [
-                            "/src/images/eco/20221120/20111.jpg", 
-                            "/src/images/eco/20221120/20112.jpg",
-                            "/src/images/eco/20221120/20113.jpg", 
-                            "/src/images/eco/20221120/20114.jpg",
-                            "/src/images/eco/20221120/20115.jpg", 
-                            "/src/images/eco/20221120/20116.jpg",
-                            "/src/images/eco/20221120/20117.jpg"
+                            "/images/eco/20221120/20111.jpg", 
+                            "/images/eco/20221120/20112.jpg",
+                            "/images/eco/20221120/20113.jpg", 
+                            "/images/eco/20221120/20114.jpg",
+                            "/images/eco/20221120/20115.jpg", 
+                            "/images/eco/20221120/20116.jpg",
+                            "/images/eco/20221120/20117.jpg"
                         ]
     },
     {
@@ -162,19 +162,19 @@
         "year": "17.06.2023",
         "descriptionShort": "Экологическая акция в Москве прошла 17.06.2023, уборка была проведена ...",
         "descriptionFull": "Экологическая акция в Москве прошла 17.06.2023, уборка была проведена на береговой территории, прилегающей к городской набережной, в районе Нагатинский Затон.",
-        "link": "/eco",
-        "imageURL": "/src/images/eco/20230617/1.png",
+        "link": "https://t.me/ecotimeday",
+        "imageURL": "/images/eco/20230617/1.png",
         "sliderImages": [
-                            "/src/images/eco/20230617/1.png", 
-                            "/src/images/eco/20230617/2.png",
-                            "/src/images/eco/20230617/3.png", 
-                            "/src/images/eco/20230617/4.png",
-                            "/src/images/eco/20230617/5.png", 
-                            "/src/images/eco/20230617/6.png",
-                            "/src/images/eco/20230617/7.png",
-                            "/src/images/eco/20230617/8.png", 
-                            "/src/images/eco/20230617/9.png",
-                            "/src/images/eco/20230617/10.png"
+                            "/images/eco/20230617/1.png", 
+                            "/images/eco/20230617/2.png",
+                            "/images/eco/20230617/3.png", 
+                            "/images/eco/20230617/4.png",
+                            "/images/eco/20230617/5.png", 
+                            "/images/eco/20230617/6.png",
+                            "/images/eco/20230617/7.png",
+                            "/images/eco/20230617/8.png", 
+                            "/images/eco/20230617/9.png",
+                            "/images/eco/20230617/10.png"
                         ]
     },
     {
@@ -184,16 +184,16 @@
         "year": "29.06.2024",
         "descriptionShort": "Экологическая акция прошла 29.06.2024 в Израиле, городе Тель-Авив.",
         "descriptionFull": "Экологическая акция прошла 29.06.2024 в Израиле, городе Тель-Авив.",
-        "link": "/eco",
-        "imageURL": "/src/images/eco/20240629/1.HEIC",
+        "link": "https://t.me/ecotimeday",
+        "imageURL": "/images/eco/20240629/1.HEIC",
         "sliderImages": [
-                            "/src/images/eco/20240629/1.HEIC", 
-                            "/src/images/eco/20240629/2.HEIC", 
-                            "/src/images/eco/20240629/3.HEIC", 
-                            "/src/images/eco/20240629/4.HEIC", 
-                            "/src/images/eco/20240629/5.HEIC", 
-                            "/src/images/eco/20240629/6.HEIC", 
-                            "/src/images/eco/20240629/7.HEIC"
+                            "/images/eco/20240629/1.HEIC", 
+                            "/images/eco/20240629/2.HEIC", 
+                            "/images/eco/20240629/3.HEIC", 
+                            "/images/eco/20240629/4.HEIC", 
+                            "/images/eco/20240629/5.HEIC", 
+                            "/images/eco/20240629/6.HEIC", 
+                            "/images/eco/20240629/7.HEIC"
                         ]
     }
 ]

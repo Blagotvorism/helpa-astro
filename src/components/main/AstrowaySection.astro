@@ -18,12 +18,12 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
         <div class="main_text">
             <div class="main-description">
                 <h2 class="main-description-title">Первая благотворительная криптовалюта</h2>
-                <p class="main-description-text">Реализуйте криптовалюту и помогайте нашей планете и людям</p>
+                <p class="main-description-text">Покупайте, продавайте, обменивайте криптовалюту и помогайте нашей планете и людям.</p>
             </div>
-            <div class="main-cta">
-                <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
-                <Link href="/" theme='text' classes="link link_text"><span class="link-innertext-secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
-            </div>
+        </div>
+        <div class="main-cta">
+            <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+            <Link href="https://t.me/astrowayhelpplanet" theme='text' classes="link link_text"><span class="link-innertext-secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
         </div>
     </div>
 </section>
@@ -33,15 +33,19 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
         --section-height: var(--full-height);
         --title-font-size: 8.125rem;
         --subtitle-font-size: 1.5rem;
+        --headings-container-height: 12.0625rem;
+        --headings-container-width: 100%;
+        --headings-container-top: 9.3125rem;
         --logo-width: 11.875rem;
         --logo-height: 11.875rem;
+        --main-text-height: 12.5rem;
         --descr-width: 53.5rem;
         --descr-title-font-size: 3.125rem;
         --descr-title-line-height: 4rem;
         --descr-text-width: 21rem;
         --descr-text-font-size: 1rem;
         --cta-height: 3.625rem;
-        --cta-width: 26.875rem;
+        --cta-width: 27.875rem;
     }
 
     .astroway {
@@ -67,9 +71,9 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
     .headings-container {
         display: inline-block;
         position: absolute;
-        top: 9.3125rem;
-        height: 12.0625rem;
-        width: 100%;
+        top: var(--headings-container-top);
+        height: var(--headings-container-height);
+        width: var(--headings-container-width);
     }
 
     .main-title-1, .main-title-2 {
@@ -108,7 +112,6 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
     .main-description {
         display: block;
         width: var(--descr-width);
-        margin-bottom: 2.75rem;
     }
 
     .main-description-title {
@@ -133,15 +136,206 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
         position: absolute;
         top: 24.25rem;
         display: block;
-        height: 17.625rem;
+        height: var(--main-text-height);
         width: 53rem;
     }
 
     .main-cta {
+        position: absolute;
+        right: 43.25rem;
+        top: 42.25rem;
         height: var(--cta-height);
         width: var(--cta-width);
         display: flex;
         justify-content: space-between;
         background: transparent;
+    }
+
+    @media (960px <= width < 1200px) {
+        .astroway {
+            --title-font-size: 6.25rem;
+            --headings-container-height: 9.3125rem;
+            --headings-container-top: 8.125rem;
+            --logo-width: 8.8125rem;
+            --logo-height: 8.8125rem;
+            --descr-width: 53.5rem;
+            --main-text-height: 9rem;
+            --descr-title-font-size: 2.5rem;
+            --descr-title-line-height: 3.25rem;
+            --descr-text-width: 25rem;
+            --descr-text-font-size: 0.75rem;
+            --cta-height: 2.625rem;
+            --cta-width: 23.8125rem;
+        }
+
+        .main-logo {
+            left: 44.4%;
+        }
+
+        .main-title-2 {
+            right: 0rem;
+        }
+
+        .main-subtitle {
+            right: 1rem;
+        }
+
+        .main-cta {
+            position: absolute;
+            top: 30.5rem;
+            right: 1.25rem;
+            flex-direction: row-reverse;
+
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .astroway {
+            --title-font-size: 6.25rem;
+            --headings-container-height: 17.6875rem;
+            --headings-container-top: 8.4375rem;
+            --logo-width: 7.5rem;
+            --logo-height: 7.5rem;
+            --descr-width: var(--reduced-width);
+            --main-text-height: 12.875rem;
+            --descr-title-font-size: 2.5rem;
+            --descr-title-line-height: 3.25rem;
+            --descr-text-width: 25rem;
+            --descr-text-font-size: 0.75rem;
+            --cta-height: 2.625rem;
+            --cta-width: 23.8125rem;
+        }
+
+        .main-logo {
+            left: 64%;
+            top: 1rem;
+        }
+
+        .main-title-2 {
+            height: 9.375rem;
+            top: 8rem;
+            right: -1.2rem;
+        }
+
+        .main-subtitle {
+            top: 10.2rem;
+            right: 19.5rem;
+        }
+
+        .main_text {
+            width: var(--reduced-width);
+            top: 28.375rem;
+        }
+
+        .main-cta {
+            position: absolute;
+            top: 43.75rem;
+            right: 14.3125rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .astroway {
+            --title-font-size: 2.5rem;
+            --subtitle-font-size: 0.625rem;
+            --headings-container-height: 3.75rem;
+            --headings-container-width: 21.875rem;
+            --headings-container-top: 4.75rem;
+            --logo-width: 3.4375rem;
+            --logo-height: 3.4375rem;
+            --descr-width: 18.125rem;
+            --main-text-height: 12.875rem;
+            --descr-title-font-size: 1rem;
+            --descr-title-line-height: 1.5rem;
+            --descr-text-width: 18.125rem;
+            --descr-text-font-size: 0.625rem;
+            --cta-height: 1.875rem;
+            --cta-width: 23.8125rem;
+        }
+
+        .headings-container {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .main-subtitle {
+            top: 0;
+            right: .4rem;
+            letter-spacing: .1rem;
+        }
+
+        .main-logo {
+            left: 45%;
+            top: .2rem;
+        }
+
+        .main-title-1 {
+            left: 0;
+        }
+
+        .main-title-2 {
+            right: 0;
+        }
+
+        .main_text {
+            width: var(--descr-text-width);
+            top: 10rem;
+        }
+
+        .main-cta {
+            position: absolute;
+            top: 18.125rem;
+            right: 3.85rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .astroway {
+            --title-font-size: 2.5rem;
+            --subtitle-font-size: 0.625rem;
+            --headings-container-height: 7.375rem;
+            --headings-container-top: 4.375rem;
+            --logo-width: 3.4375rem;
+            --logo-height: 3.4375rem;
+            --descr-width: var(--reduced-width);
+            --main-text-height: 5.1rem;
+            --descr-title-font-size: 1rem;
+            --descr-title-line-height: 1.375rem;
+            --descr-text-width: var(--reduced-width);
+            --descr-text-font-size: 0.625rem;
+            --cta-height: 1.875rem;
+            --cta-width: 16.25rem;
+        }
+
+        .main-logo {
+            left: 55%;
+            top: 0;
+        }
+
+        .main-title-1 {
+            left: 0;
+        }
+
+        .main-title-2 {
+            top: 3.75rem;
+            right: -0.6rem;
+        }
+
+        .main-subtitle {
+            top: 4.625rem;
+            right: 7.75rem;
+            letter-spacing: 3px;
+        }
+
+        .main_text {
+            width: var(--reduced-width);
+            top: 14.875rem;
+        }
+
+        .main-cta {
+            position: absolute;
+            top: 21.5rem;
+            right: 1rem;
+        }
     }
 </style>

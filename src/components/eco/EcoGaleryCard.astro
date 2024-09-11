@@ -1,11 +1,10 @@
 ---
-import { Image } from 'astro:assets';
 import '../../styles/global.css';
 
 const { cardImage, cardText, imgDescr, fontSize } = Astro.props;
 ---
 <div class="galery-card__container">
-    {cardImage && <Image src={import(cardImage)} alt={imgDescr} class="galery-card__img" loading="eager" />}
+    {cardImage && <img src={cardImage} alt={imgDescr} class="galery-card__img" loading="eager" />}
     {cardText && <p class="galery-card__text gradient_span">{cardText}</p>}
 </div>
 

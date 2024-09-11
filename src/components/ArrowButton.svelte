@@ -19,7 +19,7 @@
         </svg>
     </button>
 {:else}
-    <a class='link link_square link_about_card' href={url}>
+    <a class='link link_square link_about_card' href={url} aria-label='ссылка' >
         <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <linearGradient id="a" gradientUnits="userSpaceOnUse" x1=".0005" x2="19.9922" y1="10.0014" y2="10.0014">
                 <stop offset="0" stop-color="#094a6f"/>
@@ -87,6 +87,64 @@
     .link_square:hover,
     .link_square:active {
         background: var(--gradient);
+    }
+
+    @media (960px <= width < 1200px) {
+        .btn-round {
+            width: 3.25rem;
+            height: 3.25rem;
+        }
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .btn-round {
+            width: 3.25rem;
+            height: 3.25rem;
+        }
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .btn-round {
+            width: 2.1875rem;
+            height: 2.1875rem;
+        }
+
+        .link_square {
+            width: 2.8125rem;
+            height: 2.8125rem;
+        }
+
+        svg {
+            width: .75rem;
+            height: 0.75rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .btn-round {
+            width: 2.1875rem;
+            height: 2.1875rem;
+        }
+
+        .link_square {
+            width: 2.8125rem;
+            height: 2.8125rem;
+        }
+
+        svg {
+            width: .75rem;
+            height: .75rem;
+        }
     }
 
 </style>

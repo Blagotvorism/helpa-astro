@@ -15,7 +15,7 @@ import RadialGradient from "../RadialGradient.astro";
                 </h1>
             </div>
             <div class="about-descr">
-                <p class="about-descr-1">благотворительное криптофутурологическое сообщество, 
+                <p class="about-descr-1">Благотворительное криптофутурологическое сообщество, 
                     меняющее мир, используя последние технические достижения человечества и собственные 
                     экономические модели и стратегии.</p>
                 <p class="about-descr-2">Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:</p>
@@ -24,7 +24,7 @@ import RadialGradient from "../RadialGradient.astro";
         <div class="about-cards">
             <AboutCard href="/eco" cardDescription='Защита природы' imagePath='forestCard' imageDescription='Лес на хребте горы' />
             <AboutCard href="/gemohelp" cardDescription='Помощь онкобольным' imagePath='medicalCard' imageDescription='Два человека держат руки' /> 
-            <AboutCard href="/low-income-families" cardDescription='Помощь закредитованным малоимущим семьям' imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
+            <AboutCard href="/low-income-families" cardDescription='Помощь закредитованным <br/> малоимущим семьям' imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
             <AboutCard href="/longlongride" cardDescription='Развитие спорта' imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на фоне заката' />
         </div>
     </div>
@@ -32,15 +32,15 @@ import RadialGradient from "../RadialGradient.astro";
 
 <style>
     .about-prj {
+        --project-height: 58.75rem;
         --title-width: 29.125rem;
         --descr-width: 40.3rem;
         --margin-top: 7rem;
-        --margin-bottom-cards: 9.375rem;
         --margin-bottom-title: 5rem;
         --margin-top-descr: 4.375rem;
         --margin-bottom-descr-1: 1.25rem;
         --heading-font-size: 3.125rem;
-        --heading-line-height: 3.5rem;
+        --heading-line-height: 3.9rem;
         --dash-font-size: 3.25rem;
         --descr-1-font-size: 1.5rem;
         --descr-1-line-height: 1.875rem;
@@ -52,6 +52,7 @@ import RadialGradient from "../RadialGradient.astro";
         position: relative;
         display: flex;
         width: 100vw;
+        height: var(--project-height);
         justify-content: center;
     }
 
@@ -109,6 +110,129 @@ import RadialGradient from "../RadialGradient.astro";
         display: flex;
         width: 100%;
         justify-content: space-between;
-        margin-bottom: var(--margin-bottom-cards);
+        /* margin-bottom: var(--margin-bottom-cards); */
+    }
+
+    @media (960px <= width < 1200px) {
+        .about-prj {
+            --project-height: 44rem;
+            --title-width: 23.3125rem;
+            --descr-width: 32.75rem;
+            --margin-top: 7.125rem;
+            --margin-bottom-title: 5rem;
+            --margin-top-descr: 4.375rem;
+            --margin-bottom-descr-1: 1.25rem;
+            --heading-font-size: 2.5rem;
+            --heading-line-height: 3rem;
+            --dash-font-size: 2.5rem;
+            --descr-1-font-size: 1.25rem;
+            --descr-1-line-height: 1.5rem;
+            --descr-2-font-size: 0.75rem;
+            --descr-2-line-height: 1rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .about-prj {
+            --project-height: 66.0625rem;
+            --title-width: 23.3125rem;
+            --descr-width: 28.375rem;
+            --margin-top: 6.25rem;
+            --margin-bottom-title: 3.75rem;
+            --margin-top-descr: 1.25rem;
+            --margin-bottom-descr-1: 1.25rem;
+            --heading-font-size: 2.5rem;
+            --heading-line-height: 3rem;
+            --dash-font-size: 2.5rem;
+            --descr-1-font-size: 1.25rem;
+            --descr-1-line-height: 1.5rem;
+            --descr-2-font-size: 0.75rem;
+            --descr-2-line-height: 1rem;
+        }
+
+        .about-text {
+            display: block;
+        }
+
+        .about-descr {
+            margin-left: 8.75rem;
+        }
+
+        .about-cards {
+            flex-wrap: wrap;
+            row-gap: 2.5rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .about-prj {
+            --project-height: 39.5rem;
+            --title-width: 9.3125rem;
+            --descr-width: 20.3125rem;
+            --margin-top: 6.25rem;
+            --margin-bottom-title: 2.5rem;
+            --margin-top-descr: 0.625rem;
+            --margin-bottom-descr-1: 0.625rem;
+            --heading-font-size: 1rem;
+            --heading-line-height: 1.25rem;
+            --dash-font-size: 1rem;
+            --descr-1-font-size: 0.75rem;
+            --descr-1-line-height: 1rem;
+            --descr-2-font-size: 0.625rem;
+            --descr-2-line-height: 0.75rem;
+        }
+
+        .about-text {
+            display: block;
+        }
+
+        .about-descr {
+            margin-left: 7.25rem;
+        }
+
+        .about-cards {
+            flex-wrap: wrap;
+            row-gap: 1.5rem;
+        }
+
+        .dash-span {
+            margin-left: .5rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .about-prj {
+            --project-height: 57rem;
+            --title-width: 9.3125rem;
+            --descr-width: var(--reduced-width);
+            --margin-top: 3.75rem;
+            --margin-bottom-title: 1.5rem;
+            --margin-top-descr: 0.625rem;
+            --margin-bottom-descr-1: 0.625rem;
+            --heading-font-size: 1rem;
+            --heading-line-height: 1.25rem;
+            --dash-font-size: 1rem;
+            --descr-1-font-size: 0.75rem;
+            --descr-1-line-height: 1rem;
+            --descr-2-font-size: 0.625rem;
+            --descr-2-line-height: 0.75rem;
+        }
+
+        .about-text {
+            display: block;
+        }
+
+        .about-descr {
+            margin-left: 0;
+        }
+
+        .about-cards {
+            flex-wrap: wrap;
+            row-gap: 1.5rem;
+        }
+
+        .dash-span {
+            margin-left: .5rem;
+        }
     }
 </style>

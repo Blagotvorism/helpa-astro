@@ -103,7 +103,6 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
         height: var(--fact-height);
         top: var(--text-top);
         left: var(--text-left);
-        font-size: var(--heading-font-size);
         color: black;
         margin-bottom: var(--text-margin-bottom);
     }
@@ -112,10 +111,13 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
         display: block;
         width: 25rem;
         line-height: var(--line-height-heading);
+        font-size: var(--heading-font-size);
+        font-family: var(--font-lulo-bold);
     }
 
     .facts_text {
         display: inline-block;
+        font-family: var(--font-inter);
         font-size: var(--facts-text-font-size);
         color: var(--dark-grey);
         line-height: var(--line-height-facts);

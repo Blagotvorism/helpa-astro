@@ -29,6 +29,7 @@ import RadialGradient from '../RadialGradient.astro';
 
 <style>
     .main_goals {
+        --section-height: 44.8rem;
         --title-width: 49.75rem;
         --title-font-size: 2.5rem;
         --title-margin-bottom: 3.75rem;
@@ -39,7 +40,7 @@ import RadialGradient from '../RadialGradient.astro';
     .main_goals {
         display: flex;
         width: 100vw;
-        height: 44.8rem;
+        height: var(--section-height);
         justify-content: center;
     }
 
@@ -70,5 +71,50 @@ import RadialGradient from '../RadialGradient.astro';
     #thirdCard {
         display: inline-block;
         width: var(--card-width) !important;
+    }
+
+    @media (960px <= width < 1200px) {
+        .main_goals {
+            --title-width: 36.625rem;
+            --section-height: 39.8125rem;
+            --title-font-size: 2.5rem;
+            --title-margin-bottom: 4.5625rem;
+            --cards-height: 23.75rem;
+            --card-width: 12rem;
+        }
+
+    }
+
+    @media (640px <= width < 960px) {
+        .main_goals {
+            --title-width: var(--reduced-width);
+            --section-height: 28rem;
+            --title-font-size: 1.65rem;
+            --title-margin-bottom: 1.5rem;
+            --cards-height: 19.25rem;
+            --card-width: 8rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .main_goals {
+            --title-width: 15.625rem;
+            --section-height: 26rem;
+            --title-font-size: 0.7rem;
+            --title-margin-bottom: 1.5rem;
+            --cards-height: 19.375rem;
+            --card-width: 8rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .main_goals {
+            --title-width: 15.625rem;
+            --section-height: 31rem;
+            --title-font-size: 0.7rem;
+            --title-margin-bottom: 1rem;
+            --cards-height: 25.125rem;
+            --card-width: 8rem;
+        }
     }
 </style>

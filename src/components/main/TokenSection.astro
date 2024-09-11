@@ -85,10 +85,110 @@ import Link from "../Link.astro";
     }
 
     .link_container {
+        display: block;
         width: var(--link-container-width);
     }
 
     [data-icon] {
         font-size: var(--icon-font-size);
+    }
+
+    @media (960px <= width < 1200px) {
+        .main_token {
+            --title-width: 21.0625rem;
+            --title-font-size: 2rem;
+            --description-width: 31.75rem;
+            --description-margin-top: 2rem;
+            --heading-descr-line-height: 1.5rem;
+            --heading-descr-font-size: 1.25rem;
+            --descr-font-size: 0.75rem;
+            --descr-margin-top: 1.25rem;
+            --descr-line-height: 1rem;
+            --descr-margin-bottom: 1.25rem;
+            --link-container-width: 9.125rem;
+            --icon-font-size: 1rem;
+            --section-height: 28.25rem;
+            --container-height: 15rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .main_token {
+            --title-width: 21.0625rem;
+            --title-font-size: 2rem;
+            --description-width: 28.375rem;
+            --description-margin-top: 1.25rem;
+            --heading-descr-line-height: 1.5rem;
+            --heading-descr-font-size: 1.25rem;
+            --descr-font-size: 0.75rem;
+            --descr-margin-top: 1.25rem;
+            --descr-line-height: 1rem;
+            --descr-margin-bottom: 2.5rem;
+            --link-container-width: 9.125rem;
+            --icon-font-size: 1rem;
+            --section-height: 36rem;
+            --container-height: 19rem;
+        }
+
+        .main_token__container {
+            display: block;
+        }
+
+        .token_description {
+            margin-left: 9.75rem;
+        }
+
+    }
+
+    @media (480px <= width < 640px) {
+        .main_token {
+            --title-width: 12.5rem;
+            --title-font-size: 1rem;
+            --description-width: 18.3125rem;
+            --description-margin-top: 1.25rem;
+            --heading-descr-line-height: 1rem;
+            --heading-descr-font-size: 0.75rem;
+            --descr-font-size: 0.625rem;
+            --descr-margin-top: 0.625rem;
+            --descr-line-height: 0.75rem;
+            --descr-margin-bottom: 1.25rem;
+            --link-container-width: 6.875rem;
+            --icon-font-size: 1rem;
+            --section-height: 20rem;
+            --container-height: 14rem;
+        }
+
+        .main_token__container {
+            display: block;
+        }
+
+        .token_description {
+            margin-left: 9.75rem;
+        }
+
+    }
+
+    @media (320px <= width < 480px) {
+        .main_token {
+            --title-width: 12.5rem;
+            --title-font-size: 1rem;
+            --description-width: 15.375rem;
+            --description-margin-top: 1.25rem;
+            --heading-descr-line-height: 1rem;
+            --heading-descr-font-size: 0.75rem;
+            --descr-font-size: 0.625rem;
+            --descr-margin-top: 0.625rem;
+            --descr-line-height: 0.75rem;
+            --descr-margin-bottom: 1.25rem;
+            --link-container-width: 6.875rem;
+            --icon-font-size: 1rem;
+            --section-height: 20rem;
+            --container-height: 16rem;
+        }
+
+        .main_token__container {
+            display: block;
+        }
+
     }
 </style>

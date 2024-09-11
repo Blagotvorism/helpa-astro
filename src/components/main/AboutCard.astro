@@ -1,8 +1,6 @@
 ---
 import '../../styles/global.css';
 import { Image } from 'astro:assets';
-import Link from '../Link.astro';
-import RightArrowIcon from '../RightArrowIcon.astro';
 import ArrowButton from '../ArrowButton.svelte';
 
 interface Props {
@@ -20,7 +18,7 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
             <Image src={import(`../../images/main/about_cards/${imagePath}.jpg`)} alt={imageDescription} class='about-card-img' loading='eager'/>
             <ArrowButton url={href} theme='slider-square' />
         </div>
-        <p class="about-card-descr">{cardDescription}</p>
+        <p class="about-card-descr" set:html={cardDescription}></p>
     </a>
 </div>
 
@@ -68,4 +66,45 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
         font-family: var(--font-inter);
         font-size: var(--descr-font-size);
     }
+
+    @media (960px <= width < 1200px) {
+        .about-card {
+            --card-width: 13.625rem;
+            --card-height: 17.0625rem;
+            --bg-height: 14.875rem;
+            --descr-margin-top: 1.25rem;
+            --descr-font-size: 0.75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .about-card {
+            --card-width: 18.625rem;
+            --card-height: 17.0625rem;
+            --bg-height: 14.875rem;
+            --descr-margin-top: 1.25rem;
+            --descr-font-size: 0.75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .about-card {
+            --card-width: 13.125rem;
+            --card-height: 9rem;
+            --bg-height: 7.5625rem;
+            --descr-margin-top: 0.625rem;
+            --descr-font-size: 0.625rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .about-card {
+            --card-width: 17.5rem;
+            --card-height: 9rem;
+            --bg-height: 7.5625rem;
+            --descr-margin-top: 0.625rem;
+            --descr-font-size: 0.625rem;
+        }
+    }
+
 </style>

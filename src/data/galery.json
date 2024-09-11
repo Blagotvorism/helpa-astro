@@ -10,25 +10,25 @@
     {
         "id": 2,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard1.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard1.JPG",
         "imgDescr": "Группа людей на фоне гор"
     },
     {
         "id": 3,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard2.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard2.JPG",
         "imgDescr": "Группа людей на берегу"
     },
     {
         "id": 4,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard3.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard3.JPG",
         "imgDescr": "Пляж"
     },
     {
         "id": 5,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard4.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard4.JPG",
         "imgDescr": "Трое людей на камнях"
     },
     {
@@ -42,25 +42,25 @@
     {
         "id": 7,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard5.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard5.JPG",
         "imgDescr": "Группа людей на фоне гор"
     },
     {
         "id": 8,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard6.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard6.JPG",
         "imgDescr": "Группа людей на берегу"
     },
     {
         "id": 9,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard7.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard7.JPG",
         "imgDescr": "Пляж"
     },
     {
         "id": 10,
         "category": "eco",
-        "imgPath": "../../images/eco/ecoGaleryCard8.JPG",
+        "imgPath": "/images/eco/ecoGaleryCard8.JPG",
         "imgDescr": "Трое людей на камнях"
     },
     {
@@ -74,61 +74,61 @@
     {
         "id": 12,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard1.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard1.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 13,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard2.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard2.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 14,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard3.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard3.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 15,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard4.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard4.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 16,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard5.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard5.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 17,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard6.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard6.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 18,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard7.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard7.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 19,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard8.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard8.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 20,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard9.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard9.jpg",
         "imgDescr": "Трое людей на камнях"
     },
     {
         "id": 21,
         "category": "ride",
-        "imgPath": "../../images/longLongRide/rideGaleryCard10.jpg",
+        "imgPath": "/images/longLongRide/rideGaleryCard10.jpg",
         "imgDescr": "Трое людей на камнях"
     }
 ]

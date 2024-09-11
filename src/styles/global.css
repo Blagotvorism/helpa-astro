@@ -35,8 +35,8 @@ h1, h2 {
   text-transform: uppercase;
 }
 
-a, a:hover, a:active, a:visited, a:focus {
-  text-decoration:none;
+a, a:hover, a:active, a:visited, a:focus, a:link, .noDecoration {
+  text-decoration: none !important;
 }
 
 button, button:hover, button:active, button:visited, button:focus {
@@ -76,6 +76,34 @@ button, button:hover, button:active, button:visited, button:focus {
   --section-width: 100vw;
 }
 
+@media (960px<= width < 1200px) {
+  :root {
+    --full-width: var(--section-width);
+    --reduced-width: 57.25rem;
+  }
+}
+
+@media (640px<= width < 960px) {
+  :root {
+    --full-width: var(--section-width);
+    --reduced-width: 38.125rem;
+  }
+}
+
+@media (480px<= width < 640px) {
+  :root {
+    --full-width: var(--section-width);
+    --reduced-width: 27.5rem;
+  }
+}
+
+@media (320px<= width < 480px) {
+  :root {
+    --full-width: var(--section-width);
+    --reduced-width: 17.5rem;
+  }
+}
+
 .gradient_span {
   background-color: var(--green);
   background-image: var(--gradient);
@@ -86,6 +114,11 @@ button, button:hover, button:active, button:visited, button:focus {
   -moz-text-fill-color: transparent;
 }
 
-.blurred {
-  backdrop-filter: blur(5px);
+li, ul {
+  list-style: none;
 }
+
+/* p::-moz-selection, a::-moz-selection, span::-moz-selection, h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection {
+  color: #fff;
+  background: #2f8191;
+} */

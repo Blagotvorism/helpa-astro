@@ -49,6 +49,73 @@ const { goalsIcon, goalsDescr, cardId } = Astro.props;
     }
 
     .third-card {
-        width: var(--third-card-width);
+        width: var(--third-card-width) !important;
+    }
+
+    @media (960px <= width < 1200px) {
+        .goals-card {
+            --card-width: 13.4375rem;
+            --card-height: 11.25rem;
+            --icon-size: 2.5rem;
+            --margin-top-bottom: 2rem;
+            --font-size: 0.75rem;
+            --third-card-width: 9.1875rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .goals-card {
+            --card-width: 8.8125rem;
+            --card-height: 9.125rem;
+            --icon-size: 2rem;
+            --margin-top-bottom: 2rem;
+            --font-size: 0.625rem;
+            --third-card-width: 8rem;
+        }
+
+        .goals-descr {
+            text-align: center;
+            width: 5rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .goals-card {
+            --card-width: 13.125rem;
+            --card-height: 4.375rem;
+            --icon-size: 2rem;
+            --margin-top-bottom: 1.25rem;
+            --font-size: 0.625rem;
+            --third-card-width: 7.75rem;
+        }
+
+        .goals-card {
+            flex-direction: row;
+        }
+
+        .goals-icon {
+            margin-left: 2rem;
+        }
+
+        .goals-descr {
+            margin-left: 1rem;
+            width: 5rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .goals-card {
+            --card-width: 8.125rem;
+            --card-height: 5.8125rem;
+            --icon-size: 2rem;
+            --margin-top-bottom: 0.6rem;
+            --font-size: 0.625rem;
+            --third-card-width: 7.4rem;
+        }
+
+        .goals-descr {
+            text-align: center;
+            width: 5rem;
+        }
     }
 </style>

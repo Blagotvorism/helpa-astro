@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "text": "Все",
+        "category": "all"
+    },
+    {
+        "id": 2,
+        "text": "Защита природы",
+        "category": "eco"
+    },
+    {
+        "id": 3,
+        "text": "Помощь онкобольным",
+        "category": "health"
+    },
+    {
+        "id": 4,
+        "text": "Помощь закредитованным",
+        "category": "debt"
+    },
+    {
+        "id": 5,
+        "text": "Развитие спорта",
+        "category": "sport"
+    }
+]

@@ -9,6 +9,10 @@ interface Props {
 }
 
 const { sloganBG, sloganTitle, altText = '' } = Astro.props;
+
+let titleWidth_640 = '10rem';
+let titleWidth_480 = '6rem';
+let titleWidth_320 = '5rem';
 ---
 <div class="slogan-part">
     {sloganBG ? (
@@ -16,10 +20,10 @@ const { sloganBG, sloganTitle, altText = '' } = Astro.props;
     ) : (
         <div class="slogan-bgcolor"></div>
     )}
-    <h1 class="slogan-title">{sloganTitle}</h1>
+    <h1 class={sloganTitle === 'ASTROWAY' ? "slogan-title slogan-title-astroway" : 'slogan-title'}>{sloganTitle}</h1>
 </div>
 
-<style>
+<style define:vars={{titleWidth_640, titleWidth_480, titleWidth_320}}>
     .slogan-part {
         --slogan-width: calc(100vw / 3);
         --slogan-height: 37.5rem;
@@ -66,5 +70,64 @@ const { sloganBG, sloganTitle, altText = '' } = Astro.props;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    @media (960px <= width < 1200px) {
+        .slogan-part {
+            --slogan-width: calc(100vw / 3);
+            --slogan-height: 33.625rem;
+            --slogan-title-width: 18.5rem;
+            --slogan-title-font-size: 1.875rem;
+            --slogan-title-letter-spacing: 2px;
+            --slogan-title-color: white;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .slogan-part {
+            --slogan-width: calc(100vw / 3);
+            --slogan-height: 39.0625rem;
+            --slogan-title-width: 11.875rem;
+            --slogan-title-font-size: 1.625rem;
+            --slogan-title-letter-spacing: 2px;
+            --slogan-title-color: white;
+        }
+
+        .slogan-title-astroway {
+            word-break: break-all;
+            width: var(--titleWidth_640);
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .slogan-part {
+            --slogan-width: calc(100vw / 3);
+            --slogan-height: 16rem;
+            --slogan-title-width: 7.125rem;
+            --slogan-title-font-size: 1rem;
+            --slogan-title-letter-spacing: 1px;
+            --slogan-title-color: white;
+        }
+
+        .slogan-title-astroway {
+            word-break: break-all;
+            width: var(--titleWidth_480);
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .slogan-part {
+            --slogan-width: calc(100vw / 3);
+            --slogan-height: 18.4375rem;
+            --slogan-title-width: 5.5rem;
+            --slogan-title-font-size: 0.75rem;
+            --slogan-title-letter-spacing: 1px;
+            --slogan-title-color: white;
+        }
+
+        .slogan-title-astroway {
+            word-break: break-all;
+            width: var(--titleWidth_320);
+        }
     }
 </style>
