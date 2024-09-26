@@ -49,6 +49,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
     }
 
     .astroway {
+        position: relative;
         width: 100vw;
         height: var(--section-height);
     }
@@ -153,6 +154,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
 
     @media (960px <= width < 1200px) {
         .astroway {
+            --section-height: 40rem;
             --title-font-size: 6.25rem;
             --headings-container-height: 9.3125rem;
             --headings-container-top: 8.125rem;
@@ -191,6 +193,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
 
     @media (640px <= width < 960px) {
         .astroway {
+            --section-height: 49rem;
             --title-font-size: 6.25rem;
             --headings-container-height: 17.6875rem;
             --headings-container-top: 8.4375rem;
@@ -236,6 +239,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
 
     @media (480px <= width < 640px) {
         .astroway {
+            --section-height: 23rem;
             --title-font-size: 2.5rem;
             --subtitle-font-size: 0.625rem;
             --headings-container-height: 3.75rem;
@@ -291,6 +295,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
 
     @media (320px <= width < 480px) {
         .astroway {
+            --section-height: 30rem;
             --title-font-size: 2.5rem;
             --subtitle-font-size: 0.625rem;
             --headings-container-height: 7.375rem;
@@ -334,7 +339,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
 
         .main-cta {
             position: absolute;
-            top: 21.5rem;
+            top: 23.5rem;
             right: 1rem;
         }
     }
