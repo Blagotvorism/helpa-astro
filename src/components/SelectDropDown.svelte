@@ -75,8 +75,8 @@
 
     .dropdown_categories {
         display: block;
-        width: 9rem;
-        height: 1.25rem;
+        width: 45vw;
+        height: 6.25vw;
         background-color: white;
         border-radius: 1.875rem;
     }
@@ -87,20 +87,20 @@
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
         text-decoration: none;
         width: 100%;
-        height: 1.25rem;
+        height: 6.25vw;
         background-color: white;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0.3125rem 0.625rem;
         font-family: Inter;
-        font-size: .5rem;
+        font-size: 2.5vw;
         cursor: pointer;
     }
 
     .text {
         display: inline-block;
-        height: .7rem;
+        height: 3.5vw;
     }
 
     .dropdown_categories-list {
@@ -120,12 +120,12 @@
     }
 
     .dropdown_categories_item {
-        margin-bottom: .5rem;
+        margin-bottom: 2.5vw;
         margin-left: .8rem;
         text-align: start;
         width: 100%;
         font-family: Inter;
-        font-size: .5rem;
+        font-size: 2.5vw;
     }
 
     .dropdown_categories_item:hover {

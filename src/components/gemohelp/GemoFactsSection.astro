@@ -60,6 +60,7 @@ import RadialGradient from '../RadialGradient.astro';
         --afterfacts-text-width: 45.75rem;
         --afterfacts-text-height: 18rem;
         --afterfacts-margin-top: 7.1875rem;
+        --afterfacts-heading-margin-bottom: 2.5rem;
         --h3-width: 39.3rem;
         --p-width: 34.75rem;
         --h2-font-size: 3.125rem;
@@ -106,11 +107,11 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     .afterfacts_heading {
-        margin-bottom: 2.5rem;
+        margin-bottom: var(--afterfacts-heading-margin-bottom);
     }
 
     h3 {
-        margin-bottom: 1.25rem;
+        margin-bottom: var(--h3-margin-bottom);
         font-family: var(--font-inter);
         font-size: var(--h3-font-size);
         width: var(--h3-width);
@@ -121,5 +122,112 @@ import RadialGradient from '../RadialGradient.astro';
         font-size: var(--p-font-size);
         color: var(--dark-grey);
         width: var(--p-width);
+    }
+
+    @media (960px <= width < 1200px) {
+        .gemo_facts {
+            --section-height: 111.5625rem;
+            --container-height: 105.125rem;
+            --h2-width: 35.625rem;
+            --afterfacts-text-width: 36.625rem;
+            --afterfacts-text-height: 14.5rem;
+            --afterfacts-margin-top: 6.25rem;
+            --afterfacts-heading-margin-bottom: 2.5rem;
+            --h3-width: 39.375rem;
+            --h3-margin-bottom: 1.25rem;
+            --p-width: 34.75rem;
+            --h2-font-size: 2.5rem;
+            --h3-font-size: 1.5rem;
+            --p-font-size: 1rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .gemo_facts {
+            --section-height: 137.375rem;
+            --container-height: 116.375rem;
+            --h2-width: 35.625rem;
+            --afterfacts-text-width: var(--reduced-width);
+            --afterfacts-text-height: 17.3125rem;
+            --afterfacts-margin-top: 6.25rem;
+            --afterfacts-heading-margin-bottom: 2.5rem;
+            --h3-width: 30.8125rem;
+            --h3-margin-bottom: 1.25rem;
+            --p-width: 21.75rem;
+            --h2-font-size: 2.5rem;
+            --h3-font-size: 1.5rem;
+            --p-font-size: .75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .gemo_facts {
+            --section-height: 92.1875rem;
+            --container-height: 87.5rem;
+            --h2-width: 13.125rem;
+            --afterfacts-text-width: 21.75rem;
+            --afterfacts-text-height: 8.4375rem;
+            --afterfacts-margin-top: 5rem;
+            --afterfacts-heading-margin-bottom: 2.5rem;
+            --h3-width: 20.4375rem;
+            --h3-margin-bottom: .625rem;
+            --p-width: 21.75rem;
+            --h2-font-size: 1rem;
+            --h3-font-size: .75rem;
+            --p-font-size: .625rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .gemo_facts {
+            --section-height: 530.75vw;
+            --container-height: 450.0625vw;
+            --h2-width: 60vw;
+            --afterfacts-text-width: 73.125vw;
+            --afterfacts-text-height: 10.1875vw;
+            --afterfacts-margin-top: 3.75rem;
+            --afterfacts-heading-margin-bottom: 1.25rem;
+            --h3-width: 78.4375vw;
+            --h3-margin-bottom: .625rem;
+            --p-width: 73.125vw;
+            --h2-font-size: 5vw;
+            --h3-font-size: 3.75vw;
+            --p-font-size: 3.125vw;
+        }
+    }
+
+    @media (450px <= width < 480px) {
+        .gemo_facts {
+            --section-height: 400.75vw;
+            --container-height: 350.0625vw;
+        }
+    }
+
+    @media (400px <= width < 450px) {
+        .gemo_facts {
+            --section-height: 430.75vw;
+            --container-height: 400.0625vw;
+        }
+    }
+
+    @media (370px <= width < 400px) {
+        .gemo_facts {
+            --section-height: 460.75vw;
+            --container-height: 400.0625vw;
+        }
+    }
+
+    @media (340px <= width < 370px) {
+        .gemo_facts {
+            --section-height: 485.75vw;
+            --container-height: 400.0625vw;
+        }
+    }
+
+    @media (320px <= width < 340px) {
+        .gemo_facts {
+            --section-height: 510.75vw;
+            --container-height: 400.0625vw;
+        }
     }
 </style>

@@ -25,10 +25,12 @@
             <Dropdown data={links} text='Направления помощи'/>
             <a href={links[5].url} class="nav-link">{links[5].text}</a>
         </nav>
-        <a href="/" class="header-logo_tokenomika">
-            <img src='/logos/tokenomika_logo.svg' class="header-logo_tokenomika" alt="tokenomika-logo"/>
-        </a>
-        <BurgerMenu links={links} />
+        <div class="mobile_nav">
+            <a href="/" class="header-logo_tokenomika">
+                <img src='/logos/tokenomika_logo.svg' class="header-logo_tokenomika" alt="tokenomika-logo"/>
+            </a>
+            <BurgerMenu links={links} />
+        </div>
     </div>
 </header>
 
@@ -194,15 +196,11 @@
 
         .header {
             top: 0.5rem;
-            justify-content: start;
+            justify-content: space-between;
         }
 
         .header_bg {
             border-radius: 0;
-        }
-
-        .header-logo_main {
-            margin-right: 11.875rem;
         }
 
         .header-logo_tokenomika {
@@ -211,6 +209,13 @@
 
         .nav-links {
             display: none;
+        }
+
+        .mobile_nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 3.8rem;
         }
 
         .dropdown-nav {

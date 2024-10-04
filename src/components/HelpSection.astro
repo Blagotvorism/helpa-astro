@@ -7,29 +7,39 @@ import RadialGradient from './RadialGradient.astro';
 const {page, img, imgDescr = ''} = Astro.props;
 
 let heading_start, heading_gradient, heading_finish;
-let sectionHeight, headingWidth, topPosition = '0rem';
+let sectionHeight_1200, sectionHeight_960, sectionHeight_640, sectionHeight_480, sectionHeight_320; 
+let headingWidth_1200, headingWidth_960, headingWidth_640, headingWidth_480, headingWidth_320;
+let topPosition = '0rem';
 
 switch(page) {
     case 'eco':
         heading_start = 'Чтобы ';
         heading_gradient = 'быть полезным природе, заботиться ';
         heading_finish = 'о своём доме под названием планета Земля, можно';
-        sectionHeight = '36rem';
-        headingWidth = '57.5rem';
+        sectionHeight_1200 = '36rem';
+        sectionHeight_960 = '29.375rem';
+        sectionHeight_640 = '35.125rem';
+        sectionHeight_480 = '15rem';
+        sectionHeight_320 = '75vw';
+        headingWidth_1200 = '57.5rem';
+        headingWidth_960 = '46.5625rem';
+        headingWidth_640 = '34.5rem';
+        headingWidth_480 = '18.5rem';
+        headingWidth_320 = '87.5vw';
         break;
     case 'low-income-families':
         heading_start = 'Чтобы ';
         heading_gradient = 'быть полезным людям ';
         heading_finish = 'и поддержать проект, можно';
-        sectionHeight = '30rem';
-        headingWidth = '57.4375rem';
+        sectionHeight_1200 = '30rem';
+        headingWidth_1200 = '57.4375rem';
         break;
     case 'ride':
         heading_start = 'Чтобы ';
         heading_gradient = 'сделать мир спортивнее ';
         heading_finish = 'и поддержать проект, можно';
-        sectionHeight = '39.4rem';
-        headingWidth = '59rem';
+        sectionHeight_1200 = '39.4rem';
+        headingWidth_1200 = '59rem';
         topPosition = '9.375rem';
         break;
 }
@@ -50,11 +60,22 @@ switch(page) {
     </div>
 </section>
 
-<style define:vars={{sectionHeight, headingWidth, topPosition}}>
+<style define:vars={{sectionHeight_1200, sectionHeight_960, sectionHeight_640, sectionHeight_480, sectionHeight_320, 
+headingWidth_1200, headingWidth_960, headingWidth_640, headingWidth_480, headingWidth_320,
+topPosition}}>
     .help_section {
-        --sectionHeight: 36rem;
-        --headingWidth: 55rem;
+        --sectionHeight: var(--sectionHeight_1200);
+        --headingWidth: var(--headingWidth_1200);
         --topPosition: 0rem;
+        --line-height: 4rem;
+        --font-size: 3.125rem;
+        --margin-bottom: 5rem;
+
+        /* help img */
+        --help-img-bottom: 0;
+        --help-img-bottom-right: -10rem;
+        --help-img-bottom-height: 22rem;
+        --help-img-bottom-width: 13rem;
     }
 
     section {
@@ -76,18 +97,90 @@ switch(page) {
     .help__heading {
         display: inline-block;
         width: var(--headingWidth);
-        line-height: 4rem;
+        line-height: var(--line-height);
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        margin-bottom: 5rem;
+        font-size: var(--font-size);
+        margin-bottom: var(--margin-bottom);
     }
 
     .help__img {
         display: block;
         position: absolute;
-        bottom: 0;
-        right: -10rem;
-        height: 22rem;
-        width: 13rem;
+        bottom: var(--help-img-bottom);
+        right: var(--help-img-bottom-right);
+        height: var(--help-img-bottom-height);
+        width: var(--help-img-bottom-width);
+    }
+
+    @media (960px <= width < 1200px) {
+        .help_section {
+            --sectionHeight: var(--sectionHeight_960);
+            --headingWidth: var(--headingWidth_960);
+            --topPosition: 0rem;
+            --line-height: 3.25rem;
+            --font-size: 2.5rem;
+            --margin-bottom: 3.75rem;
+
+            /* help img */
+            --help-img-bottom: 13rem;
+            --help-img-bottom-right: -1rem;
+            --help-img-bottom-height: 17.625rem;
+            --help-img-bottom-width: 9.375rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .help_section {
+            --sectionHeight: var(--sectionHeight_640);
+            --headingWidth: var(--headingWidth_640);
+            --topPosition: 0rem;
+            --line-height: 3.25rem;
+            --font-size: 2.5rem;
+            --margin-bottom: 1.25rem;
+
+            /* help img */
+            --help-img-bottom: 18.5rem;
+            --help-img-bottom-right: 2rem;
+            --help-img-bottom-height: 9.25rem;
+            --help-img-bottom-width: 5rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .help_section {
+            --sectionHeight: var(--sectionHeight_480);
+            --headingWidth: var(--headingWidth_480);
+            --topPosition: 0rem;
+            --line-height: 1.25rem;
+            --font-size: 1rem;
+            --margin-bottom: 2.5rem;
+
+            /* help img */
+            --help-img-bottom: 8rem;
+            --help-img-bottom-right: 2rem;
+            --help-img-bottom-height: 7.875rem;
+            --help-img-bottom-width: 4.1875rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .help_section {
+            --sectionHeight: var(--sectionHeight_320);
+            --headingWidth: var(--headingWidth_320);
+            --topPosition: 0rem;
+            --line-height: 6.25vw;
+            --font-size: 5vw;
+            --margin-bottom: 12.5vw;
+
+            /* help img */
+            --help-img-bottom: 8rem;
+            --help-img-bottom-right: 2rem;
+            --help-img-bottom-height: 7.875rem;
+            --help-img-bottom-width: 4.1875rem;
+        }
+
+        .help__img {
+            display: none;
+        }
     }
 </style>

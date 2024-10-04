@@ -6,15 +6,15 @@ const { img1, imgDescr1, img2, imgDescr2, img3, imgDescr3 } = Astro.props;
 ---
 <div class="img_facts">
     <div class="horizontal_images">
-        <div class="img_wrapper">
+        <div class="img_wrapper" id="img1">
             <Image src={img1} alt={imgDescr1} loading='eager' />
         </div>
-        <div class="img_wrapper">
+        <div class="img_wrapper" id="img2">
             <Image src={img2} alt={imgDescr2} loading='eager' />
         </div>
     </div>
     <div class="main_img">
-        <div class="img_wrapper">
+        <div class="img_wrapper" id="img3">
             <Image src={img3} alt={imgDescr3} loading='eager' />
         </div>
     </div>
@@ -27,6 +27,7 @@ const { img1, imgDescr1, img2, imgDescr2, img3, imgDescr3 } = Astro.props;
         --img-container-width: 34.375rem;
         --img-container-height: 35.9375rem;
         --horizontal-img-height: 12.125rem;
+        --img-wrapper-width: 16.5625rem;
         --main-img-height: 22.6rem;
         --margin-top: 4.7rem;
     }
@@ -61,7 +62,7 @@ const { img1, imgDescr1, img2, imgDescr2, img3, imgDescr3 } = Astro.props;
         height: inherit;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-        width: 16.5625rem;
+        width: var(--img-wrapper-width);
     }
 
     .main_img .img_wrapper {
@@ -74,5 +75,80 @@ const { img1, imgDescr1, img2, imgDescr2, img3, imgDescr3 } = Astro.props;
         object-fit: cover;
         width: 100%;
         height: 100%;
+    }
+
+    @media (960px <= width < 1200px) {
+        .img_facts {
+            --spacing-small: 1.25rem;
+            --img-container-width: 28.125rem;
+            --img-container-height: 28.8rem;
+            --horizontal-img-height: 9rem;
+            --img-wrapper-width: 13.125rem;
+            --main-img-height: 16.75rem;
+            --margin-top: 4.7rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .img_facts {
+            --spacing-small: 1.25rem;
+            --img-container-width: 18.4375rem;
+            --img-container-height: 30.8125rem;
+            --horizontal-img-height: 13.5rem;
+            --img-wrapper-width: 18.4375rem;
+            --main-img-height: 16.125rem;
+            --margin-top: 8rem;
+        }
+
+        #img1 {width: 100%; height: 100%;}
+        #img2 {display: none;}
+    }
+
+    @media (480px <= width < 640px) {
+        .img_facts {
+            --spacing-small: 1.25rem;
+            --img-container-width: 13.125rem;
+            --img-container-height: 9.5rem;
+            --horizontal-img-height: 9.5rem;
+            --img-wrapper-width: 13.125rem;
+            --main-img-height: 9.5rem;
+            --margin-top: 1.875rem;
+        }
+
+        .img_facts {
+            order: 6;
+            flex-direction: row;
+            width: var(--reduced-width);
+        }
+
+        #img1 {width: 13.125rem; height: 100%;}
+        #img2 {display: none;}
+        #img1 {width: 13.125rem; height: 100%;}
+    }
+
+    @media (320px <= width < 480px) {
+        .img_facts {
+            --spacing-small: 6.25vw;
+            --img-container-width: 40.625vw;
+            --img-container-height: 29.6875vw;
+            --horizontal-img-height: 29.6875vw;
+            --img-wrapper-width: 40.625vw;
+            --main-img-height: 29.6875vw;
+            --margin-top: 2.5rem;
+        }
+
+        .img_facts {
+            order: 6;
+            flex-direction: row;
+            width: var(--reduced-width);
+        }
+
+        #img1 {width: 40.625vw; height: 100%;}
+        #img2 {display: none;}
+        #img1 {width: 40.625vw; height: 100%;}
+
+        img {
+            border-radius: 1.25rem;
+        }
     }
 </style>

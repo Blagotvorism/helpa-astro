@@ -42,6 +42,7 @@ import Cancel from "./Cancel.svelte";
 
 <style>
     .burger-menu {
+        
         display: none;
     }
 
@@ -52,6 +53,7 @@ import Cancel from "./Cancel.svelte";
 
     .burger-links {
         display: flex;
+        justify-content: space-between;
         position: absolute;
         z-index: 10;
         top: 2.435rem;
@@ -71,12 +73,12 @@ import Cancel from "./Cancel.svelte";
 
     .burger-menu_links-1 {
         margin-left: calc((100vw - var(--reduced-width)) / 2);
-        width: 9.5rem;
+        width: auto;
     }
 
     .burger-menu_links-2 {
         margin-right: calc((100vw - var(--reduced-width)) / 2);
-        width: 9.6rem;
+        width: auto;
     }
 
     .dropdown-item {
@@ -86,7 +88,7 @@ import Cancel from "./Cancel.svelte";
 
     .nav-link {
         font-family: var(--font-inter);
-        font-size: 0.625rem;
+        font-size: 3.125vw;
         text-decoration: none;
     }
 

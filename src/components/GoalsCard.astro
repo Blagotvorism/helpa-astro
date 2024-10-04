@@ -11,7 +11,7 @@ interface Props {
 const { goalsIcon, goalsDescr, cardId } = Astro.props;
 ---
 
-<div class="goals-card">
+<div class:list={goalsIcon === 'Air' || goalsIcon === 'Water' || goalsIcon === 'Ground' ? 'goals-card goals-card_eco' : 'goals-card'}>
     {goalsIcon && <Icon name={goalsIcon} class="goals-icon" />}
     <p class:list={[cardId === 3 ? 'goals-descr third-card': 'goals-descr']}>{goalsDescr}</p>
 </div>
@@ -73,6 +73,11 @@ const { goalsIcon, goalsDescr, cardId } = Astro.props;
             --third-card-width: 8rem;
         }
 
+        .goals-card_eco {
+            width: 100%;
+            height: 100%;
+        }
+
         .goals-descr {
             text-align: center;
             width: 5rem;
@@ -93,29 +98,57 @@ const { goalsIcon, goalsDescr, cardId } = Astro.props;
             flex-direction: row;
         }
 
+        .goals-card_eco {
+            width: 100%;
+            height: 100%;
+        }
+
+        .goals-card_eco {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+
         .goals-icon {
             margin-left: 2rem;
+        }
+
+        .goals-card_eco .goals-icon {
+            margin-left: 0;
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
         }
 
         .goals-descr {
             margin-left: 1rem;
             width: 5rem;
         }
+
+        .goals-card_eco .goals-descr {
+            margin-top: ;
+            text-align: center;
+            margin: 0;
+        }
     }
 
     @media (320px <= width < 480px) {
         .goals-card {
-            --card-width: 8.125rem;
-            --card-height: 5.8125rem;
-            --icon-size: 2rem;
+            --card-width: 40.625vw;
+            --card-height: 29.0625vw;
+            --icon-size: 10vw;
             --margin-top-bottom: 0.6rem;
-            --font-size: 0.625rem;
-            --third-card-width: 7.4rem;
+            --font-size: 3.125vw;
+            --third-card-width: 37vw;
+        }
+
+        .goals-card_eco {
+            width: 100%;
+            height: 100%;
         }
 
         .goals-descr {
             text-align: center;
-            width: 5rem;
+            width: 25vw;
         }
     }
 </style>

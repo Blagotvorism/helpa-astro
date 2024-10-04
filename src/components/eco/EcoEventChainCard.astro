@@ -12,6 +12,7 @@ const { text, textWidth } = Astro.props;
         --card-width: 16.6rem;
         --card-height: 10rem;
         --text-width: var(--textWidth);
+        --text-fs: 1rem;
     }
 
     .eco-event-chain-card {
@@ -25,11 +26,58 @@ const { text, textWidth } = Astro.props;
     }
 
     .eco-event-chain-card__text {
+        font-family: var(--font-inter);
+        font-size: var(--text-fs);
         display: inline-block;
         width: var(--text-width);
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    @media (960px <= width < 1200px) {
+        .eco-event-chain-card {
+            --card-width: 13.4375rem;
+            --card-height: 8.375rem;
+            --text-width: var(--textWidth);
+            --text-fs: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .eco-event-chain-card {
+            --card-width: 13.6875rem;
+            --card-height: 8.375rem;
+            --text-width: var(--textWidth);
+            --text-fs: .75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .eco-event-chain-card {
+            --card-width: 13.125rem;
+            --card-height: 4.25rem;
+            --text-width: var(--textWidth);
+            --text-fs: .625rem;
+        }
+
+        .eco-event-chain-card {
+            border-radius: 1rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .eco-event-chain-card {
+            --card-width: 40.625vw;
+            --card-height: 19.375vw;
+            --text-width: 95%;
+            --text-fs: 2.5vw;
+        }
+
+        .eco-event-chain-card {
+            border-radius: 1rem;
+            text-align: center;
+        }
     }
 </style>

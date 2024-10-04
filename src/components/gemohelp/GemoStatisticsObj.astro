@@ -8,11 +8,12 @@ interface Props {
     imgDescr?: string;
     heading?: string;
     text?: string;
+    id: string;
 }
 
-const { img, altText = '', imgDescr, heading, text } = Astro.props;
+const { img, altText = '', imgDescr, heading, text, id } = Astro.props;
 ---
-<div class="statistics_obj">
+<div class="statistics_obj" id={id}>
     {img && 
         <>
             <p class="img_descr">{imgDescr}</p>
@@ -33,6 +34,11 @@ const { img, altText = '', imgDescr, heading, text } = Astro.props;
         --statistics-obj-height: 18.125rem;
         --statistics-obj-width-2nd-child: 16rem;
         --statistics-obj-width-5th-child: 16.5rem;
+        --img-descr-font-size: 1rem;
+        --img-descr-margin-bottom: 0.75rem;
+        --heading-font-size: 1.5rem;
+        --heading-margin-bottom: 1.25rem;
+        --text-font-size: 1rem;
     }
 
     .statistics_obj {
@@ -44,14 +50,14 @@ const { img, altText = '', imgDescr, heading, text } = Astro.props;
     }
 
     .img_descr {
-        font-size: 1rem;
+        font-size: var(--img-descr-font-size);
         color: var(--dark-grey);
-        margin-bottom: 0.75rem;
+        margin-bottom: var(--img-descr-margin-bottom);
     }
 
     .heading {
-        font-size: 1.5rem;
-        margin-bottom: 1.25rem;
+        font-size: var(--heading-font-size);
+        margin-bottom: var(--heading-margin-bottom);
     }
 
     .img {
@@ -61,7 +67,7 @@ const { img, altText = '', imgDescr, heading, text } = Astro.props;
 
     .text {
         display: inline-block;
-        font-size: 1rem;
+        font-size: var(--text-font-size);
         color: var(--dark-grey);
     }
 
@@ -71,5 +77,91 @@ const { img, altText = '', imgDescr, heading, text } = Astro.props;
 
     .statistics_obj:nth-child(5) {
         width: var(--statistics-obj-width-5th-child);
+    }
+
+    @media (960px <= width < 1200px) {
+        .statistics_obj {
+            --statistics-obj-width: 14.6875rem;
+            --statistics-obj-height: 14.375rem;
+            --statistics-obj-width-2nd-child: 15.875rem;
+            --statistics-obj-width-5th-child: 15.875rem;
+            --img-descr-font-size: .625rem;
+            --img-descr-margin-bottom: .625rem;
+            --heading-font-size: 1.25rem;
+            --heading-margin-bottom: 1.25rem;
+            --text-font-size: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .statistics_obj {
+            --statistics-obj-width: 15.9375rem;
+            --statistics-obj-height: 14.5rem;
+            --statistics-obj-width-2nd-child: 15.875rem;
+            --statistics-obj-width-5th-child: 15.875rem;
+            --img-descr-font-size: .625rem;
+            --img-descr-margin-bottom: .625rem;
+            --heading-font-size: 1.25rem;
+            --heading-margin-bottom: 1.25rem;
+            --text-font-size: .75rem;
+        }
+
+        #obj_1 {order: 5; display: flex; flex-direction: column-reverse;}
+        #obj_1 img {margin-bottom: 1rem;}
+        #obj_4 img {margin-bottom: 1rem;}
+        #obj_2 {order: 1;}
+        #obj_3 {order: 2;}
+        #obj_4 {order: 6; display: flex; flex-direction: column-reverse;}
+        #obj_5 {order: 3;}
+        #obj_6 {order: 4;}
+
+    }
+
+    @media (480px <= width < 640px) {
+        .statistics_obj {
+            --statistics-obj-width: 13.125rem;
+            --statistics-obj-height: 9.75rem;
+            --statistics-obj-width-2nd-child: 13.125rem;
+            --statistics-obj-width-5th-child: 13.125rem;
+            --img-descr-font-size: .625rem;
+            --img-descr-margin-bottom: 0;
+            --heading-font-size: .75rem;
+            --heading-margin-bottom: .625rem;
+            --text-font-size: .625rem;
+        }
+
+        #obj_1 {order: 5; display: flex; flex-direction: column-reverse;height: 12.2rem;}
+        #obj_1 img {margin-bottom: 1rem;}
+        #obj_4 img {margin-bottom: 1rem;}
+        #obj_2 {order: 1;}
+        #obj_3 {order: 2;}
+        #obj_4 {order: 6; display: flex; flex-direction: column-reverse; height: 12.2rem;}
+        #obj_5 {order: 3;}
+        #obj_6 {order: 4; height: 11.3125rem;}
+
+    }
+
+    @media (320px <= width < 480px) {
+        .statistics_obj {
+            --statistics-obj-width: 65.625vw;
+            --statistics-obj-height: 40.625vw;
+            --statistics-obj-width-2nd-child: 65.625vw;
+            --statistics-obj-width-5th-child: 65.625vw;
+            --img-descr-font-size: 3.125vw;
+            --img-descr-margin-bottom: 0;
+            --heading-font-size: 3.75vw;
+            --heading-margin-bottom: 3.125vw;
+            --text-font-size: 3.125vw;
+        }
+
+        #obj_1 {order: 5; display: flex; flex-direction: column-reverse; height: 45.9375vw; width: 40.3125vw;}
+        #obj_1 img {margin-bottom: 1rem;}
+        #obj_4 img {margin-bottom: 1rem;}
+        #obj_2 {order: 1; height: 5.625rem;}
+        #obj_3 {order: 2;}
+        #obj_4 {order: 6; display: flex; flex-direction: column-reverse; height: 45.9375vw; width: 47.1875vw;}
+        #obj_5 {order: 3;}
+        #obj_6 {order: 4; height: 56.5625vw;}
+
     }
 </style>

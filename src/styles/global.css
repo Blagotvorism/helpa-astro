@@ -100,7 +100,7 @@ button, button:hover, button:active, button:visited, button:focus {
 @media (320px<= width < 480px) {
   :root {
     --full-width: var(--section-width);
-    --reduced-width: 17.5rem;
+    --reduced-width: 87.5vw;
   }
 }
 

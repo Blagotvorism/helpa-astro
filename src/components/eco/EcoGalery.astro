@@ -9,6 +9,10 @@ const ecoRows = {
     row1: galeryData.filter(card => card.id < 4 && card.category === page),
     row2: galeryData.filter(card => [4, 5, 6, 7].includes(card.id) && card.category === page),
     row3: galeryData.filter(card => card.id > 7 && card.category === page),
+    row11: galeryData.filter(card => card.id < 3 && card.category === page),
+    row12: galeryData.filter(card => [4, 6, 8].includes(card.id) && card.category === page),
+    row13: galeryData.filter(card => [9, 11].includes(card.id) && card.category === page),
+    row14: galeryData.filter(card => [3, 5, 7].includes(card.id) && card.category === page),
 };
 
 const rideRows = {
@@ -40,6 +44,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
 
 <style>
     .eco-galery {
+        --section-height: 50.3rem;
         --container-padding: 9.375rem;
         --row-width: 93.75rem;
         --row-margin-left-2: -9.375rem;
@@ -50,7 +55,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
         display: block;
         position: relative;
         width: 100vw;
-        height: 50.3rem;
+        height: var(--section-height);
         overflow: auto;
     }
 
@@ -58,9 +63,8 @@ const rows = page === 'eco' ? ecoRows : rideRows;
         display: block;
         position: relative;
         width: var(--full-width);
-        top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         margin: -(var(--container-padding));
         overflow-x: auto;
         scrollbar-width: none; /* For Firefox */
@@ -93,10 +97,137 @@ const rows = page === 'eco' ? ecoRows : rideRows;
         transition: margin-left 0.5s ease-in-out;
     }
 
+    .row-4, .row-5, .row-6, .row-7, .row-15, .row-16, .row-17, .row-18 {
+        display: none;
+    }
+
     .eco-galery__container:focus-within .row:nth-child(2),
     .eco-galery__container:hover .row:nth-child(2),
     .eco-galery__container:focus-within .row:nth-child(3),
     .eco-galery__container:hover .row:nth-child(3) {
         margin-left: 0; /* This brings the 2nd row into full view on scroll */
+    }
+
+    @media (960px <= width < 1200px) {
+        .eco-galery {
+            --section-height: 40.75rem;
+            --container-padding: 9.375rem;
+            --row-width: 77rem;
+            --row-margin-left-2: -9.375rem;
+            --row-margin-left-3: 2.5rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .eco-galery {
+            --section-height: 50.125rem;
+            --container-padding: 9.375rem;
+            --row-width: 144.375vw;
+            --row-margin-left-2: -9.375rem;
+            --row-margin-left-3: 2.5rem;
+        }
+
+        .row-1, .row-2, .row-3 {
+            display: none;
+        }
+
+        .row {
+            margin-bottom: 1rem;
+        }
+
+        .row-4, .row-5, .row-6, .row-7  {
+            display: flex;
+        }
+
+        .row-5, .row-7 {
+            margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
+            transition: margin-left 0.5s ease-in-out;
+            width: var(--row-width);
+        }
+
+        .eco-galery__container:focus-within .row-5,
+        .eco-galery__container:hover .row-5,
+        .eco-galery__container:focus-within .row-7,
+        .eco-galery__container:hover .row-7 {
+            margin-left: 0; /* This brings the 2nd row into full view on scroll */
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .eco-galery {
+            --section-height: 35.25rem;
+            --container-padding: 23.95833333vw;
+            --row-width: 139.6vw;
+            --row-margin-left-2: -23.95833333vw;
+            --row-margin-left-3: 2.5rem;
+        }
+
+        .row-1, .row-2, .row-3 {
+            display: none;
+        }
+
+        .row {
+            margin-bottom: 1rem;
+        }
+
+        .row-4, .row-5, .row-6, .row-7  {
+            display: flex;
+        }
+
+        /* .row-4, .row-6 {
+            width: 27.5rem;
+        } */
+
+        .row-5, .row-7 {
+            margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
+            transition: margin-left 0.5s ease-in-out;
+            width: var(--row-width);
+        }
+
+        .eco-galery__container:focus-within .row-5,
+        .eco-galery__container:hover .row-5,
+        .eco-galery__container:focus-within .row-7,
+        .eco-galery__container:hover .row-7 {
+            margin-left: 0; /* This brings the 2nd row into full view on scroll */
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .eco-galery {
+            --section-height: 110.875vw;
+            --container-padding: 20.3125vw;
+            --row-width: 128.125vw;
+            --row-margin-left-2: -20.3125vw;
+            --row-margin-left-3: 2.5rem;
+        }
+
+        .row-1, .row-2, .row-3 {
+            display: none;
+        }
+
+        .row {
+            margin-bottom: 1rem;
+        }
+
+        .row-4, .row-5, .row-6, .row-7  {
+            display: flex;
+        }
+
+        /* .row-4, .row-6 {
+            width: 27.5rem;
+        } */
+
+        .row-5, .row-7 {
+            margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
+            transition: margin-left 0.5s ease-in-out;
+            width: var(--row-width);
+        }
+
+        .eco-galery__container:focus-within .row-5,
+        .eco-galery__container:hover .row-5,
+        .eco-galery__container:focus-within .row-7,
+        .eco-galery__container:hover .row-7 {
+            margin-left: 0; /* This brings the 2nd row into full view on scroll */
+        }
     }
 </style>

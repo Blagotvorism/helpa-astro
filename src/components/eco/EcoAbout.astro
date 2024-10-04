@@ -27,20 +27,23 @@ import RadialGradient from '../RadialGradient.astro';
     .eco_about {
         --eco-about-height: 76.2rem;
         --container-top: 5rem;
+        --heading-width: var(--reduced-width);
         --heading-font-size: 3.125rem;
         --heading-line-height: 4rem;
         --subheading-width: 34.5rem;
         --subheading-font-size: 1.2rem;
         --subheading-line-height: 1.6rem;
+        --text-fs: 1rem;
         --image-width: 58.75rem;
         --image-height: 32.2rem;
-        --margin-bottom: 2.5rem;
+        --margin-bottom-heading: 2.5rem;
+        --margin-bottom-subheading: 1.25rem;
+        --margin-bottom-text: 5rem;
     }
 
     .eco_about {
         position: relative;
         display: block;
-        max-width: var(--section-width);
         height: var(--eco-about-height);
     }
 
@@ -57,14 +60,14 @@ import RadialGradient from '../RadialGradient.astro';
 
     .eco_about__heading, .eco_about__subheading, .eco_about__text {
         display: inline-block;
-        width: inherit;
-    }
+    } 
 
     .eco_about__heading {
         font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
-        margin-bottom: var(--margin-bottom);
+        margin-bottom: var(--margin-bottom-heading);
+        width: var(--heading-width);
     }
 
     .eco_about__subheading {
@@ -72,19 +75,97 @@ import RadialGradient from '../RadialGradient.astro';
         font-family: var(--font-inter);
         font-size: var(--subheading-font-size);
         line-height: var(--subheading-line-height);
-        margin-bottom: 1.25rem;
+        margin-bottom: var(--margin-bottom-subheading);
     }
 
     .eco_about__text {
         font-family: var(--font-inter);
+        font-size: var(--text-fs);
         color: var(--dark-grey);
-        margin-bottom: 5rem;
+        margin-bottom: var(--margin-bottom-text);
     }
 
-    .eco_about__image {
+    .eco_about_image {
         display: block;
         width: var(--image-width);
         height: var(--image-height);
         margin-bottom: 9rem;
     }
+
+    @media (960px <= width < 1200px) {
+        .eco_about {
+            --eco-about-height: 63.875rem;
+            --container-top: 7.5rem;
+            --heading-width: var(--reduced-width);
+            --heading-font-size: 2.5rem;
+            --heading-line-height: 3.25rem;
+            --subheading-width: 34.5rem;
+            --subheading-font-size: 1.25rem;
+            --subheading-line-height: 1.5rem;
+            --text-fs: 0.75rem;
+            --image-width: 43.875rem;
+            --image-height: 24.0625rem;
+            --margin-bottom-heading: 2.5rem;
+            --margin-bottom-subheading: 1.25rem;
+            --margin-bottom-text: 4rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .eco_about {
+            --eco-about-height: 58rem;
+            --container-top: 6.25rem;
+            --heading-width: var(--reduced-width);
+            --heading-font-size: 2.5rem;
+            --heading-line-height: 3.25rem;
+            --subheading-width: 34.5rem;
+            --subheading-font-size: 1.25rem;
+            --subheading-line-height: 1.5rem;
+            --text-fs: 0.75rem;
+            --image-width: 32.1875rem;
+            --image-height: 17.625rem;
+            --margin-bottom-heading: 2.5rem;
+            --margin-bottom-subheading: 1.25rem;
+            --margin-bottom-text: 3.75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .eco_about {
+            --eco-about-height: 31.5625rem;
+            --container-top: 4rem;
+            --heading-width: 24.5rem;
+            --heading-font-size: 1rem;
+            --heading-line-height: 1.25rem;
+            --subheading-width: 17.8125rem;
+            --subheading-font-size: 0.75rem;
+            --subheading-line-height: 1rem;
+            --text-fs: 0.625rem;
+            --image-width: 21.875rem;
+            --image-height: 12rem;
+            --margin-bottom-heading: 1.25rem;
+            --margin-bottom-subheading: 0.625rem;
+            --margin-bottom-text: 2.5rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .eco_about {
+            --eco-about-height: 139.375vw;
+            --container-top: 2.5rem;
+            --heading-width: 75vw;
+            --heading-font-size: 5vw;
+            --heading-line-height: 6.25vw;
+            --subheading-width: 89vw;
+            --subheading-font-size: 3.75vw;
+            --subheading-line-height: 4vw;
+            --text-fs: 3.125vw;
+            --image-width: 81.25vw;
+            --image-height: 44.375vw;
+            --margin-bottom-heading: 1.25rem;
+            --margin-bottom-subheading: 0.625rem;
+            --margin-bottom-text: 2.5rem;
+        }
+    }
+
 </style>

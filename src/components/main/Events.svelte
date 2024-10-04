@@ -401,39 +401,39 @@
         .cards_container {
             /* Container vars */
             --cards-container-width: var(--reduced-width);
-            --cards-container-heigth: 15.875rem;
-            --no-cards-container-width: 14.625rem;
+            --cards-container-heigth: 79.375vw;
+            --no-cards-container-width: 73.125vw;
             --no-cards-container-mt: 9.375rem;
 
             /* no cards vars */
-            --no-cards-fs: 0.75rem;
+            --no-cards-fs: 3.75vw;
 
             /* Event card vars */
-            --event-card-width: 18.5625rem;
-            --event-card-heigth: 10.8125rem;
-            --event-card-img-width: 9rem;
+            --event-card-width: 92.8125vw;
+            --event-card-heigth: 54.0625vw;
+            --event-card-img-width: 45vw;
             --event-card-text-width: calc(var(--event-card-width) - var(--event-card-img-width));
 
             /* Event card title vars */
-            --event-card-title-width: 7.3125rem;
+            --event-card-title-width: 36.5625vw;
             --event-card-title-height: auto;
-            --event-card-title-font-size: 0.75rem;
-            --event-card-title-line-height: 1rem;
-            --event-card-title-margin-left: 0.75rem;
-            --event-card-title-margin-bottom: 0.625rem;
-            --event-card-title-margin-top: 1.5rem;
+            --event-card-title-font-size: 3.75vw;
+            --event-card-title-line-height: 5vw;
+            --event-card-title-margin-left: 3.75vw;
+            --event-card-title-margin-bottom: 3.125vw;
+            --event-card-title-margin-top: 7.5vw;
 
             /* Event card descr vars */
-            --event-card-descr-width: 8rem;
-            --event-card-descr-height: 3.7rem;
-            --event-card-descr-margin-left: 0.75rem;
-            --event-card-descr-font-size: 0.625rem;
+            --event-card-descr-width: 40vw;
+            --event-card-descr-height: 18.5vw;
+            --event-card-descr-margin-left: 3.75vw;
+            --event-card-descr-font-size: 3.125vw;
 
             /* button */
-            --button-font-size: 0.625rem;
-            --button-width: 4.6875rem;
-            --button-ml: 0.75rem;
-            --button-mb: 1rem;
+            --button-font-size: 3.125vw;
+            --button-width: 23.4375vw;
+            --button-ml: 3.75vw;
+            --button-mb: 5vw;
         }
 
         .cards_container {

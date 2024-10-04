@@ -39,7 +39,7 @@ const textConfig = {
 
 const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 ---
-<div class="nums" style={`--textHeight: ${height}; --textWidth: ${width}; --textSpanWidth: ${spanWidth};`}>
+<div id=`num${num}` class="nums" style={`--textHeight: ${height}; --textWidth: ${width}; --textSpanWidth: ${spanWidth};`}>
     <h2 class="num_heading">{num}</h2>
     <p class="text_heading">
         <span class="heading">{heading}</span>
@@ -70,6 +70,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 
         --num-font-size: 12.5rem;
         --heading-font-size: 3.125rem;
+        --heading-width: 25rem;
         --facts-text-font-size: 1rem;
         --line-height-heading: 3.5rem;
         --line-height-facts: 1.4rem;
@@ -109,7 +110,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 
     .heading {
         display: block;
-        width: 25rem;
+        width: var(--heading-width);
         line-height: var(--line-height-heading);
         font-size: var(--heading-font-size);
         font-family: var(--font-lulo-bold);
@@ -123,5 +124,154 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
         line-height: var(--line-height-facts);
         width: var(--textSpanWidth);
         margin-top: var(--text-margin-top);
+    }
+
+    @media (960px <= width < 1200px) {
+        .nums {
+            --text-height-1: 21rem;
+            --text-height-2: 21.4375rem;
+            --text-height-3: 30.8125rem;
+            --text-height-4: 18.1875rem;
+            --text-height-5: 21rem;
+            
+            --text-width-1: 25.625rem;
+            --text-width-2: 28rem;
+            --text-width-3: 25.625rem;
+            --text-width-4: 25.625rem;
+            --text-width-5: 28rem;
+            
+            --text-span-width-1: 23rem;
+            --text-span-width-2: 26.3125rem;
+            --text-span-width-3: 23.0625rem;
+            --text-span-width-4: 26.3125rem;
+            --text-span-width-5: 23.5rem;
+
+            --num-font-size: 10rem;
+            --heading-font-size: 2.5rem;
+            --facts-text-font-size: .75rem;
+            --line-height-heading: 3.25rem;
+            --line-height-facts: 1.25rem;
+            --text-margin-top: 1.25rem;
+            --text-margin-bottom: 0.75rem;
+            --text-top: 9rem;
+            --text-left: 2.75rem;
+            --fact-height: 8.125rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .nums {
+            --text-height-1: 27rem;
+            --text-height-2: 21.4375rem;
+            --text-height-3: 43rem;
+            --text-height-4: 22rem;
+            --text-height-5: 30rem;
+            
+            --text-width-1: 19rem;
+            --text-width-2: 18.5rem;
+            --text-width-3: 16rem;
+            --text-width-4: 16rem;
+            --text-width-5: 18.5rem;
+            
+            --text-span-width-1: 16rem;
+            --text-span-width-2: 16rem;
+            --text-span-width-3: 16rem;
+            --text-span-width-4: 16rem;
+            --text-span-width-5: 16rem;
+
+            --num-font-size: 10rem;
+            --heading-font-size: 2rem;
+            --facts-text-font-size: .75rem;
+            --heading-width: 12rem;
+            --line-height-heading: 2.5rem;
+            --line-height-facts: 1.25rem;
+            --text-margin-top: .75rem;
+            --text-margin-bottom: 0.75rem;
+            --text-top: 9rem;
+            --text-left: 2.5rem;
+            --fact-height: 8.125rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .nums {
+            --text-height-1: 18rem;
+            --text-height-2: 18rem;
+            --text-height-3: 20rem;
+            --text-height-4: 15rem;
+            --text-height-5: 20rem;
+            
+            --text-width-1: 13rem;
+            --text-width-2: 13rem;
+            --text-width-3: 23.9375rem;
+            --text-width-4: 13rem;
+            --text-width-5: 13rem;
+            
+            --text-span-width-1: 11.75rem;
+            --text-span-width-2: 11.75rem;
+            --text-span-width-3: 22.5625rem;
+            --text-span-width-4: 11.75rem;
+            --text-span-width-5: 11.75rem;
+
+            --num-font-size: 6.25rem;
+            --heading-font-size: 18px;
+            --facts-text-font-size: .625rem;
+            --heading-width: 10rem;
+            --line-height-heading: 1.4rem;
+            --line-height-facts: .75rem;
+            --text-margin-top: .625rem;
+            --text-margin-bottom: 0.75rem;
+            --text-top: 6rem;
+            --text-left: 1.6rem;
+            --fact-height: 8.125rem;
+        }
+
+        #num1 {order: 1;}
+        #num2 {order: 2;}
+        #num3 {order: 3;}
+        #num4 {order: 4;}
+        #num5 {order: 5;}
+
+    }
+
+    @media (320px <= width < 480px) {
+        .nums {
+            --text-height-1: 14rem;
+            --text-height-2: 12rem;
+            --text-height-3: 21rem;
+            --text-height-4: 12rem;
+            --text-height-5: 14.5rem;
+            
+            --text-width-1: var(--reduced-width);
+            --text-width-2: var(--reduced-width);
+            --text-width-3: var(--reduced-width);
+            --text-width-4: var(--reduced-width);
+            --text-width-5: var(--reduced-width);
+            
+            --text-span-width-1: 81.25vw;
+            --text-span-width-2: 81.25vw;
+            --text-span-width-3: 81.25vw;
+            --text-span-width-4: 81.25vw;
+            --text-span-width-5: 81.25vw;
+
+            --num-font-size: 6.25rem;
+            --heading-font-size: 18px;
+            --facts-text-font-size: .625rem;
+            --heading-width: 10rem;
+            --line-height-heading: 1.4rem;
+            --line-height-facts: .75rem;
+            --text-margin-top: .625rem;
+            --text-margin-bottom: 0.75rem;
+            --text-top: 6rem;
+            --text-left: 1.6rem;
+            --fact-height: 8.125rem;
+        }
+
+        #num1 {order: 1;}
+        #num2 {order: 2;}
+        #num3 {order: 3;}
+        #num4 {order: 4;}
+        #num5 {order: 5;}
+
     }
 </style>

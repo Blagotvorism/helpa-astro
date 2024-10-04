@@ -12,6 +12,8 @@ const { cardImage, cardText, imgDescr, fontSize } = Astro.props;
     .galery-card__container {
         --card-width: 22.5rem;
         --card-height: 12.8rem;
+        --card-text-width: 15.25rem;
+        --fontSizeSmall: var(--fontSize);
     }
 
     .galery-card__container {
@@ -35,8 +37,57 @@ const { cardImage, cardText, imgDescr, fontSize } = Astro.props;
 
     .galery-card__text {
         display: inline-block;
-        width: 15.25rem;
+        width: var(--card-text-width);
         font-family: var(--font-inter);
-        font-size: var(--fontSize);
+        font-size: var(--fontSizeSmall);
+    }
+
+    @media (960px <= width < 1200px) {
+        .galery-card__container {
+            --card-width: 18.3125rem;
+            --card-height: 10.3125rem;
+            --card-text-width: 13rem;
+            --fontSizeSmall: var(--fontSize);
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .galery-card__container {
+            --card-width: 18.625rem;
+            --card-height: 10.3125rem;
+            --card-text-width: 12.5rem;
+            --fontSizeSmall: var(--fontSize);
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .galery-card__container {
+            --card-width: 13.125rem;
+            --card-height: 6.875rem;
+            --card-text-width: 9.0625rem;
+            --fontSizeSmall: calc(var(--fontSize)*0.65);
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .galery-card__container {
+            --card-width: 40.625vw;
+            --card-height: 21.875vw;
+            --card-text-width: 26.5625vw;
+            --fontSizeSmall: calc(var(--fontSize)*0.4);
+            --border-radius: 1rem;
+        }
+    }
+
+    @media (380px <= width < 480px) {
+        .galery-card__container {
+            --fontSizeSmall: calc(var(--fontSize)*0.5);
+        }
+    }
+
+    @media (320px <= width < 380px) {
+        .galery-card__container {
+            --fontSizeSmall: calc(var(--fontSize)*0.4);
+        }
     }
 </style>

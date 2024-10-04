@@ -4,17 +4,23 @@ import '../../styles/global.css';
 <section class="communication">
     <div class="communication__container">
         <div class="scroll_content">
-            <h2 class="scroll-content">Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним <br/> природа.</h2>
+            <h2 class="scroll-content">Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</h2>
         </div>
     </div>
 </section>
 
 <style>
+    .communication {
+        --section-height: 33.5125rem;
+        --h2-font-size: 3.125rem;
+        --h2-line-height: 4.0625rem;
+        --h2-margin-bottom: 13.2rem;
+    }
     section {
         display: flex;
         justify-content: center;
         width: 100vw;
-        height: 33.5125rem;
+        height: var(--section-height);
     }
 
     .communication__container {
@@ -28,8 +34,44 @@ import '../../styles/global.css';
         display: block;
         width: 100%;
         font-family: var(--font-lulo-bold);
-        font-size: 3.125rem;
-        line-height: 4.0625rem;
-        margin-bottom: 13.2rem;
+        font-size: var(--h2-font-size);
+        line-height: var(--h2-line-height);
+        margin-bottom: var(--h2-margin-bottom);
+    }
+
+    @media (960px <= width < 1200px) {
+        .communication {
+            --section-height: 22rem;
+            --h2-font-size: 2.5rem;
+            --h2-line-height: 3.25rem;
+            --h2-margin-bottom: 0;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .communication {
+            --section-height: 31.25rem;
+            --h2-font-size: 2.5rem;
+            --h2-line-height: 3.25rem;
+            --h2-margin-bottom: 0;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .communication {
+            --section-height: 11.5rem;
+            --h2-font-size: 1rem;
+            --h2-line-height: 1.25rem;
+            --h2-margin-bottom: 0;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .communication {
+            --section-height: 51.5625vw;
+            --h2-font-size: 5vw;
+            --h2-line-height: 6.25vw;
+            --h2-margin-bottom: 0;
+        }
     }
 </style>
