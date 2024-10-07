@@ -45,4 +45,58 @@ const { iconName, cardText } = Astro.props;
         font-family: var(--font-inter);
         font-size: var(--text-font-size);
     }
+
+    @media (960px <= width < 1200px) {
+        .card {
+            --card-width: 13.4375rem;
+            --card-height: 11.25rem;
+            --card-border-radius: 1.875rem;
+            --logo-size: 2.8rem;
+            --logo-margin-bottom: 1.5rem;
+            --text-width: 9rem;
+            --text-font-size: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .card {
+            --card-width: 9rem;
+            --card-height: 9.125rem;
+            --card-border-radius: 1.875rem;
+            --logo-size: 2.5rem;
+            --logo-margin-bottom: 1.5rem;
+            --text-width: 7rem;
+            --text-font-size: .625rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .card {
+            --card-width: 13.4375rem;
+            --card-height: 4.375rem;
+            --card-border-radius: 1.875rem;
+            --logo-size: 2.3rem;
+            --logo-margin-bottom: 0;
+            --text-width: 6.25rem;
+            --text-font-size: .625rem;
+        }
+
+        .card {
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: start;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .card {
+            --card-width: 40.625vw;
+            --card-height: 29.375vw;
+            --card-border-radius: 6.25vw;
+            --logo-size: 10vw;
+            --logo-margin-bottom: 0;
+            --text-width: 31.25vw;
+            --text-font-size: 3.125vw;
+        }
+    }
 </style>

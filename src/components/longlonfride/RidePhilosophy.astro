@@ -96,4 +96,118 @@ import RadialGradient from '../RadialGradient.astro';
         width: var(--logo-width);
         height: var(--logo-height);
     }
+
+    @media (960px <= width < 1200px) {
+        .ride_philosophy {
+            --section-height: 34.25rem;
+            --container-height: 21.625rem;
+            --container-margin-top: 6.25rem;
+            --text-width: 33.5rem;
+            --h2-font-size: 2.5rem;
+            --h2-line-height: 3.125rem;
+            --h2-margin-bottom: 2.5rem;
+            --h3-font-size: 1.25rem;
+            --h3-line-height: 1.5rem;
+            --h3-margin-bottom: 1.25rem;
+            --p-width: 25rem;
+            --p-font-size: .75rem;
+            --p-line-height: 1rem;
+            --logo-width: 19.4375rem;
+            --logo-height: 16.875rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .ride_philosophy {
+            --section-height: 35.5rem;
+            --container-height: 23rem;
+            --container-margin-top: 6.25rem;
+            --text-width: 22.625rem;
+            --h2-font-size: 2.5rem;
+            --h2-line-height: 3.125rem;
+            --h2-margin-bottom: 2.5rem;
+            --h3-font-size: 1.25rem;
+            --h3-line-height: 1.5rem;
+            --h3-margin-bottom: 1.25rem;
+            --p-width: 20.125rem;
+            --p-font-size: .75rem;
+            --p-line-height: 1rem;
+            --logo-width: 14.125rem;
+            --logo-height: 12.25rem;
+        }
+
+        .ride_philosophy__logo {
+            height: var(--logo-height);
+            margin-top: 10rem;
+        }
+
+        h2 {
+            width: 31.5625rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .ride_philosophy {
+            --section-height: 21.3125rem;
+            --container-height: 12.5rem;
+            --container-margin-top: 3.75rem;
+            --text-width: 18.125rem;
+            --h2-font-size: 1rem;
+            --h2-line-height: 1.25rem;
+            --h2-margin-bottom: 1.25rem;
+            --h3-font-size: .75rem;
+            --h3-line-height: 1rem;
+            --h3-margin-bottom: .625rem;
+            --p-width: 17rem;
+            --p-font-size: .625rem;
+            --p-line-height: .75rem;
+            --logo-width: 10rem;
+            --logo-height: 8.625rem;
+        }
+
+        .ride_philosophy__logo {
+            height: var(--logo-height);
+            margin-top: 3.5rem;
+        }
+
+        h2 {
+            width: 12.6875rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .ride_philosophy {
+            --section-height: 146.25vw;
+            --container-height: 115vw;
+            --container-margin-top: 12.5vw;
+            --text-width: var(--reduced-width);
+            --h2-font-size: 5vw;
+            --h2-line-height: 6.25vw;
+            --h2-margin-bottom: 6.25vw;
+            --h3-font-size: 3.75vw;
+            --h3-line-height: 5vw;
+            --h3-margin-bottom: 3.125vw;
+            --p-width: var(--reduced-width);
+            --p-font-size: 3.125vw;
+            --p-line-height: 3.75vw;
+            --logo-width: 50vw;
+            --logo-height: 43.125vw;
+        }
+
+        .ride_philosophy__container {
+            display: block;
+        }
+
+        .ride_philosophy__logo {
+            height: var(--logo-height);
+            width: var(--logo-width);
+            margin: auto;
+            margin-top: 9.375vw;
+
+        }
+
+        h2 {
+            width: 63.4375vw;
+        }
+    }
 </style>

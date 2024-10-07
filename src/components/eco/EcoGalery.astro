@@ -9,16 +9,20 @@ const ecoRows = {
     row1: galeryData.filter(card => card.id < 4 && card.category === page),
     row2: galeryData.filter(card => [4, 5, 6, 7].includes(card.id) && card.category === page),
     row3: galeryData.filter(card => card.id > 7 && card.category === page),
-    row11: galeryData.filter(card => card.id < 3 && card.category === page),
-    row12: galeryData.filter(card => [4, 6, 8].includes(card.id) && card.category === page),
-    row13: galeryData.filter(card => [9, 11].includes(card.id) && card.category === page),
-    row14: galeryData.filter(card => [3, 5, 7].includes(card.id) && card.category === page),
+    row4: galeryData.filter(card => card.id < 3 && card.category === page),
+    row5: galeryData.filter(card => [4, 6, 8].includes(card.id) && card.category === page),
+    row6: galeryData.filter(card => [9, 11].includes(card.id) && card.category === page),
+    row7: galeryData.filter(card => [3, 5, 7].includes(card.id) && card.category === page),
 };
 
 const rideRows = {
-    row4: galeryData.filter(card => [12, 13, 14].includes(card.id) && card.category === page),
-    row5: galeryData.filter(card => [15, 16, 17, 18].includes(card.id) && card.category === page),
-    row6: galeryData.filter(card => [19, 20, 21].includes(card.id) && card.category === page),
+    row8: galeryData.filter(card => [12, 13, 14].includes(card.id) && card.category === page),
+    row9: galeryData.filter(card => [15, 16, 17, 18].includes(card.id) && card.category === page),
+    row10: galeryData.filter(card => [19, 20, 21].includes(card.id) && card.category === page),
+    row11: galeryData.filter(card => [12, 13].includes(card.id) && card.category === page),
+    row12: galeryData.filter(card => [14, 15, 16].includes(card.id) && card.category === page),
+    row13: galeryData.filter(card => [17, 18].includes(card.id) && card.category === page),
+    row14: galeryData.filter(card => [19, 20, 21].includes(card.id) && card.category === page),
 };
 
 const rows = page === 'eco' ? ecoRows : rideRows;
@@ -28,7 +32,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
 <section class="eco-galery">
     <div class="eco-galery__container" id="scrollHorizontal">
         {Object.keys(rows).map((row, index) => (
-            <div class={page === 'eco' ? `row row-${index + 1}`: `row row-${index + 4}`}>
+            <div class={page === 'eco' ? `row row-${index + 1}`: `row row-${index + 8}`}>
                 {rows[row].map(card => (
                     <EcoGaleryCard 
                         cardImage={card.imgPath} 
@@ -85,7 +89,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
         margin-bottom: 1.25rem;
     }
 
-    .row-2, .row-5 {
+    .row-2, .row-9 {
         margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
         transition: margin-left 0.5s ease-in-out;
         width: var(--row-width);
@@ -97,7 +101,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
         transition: margin-left 0.5s ease-in-out;
     }
 
-    .row-4, .row-5, .row-6, .row-7, .row-15, .row-16, .row-17, .row-18 {
+    .row-4, .row-5, .row-6, .row-7, .row-11, .row-12, .row-13, .row-14 {
         display: none;
     }
 
@@ -127,7 +131,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
             --row-margin-left-3: 2.5rem;
         }
 
-        .row-1, .row-2, .row-3 {
+        .row-1, .row-2, .row-3, .row-8, .row-9, .row-10 {
             display: none;
         }
 
@@ -135,20 +139,24 @@ const rows = page === 'eco' ? ecoRows : rideRows;
             margin-bottom: 1rem;
         }
 
-        .row-4, .row-5, .row-6, .row-7  {
+        .row-4, .row-5, .row-6, .row-7, .row-11, .row-12, .row-13, .row-14  {
             display: flex;
         }
 
-        .row-5, .row-7 {
+        .row-5, .row-7, .row-12, .row-14 {
             margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
             transition: margin-left 0.5s ease-in-out;
             width: var(--row-width);
         }
 
         .eco-galery__container:focus-within .row-5,
-        .eco-galery__container:hover .row-5,
         .eco-galery__container:focus-within .row-7,
-        .eco-galery__container:hover .row-7 {
+        .eco-galery__container:focus-within .row-12,
+        .eco-galery__container:focus-within .row-14,
+        .eco-galery__container:hover .row-5,
+        .eco-galery__container:hover .row-7,
+        .eco-galery__container:hover .row-12,
+        .eco-galery__container:hover .row-14 {
             margin-left: 0; /* This brings the 2nd row into full view on scroll */
         }
     }
@@ -162,7 +170,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
             --row-margin-left-3: 2.5rem;
         }
 
-        .row-1, .row-2, .row-3 {
+        .row-1, .row-2, .row-3, .row-8, .row-9, .row-10 {
             display: none;
         }
 
@@ -170,24 +178,24 @@ const rows = page === 'eco' ? ecoRows : rideRows;
             margin-bottom: 1rem;
         }
 
-        .row-4, .row-5, .row-6, .row-7  {
+        .row-4, .row-5, .row-6, .row-7, .row-11, .row-12, .row-13, .row-14  {
             display: flex;
         }
 
-        /* .row-4, .row-6 {
-            width: 27.5rem;
-        } */
-
-        .row-5, .row-7 {
+        .row-5, .row-7, .row-12, .row-14 {
             margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
             transition: margin-left 0.5s ease-in-out;
             width: var(--row-width);
         }
 
         .eco-galery__container:focus-within .row-5,
-        .eco-galery__container:hover .row-5,
         .eco-galery__container:focus-within .row-7,
-        .eco-galery__container:hover .row-7 {
+        .eco-galery__container:focus-within .row-12,
+        .eco-galery__container:focus-within .row-14,
+        .eco-galery__container:hover .row-5,
+        .eco-galery__container:hover .row-7,
+        .eco-galery__container:hover .row-12,
+        .eco-galery__container:hover .row-14 {
             margin-left: 0; /* This brings the 2nd row into full view on scroll */
         }
     }
@@ -201,7 +209,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
             --row-margin-left-3: 2.5rem;
         }
 
-        .row-1, .row-2, .row-3 {
+        .row-1, .row-2, .row-3, .row-8, .row-9, .row-10 {
             display: none;
         }
 
@@ -209,24 +217,24 @@ const rows = page === 'eco' ? ecoRows : rideRows;
             margin-bottom: 1rem;
         }
 
-        .row-4, .row-5, .row-6, .row-7  {
+        .row-4, .row-5, .row-6, .row-7, .row-11, .row-12, .row-13, .row-14  {
             display: flex;
         }
 
-        /* .row-4, .row-6 {
-            width: 27.5rem;
-        } */
-
-        .row-5, .row-7 {
+        .row-5, .row-7, .row-12, .row-14 {
             margin-left: var(--row-margin-left-2); /* Adjust this value to control how much of the 2nd row is hidden initially */
             transition: margin-left 0.5s ease-in-out;
             width: var(--row-width);
         }
 
         .eco-galery__container:focus-within .row-5,
-        .eco-galery__container:hover .row-5,
         .eco-galery__container:focus-within .row-7,
-        .eco-galery__container:hover .row-7 {
+        .eco-galery__container:focus-within .row-12,
+        .eco-galery__container:focus-within .row-14,
+        .eco-galery__container:hover .row-5,
+        .eco-galery__container:hover .row-7,
+        .eco-galery__container:hover .row-12,
+        .eco-galery__container:hover .row-14 {
             margin-left: 0; /* This brings the 2nd row into full view on scroll */
         }
     }

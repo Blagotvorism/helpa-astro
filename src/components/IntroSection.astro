@@ -13,11 +13,11 @@ const { mainHeading, text, containerWidth, containerHeight, textWidth = '30rem',
 
 let containerWidth_960, containerWidth_640, containerWidth_480, containerWidth_320;
 let containerHeight_960, containerHeight_640, containerHeight_480, containerHeight_320;
-let fontSizeText_960, fontSizeText_480;
-let textWidth_960, textWidth_480;
-let rightPosText_960;
+let fontSizeText_960, fontSizeText_480, fontSizeText_320;
+let textWidth_960, textWidth_640, textWidth_480, textWidth_320;
+let rightPosText_960, rightPosText_480, rightPosText_320;
 let headingWidth_480;
-console.log(page);
+
 switch (page) {
 	case 'home':
 		containerWidth_960 = '40.875rem';
@@ -37,13 +37,16 @@ switch (page) {
 		containerHeight_960 = '16.375rem';
 		containerHeight_640 = '24.375rem';
 		containerHeight_480 = '9rem';
-		containerHeight_320 = '11rem';
+		containerHeight_320 = '15rem';
 		headingWidth_480 = '16.5rem';
 		fontSizeText_960 = '0.75rem';
 		fontSizeText_480 = '0.5rem';
+		fontSizeText_320 = '2.5vw'
 		textWidth_960 = '21.875rem';
 		textWidth_480 = '11.875rem';
 		rightPosText_960 = '0';
+		rightPosText_480 = '0';
+		rightPosText_320 = '0';
 		break;
 	case 'gemo':
 		containerWidth_960 = '40.875rem';
@@ -54,6 +57,30 @@ switch (page) {
 		containerHeight_640 = '15rem';
 		containerHeight_480 = '3.9375rem';
 		containerHeight_320 = '31.25vw';
+		break;
+	case 'sport':
+		// Container width
+		containerWidth_960 = '32.625rem';
+		containerWidth_640 = '32.625rem';
+		containerWidth_480 = '13rem';
+		containerWidth_320 = '19rem';
+		// Container height
+		containerHeight_960 = '11.7rem';
+		containerHeight_640 = '11.7rem';
+		containerHeight_480 = '5.75rem';
+		containerHeight_320 = '5.75rem';
+		// Text
+		textWidth_960 = '10.625rem';
+		textWidth_640 = '10.625rem';
+		textWidth_480 = '8.4375rem';
+		textWidth_320 = '8.4375rem';
+		// Font
+		fontSizeText_960 = '.75rem';
+		fontSizeText_480 = '.625rem';
+		fontSizeText_320 = '0.625rem';
+		rightPosText_960 = '0';
+		rightPosText_480 = '-3.5rem';
+		rightPosText_320 = '0';
 		break;
 }
 ---
@@ -71,9 +98,9 @@ switch (page) {
 		containerWidth, containerHeight, textWidth, 
 		containerWidth_960, containerWidth_640, containerWidth_480, containerWidth_320,
 		containerHeight_960, containerHeight_640, containerHeight_480, containerHeight_320,
-		fontSizeText_960, fontSizeText_480,
+		fontSizeText_960, fontSizeText_480, fontSizeText_320,
 		textWidth_960, textWidth_480,
-		rightPosText_960,
+		rightPosText_960, rightPosText_480, rightPosText_320,
 		headingWidth_480
 	}}>
 	.main_intro {
@@ -180,15 +207,15 @@ switch (page) {
 		.main_intro__text {
 			font-size: var(--fontSizeText_480);
 			width: var(--textWidth_480);
-			right: var(--rightPosText_960);
+			right: var(--rightPosText_480);
 		}
 	}
 
 	@media (320px <= width < 480px) {
 		.main_intro {
 			--section-height: 30rem;
-			--font-size-title: 5vw;
-			--line-height-title: 6.25vw;
+			--font-size-title: 1rem;
+			--line-height-title: 1.25rem;
 		}
 
 		.main_intro__container {
@@ -197,9 +224,9 @@ switch (page) {
 		}
 
 		.main_intro__text {
-			font-size: var(--fontSizeText_480);
+			font-size: var(--fontSizeText_320);
 			width: var(--textWidth_480);
-			right: var(--rightPosText_960);
+			right: var(--rightPosText_320);
 		}
 	}
 </style>
