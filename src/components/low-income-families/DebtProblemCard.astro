@@ -49,4 +49,71 @@ const {heading, text} = Astro.props;
         font-size: var(--text-font-size);
         color: var(--dark-grey);
     }
+
+    @media (960px <= width < 1200px) {
+        .card {
+            --card-width: 28.125rem;
+            --card-height: 16rem;
+            --border-radius: 1.875rem;
+            --text-max-height: 9.375rem;
+            --text-width: 22rem;
+            --heading-font-size: 1.25rem;
+            --heading-margin-bottom: 1.25rem;
+            --text-font-size: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .card {
+            --card-width: 18.625rem;
+            --card-height: 17.375rem;
+            --border-radius: 1.875rem;
+            --text-max-height: 11.25rem;
+            --text-width: 15.3125rem;
+            --heading-font-size: 1.25rem;
+            --heading-margin-bottom: .625rem;
+            --text-font-size: .75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .card {
+            --card-width: 13.125rem;
+            --card-height: 16.25rem;
+            --border-radius: 1.875rem;
+            --text-max-height: 11.5rem;
+            --text-width: 10rem;
+            --heading-font-size: .75rem;
+            --heading-margin-bottom: .625rem;
+            --text-font-size: .625rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .card {
+            --card-width: var(--reduced-width);
+            --card-height: 56.25vw;
+            --border-radius: 1.875rem;
+            --text-max-height: 43.75vw;
+            --text-width: 75.625vw;
+            --heading-font-size: 3.75vw;
+            --heading-margin-bottom: 0;
+            --text-font-size: 2.5vw;
+        }
+
+        .text {
+            width: var(--text-width);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h3 {
+            width: 37.5vw;
+        }
+
+        p {
+            width: 35.9375vw;
+        }
+    }
 </style>

@@ -12,7 +12,7 @@ import GemoHeroSection from '../components/gemohelp/GemoHeroSection.astro';
 ---
 <Layout title="GEMOHELP">
     <main>
-        <!-- <GemoHeroSection /> -->
+        <GemoHeroSection />
         <RideGoals 
             page='gemohelp'
             usualTextStart='Почему мы '
@@ -30,7 +30,11 @@ import GemoHeroSection from '../components/gemohelp/GemoHeroSection.astro';
             containerWidth="43.25rem"
             containerHeight='16.25rem'
         />
-        <SocialSection  tg_link='https://t.me/gemohelpa' />
+        <SocialSection  
+            tg_link='https://t.me/gemohelpa' 
+            yt_link = '/'
+            inst_link = '/'
+        />
         <SlogansSection />
     </main>
 </Layout>

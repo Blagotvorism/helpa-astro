@@ -1,7 +1,7 @@
 ---
 import '../../styles/global.css';
 
-const { heading, subheading, text } = Astro.props;
+const { heading, subheading, text, id } = Astro.props;
 
 let marginBottom, marginTop;
 heading.includes('<br>') ? marginBottom = '1.8rem' : marginBottom = '2.775rem';
@@ -9,7 +9,7 @@ heading.includes('<br>') ? marginTop = '1.8rem' : marginTop = '2.6rem';
 ---
 <div class="card">
     <div class="text">
-        <p class="heading" set:html={heading} />
+        <p class="heading" set:html={heading} id={id} />
         <p class="subheading">{subheading}</p>
         <p class="text">{text}</p>
     </div>
@@ -68,5 +68,85 @@ heading.includes('<br>') ? marginTop = '1.8rem' : marginTop = '2.6rem';
     .text {
         color: var(--dark-grey);
         font-size: var(--text-font-size);
+    }
+
+    @media (960px <= width < 1200px) {
+        .card {
+            --card-width: 13.5rem;
+            --card-height: 15rem;
+            --text-width: 9.25rem;
+            --heading-font-size: 1.125rem;
+            --subheading-font-size: .75rem;
+            --subheading-margin-bottom: 1.25rem;
+            --text-font-size: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .card {
+            --card-width: 18.625rem;
+            --card-height: 13.625rem;
+            --text-width: 13rem;
+            --heading-font-size: 1.125rem;
+            --subheading-font-size: .75rem;
+            --subheading-margin-bottom: 1.25rem;
+            --text-font-size: .75rem;
+        }
+
+        .card {
+            text-align: center;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .card {
+            --card-width: 13.125rem;
+            --card-height: 9.75rem;
+            --text-width: 10.75rem;
+            --heading-font-size: .875rem;
+            --subheading-font-size: .625rem;
+            --subheading-margin-bottom: .625rem;
+            --text-font-size: .625rem;
+        }
+
+        .card {
+            text-align: center;
+        }
+
+        #gemo, #repay {
+            margin-top: 1.875rem;
+            margin-bottom: 1.875rem;
+        }
+
+        #eco, #ride {
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .card {
+            --card-width: 40.625vw;
+            --card-height: 56.875vw;
+            --text-width: 39.375vw;
+            --heading-font-size: 3.75vw;
+            --subheading-font-size: 3.125vw;
+            --subheading-margin-bottom: 3.125vw;
+            --text-font-size: 3.125vw;
+        }
+
+        .card {
+            text-align: center;
+        }
+
+        #gemo, #repay {
+            margin-top: 9.375vw;
+            margin-bottom: 9.375vw;
+        }
+
+        #eco, #ride {
+            margin-top: 6.25vw;
+            margin-bottom: 6.25vw;
+        }
     }
 </style>

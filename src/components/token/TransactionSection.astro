@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 ---
-<section class="transaction">
+<section class="transaction" id="transaction">
     <div class="transaction__container">
         <RadialGradient topPosition="7.875rem" leftPosition="56rem" />
         <h2><span class="gradient_span">0,6%</span> комиссия за трансказацию:</h2>
@@ -46,7 +46,8 @@ import RadialGradient from '../RadialGradient.astro';
         --transaction-text-height: 10.625rem;
         --transaction-values-width: 100%;
         --transaction-value-width: 21.5625rem;
-        --text-bold-font-size: 3.125rem;
+        --h3-font-size: 1.5rem;
+        --text-bold-fs: 5rem;
         --text-bold-margin-bottom: 1.25rem;
         --text-common-font-size: 1rem;
         --text-descr-font-size: 1.5rem;
@@ -102,7 +103,7 @@ import RadialGradient from '../RadialGradient.astro';
 
     h3 {
         font-family: var(--font-inter);
-        font-size: 1.5rem;
+        font-size: var(--h3-font-size);
         margin-bottom: var(--text-bold-margin-bottom);
     }
 
@@ -127,5 +128,140 @@ import RadialGradient from '../RadialGradient.astro';
         font-family: var(--font-inter);
         font-size: var(--text-descr-font-size);
         margin-top: var(--text-descr-margin-top);
+    }
+
+    .text-bold {
+        font-size: var(--text-bold-fs);
+    }
+
+    @media (960px <= width < 1200px) {
+        .transaction {
+            --transaction-section-height: 47.125rem;
+            --transaction-container-height: 39.625rem;
+            --transaction-container-margin-top: 0;
+            --transaction-heading-font-size: 2.5rem;
+            --transaction-heading-margin-bottom: 2.5rem;
+            --transaction-box-height: 16.625rem;
+            --transaction-box-width: 52.5rem;
+            --transaction-box-margin-bottom: 3.75rem;
+            --transaction-logo-width: 16.625rem;
+            --transaction-text-width: 29.25rem;
+            --transaction-text-height: 8.75rem;
+            --transaction-values-width: 100%;
+            --transaction-value-width: 18.875rem;
+            --h3-font-size: 1.25rem;
+            --text-bold-fs: 4.5rem;
+            --text-bold-margin-bottom: 1.25rem;
+            --text-common-font-size: .75rem;
+            --text-descr-font-size: 1.25rem;
+            --text-descr-margin-top: 1.25rem;
+        }
+
+        .text-bold {
+            font-size: var(--text-bold-fs);
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .transaction {
+            --transaction-section-height: 54.5rem;
+            --transaction-container-height: 48.25rem;
+            --transaction-container-margin-top: 0;
+            --transaction-heading-font-size: 2.5rem;
+            --transaction-heading-margin-bottom: 2.5rem;
+            --transaction-box-height: 13.375rem;
+            --transaction-box-width: var(--reduced-width);
+            --transaction-box-margin-bottom: 4rem;
+            --transaction-logo-width: 13.375rem;
+            --transaction-text-width: 23.5rem;
+            --transaction-text-height: 10.375rem;
+            --transaction-values-width: 100%;
+            --transaction-value-width: 16.375rem;
+            --h3-font-size: 1.25rem;
+            --text-bold-fs: 4.375rem;
+            --text-bold-margin-bottom: 1rem;
+            --text-common-font-size: .75rem;
+            --text-descr-font-size: .75rem;
+            --text-descr-margin-top: 1rem;
+        }
+
+        .transaction_values {
+            flex-wrap: wrap;
+            row-gap: 2rem;
+        }
+
+        .text-bold {
+            font-size: var(--text-bold-fs);
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .transaction {
+            --transaction-section-height: 22.625rem;
+            --transaction-container-height: 17.625rem;
+            --transaction-container-margin-top: 0;
+            --transaction-heading-font-size: 1rem;
+            --transaction-heading-margin-bottom: 1.5rem;
+            --transaction-box-height: 7.125rem;
+            --transaction-box-width: var(--reduced-width);
+            --transaction-box-margin-bottom: 2.5rem;
+            --transaction-logo-width: 7.125rem;
+            --transaction-text-width: 15.5rem;
+            --transaction-text-height: 5.875rem;
+            --transaction-values-width: 100%;
+            --transaction-value-width: 33.3%;
+            --h3-font-size: .75rem;
+            --text-bold-fs: 1.5rem;
+            --text-bold-margin-bottom: .625rem;
+            --text-common-font-size: .625rem;
+            --text-descr-font-size: .625rem;
+            --text-descr-margin-top: .625rem;
+        }
+
+        .text-bold {
+            font-size: var(--text-bold-fs);
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .transaction {
+            --transaction-section-height: 160.75vw;
+            --transaction-container-height: 128.75vw;
+            --transaction-container-margin-top: 0;
+            --transaction-heading-font-size: 5vw;
+            --transaction-heading-margin-bottom: 6.25vw;
+            --transaction-box-height: 46.875vw;
+            --transaction-box-width: var(--reduced-width);
+            --transaction-box-margin-bottom: 6.25vw;
+            --transaction-logo-width: 27.5vw;
+            --transaction-text-width: 57.5vw;
+            --transaction-text-height: 46.875vw;
+            --transaction-values-width: 100%;
+            --transaction-value-width: 30vw;
+            --h3-font-size: 3.75vw;
+            --text-bold-fs: 7.5vw;
+            --text-bold-margin-bottom: 3.125vw;
+            --text-common-font-size: 3.125vw;
+            --text-descr-font-size: 3.125vw;
+            --text-descr-margin-top: 3.125vw;
+        }
+
+        .transaction__container-box {
+            flex-direction: row-reverse;
+            align-items: center;
+        }
+
+        .transactionLogo {
+            height: var(--transaction-logo-width);
+        }
+
+        .transaction_values {
+            flex-wrap: wrap;
+            row-gap: 3.125vw;
+        }
+
+        .text-bold {
+            font-size: var(--text-bold-fs);
+        }
     }
 </style>

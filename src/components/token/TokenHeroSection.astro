@@ -14,7 +14,7 @@ import Link from '../Link.astro';
                 <p class="hero-descr">Первая благотворительная криптовалюта</p>
                 <div class="token__buttons">
                     <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
-                    <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Подробнее</span><Icon name="arrowText" /></Link>    
+                    <Link href="#transaction" theme='text' classes="link link_text"><span class="link_innertext_secondary">Подробнее</span><Icon name="arrowText" /></Link>    
                 </div>
             </div>
         </div>
@@ -130,5 +130,11 @@ import Link from '../Link.astro';
         height: 100%;
         background: white;
         z-index: 0;
+    }
+
+    @media (width < 1200px) {
+        .ride_hero {
+            display: none;
+        }
     }
 </style>

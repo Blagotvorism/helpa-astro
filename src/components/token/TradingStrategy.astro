@@ -31,6 +31,7 @@ num === '2' || num === '4' ? alignFlex = 'flex-end' : alignFlex = 'flex-start';
         --text-heading-font-size: 2.5rem;
         --text-heading-line-height: 2.85rem;
         --text-heading-margin-bottom: 0.75rem;
+        --nums-width: 22rem;
         --heading-width: 17.5rem;
         --heading-line-height: 3.5rem;
         --facts-text-font-size: 1rem;
@@ -41,7 +42,7 @@ num === '2' || num === '4' ? alignFlex = 'flex-end' : alignFlex = 'flex-start';
     .nums {
         display: block;
         position: relative;
-        width: 22rem;
+        width: var(--nums-width);
         height: auto;
         align-self: var(--alignFlex);
     }
@@ -82,5 +83,80 @@ num === '2' || num === '4' ? alignFlex = 'flex-end' : alignFlex = 'flex-start';
         color: var(--dark-grey);
         line-height: var(--facts-text-line-height);
         width: var(--facts-text-width);
+    }
+
+    @media (960px <= width < 1200px) {
+        .nums {
+            --num-font-size: 10rem;
+            --text-heading-width: 12rem;
+            --text-heading-height: 4.875rem;
+            --text-heading-top: 9.5rem;
+            --text-heading-left: 2.75rem;
+            --text-heading-font-size: 1.875rem;
+            --text-heading-line-height: 2rem;
+            --text-heading-margin-bottom: 0.5rem;
+            --heading-width: 12rem;
+            --heading-line-height: 2.4rem;
+            --facts-text-font-size: 1rem;
+            --facts-text-line-height: 1.4rem;
+            --facts-text-width: 19.125rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .nums {
+            --num-font-size: 10rem;
+            --nums-width: 18rem;
+            --text-heading-width: 12rem;
+            --text-heading-height: 4.875rem;
+            --text-heading-top: 9.5rem;
+            --text-heading-left: 2.75rem;
+            --text-heading-font-size: 1.875rem;
+            --text-heading-line-height: 2rem;
+            --text-heading-margin-bottom: 0.5rem;
+            --heading-width: 12rem;
+            --heading-line-height: 2.4rem;
+            --facts-text-font-size: 1rem;
+            --facts-text-line-height: 1.4rem;
+            --facts-text-width: 19.125rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .nums {
+            --num-font-size: 6.25rem;
+            --nums-width: 7rem;
+            --text-heading-width: 7.375rem;
+            --text-heading-height: 4.875rem;
+            --text-heading-top: 5.5rem;
+            --text-heading-left: 1.5rem;
+            --text-heading-font-size: 1.125rem;
+            --text-heading-line-height: 1.4rem;
+            --text-heading-margin-bottom: 0.5rem;
+            --heading-width: 7rem;
+            --heading-line-height: 1.4rem;
+            --facts-text-font-size: .625rem;
+            --facts-text-line-height: .75rem;
+            --facts-text-width: 8.875rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .nums {
+            --num-font-size: 6.25rem;
+            --nums-width: 42vw;
+            --text-heading-width: 36.875vw;
+            --text-heading-height: 14.375vw;
+            --text-heading-top: 5.5rem;
+            --text-heading-left: 1.5rem;
+            --text-heading-font-size: 5.625vw;
+            --text-heading-line-height: 7.3125vw;
+            --text-heading-margin-bottom: 1.5vw;
+            --heading-width: 36.875vw;
+            --heading-line-height: 7.3125vw;
+            --facts-text-font-size: 3.124vw;
+            --facts-text-line-height: 3.75vw;
+            --facts-text-width: 44.375vw;
+        }
     }
 </style>

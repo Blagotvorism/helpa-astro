@@ -44,6 +44,27 @@ switch (page) {
 		fontSizeText_320 = '2.5vw'
 		textWidth_960 = '21.875rem';
 		textWidth_480 = '11.875rem';
+		textWidth_320 = '11.875rem';
+		rightPosText_960 = '0';
+		rightPosText_480 = '0';
+		rightPosText_320 = '0';
+		break;
+	case 'low-income':
+		containerWidth_960 = '50rem';
+		containerWidth_640 = '38.125rem';
+		containerWidth_480 = '26.875rem';
+		containerWidth_320 = '87.5vw';
+		containerHeight_960 = '23.5rem';
+		containerHeight_640 = '29rem';
+		containerHeight_480 = '12.6875rem';
+		containerHeight_320 = '13rem';
+		headingWidth_480 = '23.5rem';
+		fontSizeText_960 = '.75rem';
+		fontSizeText_480 = '0.625rem';
+		fontSizeText_320 = '8px'
+		textWidth_960 = '26.625rem';
+		textWidth_480 = '17.125rem';
+		textWidth_320 = '11.875rem';
 		rightPosText_960 = '0';
 		rightPosText_480 = '0';
 		rightPosText_320 = '0';
@@ -99,7 +120,7 @@ switch (page) {
 		containerWidth_960, containerWidth_640, containerWidth_480, containerWidth_320,
 		containerHeight_960, containerHeight_640, containerHeight_480, containerHeight_320,
 		fontSizeText_960, fontSizeText_480, fontSizeText_320,
-		textWidth_960, textWidth_480,
+		textWidth_960, textWidth_480, textWidth_320,
 		rightPosText_960, rightPosText_480, rightPosText_320,
 		headingWidth_480
 	}}>
@@ -144,7 +165,7 @@ switch (page) {
 		font-family: var(--font-inter);
 		display: inline;
 		font-size: 1rem;
-		width: 28.75rem;
+		width: var(--textWidth);
 		position: absolute;
 		right: -1rem;
 		bottom: 0;
@@ -225,7 +246,7 @@ switch (page) {
 
 		.main_intro__text {
 			font-size: var(--fontSizeText_320);
-			width: var(--textWidth_480);
+			width: var(--textWidth_320);
 			right: var(--rightPosText_320);
 		}
 	}

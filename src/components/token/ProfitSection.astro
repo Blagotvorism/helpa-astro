@@ -17,19 +17,19 @@ import RadialGradient from '../RadialGradient.astro';
                 </div>
             </div>
             <div class="profit_row row-middle">
-                <div class="card">
+                <div class="card" id="card3">
                     <p>Создание благоприятной социальной среды</p>
                 </div>
                 <div class="card">
                     <p>Сохранение и приумножение капитала</p>
                 </div>
                 <div class="card">
-                    <p>Благотворительность без специальной траты времени и средств</p>
+                    <p>Позитивный эффект на экономическую систему</p>
                 </div>
             </div>
             <div class="profit_row row-center">
                 <div class="card">
-                    <p>Позитивный эффект на экономическую систему</p>
+                    <p>Благотворительность без специальной траты времени и средств</p>
                 </div>
                 <div class="card">
                     <p>Резонирование позитивного эффекта за счет трансляции положительного примера поведения</p>
@@ -118,5 +118,85 @@ import RadialGradient from '../RadialGradient.astro';
         height: auto;
         font-family: var(--font-inter);
         font-size: var(--p-font-size);
+    }
+
+    @media (960px <= width < 1200px) {
+        .profit {
+            --section-height: 40rem;
+            --container-height: 39.25rem;
+            --heading-font-size: 2.5rem;
+            --heading-margin-bottom: 2.5rem;
+            --cards-height: 33.5rem;
+            --row-height: 10.375rem;
+            --card-width: 18.375rem;
+            --p-width: 11rem;
+            --p-font-size: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .profit {
+            --section-height: 38.625rem;
+            --container-height: 38.625rem;
+            --heading-font-size: 2.5rem;
+            --heading-margin-bottom: 2.5rem;
+            --cards-height: 32.875rem;
+            --row-height: 10.375rem;
+            --card-width: 18.625rem;
+            --p-width: 11rem;
+            --p-font-size: .75rem;
+        }
+
+        .row-middle .card {
+            width: 12.25rem;
+        }
+
+        .row-middle .card p {
+            width: 9.75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .profit {
+            --section-height: 26.125rem;
+            --container-height: 26.125rem;
+            --heading-font-size: 1rem;
+            --heading-margin-bottom: 1.25rem;
+            --cards-height: 23.625rem;
+            --row-height: 7.375rem;
+            --card-width: 13.125rem;
+            --p-width: 10.625rem;
+            --p-font-size: .625rem;
+        }
+
+        .row-middle .card {
+            width: 8.625rem;
+        }
+
+        .row-middle .card p {
+            width: 6.375rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .profit {
+            --section-height: 130.625vw;
+            --container-height: 130.625vw;
+            --heading-font-size: 5vw;
+            --heading-margin-bottom: 6.25vw;
+            --cards-height: 118.125vw;
+            --row-height: 36.875vw;
+            --card-width: 40.625vw;
+            --p-width: 29.375vw;
+            --p-font-size: 2.5vw;
+        }
+
+        .row-middle .card {
+            width: 27.5vw;
+        }
+
+        .row-middle .card p {
+            width: 20.625vw;
+        }
     }
 </style>

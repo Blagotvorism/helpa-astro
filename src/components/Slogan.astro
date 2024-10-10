@@ -16,7 +16,7 @@ let titleWidth_320 = '5rem';
 ---
 <div class="slogan-part">
     {sloganBG ? (
-        <Image src={sloganBG} alt={altText} loading='eager' class='slogan-bg' />
+        <Image src={sloganBG} alt={altText} loading='lazy' class='slogan-bg' />
     ) : (
         <div class="slogan-bgcolor"></div>
     )}

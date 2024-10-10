@@ -14,9 +14,9 @@ import { Icon } from 'astro-icon/components';
                 <span class="img_text">gemo</span><span class="white">help </span>
             </h1>
             <h3 class="hero-subheading">90% пациентов в отделении гематологии являются онкобольными</h3>
-            <div class="link_container">
+            <!-- <div class="link_container">
                 <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
-            </div>  
+            </div>   -->
         </div>
     </div>
 </section>
@@ -90,5 +90,11 @@ import { Icon } from 'astro-icon/components';
 
     .white {
         color: white;
+    }
+
+    @media (width < 1200px) {
+        .eco_hero {
+            display: none;
+        }
     }
 </style>

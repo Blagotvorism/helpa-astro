@@ -25,6 +25,7 @@ html, body {
   line-height: normal;
   -moz-osx-font-smoothing: grayscale !important;
   -webkit-font-smoothing: antialiased !important;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4 {

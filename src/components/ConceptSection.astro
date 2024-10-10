@@ -50,7 +50,7 @@ const pageConfig = {
 const config = pageConfig[pagePath] || pageConfig['eco'];
 ---
 <section class="eco-concept">
-    <div class="eco-concept__container">
+    <div class={pagePath !== 'low-income-families' ? "eco-concept__container" : 'eco-concept__container low-income-concept__container'}>
         {pagePath === 'low-income-families' && <RadialGradient topPosition="0" leftPosition="24.25rem" />}
         {pagePath === 'longlongride' && <RadialGradient topPosition="17.1875rem" leftPosition="25.1875rem" />}
         <div class="eco-concept__text">
@@ -59,8 +59,8 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             ) : (
                 <h2 class="eco-concept__heading"><span class="gradient_span">{mainHeading}</span></h2>
             )}
-            {subHeading && <h3 class="eco-concept__subheading" set:html={subHeading} />}
-            <p class="eco-concept__description" set:html={text} />
+            {subHeading && <h3 class={pagePath !== 'low-income-families' ?  "eco-concept__subheading" : 'eco-concept__subheading low-income-concept__subheading'} set:html={subHeading} />}
+            <p class={pagePath !== 'low-income-families' ?  "eco-concept__description" : 'eco-concept__description low-income-concept__description'} set:html={text} />
         </div>
         <div class="eco-concept__images">
             <div class="eco-concept__images-1">
@@ -245,17 +245,17 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         .eco-concept {       
             /* Sizes */
             --section-height-eco: 21.25rem;
-            --section-height-low-income-families: 37.5rem;
+            --section-height-low-income-families: 29.875rem;
             --section-height-longlongride: 25.1875rem;
 
             --container-height-eco: 16.875rem;
-            --container-height-low-income-families: 21.875rem;
-            --container-height-longlongride: 20.25rem;
+            --container-height-low-income-families: 17rem;
+            --container-height-longlongride: 15.75rem;
 
             --gap: 1.25rem;
 
             --font-size-eco: .85rem;
-            --font-size-low-income-families: 1.5rem;
+            --font-size-low-income-families: 1.25rem;
             --font-size-longlongride: .75rem;
 
             --top-position-eco: 0rem;
@@ -263,11 +263,11 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             --top-position-longlongride: 0rem;
 
             --img-container-height-eco: 15.6875rem;
-            --img-container-height-low-income-families: 15.6875rem;
+            --img-container-height-low-income-families: 17rem;
             --img-container-height-longlongride: 19.3125rem;
 
             --horizontal-img-height-eco: 7.1875rem;
-            --horizontal-img-height-low-income-families: 7.1875rem;
+            --horizontal-img-height-low-income-families: 7.9rem;
             --horizontal-img-height-longlongride: 9rem;
 
             --h2-font-size: 2.5rem;
@@ -285,8 +285,17 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             --images-2-width: 8.5625rem;
         }
 
+        .low-income-concept__container {
+            align-items: flex-start;
+        }
+
         p {
             width: 26.625rem;
+        }
+
+        .low-income-concept__description {
+            width: 30.25rem;
+            font-size: 1.25rem;
         }
     }
 
@@ -294,21 +303,21 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         .eco-concept {       
             /* Sizes */
             --section-height-eco: 37.5rem;
-            --section-height-low-income-families: 37.5rem;
+            --section-height-low-income-families: 44rem;
             --section-height-longlongride: 41.6875rem;
 
             --container-height-eco: auto;
-            --container-height-low-income-families: 21.875rem;
+            --container-height-low-income-families: 32.75rem;
             --container-height-longlongride: 37.9375rem;
 
             --gap: 1rem;
 
             --font-size-eco: 0.75rem;
-            --font-size-low-income-families: 1.5rem;
+            --font-size-low-income-families: 1.25rem;
             --font-size-longlongride: .75rem;
 
             --top-position-eco: 0rem;
-            --top-position-low-income-families: 6.25rem;
+            --top-position-low-income-families: 5rem;
             --top-position-longlongride: 0rem;
 
             --img-container-height-eco: 16.25rem;
@@ -346,27 +355,32 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             width: 26.625rem;
             margin-bottom: 2.5rem;
         }
+
+        .low-income-concept__description {
+            width: var(--reduced-width);
+            font-size: 1.25rem;
+        }
     }
 
     @media (480px <= width < 640px) {
         .eco-concept {       
             /* Sizes */
             --section-height-eco: 25rem;
-            --section-height-low-income-families: 37.5rem;
+            --section-height-low-income-families: 29.625rem;
             --section-height-longlongride: 27.625rem;
 
             --container-height-eco: auto;
-            --container-height-low-income-families: 21.875rem;
+            --container-height-low-income-families: auto;
             --container-height-longlongride: auto;
 
             --gap: 1.25rem;
 
             --font-size-eco: 0.625rem;
-            --font-size-low-income-families: 1.5rem;
+            --font-size-low-income-families: .75rem;
             --font-size-longlongride: .625rem;
 
             --top-position-eco: 0rem;
-            --top-position-low-income-families: 6.25rem;
+            --top-position-low-income-families: 3.75rem;
             --top-position-longlongride: 0;
 
             --img-container-height-eco: 12rem;
@@ -396,6 +410,10 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             display: block;
         }
 
+        .low-income-concept__container h2 {
+            width: 12rem;
+        }
+
         p {
             margin-bottom: 1.25rem;
         }
@@ -405,21 +423,21 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         .eco-concept {       
             /* Sizes */
             --section-height-eco: 146.25vw;
-            --section-height-low-income-families: 37.5rem;
+            --section-height-low-income-families: 151.25vw;
             --section-height-longlongride: 161.875vw;
 
             --container-height-eco: auto;
-            --container-height-low-income-families: 21.875rem;
+            --container-height-low-income-families: auto;
             --container-height-longlongride: auto;
 
             --gap: 6.25vw;
 
             --font-size-eco: 3.125vw;
-            --font-size-low-income-families: 1.5rem;
+            --font-size-low-income-families: 3.125vw;
             --font-size-longlongride: 3.125vw;
 
             --top-position-eco: 0rem;
-            --top-position-low-income-families: 6.25rem;
+            --top-position-low-income-families: 12.5vw;
             --top-position-longlongride: 0;
 
             --img-container-height-eco: 81.25vw;
@@ -447,6 +465,10 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
 
         .eco-concept__container {
             display: block;
+        }
+
+        .low-income-concept__container h2 {
+            width: 60vw;
         }
 
         p {

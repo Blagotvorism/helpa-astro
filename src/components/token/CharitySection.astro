@@ -8,10 +8,10 @@ import CharityCard from './CharityCard.astro';
         <RadialGradient topPosition="-5.25rem" leftPosition="-23.0625rem" />
         <h2>направления <span class="gradient_span">благотворительности</span></h2>
         <div class="charity__cards">
-            <CharityCard heading="gemohelp" subheading="Международный благотворительный проект" text="Помощь больным лейкемией" />
-            <CharityCard heading="eco<br>time day" subheading="Международное экологическое сообщество" text="Уборка береговых зон" />
-            <CharityCard heading="long<br>long ride" subheading="Международное спортивное сообщество" text="Бесплатные массовые заезды" />
-            <CharityCard heading="repay" subheading="Международный благотворительный проект" text="Выкуп долга социально незащищенных" />
+            <CharityCard id="gemo" heading="gemohelp" subheading="Международный благотворительный проект" text="Помощь больным лейкемией" />
+            <CharityCard id="eco" heading="eco<br>time day" subheading="Международное экологическое сообщество" text="Уборка береговых зон" />
+            <CharityCard id="ride" heading="long<br>long ride" subheading="Международное спортивное сообщество" text="Бесплатные массовые заезды" />
+            <CharityCard id="repay" heading="repay" subheading="Международный благотворительный проект" text="Выкуп долга социально незащищенных" />
         </div>
     </div>
 </section>
@@ -51,5 +51,60 @@ import CharityCard from './CharityCard.astro';
         justify-content: space-between;
         width: 100%;
         height: var(--charity-cards-height);
+    }
+
+    @media (960px <= width < 1200px) {
+        :root {
+            --charity-section-height: 28.25rem;
+            --charity-container-height: 20.75rem;
+            --charity-heading-font-size: 2.5rem;
+            --charity-heading-margin-bottom: 2.5rem;
+            --charity-cards-height: 13.5rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        :root {
+            --charity-section-height: 45.125rem;
+            --charity-container-height: 38.875rem;
+            --charity-heading-font-size: 2.5rem;
+            --charity-heading-margin-bottom: 2.5rem;
+            --charity-cards-height: 13.625rem;
+        }
+
+        .charity__cards {
+            flex-wrap: wrap;
+            row-gap: 2.625rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        :root {
+            --charity-section-height: 28.25rem;
+            --charity-container-height: 23.25rem;
+            --charity-heading-font-size: 1rem;
+            --charity-heading-margin-bottom: 1.25rem;
+            --charity-cards-height: 9.75rem;
+        }
+
+        .charity__cards {
+            flex-wrap: wrap;
+            row-gap: 1.25rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        :root {
+            --charity-section-height: 157.5vw;
+            --charity-container-height: 138.75vw;
+            --charity-heading-font-size: 5vw;
+            --charity-heading-margin-bottom: 3.25vw;
+            --charity-cards-height: 40.625vw;
+        }
+
+        .charity__cards {
+            flex-wrap: wrap;
+            row-gap: 3.25vw;
+        }
     }
 </style>

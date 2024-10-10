@@ -15,7 +15,7 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
 <div class="about-card">
     <a href={href} class="card-link" aria-label="Карточка с описанием направлений проектов">
         <div class="about-bg">
-            <Image src={import(`../../images/main/about_cards/${imagePath}.jpg`)} alt={imageDescription} class='about-card-img' loading='eager'/>
+            <Image src={import(`../../images/main/about_cards/${imagePath}.jpg`)} alt={imageDescription} class='about-card-img' loading="lazy"/>
             <ArrowButton url={href} theme='slider-square' />
         </div>
         <p class="about-card-descr" set:html={cardDescription}></p>

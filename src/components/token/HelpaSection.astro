@@ -2,7 +2,7 @@
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 ---
-<section class="helpa">
+<section class="helpa" id="helpa">
     <div class="helpa__container">
         <RadialGradient topPosition="-19rem" leftPosition="58.125rem" />
         <RadialGradient topPosition="14.6875rem" leftPosition="-23rem" />
@@ -46,7 +46,16 @@ import RadialGradient from '../RadialGradient.astro';
         --card-text-bold-font-size: 1.0625rem;
         --card-text-common-font-size: 1rem;
         --card-name-h2-font-size: 3.125rem;
+        --card-name-h2-margin-bottom: 0.625rem;
+        --card-name-margin-bottom: 2.5rem;
         --card-text-black-font-size: 0.75rem;
+
+        --text1-text2-width: 15.25rem;
+        --text3-width: 12.1rem;
+        --text1-height: 7.625rem;
+        --text2-height: 8.75rem;
+        --text2-card-name-margin-bottom: 1.25rem;
+        --card-text-common-width: 15.2rem;
     }
 
     section {
@@ -103,31 +112,31 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     .text1, .text2 {
-        width: 15.25rem;
+        width: var(--text1-text2-width);
     }
 
     .text3 {
-        width: 12.1rem;
+        width: var(--text3-width);
         text-align: center;
     }
 
     .text1 {
-        height: 7.625rem;
+        height: var(--text1-height);
     }
 
     .text2 {
-        height: 8.75rem;
+        height: var(--text2-height);
     }
 
     .card_name {
         text-align: center;
         font-family: var(--font-inter);
         font-size: var(--card-name-font-size);
-        margin-bottom: 2.5rem;
+        margin-bottom: var(--card-name-margin-bottom);
     }
 
     .text2 .card_name {
-        margin-bottom: 1.25rem;
+        margin-bottom: var(--text2-card-name-margin-bottom);
     }
 
     .card_text-bold {
@@ -139,15 +148,191 @@ import RadialGradient from '../RadialGradient.astro';
         display: inline-block;
         font-size: var(--card-text-common-font-size);
         color: var(--dark-grey);
-        width: 15.2rem;
+        width: var(--card-text-common-width);
     }
 
     .card_name-h2 {
+        font-family: var(--font-lulo-clean);
         font-size: var(--card-name-h2-font-size);
-        margin-bottom: 0.625rem;
+        margin-bottom: var(--card-name-h2-margin-bottom);
     }
 
     .card_text-black {
+        color: var(--dark-grey);
         font-size: var(--card-text-black-font-size);
+    }
+
+    @media (960px <= width < 1200px) {
+        .helpa {
+            --helpa-section-height: 35.25rem;
+            --helpa-container-height: 21.5rem;
+            --helpa-container-margin-top: 6.25rem;
+            --helpa-heading-font-size: 2.5rem;
+            --helpa-heading-margin-bottom: 1.25rem;
+            --helpa-text-font-size: .75rem;
+            --helpa-text-margin-bottom: 2.5rem;
+            --card-width: 18.375rem;
+            --card-height: 13.5rem;
+            --card-name-font-size: 1.25rem;
+            --card-text-bold-font-size: 1.0625rem;
+            --card-text-common-font-size: .75rem;
+            --card-name-h2-font-size: 2.5rem;
+            --card-name-h2-margin-bottom: 1.25rem;
+            --card-name-margin-bottom: 2.5rem;
+            --card-text-black-font-size: .75rem;
+
+            --text1-text2-width: 15.25rem;
+            --text3-width: 9.75rem;
+            --text1-height: 6.375rem;
+            --text2-height: 7.25rem;
+            --text2-card-name-margin-bottom: 1.25rem;
+            --card-text-common-width: 15.2rem;
+        }
+
+        .card_text-common br {
+            display: none;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .helpa {
+            --helpa-section-height: 50.75rem;
+            --helpa-container-height: 40.5rem;
+            --helpa-container-margin-top: 5rem;
+            --helpa-heading-font-size: 2.5rem;
+            --helpa-heading-margin-bottom: 1.25rem;
+            --helpa-text-font-size: .75rem;
+            --helpa-text-margin-bottom: 2.5rem;
+            --card-width: 18.625rem;
+            --card-height: 13.5rem;
+            --card-name-font-size: 1.25rem;
+            --card-text-bold-font-size: 1.0625rem;
+            --card-text-common-font-size: .75rem;
+            --card-name-h2-font-size: 2.5rem;
+            --card-name-h2-margin-bottom: 1.25rem;
+            --card-name-margin-bottom: 1.875rem;
+            --card-text-black-font-size: .75rem;
+
+            --text1-text2-width: 15.25rem;
+            --text3-width: 9.75rem;
+            --text1-height: 6.375rem;
+            --text2-height: 7.25rem;
+            --text2-card-name-margin-bottom: 1.25rem;
+            --card-text-common-width: 15.2rem;
+        }
+
+        .helpa__container_cards {
+            flex-wrap: wrap;
+            row-gap: 1.25rem;
+        }
+
+        .card_text-common br {
+            display: none;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .helpa {
+            --helpa-section-height: 30.625rem;
+            --helpa-container-height: 21.875rem;
+            --helpa-container-margin-top: 5rem;
+            --helpa-heading-font-size: 1rem;
+            --helpa-heading-margin-bottom: .625rem;
+            --helpa-text-font-size: .65rem;
+            --helpa-text-margin-bottom: 1.25rem;
+            --card-width: 13.125rem;
+            --card-height: 8.25rem;
+            --card-name-font-size: .75rem;
+            --card-text-bold-font-size: 1rem;
+            --card-text-common-font-size: .625rem;
+            --card-name-h2-font-size: 1rem;
+            --card-name-h2-margin-bottom: 1rem;
+            --card-name-margin-bottom: 1.25rem;
+            --card-text-black-font-size: .75rem;
+
+            --text1-text2-width: 9.75rem;
+            --text3-width: 9.75rem;
+            --text1-height: 6.375rem;
+            --text2-height: 4.875rem;
+            --text2-card-name-margin-bottom: 1.25rem;
+            --card-text-common-width: 9.75rem;
+        }
+
+        .helpa__container_cards {
+            flex-wrap: wrap;
+            row-gap: 1.25rem;
+        }
+
+        .card:nth-of-type(1) {
+            width: 100%;
+        }
+
+        .card:nth-of-type(1) .card_name {
+            margin: auto;
+            margin-bottom: 1rem;
+            width: 10.375rem;
+        }
+
+        .card:nth-of-type(1) .text1 {
+            height: 4.5rem;
+            width: 14.375rem;
+        }
+
+        .card_text-common br {
+            display: none;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .helpa {
+            --helpa-section-height: 150.625vw;
+            --helpa-container-height: 119.375vw;
+            --helpa-container-margin-top: 12.5vw;
+            --helpa-heading-font-size: 5vw;
+            --helpa-heading-margin-bottom: 3.125vw;
+            --helpa-text-font-size: 3.25vw;
+            --helpa-text-margin-bottom: 3.25vw;
+            --card-width: 40.625vw;
+            --card-height: 46.875vw;
+            --card-name-font-size: 3.75vw;
+            --card-text-bold-font-size: 5vw;
+            --card-text-common-font-size: 3.125vw;
+            --card-name-h2-font-size: 5vw;
+            --card-name-h2-margin-bottom: 4.375vw;
+            --card-name-margin-bottom: 3.25vw;
+            --card-text-black-font-size: 3.75vw;
+
+            --text1-text2-width: 32.1875vw;
+            --text3-width: 30.625vw;
+            --text1-height: 22.5vw;
+            --text2-height: 31.875vw;
+            --text2-card-name-margin-bottom: 3.25vw;
+            --card-text-common-width: 30.625vw;
+        }
+
+        .helpa__container_cards {
+            flex-wrap: wrap;
+            row-gap: 1.25rem;
+        }
+
+        .card:nth-of-type(1) {
+            width: 100%;
+        }
+
+        .card:nth-of-type(1) .card_name {
+            margin: auto;
+            margin-bottom: 1rem;
+            width: 10.375rem;
+        }
+
+        .card:nth-of-type(1) .text1 {
+            height: 4.5rem;
+            width: 71.875vw;
+        }
+
+        .card_text-common br {
+            display: none;
+            text-align: center;
+        }
     }
 </style>

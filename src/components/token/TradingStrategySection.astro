@@ -17,12 +17,12 @@ import TradingStrategy from '../token/TradingStrategy.astro';
             <TradingStrategy 
                 num="2"
                 heading="Открытый токенсейл"
-                text="между людьми, активно принимающими участие в запуске проекта"
+                text="для всех желающих, ограниченный количеством токена в одни руки"
             />
             <TradingStrategy 
                 num="3"
                 heading="открытый токенсейл"
-                text="между людьми, активно принимающими участие в запуске проекта"
+                text="для всех желающих"
             />
             <TradingStrategy 
                 num="4"
@@ -68,5 +68,61 @@ import TradingStrategy from '../token/TradingStrategy.astro';
         justify-content: space-between;
         width: 100%;
         height: var(--spacing-between-strategies);
+    }
+
+    @media (960px <= width < 1200px) {
+        .trading {
+            --radial-gradient-top1: -16.8125rem;
+            --radial-gradient-left1: 58.125rem;
+            --radial-gradient-top2: 16.6875rem;
+            --radial-gradient-left2: -22.75rem;
+            --container-height: 43.75rem;
+            --h2-font-size: 2.5rem;
+            --spacing-between-strategies: 32.5rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .trading {
+            --radial-gradient-top1: -16.8125rem;
+            --radial-gradient-left1: 58.125rem;
+            --radial-gradient-top2: 16.6875rem;
+            --radial-gradient-left2: -22.75rem;
+            --container-height: 32rem;
+            --h2-font-size: 2.5rem;
+            --spacing-between-strategies: 33rem;
+        }
+
+        .strategy_nums {
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .trading {
+            --radial-gradient-top1: -16.8125rem;
+            --radial-gradient-left1: 58.125rem;
+            --radial-gradient-top2: 16.6875rem;
+            --radial-gradient-left2: -22.75rem;
+            --container-height: 17.25rem;
+            --h2-font-size: 1rem;
+            --spacing-between-strategies: 20rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .trading {
+            --radial-gradient-top1: -16.8125rem;
+            --radial-gradient-left1: 58.125rem;
+            --radial-gradient-top2: 16.6875rem;
+            --radial-gradient-left2: -22.75rem;
+            --container-height: 178.125vw;
+            --h2-font-size: 5vw;
+            --spacing-between-strategies: 188.75vw;
+        }
+
+        .strategy_nums {
+            flex-wrap: wrap;
+        }
     }
 </style>

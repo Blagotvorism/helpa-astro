@@ -16,11 +16,10 @@
         "title": "Продолжение большой истории",
         "year": "2019",
         "descriptionShort": "Слава, придумай текст",
-        "descriptionFull": "Слава, придумай большой текст. В папке 2019 года пустой txt файл",
+        "descriptionFull": "Слава, придумай большой текст. В папке 2019 сбита кодировка в txt файле",
         "link": "/longlongride",
-        "imageURL": "/images/longLongRide/2019/LLR20196.jpg",
+        "imageURL": "/images/longLongRide/2019/LLR20191.jpg",
         "sliderImages": [
-                            "/images/longLongRide/2019/LLR20191.jpg", 
                             "/images/longLongRide/2019/LLR20192.jpg",
                             "/images/longLongRide/2019/LLR20193.jpg", 
                             "/images/longLongRide/2019/LLR20194.jpg",
@@ -38,7 +37,6 @@
         "link": "https://t.me/longlongride",
         "imageURL": "/images/longLongRide/2021/LLR20211.jpg",
         "sliderImages": [
-                            "/images/longLongRide/2021/LLR20211.jpg", 
                             "/images/longLongRide/2021/LLR20212.jpg",
                             "/images/longLongRide/2021/LLR20213.jpg"
                         ]
@@ -128,7 +126,7 @@
         "title": "Салава, придумай текст",
         "year": "13.11.2022",
         "descriptionShort": "Слава, придумай текст",
-        "descriptionFull": "Слава, придумай большой текст. В папке 2019 года пустой txt файл.",
+        "descriptionFull": "Слава, придумай большой текст. В папке 2019 года пустой txt файле.",
         "link": "https://t.me/ecotimeday",
         "imageURL": "/images/eco/20221113/IMG_5371.JPG",
         "sliderImages": [

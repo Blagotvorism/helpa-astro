@@ -42,17 +42,15 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     .eco_about {
-        position: relative;
-        display: block;
+        display: flex;
         height: var(--eco-about-height);
+        width: 100vw;
+        justify-content: center;
     }
 
     .eco_about__container {
         display: block;
-        position: absolute;
-        top: var(--container-top);
-        left: 50%;
-        transform: translateX(-50%);
+        margin-top: var(--container-top);
         width: var(--reduced-width);
         height: inherit;
         overflow: hidden;

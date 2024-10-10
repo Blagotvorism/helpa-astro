@@ -95,4 +95,112 @@ import RadialGradient from '../RadialGradient.astro';
     .first_el {
         width: var(--first-el-width);
     }
+
+    @media (960px <= width < 1200px) {
+        .debt_solutions {
+            --section-height: 43.75rem;
+            --container-height: 37.5rem;
+            --heading-width: 44.0625rem;
+            --heading-font-size: 2.5rem;
+            --heading-line-height: 3.125rem;
+            --heading-margin-bottom: 2.5rem;
+            --list-height: 24.5rem;
+            --number-font-size: 11.25rem;
+            --number-color: #ECECEC;
+            --text-font-size: 1.25rem;
+            --text-left: 2.75rem;
+            --text-bottom: 3.5rem;
+            --text-width: 13rem;
+            --first-el-width: 12.5rem;
+            --column-gap: 5rem;
+            --li-height: 16.75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .debt_solutions {
+            --section-height: 53.5rem;
+            --container-height: 42.25rem;
+            --heading-width: 44.0625rem;
+            --heading-font-size: 2.5rem;
+            --heading-line-height: 3.125rem;
+            --heading-margin-bottom: 1rem;
+            --list-height: 26rem;
+            --number-font-size: 11.25rem;
+            --number-color: #ECECEC;
+            --text-font-size: 1.25rem;
+            --text-left: 2.75rem;
+            --text-bottom: 3.5rem;
+            --text-width: 13rem;
+            --first-el-width: 12.5rem;
+            --column-gap: 4.125rem;
+            --li-height: 16.6875rem;
+        }
+
+        ul {
+            flex-wrap: wrap;
+            row-gap: var(--column-gap);
+        }
+
+        li {
+            width: 15.25rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .debt_solutions {
+            --section-height: 27.5rem;
+            --container-height: 18.75rem;
+            --container-margin-top: 5rem;
+            --heading-width: 17.75rem;
+            --heading-font-size: 1rem;
+            --heading-line-height: 1.5rem;
+            --heading-margin-bottom: 1rem;
+            --list-height: 13.5rem;
+            --number-font-size: 5.625rem;
+            --number-color: #ECECEC;
+            --text-font-size: .75rem;
+            --text-left: 1.5rem;
+            --text-bottom: 2rem;
+            --text-width: 9.375rem;
+            --first-el-width: 5rem;
+            --column-gap: 1.5rem;
+            --li-height: 8.375rem;
+        }
+
+        .debt_solutions__container {
+            margin-top: var(--container-margin-top);
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .debt_solutions {
+            --section-height: 110vw;
+            --container-height: 104.375vw;
+            --heading-width: var(--reduced-width);
+            --heading-font-size: 5vw;
+            --heading-line-height: 6.25vw;
+            --heading-margin-bottom: 5vw;
+            --list-height: 75vw;
+            --number-font-size: 28.125vw;
+            --number-color: #ECECEC;
+            --text-font-size: 3.75vw;
+            --text-left: 6.25vw;
+            --text-bottom: 5vw;
+            --text-width: 37.5vw;
+            --first-el-width: 25vw;
+            --column-gap: 0;
+            --li-height: 36.875vw;
+        }
+
+        ul {
+            flex-wrap: wrap;
+            row-gap: var(--column-gap);
+            justify-content: space-between;
+        }
+
+        li {
+            width: 41.25vw;
+        }
+    }
 </style>

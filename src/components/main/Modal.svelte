@@ -369,6 +369,7 @@
             --image-width: auto;
             --image-max-width: 11.75rem;
             --image-margin: 0 auto;
+            --border-radius: 20px;
             /* SLIDER Container */
             --slider-container-width: 5rem;
             --slider-container-margin: 0 auto;
@@ -415,6 +416,7 @@
             --image-width: auto;
             --image-max-width: 14.25rem;
             --image-margin: 0 auto;
+            --border-radius: 20px;
             /* SLIDER Container */
             --slider-container-width: 5.0625rem;
             --slider-container-margin: 0 auto;
@@ -440,7 +442,7 @@
         }
 
         .slider_img {
-            object-fit: contain;
+            object-fit: cover;
             border-radius: var(--border-radius);
         }
     }
