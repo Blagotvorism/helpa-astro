@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 import ecoLogo from '../images/eco/ecoSocial.PNG';
 import RadialGradient from './RadialGradient.astro';
 
-const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
+const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astro.props;
 ---
 <section class="social">
     <div class="social__container">
@@ -18,9 +18,12 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
             <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>
             <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
             <div class="social__logos">
-                <a href={tg_link} aria-label="логотип телеграма"><Icon name='tgSocial' /></a>
-                <a href={yt_link} aria-label="логотип ютуба"><Icon name='youtubeSocial' /></a>
-                <a href={inst_link} aria-label="логотип IG"><Icon name='instSocial' /></a>
+               {tg_link && <a href={tg_link} aria-label="логотип телеграма"><Icon name='tgSocial' /></a>}
+                {yt_link && <a href={yt_link} aria-label="логотип ютуба"><Icon name='youtubeSocial' /></a>}
+                {inst_link && <a href={inst_link} aria-label="логотип IG"><Icon name='instSocial' /></a>}
+                {x_link && <a href={x_link} aria-label="логотип X"><Icon name='xSocial' /></a>}
+                {tiktok_link && <a href={tiktok_link} aria-label="логотип TikTok"><Icon name='tiktokSocial' /></a>}
+                {fb_link && <a href={fb_link} aria-label="логотип FaceBook"><Icon name='fbSocial' /></a>}
             </div>
         </div>
     </div>
@@ -45,6 +48,7 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
         --logos-width: 15rem;
         --logos-height: 2.5rem;
         --logo-size: 2.5rem;
+        --logo-mb: 3.75rem;
         --social-text-top: 6.125rem;
         --social-text-right: 0;
         --h2-margin-bottom: 1.25rem;
@@ -113,15 +117,20 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
 
     .social__logos {
         display: flex;
-        width: var(--logos-width);
+        width: auto;
         height: var(--logos-height);
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
     }
 
     .social__logos svg {
         height: var(--logo-size);
         width: var(--logo-size);
+        margin-right: var(--logo-mb);
+    }
+
+    .social__logos svg:not(:last-child) {
+        margin-right: var(--logo-mb);
     }
 
     @media (960px <= width < 1200px) {
@@ -135,6 +144,7 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
             --white-round-left: 0rem;
             --white-round-top: 8.7rem;
             --main-logo-size: 11.875rem;
+            --logo-mb: 3.75rem;
             --text-width: 27.5rem;
             --text-height: 21.9rem;
             --heading-font-size: 2.5rem;
@@ -173,6 +183,7 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
             --logos-width: 15rem;
             --logos-height: 2.5rem;
             --logo-size: 2.5rem;
+            --logo-mb: 2.5rem;
             --social-text-top: 0rem;
             --social-text-right: 0;
             --h2-margin-bottom: 1.25rem;
@@ -192,7 +203,7 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
             --container-top: 0rem;
             --container-left: 20px;
             --white-round-size: 7.9375rem;
-            --white-round-left: 3rem;
+            --white-round-left: 0;
             --white-round-top: 6rem;
             --main-logo-size: 7.9375rem;
             --text-width: 12.5625rem;
@@ -203,8 +214,9 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
             --logos-width: 9.8125rem;
             --logos-height: 1.5625rem;
             --logo-size: 1.5625rem;
+            --logo-mb: 1.5rem;
             --social-text-top: 5rem;
-            --social-text-right: 0;
+            --social-text-right: 4rem;
             --h2-margin-bottom: .625rem;
             --h3-margin-bottom: 1.25rem;
         }
@@ -231,8 +243,9 @@ const { page, tg_link ='/', yt_link = '/', inst_link = '/' } = Astro.props;
             --heading-line-height: 6.25vw;
             --subheading-font-size: 3.125vw;
             --logos-width: 40.625vw;
-            --logos-height: 6.875vw;
-            --logo-size: 6.875vw;
+            --logos-height: 6.25vw;
+            --logo-size: 6.25vw;
+            --logo-mb: 4.375vw;
             --social-text-top: 5rem;
             --social-text-right: 0;
             --h2-margin-bottom: 3.125vw;
