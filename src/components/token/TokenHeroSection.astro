@@ -1,20 +1,17 @@
 ---
-import { Icon } from 'astro-icon/components';
-import '../../styles/global.css';
-import Link from '../Link.astro';
+import { Icon } from "astro-icon/components";
+import Link from "../Link.astro";
 ---
-<section class="ride_hero">
-    <div class="ride_hero__container">
-        <div class="hero_text">
-            <h1 class="hero_heading">
-                <span class="highlight" id="helpa">helpa</span><span class="usual_text1">help</span>
-                <span class="usual_text2">planet</span>
-            </h1>
-            <div class="hero_subtext">
-                <p class="hero-descr">Первая благотворительная криптовалюта</p>
-                <div class="token__buttons">
-                    <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
-                    <Link href="#transaction" theme='text' classes="link link_text"><span class="link_innertext_secondary">Подробнее</span><Icon name="arrowText" /></Link>    
+
+<section class="token_hero">
+    <div class="letters"></div>
+    <div class="subheading">
+        <div class="subheading_text">
+            <p>Первая благотворительная криптовалюта</p>
+            <div class="token__buttons">
+                <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+                <div class="token_text_link">
+                    <Link href="#transaction" theme='text' classes="link link_text"><span class="link_innertext_secondary">White paper</span><Icon name="arrowText" /></Link>    
                 </div>
             </div>
         </div>
@@ -22,119 +19,185 @@ import Link from '../Link.astro';
 </section>
 
 <style>
-    .ride_hero {
-        position: relative;
-        display: flex;
-        width: 100vw;
-        height: var(--full-height);
-        justify-content: center;
-        background: url(../../images/token/tokenCover.jpg) no-repeat center center/cover;
-        overflow: hidden;
+    section {
+        --hero-background-position: calc((100vw - var(--reduced-width)) / 2) 0;
+        --hero-height: 100vh;
+        --p-font-size: 1rem;
+        --subheading-text-left: 4%;
+        --subheading-top: 30vh;
+        --subheading-width: var(--reduced-width);
+        --subheading-height: 38vh;
+        --subheading-text-width: 24.125rem;
+        --subheading-text-height: 9.625rem;
+
     }
 
-    .ride_hero__container {
+    .token_hero {
         position: relative;
+        display: block;
+        width: 100vw;
+        height: var(--hero-height);
+        background: url(../../images/token/tokenCover.jpg) no-repeat;
+        background-size: cover;
+        background-position: var(--hero-background-position);
+    }
+
+    .letters {
+        display: block;
+        margin: auto;
         width: var(--reduced-width);
         height: 100%;
-        z-index: 1;
-        font-family: var(--font-lulo-bold);
-        color: white;
+        background: url(../../images/token/tokenCover.png) no-repeat;
+        background-size: 100% 100%;
     }
 
-    .hero_text {
+    .subheading {
         display: block;
-        width: 71rem;
-        height: 20.5rem;
-        margin-top: 15.1875rem;
-    }
-
-    .hero_heading {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        
-        font-size: 5.625rem;
-    }
-
-    .hero_heading .highlight {
         position: absolute;
-        top: 1.1rem;
-        left: 0;
-        background: url('../../images/token/tokenCover.jpg') no-repeat;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--subheading-top);
+        width: var(--subheading-width);
+        height: var(--subheading-height);
     }
 
-    #helpa {
-        width: 5em; /* Adjust width to match the size of 'ECO' */
-        background-position: 9% 46%; /* Center of the background image */
-        background-size: 100vw 100vh; /* Cover entire viewport */
-    }
-
-    .usual_text1 {
-        font-size: 6.875rem;
-        position: absolute;
-        right: 14rem;
-        top: 0;
-    }
-
-    .usual_text2 {
-        font-size: 6.875rem;
-        position: absolute;
-        right: 0rem;
-        bottom: 0;
-    }
-
-    .hero_subtext {
-        position: absolute;
-        top: 24.2rem;
-        left: .2rem;
+    .subheading_text {
         display: flex;
         flex-direction: column;
-        row-gap: 4.875rem;
-        width: 23.875rem;
-        height: 9.625rem;
-    }
-
-    .hero-subheading {
-        display: inline-block;
-        font-family: var(--font-inter);
-        color: black;
-        width: 100%;
-        font-size: 1.5rem;
-    }
-
-    .hero-descr {
-        display: inline-block;
-        font-family: var(--font-inter);
-        color: var(--dark-grey);
-        font-size: 1rem;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0;
+        left: var(--subheading-text-left);
+        width: var(--subheading-text-width);
+        height: var(--subheading-text-height);
     }
 
     .token__buttons {
-        width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        width: 100%;
     }
 
-    .ride_hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 42.5%;
-        height: 100%;
-        background: white;
-        z-index: 0;
+    p {
+        font-family: var(--font-inter);
+        color: var(--dark-grey);
+        font-size: var(--p-font-size);
     }
 
-    @media (width < 1200px) {
-        .ride_hero {
-            display: none;
+    @media (960px <= width < 1200px) {
+        section {
+            --hero-height: 33.75rem;
+            --p-font-size: .75rem;
+            --subheading-text-left: 2.5%;
+            --subheading-top: 12.825rem;
+            --subheading-width: var(--reduced-width);
+            --subheading-height: 13.5rem;
+            --subheading-text-width: 21rem;
+            --subheading-text-height: 6.625rem;
+        }
+
+        .letters {
+            background: url(../../images/token/token_letters_960.svg) no-repeat;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        section {
+            --hero-height: 45rem;
+            --p-font-size: .75rem;
+            --subheading-text-left: .5%;
+            --subheading-top: 12.15rem;
+            --subheading-width: var(--reduced-width);
+            --subheading-height: 18rem;
+            --subheading-text-width: 17rem;
+            --subheading-text-height: 7.8125rem;
+        }
+
+        .letters {
+            background: url(../../images/token/token_letters_640.svg) no-repeat;
+            background-position: -15px 0;
+        }
+
+        .token__buttons {
+            flex-direction: column-reverse;
+            align-items: start;
+            width: 13.75rem;
+            height: 5rem;
+        }
+
+        .token_text_link {
+            width: 6.3125rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        section {
+            --hero-height: 16.375rem;
+            --p-font-size: .625rem;
+            --subheading-text-left: 0%;
+            --subheading-top: 4.9rem;
+            --subheading-width: var(--reduced-width);
+            --subheading-height: 2.62rem;
+            --subheading-text-width: 21rem;
+            --subheading-text-height: 6.625rem;
+        }
+
+        .letters {
+            background: url(../../images/token/token_letters_480.svg) no-repeat;
+            background-position: -21px 0;
+        }
+
+        .subheading_text {
+            top: var(--subheading-top);
+        }
+
+        .token__buttons {
+            flex-direction: column-reverse;
+            align-items: start;
+            width: 13.125rem;
+            height: 5.5rem;
+        }
+
+        .token_text_link {
+            width: 4.875rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        section {
+            --hero-height: 30rem;
+            --p-font-size: .625rem;
+            --subheading-text-left: 0%;
+            --subheading-top: 11.4rem;
+            --subheading-height: 7.5rem;
+            --subheading-width: var(--reduced-width);
+            --subheading-height: 9.375rem;
+            --subheading-text-width: 8.5rem;
+            --subheading-text-height: 8.25rem;
+        }
+
+        .letters {
+            background: url(../../images/token/token_letters_320.svg) no-repeat;
+            background-position: -21px 0;
+        }
+
+        .subheading {
+            position: absolute;
+            height: var(--subheading-height);
+            transform: translateX(0);
+            left: 6.25%;
+        }
+
+        .token__buttons {
+            flex-direction: column-reverse;
+            align-items: start;
+            width: 8.125rem;
+            height: 6rem;
+        }
+
+        .token_text_link {
+            width: 4.875rem;
         }
     }
 </style>

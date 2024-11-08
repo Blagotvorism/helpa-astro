@@ -1,100 +1,139 @@
----
-import '../../styles/global.css';
-import { Image } from 'astro:assets';
-import img from '../../images/gemohelp/gemoCover.jpg';
-import Link from '../Link.astro';
-import { Icon } from 'astro-icon/components';
----
-<section class="eco_hero">
-    <Image src={img} alt='Капельница' class='hero_img' loading='eager' />
-    <div class="cover"></div>
-    <div class="eco_hero__container">
-        <div class="hero_text">
-            <h1 class="hero_heading">
-                <span class="img_text">gemo</span><span class="white">help </span>
-            </h1>
-            <h3 class="hero-subheading">90% пациентов в отделении гематологии являются онкобольными</h3>
-            <!-- <div class="link_container">
-                <Link href="/" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
-            </div>   -->
-        </div>
+<section class="gemohelp_hero">
+    <div class="letters"></div>
+    <div class="subheading">
+        <h3>90% пациентов в отделении гематологии являются онкобольными</h3>
     </div>
 </section>
 
 <style>
     section {
+        --hero-background-position: calc((100vw - var(--reduced-width)) / 2) 0;
+        --hero-height: 100vh;
+        --h3-font-size: min(3vh, 36px);
+        --h3-width: min(45vh, 37.5rem);
+        --h3-bottom: 0;
+        --h3-left: 5%;
+        --subheading-top: 30vh;
+        --subheading-width: var(--reduced-width);
+        --subheading-height: min(39.5vh, 42rem);
+
+    }
+
+    .gemohelp_hero {
         position: relative;
-        display: flex;
+        display: block;
         width: 100vw;
-        height: var(--full-height);
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.2);
+        height: var(--hero-height);
+        background: url(../../images/gemohelp/gemoCover.jpg) no-repeat;
+        background-size: cover;
+        background-position: var(--hero-background-position);
     }
 
-    .hero_img {
+    .letters {
         display: block;
-        position: absolute;
-        width: inherit;
-        height: inherit;
-        z-index: -1;
-        object-fit: cover;
-        object-position: 4.5rem -4.325rem;
-    }
-
-    .cover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        background: white;
-        height: inherit;
-        width: calc((100vw - var(--reduced-width)) / 2 + 29rem);
-    }
-
-    .eco_hero__container {
-        display: block;
-        position: relative;
+        margin: auto;
         width: var(--reduced-width);
-        height: 29.125rem;
-        margin-top: 9.375rem;
+        height: 100%;
+        background: url(../../images/gemohelp/gemoCover.png) no-repeat;
+        background-size: 100% 100%;
     }
 
-    h1 {
-        font-family: var(--font-lulo-bold);
-        font-size: 6.875rem;
-        line-height: 14rem;
-        background: #548085;
-        background-size: fill;
-        background-clip: text;
-        background-position-x: 132rem;
-        background-position-y: -31rem;
-        overflow: hidden;
+    .subheading {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: var(--subheading-top);
+        width: var(--subheading-width);
+        height: var(--subheading-height);
     }
 
     h3 {
         display: inline-block;
-        width: 25rem;
+        position: absolute;
+        width: var(--h3-width);
         font-family: var(--font-inter);
-        font-size: 1.3rem;
-        margin-bottom: 2.5rem;
+        font-size: var(--h3-font-size);
+        color: black;
+        left: var(--h3-left);
+        bottom: var(--h3-bottom);
     }
 
-    .link_container {
-        display: block;
-        width: 9rem;
+    @media (960px <= width < 1200px) {
+        section {
+            --hero-height: 33.75rem;
+            --h3-font-size: 1.25rem;
+            --h3-bottom: 0%;
+            --h3-left: 3%;
+            --h3-width: 20rem;
+            --subheading-top: 28%;
+            --subheading-width: 56rem;
+            --subheading-height: 15rem;
+        }
+
+        .letters {
+            background: url(../../images/gemohelp/gemo_letters_960.svg) no-repeat;
+        }
     }
 
-    .img_text {
-        color: transparent;
+    @media (640px <= width < 960px) {
+        section {
+            --hero-height: 45rem;
+            --h3-font-size: 1.25rem;
+            --h3-width: 20rem;
+            --h3-bottom: 0%;
+            --h3-left: 6%;
+            --subheading-top: 35%;
+            --subheading-width: 40.25rem;
+            --subheading-height: 13rem;
+        }
+
+        .letters {
+            background: url(../../images/gemohelp/gemo_letters_640.svg) no-repeat;
+        }
+
+        
     }
 
-    .white {
-        color: white;
+    @media (480px <= width < 640px) {
+        section {
+            --hero-height: 16.375rem;
+            --h3-font-size: .75rem;
+            --h3-width: 12.25rem;
+            --h3-bottom: 2%;
+            --h3-left: 5%;
+            --subheading-top: 24%;
+            --subheading-width: 30rem;
+            --subheading-height: 10.25rem;
+        }
+
+        .letters {
+            background: url(../../images/gemohelp/gemo_letters_480.svg) no-repeat;
+            background-position: -21px 0;
+        }
     }
 
-    @media (width < 1200px) {
-        .eco_hero {
-            display: none;
+    @media (320px <= width < 480px) {
+        section {
+            --hero-height: 30rem;
+            --h3-font-size: .75rem;
+            --h3-width: 8.625rem;
+            --h3-bottom: 0;
+            --h3-left: 2%;
+            --subheading-top: 36%;
+            --subheading-width: 17.5rem;
+            --subheading-height: 7.5rem;
+        }
+
+        .letters {
+            background: url(../../images/gemohelp/gemo_letters_320.svg) no-repeat;
+            background-position: -20px 0;
+        }
+
+        .subheading {
+            position: absolute;
+            transform: translateX(0);
+            left: 6.25%;
         }
     }
 </style>

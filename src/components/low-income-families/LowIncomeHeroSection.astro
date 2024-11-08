@@ -1,87 +1,73 @@
----
-import '../../styles/global.css';
----
-<section class="lowincome_hero">
-    <div class="lowincome_hero__container">
-        <h1 class="hero_heading">
-            <span class="highlight" id="img_text">re</span>
-        </h1>
-        <h1 class="usual_text"><span class="white">pay</span></h1>
-    </div>
+<section class="eco_hero">
+    <div class="letters"></div>
 </section>
 
 <style>
-    .lowincome_hero {
+    section {
+        --hero-background-position: calc((100vw - var(--reduced-width)) / 2) 0;
+        --hero-height: 100vh;
+
+    }
+
+    .eco_hero {
         position: relative;
-        display: flex;
+        display: block;
         width: 100vw;
-        height: var(--full-height);
-        justify-content: center;
-        background: url(../../images/lowIncome/heroCover.jpg) no-repeat center center/cover;
-        overflow: hidden;
+        height: var(--hero-height);
+        background: url(../../images/lowIncome/heroCover.jpg) no-repeat;
+        background-size: cover;
+        background-position: var(--hero-background-position);
     }
 
-    .lowincome_hero__container {
-        position: relative;
-        width: 46.625rem;
-        z-index: 1;
-    }
-
-    .hero_heading {
-        position: relative;
-        width: 100%;
-        height: 9.8125rem;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        font-family: var(--font-lulo-bold);
-        font-size: 9.8125rem;
-        line-height: 9.8125rem;
-        margin-top: 15.875rem;
-        color: white;
-    }
-
-    .hero_heading .highlight {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: url('../../images/lowIncome/heroCover.jpg') no-repeat;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    #img_text {
-        width: 1.8em; /* Adjust width to match the size of 'ECO' */
-        background-position: 36% 50%; /* Center of the background image */
-        background-size: 100vw 100vh; /* Cover entire viewport */
-    }
-
-    .usual_text {
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-family: var(--font-lulo-bold);
-        font-size: 9.8125rem;
-        line-height: 9.8125rem;
-        margin-top: 15.875rem;
-        color: white;
-    }
-
-    .lowincome_hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 46.5%;
+    .letters {
+        display: block;
+        margin: auto;
+        width: var(--reduced-width);
         height: 100%;
-        background: white;
-        z-index: 0;
+        background: url(../../images/lowIncome/heroCover.png) no-repeat;
+        background-size: 100% 100%;
     }
 
-    @media (width < 1200px) {
-        .lowincome_hero {
-            display: none;
+    @media (960px <= width < 1200px) {
+        section {
+            --hero-height: 33.75rem;
+        }
+
+        .letters {
+            background: url(../../images/lowIncome/heroCover_960.svg) no-repeat;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        section {
+            --hero-height: 45rem;
+        }
+
+        .letters {
+            background: url(../../images/lowIncome/heroCover_640.svg) no-repeat;
+        }
+
+        
+    }
+
+    @media (480px <= width < 640px) {
+        section {
+            --hero-height: 16.375rem;
+        }
+
+        .letters {
+            background: url(../../images/lowIncome/heroCover_480.svg) no-repeat;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        section {
+            --hero-height: 30rem;
+        }
+
+        .letters {
+            background: url(../../images/lowIncome/heroCover_320.svg) no-repeat;
+            background-position: -20px 0;
         }
     }
 </style>
