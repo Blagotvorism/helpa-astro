@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from 'svelte';
     import links from '../data/links.json';
 	import BurgerMenu from './BurgerMenu.svelte';
     import Dropdown from './Dropdown.svelte';
@@ -6,12 +7,25 @@
     export let mainPage = false;
     let innerWidth = 0;
 
+    let scrolled = 'false';
+    onMount(() => {
+        const handleScroll = () => {
+            let headerHeight = document.getElementById('main_header').offsetHeight;
+            scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down
+        };
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // Cleanup
+        };
+    });
+
 </script>
 
 <svelte:window bind:innerWidth />
 
-<header class={mainPage ? "header" : "header_bg"}>
-    <div class="header">
+<header class='header {mainPage && !scrolled ? "" : "header_bg"}' id="main_header">
+    <div class="header_container">
         <a href="/" class="header-logo_main">
             <img src='/logos/logo-grey.svg' class="header-logo_main" alt="helpa-project-logo"/>
         </a>
@@ -47,25 +61,27 @@
     }
     
     .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: var(--header-height);
+    }
+
+    .header_container {
         z-index: 99;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: var(--header-width);
-        position: absolute;
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
+        position: fixed;
     }
 
     .header_bg {
-        z-index: 99;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100vw;
-        height: var(--header-height);
         background-color: var(--header-bg-color);
         border-bottom-right-radius: var(--border-radius);
     }
@@ -168,10 +184,6 @@
             --tokenomika-logo-height: 1rem;
         }
 
-        .header {
-            top: 0.5rem;
-        }
-
         .nav-links {
             display: none;
         }
@@ -195,8 +207,7 @@
         }
 
         .header {
-            top: 0.5rem;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .header_bg {

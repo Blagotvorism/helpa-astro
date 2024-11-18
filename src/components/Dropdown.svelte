@@ -24,10 +24,12 @@
         {text}
         <ArrowUp rotate={!isDropdownOpen} />
     </button>
-    <ul class={isDropdownOpen ? "dropdown-list" : 'hidden'} style="text-decoration: none;">
+    <ul class={isDropdownOpen ? "dropdown-list" : 'hidden'}>
         {#each data as link}
             {#if link.id !== 1 && link.id !== 6}
-                <li class="dropdown-item" style="text-decoration: none;"><a href={link.url} class="nav-link noDecoration" style="text-decoration: none !important;">{link.text}</a></li>
+                <li class="dropdown-item">
+                    <a href={link.url} class="nav-link">{link.text}</a>
+                </li>
             {/if}
         {/each}
     </ul>
@@ -38,7 +40,7 @@
         --dropdown-fs: 0.75rem;
         --btn-dropdown-width: 9rem;
         --btn-dropdown-height: 1rem;
-        --dropdown-list-top: 2.5rem;
+        --dropdown-list-top: 2.45rem;
         --dropdown-list-left: -2rem;
         --dropdown-list-width: 12.875rem;
         --dropdown-list-height: 8rem;
@@ -70,6 +72,7 @@
 
     .nav-link {
         text-decoration: none;
+        color: var(--dark-grey);
     }
 
     .nav-link:hover,
@@ -103,12 +106,16 @@
         margin-left: var(--dropdown-item-margin-left);
     }
 
+    .dropdown-item:first-child {
+        margin-top: .5rem;
+    }
+
     @media (480px <= width < 640px) {
         .dropdown {
             --dropdown-fs: 0.625rem;
             --btn-dropdown-width: 7.5rem;
             --btn-dropdown-height: 0.8125rem;
-            --dropdown-list-top: 1.8rem;
+            --dropdown-list-top: 1.75rem;
             --dropdown-list-left: -1.2rem;
             --dropdown-list-width: 9.8125rem;
             --dropdown-list-height: 7.625rem;

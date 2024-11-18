@@ -28,7 +28,7 @@ import "../styles/global.css";
                 </a>
             </div>
         </div>
-        <p class="cr">© 2024 Astroway</p>
+        <p class="cr">© <span id="year">2025</span> Astroway</p>
     </div>
 </footer>
 
@@ -223,3 +223,16 @@ import "../styles/global.css";
 
 </style>
 
+<script>
+    window.addEventListener('load', onLoad);
+
+    function onLoad () {
+      const currentYearEl = document.getElementById('year');
+
+      if (currentYearEl) {
+        const currentYear = new Date().getFullYear();
+
+        currentYearEl.textContent = currentYear;
+      }
+    }
+  </script>

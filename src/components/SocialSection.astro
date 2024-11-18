@@ -12,7 +12,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
         <div class="white-round">
             <RadialGradient topPosition="-8.9rem" leftPosition="-8.9rem" />
             {!page && <Icon name='mainLogoSocial' class='main-logo' />}
-            {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='eager' class="main-logo" />}
+            {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='lazy' class="main-logo" />}
         </div>
         <div class="social__text">
             <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>

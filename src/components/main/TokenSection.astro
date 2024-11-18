@@ -4,17 +4,29 @@ import '../../styles/global.css';
 import Link from "../Link.astro";
 ---
 <section class="main_token">
-    <div class="main_token__container">
-        <div class="token_title">
-            <h1 class="gradient_span">Helpa</h1>
-            <h1 class="gradient_span">-</h1>
-            <h1 class="token_heading-3">это</h1>
+    <div class="main_container">
+        <div class="token_container">
+            <div class="token_title">
+                <h1 class="gradient_span">Helpa</h1>
+                <h1 class="gradient_span">-</h1>
+                <h1 class="token_heading-3">это</h1>
+            </div>
+            <div class="token_description">
+                <h3 class="token_heading--descr">криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за трансказацию, которая идет на развитие благотворительности.</h3>
+                <p class="token_descr">Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров.</p>
+            </div>
         </div>
-        <div class="token_description">
-            <h3 class="token_heading--descr">Криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за трансказацию, которая идет на развитие благотворительности.</h3>
-            <p class="token_descr">Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров.</p>
-            <div class="link_container">
-                <Link href="/token" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+        <div class="charity_text">
+            <h2 class="charity_heading">
+                Как же нам удается сохранять и приумножать капитал и успешно развивать благотворительные направления?
+            </h2>
+            <div class="charity_descr">
+                <p>
+                    Комиссия идёт на развитие выбранных направлений в благотворительности, а вырученные средства с реализации токена будут направлены на развитие компании, поддержание экономики. Таким образом, сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, без государственных границ, языковых барьеров, в мир терпимости и высокого интеллектуального развития.
+                </p>
+                <div class="link_container">
+                    <Link href="/token" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+                </div>
             </div>
         </div>
     </div>
@@ -25,7 +37,7 @@ import Link from "../Link.astro";
         --title-width: 26.375rem;
         --title-font-size: 2.37rem;
         --description-width: 40.3rem;
-        --description-margin-top: 2rem;
+        --description-margin-top: 1rem;
         --heading-descr-line-height: 1.875rem;
         --heading-descr-font-size: 1.5rem;
         --descr-font-size: 1rem;
@@ -34,24 +46,36 @@ import Link from "../Link.astro";
         --descr-margin-bottom: 2.5rem;
         --link-container-width: 11rem;
         --icon-font-size: 1rem;
-        --section-height: 28.25rem;
+        --section-height: 62.5rem;
         --container-height: 19rem;
+        --main_container-margin-top: 6.25rem;
+        --token-container-margin-bottom: 8.75rem;
+        --h2-font-size: 3.125rem;
+        --charity-descr-width: 38.5rem;
+        --charity-descr-height: 12.5rem;
+        --charity-descr-margin-left: 29.75rem;
+        --charity-descr-margin-top: -3rem;
     }
 
     .main_token {
         position: relative;
         display: flex;
-        align-items: center;
         justify-content: center;
         width: 100vw;
         height: var(--section-height);
     }
 
-    .main_token__container {
+    .main_container {
+        display: block;
+        width: var(--reduced-width);
+        margin-top: var(--main_container-margin-top);
+    }
+
+    .token_container {
         display: flex;
         justify-content: space-between;
         width: var(--reduced-width);
-        height: var(--container-height);
+        margin-bottom: var(--token-container-margin-bottom);
     }
 
     .token_title {
@@ -59,6 +83,9 @@ import Link from "../Link.astro";
         width: var(--title-width);
         justify-content: space-between;
         align-self: flex-start;
+    }
+
+    h1 {
         font-family: var(--font-lulo-bold);
         font-size: var(--title-font-size);
     }
@@ -75,13 +102,40 @@ import Link from "../Link.astro";
         font-size: var(--heading-descr-font-size);
     }
 
-    .token_descr {
+    p {
+        display: inline-block;
         font-family: var(--font-inter);
         font-size: var(--descr-font-size);
         color: var(--dark-grey);
-        margin-top: var(--descr-margin-top);
         line-height: var(--descr-line-height);
-        margin-bottom: var(--descr-margin-bottom);
+    }
+
+    .token_descr {
+        margin-top: var(--descr-margin-top);
+    }
+
+    .charity_text {
+        display: block;
+        width: 100%;
+    }
+
+    h2 {
+        font-family: var(--font-lulo-bold);
+        font-size: var(--h2-font-size);
+    }
+
+    .charity_descr {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: var(--charity-descr-width);
+        height: var(--charity-descr-height);
+        margin-left: var(--charity-descr-margin-left);
+        margin-top: var(--charity-descr-margin-top);
+    }
+
+    .charity_descr p {
+        width: 100%;
     }
 
     .link_container {
@@ -96,9 +150,9 @@ import Link from "../Link.astro";
     @media (960px <= width < 1200px) {
         .main_token {
             --title-width: 21.0625rem;
-            --title-font-size: 2rem;
+            --title-font-size: 2.5rem;
             --description-width: 31.75rem;
-            --description-margin-top: 2rem;
+            --description-margin-top: 1rem;
             --heading-descr-line-height: 1.5rem;
             --heading-descr-font-size: 1.25rem;
             --descr-font-size: 0.75rem;
@@ -107,15 +161,23 @@ import Link from "../Link.astro";
             --descr-margin-bottom: 1.25rem;
             --link-container-width: 9.125rem;
             --icon-font-size: 1rem;
-            --section-height: 28.25rem;
+            --section-height: 54.25rem;
             --container-height: 15rem;
+
+            --main_container-margin-top: 5rem;
+            --token-container-margin-bottom: 7.5rem;
+            --h2-font-size: 2.5rem;
+            --charity-descr-width: 29.125rem;
+            --charity-descr-height: 10.25rem;
+            --charity-descr-margin-left: 24.5rem;
+            --charity-descr-margin-top: -2rem;
         }
     }
 
     @media (640px <= width < 960px) {
         .main_token {
-            --title-width: 21.0625rem;
-            --title-font-size: 2rem;
+            --title-width: 21.125rem;
+            --title-font-size: 2.5rem;
             --description-width: 28.375rem;
             --description-margin-top: 1.25rem;
             --heading-descr-line-height: 1.5rem;
@@ -126,11 +188,19 @@ import Link from "../Link.astro";
             --descr-margin-bottom: 2.5rem;
             --link-container-width: 9.125rem;
             --icon-font-size: 1rem;
-            --section-height: 36rem;
+            --section-height: 70.25rem;
             --container-height: 19rem;
+
+            --main_container-margin-top: 5rem;
+            --token-container-margin-bottom: 6.25rem;
+            --h2-font-size: 2.5rem;
+            --charity-descr-width: 28.375rem;
+            --charity-descr-height: 10rem;
+            --charity-descr-margin-left: 9.75rem;
+            --charity-descr-margin-top: 1.25rem;
         }
 
-        .main_token__container {
+        .token_container {
             display: block;
         }
 
@@ -142,7 +212,7 @@ import Link from "../Link.astro";
 
     @media (480px <= width < 640px) {
         .main_token {
-            --title-width: 12.5rem;
+            --title-width: 8.4375rem;
             --title-font-size: 1rem;
             --description-width: 18.3125rem;
             --description-margin-top: 1.25rem;
@@ -154,23 +224,35 @@ import Link from "../Link.astro";
             --descr-margin-bottom: 1.25rem;
             --link-container-width: 6.875rem;
             --icon-font-size: 1rem;
-            --section-height: 20rem;
+            --section-height: 38.125rem;
             --container-height: 14rem;
+
+            --main_container-margin-top: 2.5rem;
+            --token-container-margin-bottom: 5rem;
+            --h2-font-size: 1rem;
+            --charity-descr-width: 20.375rem;
+            --charity-descr-height: 9.625rem;
+            --charity-descr-margin-left: 7.25rem;
+            --charity-descr-margin-top: .625rem;
         }
 
-        .main_token__container {
+        h2 {
+            width: 23.75rem;
+        }
+
+        .token_container {
             display: block;
         }
 
         .token_description {
-            margin-left: 9.75rem;
+            margin-left: 7.25rem;
         }
 
     }
 
     @media (320px <= width < 480px) {
         .main_token {
-            --title-width: 62.5vw;
+            --title-width: 42.1875vw;
             --title-font-size: 5vw;
             --description-width: 76.875vw;
             --description-margin-top: 6.25vw;
@@ -182,11 +264,19 @@ import Link from "../Link.astro";
             --descr-margin-bottom: 6.25vw;
             --link-container-width: 6.875rem;
             --icon-font-size: 1rem;
-            --section-height: 100vw;
+            --section-height: 208.125vw;
             --container-height: 80vw;
+
+            --main_container-margin-top: 12.5vw;
+            --token-container-margin-bottom: 18.75vw;
+            --h2-font-size: 5vw;
+            --charity-descr-width: var(--reduced-width);
+            --charity-descr-height: 52.5vw;
+            --charity-descr-margin-left: 0;
+            --charity-descr-margin-top: 3.125vw;
         }
 
-        .main_token__container {
+        .token_container {
             display: block;
         }
 

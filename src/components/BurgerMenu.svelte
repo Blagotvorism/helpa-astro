@@ -23,7 +23,7 @@ import Cancel from "./Cancel.svelte";
             {#each links as link}
                 {#if link.id === 1 || link.id === 2 || link.id === 3}
                     <li class="dropdown-item" style="text-decoration: none;">
-                        <a href={link.url} class="nav-link noDecoration" style="text-decoration: none;">{link.text}</a>
+                        <a href={link.url} class="nav-link">{link.text}</a>
                     </li>
                 {/if}
             {/each}
@@ -32,7 +32,7 @@ import Cancel from "./Cancel.svelte";
             {#each links as link}
                 {#if link.id !== 1 && link.id !== 2 && link.id !== 3}
                     <li class="dropdown-item" style="text-decoration: none;">
-                        <a href={link.url} class="nav-link noDecoration" style="text-decoration: none;">{link.text}</a>
+                        <a href={link.url} class="nav-link">{link.text}</a>
                     </li>
                 {/if}
             {/each}
@@ -42,7 +42,6 @@ import Cancel from "./Cancel.svelte";
 
 <style>
     .burger-menu {
-        
         display: none;
     }
 
@@ -56,7 +55,7 @@ import Cancel from "./Cancel.svelte";
         justify-content: space-between;
         position: absolute;
         z-index: 10;
-        top: 2.435rem;
+        top: 2.25rem;
         left: calc((-100vw + var(--reduced-width)) / 2);
         width: 100vw;
         height: 8rem;
@@ -90,6 +89,18 @@ import Cancel from "./Cancel.svelte";
         font-family: var(--font-inter);
         font-size: 3.125vw;
         text-decoration: none;
+        color: var(--dark-grey);
+    }
+
+    .nav-link:hover,
+    .nav-links:active {
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
     }
 
     @media (width < 480px) {

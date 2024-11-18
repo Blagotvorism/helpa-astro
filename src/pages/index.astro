@@ -11,9 +11,11 @@ import IntroSection from '../components/IntroSection.astro';
 import TokenSection from '../components/main/TokenSection.astro';
 import GoalsSection from '../components/main/GoalsSection.astro';
 import SlogansSection from '../components/main/SlogansSection.astro';
+
+const mainPage = true;
 ---
 
-<Layout title="ASTROWAY" mainPage>
+<Layout title="ASTROWAY" mainPage={mainPage}>
 	<main>
 		<AstrowaySection mainBackgroundImage={mainBackgroundImage} mainLogo={mainLogo} />
 		<WelcomeSection />

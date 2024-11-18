@@ -71,7 +71,7 @@
         --tab-list-container-font-size: 1rem;
 
         /* Events tab */
-        --events-tab-width: 60rem;
+        --events-tab-width: 58rem;
 
         /* Slider */
         --slider-width: 9.25rem;
@@ -161,7 +161,7 @@
 
             /* Button */
             --tab-list-container-font-size: 0.75rem;
-            --btn-tab-link-height: 1.6875rem;
+            --btn-tab-link-height: 2rem;
             --btn-tab-link-padding: .5rem 1rem .5rem 1rem;
         }
     }
@@ -179,7 +179,7 @@
             --tab-list-container-font-size: 0.625rem;
 
             /* Events tab */
-            --events-tab-width: 35.875rem;
+            --events-tab-width: 37.5rem;
 
             /* Slider */
             --slider-width: 7.625rem;
@@ -208,7 +208,7 @@
             --tab-list-container-font-size: 0.4375rem;
 
             /* Events tab */
-            --events-tab-width: 25.8125rem;
+            --events-tab-width: 26.8125rem;
 
             /* Slider */
             --slider-width: 7.625rem;
@@ -216,7 +216,7 @@
             /* Button */
             --tab-list-container-font-size: 0.4375rem;
             --btn-tab-link-height: 1.6875rem;
-            --btn-tab-link-padding: .5rem .6rem;
+            --btn-tab-link-padding: .5rem .7rem;
         }
 
         .slider_container {

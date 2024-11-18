@@ -12,7 +12,7 @@ interface Props {
 
 const { imagePath, imageDescription, cardDescription, href } = Astro.props;
 ---
-<div class="about-card">
+<div class="about-card" id={imagePath}>
     <a href={href} class="card-link" aria-label="Карточка с описанием направлений проектов">
         <div class="about-bg">
             <Image src={import(`../../images/main/about_cards/${imagePath}.jpg`)} alt={imageDescription} class='about-card-img' loading="lazy"/>
@@ -104,6 +104,10 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
             --bg-height: 37.8125vw;
             --descr-margin-top: 3.125vw;
             --descr-font-size: 3.125vw;
+        }
+
+        #loanCard {
+            margin-bottom: 4vw;
         }
     }
 

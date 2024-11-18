@@ -95,24 +95,24 @@
                 <Carousel bind:this={slider} siemaItems={findCards(category)}>
                     {#if category === 'all'}
                         {#each events as event, index (index)}
-                            <div class="event_card">
+                            <div class="event_card" on:click={() => handleClick(event)}>
                                 <img src={event.imageURL} alt={event.title} class='event_card-img' />
                                 <div class="event_card-text">
                                     <h3 class="event_card-title">{event.title}</h3>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
-                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                         {/each}
                     {:else}
                         {#each events as event, index (index)}
                             {#if category === event.category}
-                            <div class="event_card">
+                            <div class="event_card" on:click={() => handleClick(event)}>
                                 <img src={event.imageURL} alt={event.title} class='event_card-img' />
                                 <div class="event_card-text">
                                     <h3 class="event_card-title">{event.title}</h3>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
-                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                             {/if}
@@ -177,6 +177,7 @@
     }
 
     .event_cards {
+        cursor: pointer;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

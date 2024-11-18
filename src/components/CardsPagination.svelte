@@ -90,12 +90,12 @@
     {#if totalCards > 0}
         <div class="cards">
             {#each cards.slice(0, itemsToShow) as card}
-                <div class="event_card">
+                <div class="event_card" on:click={() => handleClick(event)}>
                     <img src={card.imageURL} alt={card.title} class='event_card-img' />
                     <div class="event_card-text">
                         <h3 class="event_card-title">{card.title}</h3>
                         <p class="event_card-descr">{card.descriptionShort}</p>
-                        <button on:click={() => handleClick(card)} class="btn-card gradient_span"><span class="btn_innertext_secondary">Присоединиться</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                        <button on:click={() => handleClick(card)} class="btn-card gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                     </div>
                 </div>
             {/each}
@@ -160,6 +160,7 @@
     }
 
     .event_card {
+        cursor: pointer;
         display: flex;
         flex-direction: row;
         width: 17.5rem;
@@ -176,8 +177,8 @@
         display: block;
         height: inherit;
         width: 9rem;
-        border-top-left-radius: var(--border-radius);
-        border-bottom-left-radius: var(--border-radius);
+        border-top-left-radius: 1.25rem;
+        border-bottom-left-radius: 1.25rem;
         object-fit: cover;
     }
 

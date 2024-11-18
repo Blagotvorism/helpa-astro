@@ -1,18 +1,20 @@
 ---
 import '../styles/global.css';
 import Link from './Link.astro';
+
+const {url_buy, url_join, h3_text, p_text} = Astro.props;
 ---
 
 <div class="help__cta">
     <div class="help__cta-1" id="left">
         <h3 class="help__cta-h3" id="left-heading">Приобрести криптоактив HELPA</h3>
         <p class="help_text" id="left_text">и помогать проекту финансово за счет совершения трансказаций.</p>
-        <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+        <Link href={url_buy} theme='primary' classes="link link_primary">Приобрести</Link>
     </div>
     <div class="help__cta-1" id="right">
-        <h3 class="help__cta-h3">Стать участником наших экологических акций</h3>
-        <p class="help_text">и принимать непосредственное участие в спасении планеты.</p>
-        <Link href="/" theme='primary' classes="link link_primary">Присоединиться</Link>
+        <h3 class="help__cta-h3">{h3_text}</h3>
+        <p class={p_text ? "help_text" : 'help_text hidden'}>{p_text !== '' ? p_text : 'и принимать непосредственное участие в мероприятиях.'}</p>
+        <Link href={url_join} theme='primary' classes="link link_primary">Присоединиться</Link>
     </div>
 </div>
 
@@ -53,6 +55,10 @@ import Link from './Link.astro';
         font-size: var(--text-font-size);
         color: var(--dark-grey);
         margin-bottom: var(--text-margin-bottom);
+    }
+
+    .hidden {
+        visibility: hidden;
     }
 
     @media (960px <= width < 1200px) {

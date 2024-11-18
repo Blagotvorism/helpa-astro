@@ -10,6 +10,7 @@ let heading_start, heading_gradient, heading_finish;
 let sectionHeight_1200, sectionHeight_960, sectionHeight_640, sectionHeight_480, sectionHeight_320; 
 let headingWidth_1200, headingWidth_960, headingWidth_640, headingWidth_480, headingWidth_320;
 let topPosition = '0rem';
+let url_buy, url_join, h3_text = 'Стать участником наших акций', p_text='';
 
 switch(page) {
     case 'eco':
@@ -28,11 +29,16 @@ switch(page) {
         headingWidth_640 = '34.5rem';
         headingWidth_480 = '18.5rem';
         headingWidth_320 = '87.5vw';
+        url_buy = '/';
+        url_join = 'https://t.me/ecotimeday';
+        h3_text = 'Стать участником наших экологических акций';
+        p_text = 'и принимать непосредственное участие в спасении планеты.';
         break;
     case 'low-income-families':
         heading_start = 'Чтобы ';
         heading_gradient = 'быть полезным людям ';
         heading_finish = 'и поддержать проект, можно';
+        h3_text = 'Стать участником наших акций помощи';
         sectionHeight_1200 = '30rem';
         sectionHeight_960 = '21.75rem';
         sectionHeight_640 = '25.7rem';
@@ -44,13 +50,17 @@ switch(page) {
         headingWidth_480 = '19.0625rem';
         headingWidth_320 = '87.5vw';
         topPosition = '0';
+        url_buy = '/';
+        url_join = 'https://t.me/helparepay';
         break;
     case 'ride':
         heading_start = 'Чтобы ';
         heading_gradient = 'сделать мир спортивнее ';
         heading_finish = 'и поддержать проект, можно';
+        h3_text = 'Стать участником или организатором заезда';
+        p_text = 'и принимать непосредственное участие в мероприятиях.';
         // Section Height
-        sectionHeight_1200 = '39.4rem';
+        sectionHeight_1200 = '27rem';
         sectionHeight_960 = '21.75rem';
         sectionHeight_640 = '25.7rem';
         sectionHeight_480 = '12.25rem';
@@ -62,6 +72,28 @@ switch(page) {
         headingWidth_480 = '19.0625rem';
         headingWidth_320 = '87.5vw';
         topPosition = '0';
+        url_buy = '/';
+        url_join = 'https://t.me/longlongride';
+        break;
+    case 'gemo':
+        heading_start = 'Чтобы ';
+        heading_gradient = 'быть полезным людям ';
+        heading_finish = 'и поддержать проект, можно';
+        h3_text = 'Подписаться на социальные сети проекта';
+        // Section Height
+        sectionHeight_1200 = '30rem';
+        sectionHeight_960 = '25rem';
+        sectionHeight_640 = '25.7rem';
+        sectionHeight_480 = '15.5rem';
+        sectionHeight_320 = '80vw';
+        headingWidth_1200 = '57.4375rem';
+        headingWidth_960 = '46.5625rem';
+        headingWidth_640 = '34.5rem';
+        headingWidth_480 = '19.0625rem';
+        headingWidth_320 = '87.5vw';
+        topPosition = '3.25rem';
+        url_buy = '/';
+        url_join = 'https://t.me/gemohelpa';
         break;
 }
 ---
@@ -76,8 +108,8 @@ switch(page) {
             </>
         }
         {heading_start && <h2 class="help__heading">{heading_start}<span class="gradient_span">{heading_gradient}</span>{heading_finish}</h2>}
-        <HelpCTA />
-        {img && <Image src={img} alt={imgDescr} class='help__img' loading='eager'/>}
+        <HelpCTA url_buy={url_buy} url_join={url_join} h3_text={h3_text} p_text={p_text} />
+        {img && <Image src={img} alt={imgDescr} class='help__img' loading='lazy'/>}
     </div>
 </section>
 
