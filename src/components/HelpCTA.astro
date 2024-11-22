@@ -12,7 +12,7 @@ const {url_buy, url_join, h3_text, p_text} = Astro.props;
         <Link href={url_buy} theme='primary' classes="link link_primary">Приобрести</Link>
     </div>
     <div class="help__cta-1" id="right">
-        <h3 class="help__cta-h3">{h3_text}</h3>
+        <h3 class="help__cta-h3" id="right-heading">{h3_text}</h3>
         <p class={p_text ? "help_text" : 'help_text hidden'}>{p_text !== '' ? p_text : 'и принимать непосредственное участие в мероприятиях.'}</p>
         <Link href={url_join} theme='primary' classes="link link_primary">Присоединиться</Link>
     </div>
@@ -21,7 +21,7 @@ const {url_buy, url_join, h3_text, p_text} = Astro.props;
 <style>
     .help__cta {
         --cta-width: 54rem;
-        --cta-block-width: 18.75rem;
+        --cta-block-width: 20rem;
         --cta-block-height: 13.5rem;
 
         /* fonts */
@@ -114,7 +114,7 @@ const {url_buy, url_join, h3_text, p_text} = Astro.props;
     @media (320px <= width < 480px) {
         .help__cta {
             --cta-width: 87.5vw;
-            --cta-block-width: 44.375vw;
+            --cta-block-width: 46.375vw;
             --cta-block-height: 36.25vw;
 
             /* fonts */
@@ -124,9 +124,9 @@ const {url_buy, url_join, h3_text, p_text} = Astro.props;
             --text-margin-bottom: 5vw;
         }
 
-        #right {
+        /* #right {
             width: 40.625vw;
-        }
+        } */
 
         #left-heading {
             width: 44.375vw;

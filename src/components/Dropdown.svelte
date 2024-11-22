@@ -40,7 +40,7 @@
         --dropdown-fs: 0.75rem;
         --btn-dropdown-width: 9rem;
         --btn-dropdown-height: 1rem;
-        --dropdown-list-top: 2.45rem;
+        --dropdown-list-top: 2.55rem;
         --dropdown-list-left: -2rem;
         --dropdown-list-width: 12.875rem;
         --dropdown-list-height: 8rem;

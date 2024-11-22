@@ -341,7 +341,7 @@ import RadialGradient from '../RadialGradient.astro';
             --text-width-no-card: 79.6875vw;
             --text-height: 25vw;
             --text-margin-right: 0;
-            --heading-font-size: .75rem;
+            --heading-font-size: 3.84375vw;
             --heading-margin-bottom: 3.125vw;
             --subheading-font-size: 3.125vw;
             --subheading-color: var(--dark-grey);
@@ -356,24 +356,23 @@ import RadialGradient from '../RadialGradient.astro';
             align-content: space-between;
         }
 
+        .eco-events-chain__heading {
+            width: 67.5vw;
+        }
+
         .eco-events-chain__text {
             order: -1;
         }
 
         .horizontal_arrow {
-            display: none;
+            width: inherit;
+            transform: rotate(90deg);
+            stroke-width: 10px;
         }
 
         .icon {
-            position: absolute;
-        }
-
-        #air {
-            margin-bottom: 0;
-        }
-       
-        #vertical-arrow {
             display: none;
+            position: absolute;
         }
     }
 </style>
