@@ -6,9 +6,16 @@
 
     export let mainPage = false;
     let innerWidth = 0;
-
     let scrolled = 'false';
     onMount(() => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('gradient_span');
+            }
+            console.log(link.href, window.location.href);
+        });
+        
         const handleScroll = () => {
             let headerHeight = document.getElementById('main_header').offsetHeight;
             scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down

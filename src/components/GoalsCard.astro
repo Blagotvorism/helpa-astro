@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+import GoalsIcon from './icons/GoalsIcon.svelte';
 
 interface Props {
     goalsIcon?: string;
@@ -12,7 +12,7 @@ const { goalsIcon, goalsDescr, cardId } = Astro.props;
 ---
 
 <div class:list={goalsIcon === 'Air' || goalsIcon === 'Water' || goalsIcon === 'Ground' ? 'goals-card goals-card_eco' : 'goals-card'}>
-    {goalsIcon && <Icon name={goalsIcon} class="goals-icon" />}
+    {goalsIcon && <GoalsIcon goalsIcon={goalsIcon} />}
     <p class:list={[cardId === 3 ? 'goals-descr third-card': 'goals-descr']}>{goalsDescr}</p>
 </div>
 
@@ -35,12 +35,6 @@ const { goalsIcon, goalsDescr, cardId } = Astro.props;
         border-radius: var(--border-radius);
         background-color: white;
         box-shadow: var(--box-shadow);
-    }
-
-    .goals-icon {
-        width: var(--icon-size);
-        height: var(--icon-size);
-        margin: var(--margin-top-bottom) 0;
     }
 
     .goals-descr {

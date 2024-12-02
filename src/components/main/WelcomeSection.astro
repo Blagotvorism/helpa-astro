@@ -1,7 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import '../../styles/global.css';
 import Link from "../Link.astro";
-import { Icon } from "astro-icon/components";
+import welomePng from '../../images/main/welcome.png';
 ---
 <section class="welcome">
     <div class="welcome_container">
@@ -22,7 +23,7 @@ import { Icon } from "astro-icon/components";
             </div>  
         </div>
         <div class="container_right">
-            <Icon name='connectedLogo' class="welcome_img" />
+            <Image src={welomePng} alt='Connected people icon' />
         </div>
     </div>
 </section>
@@ -71,8 +72,15 @@ import { Icon } from "astro-icon/components";
     }
 
     .container_right {
+        display: inline-block;
         height: var(--container-right-width);
         width: var(--container-right-width);
+    }
+
+    .container_right img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
     }
 
     .welcome_text {
@@ -125,13 +133,13 @@ import { Icon } from "astro-icon/components";
 
     @media (640px <= width < 960px) {
         .welcome {
-            --welcome-height: 17.8125rem;
+            --welcome-height: 19.8125rem;
             --welcome-container-height: 14.6875rem;
             --welcome-container-width: var(--reduced-width);
             --welcome-container-margin-top: 3.125rem;
             --welcome-container-margin-left: 0;
             --container-left-width: 29rem;
-            --container-right-width: 8.8125rem;
+            --container-right-width: 8.75rem;
             --welcome-title-font-size: 2.29rem;
             --welcome-title-line-height: 2.7rem;
             --welcome-title-letter-spacing: 2px;
@@ -143,9 +151,15 @@ import { Icon } from "astro-icon/components";
 
         .container_right {
             display: inline-block;
-            margin-top: 3.5rem;
-            margin-right: .5rem;
+            margin-top: 5.5rem;
         }
+
+        .container_left {
+            display: inline-flex;
+            margin-right: -2rem;
+            height: 16.25rem;
+        }
+
         .welcome_img {
             transform: rotateY(180deg);
         }

@@ -4,6 +4,12 @@ import '../styles/global.css';
 import { Image } from 'astro:assets';
 import ecoLogo from '../images/eco/ecoSocial.PNG';
 import RadialGradient from './RadialGradient.astro';
+import TgSocial from './icons/TgSocial.svelte';
+import InstSocial from './icons/InstSocial.svelte';
+import YoutubeSocial from './icons/YoutubeSocial.svelte';
+import TikTokSocial from './icons/TikTokSocial.svelte';
+import FbSocial from './icons/FbSocial.svelte';
+import XSocial from './icons/XSocial.svelte';
 
 const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astro.props;
 ---
@@ -18,12 +24,12 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
             <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>
             <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
             <div class="social__logos">
-               {tg_link && <a href={tg_link} aria-label="логотип телеграма"><Icon name='tgSocial' /></a>}
-                {yt_link && <a href={yt_link} aria-label="логотип ютуба"><Icon name='youtubeSocial' /></a>}
-                {inst_link && <a href={inst_link} aria-label="логотип IG"><Icon name='instSocial' /></a>}
-                {x_link && <a href={x_link} aria-label="логотип X"><Icon name='xSocial' /></a>}
-                {tiktok_link && <a href={tiktok_link} aria-label="логотип TikTok"><Icon name='tiktokSocial' /></a>}
-                {fb_link && <a href={fb_link} aria-label="логотип FaceBook"><Icon name='fbSocial' /></a>}
+               {tg_link && <a href={tg_link} aria-label="логотип телеграма"><TgSocial /></a>}
+                {yt_link && <a href={yt_link} aria-label="логотип ютуба"><YoutubeSocial /></a>}
+                {inst_link && <a href={inst_link} aria-label="логотип IG"><InstSocial /></a>}
+                {x_link && <a href={x_link} aria-label="логотип X"><XSocial /></a>}
+                {tiktok_link && <a href={tiktok_link} aria-label="логотип TikTok"><TikTokSocial /></a>}
+                {fb_link && <a href={fb_link} aria-label="логотип FaceBook"><FbSocial /></a>}
             </div>
         </div>
     </div>
@@ -123,13 +129,13 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
         align-items: center;
     }
 
-    .social__logos svg {
+    .social__logos a {
         height: var(--logo-size);
         width: var(--logo-size);
         margin-right: var(--logo-mb);
     }
 
-    .social__logos svg:not(:last-child) {
+    .social__logos a:not(:last-child) {
         margin-right: var(--logo-mb);
     }
 

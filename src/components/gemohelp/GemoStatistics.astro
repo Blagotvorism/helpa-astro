@@ -122,11 +122,17 @@ import RadialGradient from '../RadialGradient.astro';
     @media (320px <= width < 480px) {
         .statistics {
             --section-height: 308.125vw;
-            --container-height: 280vw;
+            --container-height: auto;
             --h2-font-size: 5vw;
             --h2-margin-bottom: 2.5rem;
             --graphs-height: 45.9375vw;
             --row-gap: 2.5rem;
+        }
+    }
+
+    @media (380px <= width < 480px) {
+        .statistics {
+            --section-height: 297.125vw;
         }
     }
 </style>

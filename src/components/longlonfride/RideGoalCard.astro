@@ -1,10 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components';
+import RideIcons from '../icons/RideIcons.svelte';
 import '../../styles/global.css';
 const { iconName, cardText } = Astro.props;
 ---
 <div class="card">
-    <Icon name={iconName} class='logo'/>
+    <RideIcons logoName={iconName} />
     <p>{cardText}</p>
 </div>
 

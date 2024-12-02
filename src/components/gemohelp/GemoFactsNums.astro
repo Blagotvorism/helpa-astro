@@ -41,7 +41,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 ---
 <div id=`num${num}` class="nums" style={`--textHeight: ${height}; --textWidth: ${width}; --textSpanWidth: ${spanWidth};`}>
     <h2 class="num_heading">{num}</h2>
-    <p class="text_heading">
+    <p class="text_heading" id=`text_heading${num}`>
         <span class="heading">{heading}</span>
         <span class="facts_text" set:html={text} />
     </p>
@@ -90,7 +90,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 
     .num_heading {
         position: relative;
-        display: inline;
+        display: block;
         height: inherit;
         font-family: var(--font-lulo-bold);
         font-size: var(--num-font-size);
@@ -98,7 +98,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
     }
 
     .text_heading {
-        display: inline-block;
+        display: block;
         position: absolute;
         width: inherit;
         height: var(--fact-height);
@@ -118,7 +118,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
     }
 
     .facts_text {
-        display: inline-block;
+        display: block;
         font-family: var(--font-inter);
         font-size: var(--facts-text-font-size);
         color: var(--dark-grey);
@@ -237,11 +237,11 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
 
     @media (320px <= width < 480px) {
         .nums {
-            --text-height-1: 14rem;
-            --text-height-2: 12rem;
-            --text-height-3: 21rem;
-            --text-height-4: 12rem;
-            --text-height-5: 14.5rem;
+            --text-height-1: auto;
+            --text-height-2: auto;
+            --text-height-3: auto;
+            --text-height-4: auto;
+            --text-height-5: auto;
             
             --text-width-1: var(--reduced-width);
             --text-width-2: var(--reduced-width);
@@ -265,7 +265,7 @@ const { height, width, spanWidth } = textConfig[num] || textConfig['1'];
             --text-margin-bottom: 0.75rem;
             --text-top: 6rem;
             --text-left: 1.6rem;
-            --fact-height: 8.125rem;
+            --fact-height: auto;
         }
 
         #num1 {order: 1;}

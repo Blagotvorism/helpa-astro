@@ -7,42 +7,52 @@ import img2 from '../../images/gemohelp/gemoConceptCard2.jpeg';
 import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
 import RadialGradient from '../RadialGradient.astro';
 ---
-<section class="gemo_facts">
-    <div class="gemo_facts__container">
+<section class="gemo_facts" id="gemo_section">
+    <div class="gemo_facts__container" id="gemo_container">
         <RadialGradient topPosition="6.1875rem" leftPosition="58.125rem" />
         <RadialGradient topPosition="89.875rem" leftPosition="-24.375rem" />
         <h2 class="gemo_facts__container-heading">Несколько фактов о <span class="gemo_facts__container-span gradient_span">лейкемии</span></h2>
         <div class="facts">
-            <GemoFactsNums 
-                num='1' 
-                heading='Лейкемия' 
-                text='Лейкемия - это онкологическое заболевание крови и кроветворных клеток в костном мозге. Они делятся на две основные категории: острые (развиваются внезапно и имеют кратковременный характер) и хронические (развиваются в течение длительного периода времени и носят долгосрочный характер). Лейкемия подразделяется на другие типы, названные по типу клеток, которые становятся злокачественными.'
-            />
-            <GemoFactsNums 
-                num='2' 
-                heading='Типы лейкемии' 
-                text='Острый лимфолейкоз (ОЛЛ)<br> Острый миелоидный лейкоз (ОМЛ)<br> Хронический лимфолейкоз (ХЛЛ)<br> Хронический миелоидный лейкоз (ХМЛ)<br> Хронический миеломоноцитарный лейкоз (CMML)'
-            />
-            <GemoFactsNums 
-                num='3' 
-                heading='Возраст заболевших' 
-                text='В 2015-2019 годах в среднем у 18 мужчин из 100 000 ежегодно диагностировалась лейкемия, и в среднем у 11 женщин из 100 000 ежегодно диагностировалось это заболевание.<br> Лейкемия является наиболее распространенным видом рака у детей, но она по-прежнему встречается редко. Наиболее распространенным типом лейкоза у детей является острый лимфоцитарный лейкоз, за которым следует острый миелоидный лейкоз. У детей в возрасте до 15 лет, 5,3 из 100 000, в 2019 году был диагностирован лейкоз.<br> Последние тенденции заболеваемости лейкемией по SEER с поправкой на возраст, 2000-2019 гг.. Средний возраст на момент постановки диагноза составляет 67 лет. У мужчин лейкемия диагностируется чаще, чем у женщин, а у взрослых - чаще, чем у детей.'
-            />
+            <div class="fact" id="fact1">
+                <GemoFactsNums 
+                    num='1' 
+                    heading='Лейкемия' 
+                    text='Лейкемия - это онкологическое заболевание крови и кроветворных клеток в костном мозге. Они делятся на две основные категории: острые (развиваются внезапно и имеют кратковременный характер) и хронические (развиваются в течение длительного периода времени и носят долгосрочный характер). Лейкемия подразделяется на другие типы, названные по типу клеток, которые становятся злокачественными.'
+                />
+            </div>
+            <div class="fact" id="fact2">
+                <GemoFactsNums 
+                    num='2' 
+                    heading='Типы лейкемии' 
+                    text='Острый лимфолейкоз (ОЛЛ)<br> Острый миелоидный лейкоз (ОМЛ)<br> Хронический лимфолейкоз (ХЛЛ)<br> Хронический миелоидный лейкоз (ХМЛ)<br> Хронический миеломоноцитарный лейкоз (CMML)'
+                />
+            </div>
+            <div class="fact" id="fact3">
+                <GemoFactsNums 
+                    num='3' 
+                    heading='Возраст заболевших' 
+                    text='В 2015-2019 годах в среднем у 18 мужчин из 100 000 ежегодно диагностировалась лейкемия, и в среднем у 11 женщин из 100 000 ежегодно диагностировалось это заболевание.<br> Лейкемия является наиболее распространенным видом рака у детей, но она по-прежнему встречается редко. Наиболее распространенным типом лейкоза у детей является острый лимфоцитарный лейкоз, за которым следует острый миелоидный лейкоз. У детей в возрасте до 15 лет, 5,3 из 100 000, в 2019 году был диагностирован лейкоз.<br> Последние тенденции заболеваемости лейкемией по SEER с поправкой на возраст, 2000-2019 гг.. Средний возраст на момент постановки диагноза составляет 67 лет. У мужчин лейкемия диагностируется чаще, чем у женщин, а у взрослых - чаще, чем у детей.'
+                />
+            </div>
             <GemoFactsImg 
                 img1={img1} imgDescr1='Сравнение крови при лийкемии и без' 
                 img2={img2} imgDescr2='Тромбоциты' 
                 img3={img3} imgDescr3='Лийкемия' 
             />
-            <GemoFactsNums 
-                num='4' 
-                heading='Происхождение' 
-                text='Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно.'
-            />
-            <GemoFactsNums 
-                num='5' 
-                heading='Выживаемость' 
-                text='В целом по ОЛЛ пятилетняя выживаемость составляет почти 66%. Выживаемость примерно одинакова среди людей любого пола. Пятилетняя выживаемость у детей младше 15 лет составляет 88%. Однако существуют мутации, влияющие на более тяжёлое течение болезни. В связи с этим, данный средний процент выживаемости иногда падает ниже 20%. При неоказании своевременной медицинской помощи смерть наступает в течении нескольких месяцев.'
-            />
+            <div class="fact" id="fact4">
+                <GemoFactsNums 
+                    num='4' 
+                    heading='Происхождение' 
+                    text='Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно.'
+                />
+            </div>
+            <div class="fact" id="fact5">
+                <GemoFactsNums 
+                    num='5' 
+                    heading='Выживаемость' 
+                    text='В целом по ОЛЛ пятилетняя выживаемость составляет почти 66%. Выживаемость примерно одинакова среди людей любого пола. Пятилетняя выживаемость у детей младше 15 лет составляет 88%. Однако существуют мутации, влияющие на более тяжёлое течение болезни. В связи с этим, данный средний процент выживаемости иногда падает ниже 20%. При неоказании своевременной медицинской помощи смерть наступает в течении нескольких месяцев.'
+                />
+            </div>
         </div>
         <div class="afterfacts_text">
             <h2 class="afterfacts_heading">из этого следует <span class="gradient_span">Вывод</span></h2>
@@ -55,9 +65,9 @@ import RadialGradient from '../RadialGradient.astro';
 <style>
     .gemo_facts {
         --section-height: 140rem;
-        --container-height: 132.6rem;
+        --container-height: auto;
         --h2-width: 35.625rem;
-        --afterfacts-text-width: 45.75rem;
+        --afterfacts-text-width: 47.75rem;
         --afterfacts-text-height: 18rem;
         --afterfacts-margin-top: 7.1875rem;
         --afterfacts-heading-margin-bottom: 2.5rem;
@@ -128,7 +138,7 @@ import RadialGradient from '../RadialGradient.astro';
     @media (960px <= width < 1200px) {
         .gemo_facts {
             --section-height: 111.5625rem;
-            --container-height: 105.125rem;
+            --container-height: auto;
             --h2-width: 35.625rem;
             --afterfacts-text-width: 36.625rem;
             --afterfacts-text-height: 14.5rem;
@@ -146,7 +156,7 @@ import RadialGradient from '../RadialGradient.astro';
     @media (640px <= width < 960px) {
         .gemo_facts {
             --section-height: 137.375rem;
-            --container-height: 116.375rem;
+            --container-height: auto;
             --h2-width: 35.625rem;
             --afterfacts-text-width: var(--reduced-width);
             --afterfacts-text-height: 17.3125rem;
@@ -164,7 +174,7 @@ import RadialGradient from '../RadialGradient.astro';
     @media (480px <= width < 640px) {
         .gemo_facts {
             --section-height: 92.1875rem;
-            --container-height: 87.5rem;
+            --container-height: auto;
             --h2-width: 13.125rem;
             --afterfacts-text-width: 21.75rem;
             --afterfacts-text-height: 8.4375rem;
@@ -181,12 +191,12 @@ import RadialGradient from '../RadialGradient.astro';
 
     @media (320px <= width < 480px) {
         .gemo_facts {
-            --section-height: 530.75vw;
-            --container-height: 450.0625vw;
+            --section-height: auto;
+            --container-height: auto;
             --h2-width: 60vw;
             --afterfacts-text-width: 73.125vw;
             --afterfacts-text-height: 10.1875vw;
-            --afterfacts-margin-top: 3.75rem;
+            --afterfacts-margin-top: 5rem;
             --afterfacts-heading-margin-bottom: 1.25rem;
             --h3-width: 78.4375vw;
             --h3-margin-bottom: .625rem;
@@ -195,40 +205,48 @@ import RadialGradient from '../RadialGradient.astro';
             --h3-font-size: 3.75vw;
             --p-font-size: 3.125vw;
         }
-    }
 
-    @media (450px <= width < 480px) {
-        .gemo_facts {
-            --section-height: 400.75vw;
-            --container-height: 350.0625vw;
+        .facts {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            row-gap: 0;
+            height: auto;
         }
-    }
 
-    @media (400px <= width < 450px) {
-        .gemo_facts {
-            --section-height: 430.75vw;
-            --container-height: 400.0625vw;
-        }
-    }
-
-    @media (370px <= width < 400px) {
-        .gemo_facts {
-            --section-height: 460.75vw;
-            --container-height: 400.0625vw;
-        }
-    }
-
-    @media (340px <= width < 370px) {
-        .gemo_facts {
-            --section-height: 485.75vw;
-            --container-height: 400.0625vw;
-        }
-    }
-
-    @media (320px <= width < 340px) {
-        .gemo_facts {
-            --section-height: 510.75vw;
-            --container-height: 400.0625vw;
+        .afterfacts_text {
+            height: auto;
+            margin-bottom: 5rem;
         }
     }
 </style>
+
+<script>
+    let fact1 = document.getElementById('fact1');
+    let fact2 = document.getElementById('fact2');
+    let fact3 = document.getElementById('fact3');
+    let fact4 = document.getElementById('fact4');
+    let fact5 = document.getElementById('fact5');
+
+    let defaultHeight = 110;
+    let windowWidth = window.innerWidth;
+
+    let textHeading1 = document.getElementById('text_heading1');
+    let textHeading2 = document.getElementById('text_heading2');
+    let textHeading3 = document.getElementById('text_heading3');
+    let textHeading4 = document.getElementById('text_heading4');
+    let textHeading5 = document.getElementById('text_heading5');
+
+    function calcHeight() {
+        if(windowWidth < 480) {
+            fact1.style.height = `${defaultHeight + textHeading1.clientHeight}px`
+            fact2.style.height = `${defaultHeight + textHeading2.clientHeight}px`
+            fact3.style.height = `${defaultHeight + textHeading3.clientHeight}px`
+            fact4.style.height = `${defaultHeight + textHeading4.clientHeight}px`
+            fact5.style.height = `${defaultHeight + textHeading5.clientHeight}px`
+        }
+    }
+
+    calcHeight();
+    window.addEventListener('resize', () => calcHeight);
+</script>
