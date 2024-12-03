@@ -101,13 +101,9 @@ import { Icon } from 'astro-icon/components';
             tabButtons.forEach(el => {
                 el.classList.remove("active");
             });
-            console.log(e);
             e.target.classList.add('active');
 
             let btnText = e.target.innerText.toLowerCase();
-            console.log(btnText)
-
-
         })
     })
     

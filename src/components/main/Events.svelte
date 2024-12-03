@@ -30,7 +30,6 @@
     };
 
     export function findCards(category) {
-        console.log('Category in Events: ', category);
         category !== 'all' ? cards = events.filter(cards => cards.category === category).length : cards = events.length;
         return cards;
     }

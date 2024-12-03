@@ -10,12 +10,15 @@
     onMount(() => {
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            if (link.href === window.location.href) {
+            let currentPath = window.location.pathname;
+            mainPage ? currentPath : currentPath = currentPath.substring(0, window.location.pathname.length - 1);
+            if (link.pathname === currentPath) {
+                console.log('link.pathname = ', link.pathname);
+                console.log('window.location.pathname = ', currentPath);
                 link.classList.add('gradient_span');
             }
-            console.log(link.href, window.location.href);
         });
-        
+
         const handleScroll = () => {
             let headerHeight = document.getElementById('main_header').offsetHeight;
             scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down

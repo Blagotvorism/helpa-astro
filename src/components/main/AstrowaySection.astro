@@ -3,8 +3,16 @@ import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import Link from "../Link.astro";
+import DoubleButton from './DoubleButton.svelte';
 
 const {mainBackgroundImage, mainLogo} = Astro.props;
+let showIcons = false;
+
+function toggleButton () {
+    console.log('Hi');
+    showIcons = !showIcons;
+}
+
 ---
 <section class="astroway">
     <Image src={mainBackgroundImage} alt='background of planet Earth' class="bg-image"  loading="eager" decoding="async"/>
@@ -22,7 +30,8 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
             </div>
         </div>
         <div class="main-cta">
-            <Link href="/" theme='primary' classes="link link_primary">Приобрести</Link>
+            <!-- <Link href="/" theme='primary' classes="link link_primary" onClick={toggleButton}>Приобрести</Link> -->
+            <DoubleButton client:load />
             <Link href="/token" theme='text' classes="link link_text"><span class="link-innertext-secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
         </div>
     </div>
@@ -143,7 +152,7 @@ const {mainBackgroundImage, mainLogo} = Astro.props;
 
     .main-cta {
         position: absolute;
-        right: 43.25rem;
+        /* right: 43.25rem; */
         top: 42.25rem;
         height: var(--cta-height);
         width: var(--cta-width);
