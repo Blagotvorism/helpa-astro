@@ -12,8 +12,7 @@ x{
   },
   "dependencies": {
     "@astrojs/svelte": "^5.7.0",
-    "@iconify-json/mdi": "^1.1.66",
-    "@iconify/tools": "^4.0.7",
+    "@iconify/tools": "4.0.7",
     "astro": "^4.6.1",
     "astro-icon": "next",
     "cheerio": "1.0.0-rc.12",
