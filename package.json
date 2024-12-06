@@ -13,11 +13,7 @@
   "dependencies": {
     "@astrojs/svelte": "^5.7.0",
     "@iconify-json/mdi": "^1.1.66",
-    "overrides": {
-      "astro-icon": {
-        "@iconify/tools": "^4.0.0"
-      }
-    },
+    "@iconify/tools": "^4.0.7",
     "astro": "^4.6.1",
     "astro-icon": "^1.1.0",
     "cheerio": "^1.0.0",
