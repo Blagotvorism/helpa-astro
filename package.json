@@ -1,4 +1,4 @@
-{
+x{
   "name": "run",
   "type": "module",
   "version": "0.0.1",
@@ -15,7 +15,7 @@
     "@iconify-json/mdi": "^1.1.66",
     "@iconify/tools": "^4.0.7",
     "astro": "^4.6.1",
-    "astro-icon": "^1.1.0",
+    "astro-icon": "next",
     "cheerio": "^1.0.0",
     "siema": "^1.5.1",
     "svelte": "^4.2.18",
