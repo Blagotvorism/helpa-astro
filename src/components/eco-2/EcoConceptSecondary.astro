@@ -1,0 +1,489 @@
+---
+import { Image } from "astro:assets";
+import horizontalImg1 from '../../images/eco/ecoGaleryCard2.JPG';
+import horizontalImg2 from '../../images/eco/ecoGaleryCard5.JPG';
+import horizontalImg3 from '../../images/eco/ecoGaleryCard3.JPG';
+import horizontalImg4 from '../../images/eco/eco_concept4.jpg';
+import vertticalImg1 from '../../images/eco/ecoGaleryCard8.JPG';
+import vertticalImg2 from '../../images/eco/ecoGaleryCard6.JPG';
+
+const altImg = 'conceptImg';
+---
+<section class="eco_concept__secondary">
+    <div class="eco_concept__secondary-container">
+        <h2>Каждый год</h2>
+        <div class="subheading-container">
+            <div class="subheading-1">
+                <h3 class="subheading-h3-1"><span class="gradient_span">Более <br/>8 млн тонн</span></h3>
+                <p class="subheading-text-1">пластика попадает в океаны, что является серьезной угрозой для морского животного мира.</p>
+            </div>
+            <div class="subheading-2">
+                <h3 class="subheading-h3-2"><span class="gradient_span">Более <br/>700 видов</span></h3>
+                <p class="subheading-text-2">морских птиц и животных подвержены опасности от свалявшегося мусора.</p>
+            </div>
+        </div>
+        <div class="main_text_container">
+            <div class="main_text-1">
+                <div class="text-1">
+                    <h4>Загрязнение водоемов вредит рыбным ресурсам, так как токсичные вещества из промышленных выбросов и домашних стоков отравляют воды.</h4>
+                    <p class="first-p">
+                        Это вызывает проблемы с размножением и выживаемостью рыб, что в свою очередь влияет на пищевую цепь и угрожает экосистеме в целом. 
+                        У птиц и водных организмов, питающихся в загрязненных водоемах, может наблюдаться пониженная репродуктивная способность 
+                        и содержание токсинов в организме, что в конечном итоге может привести к снижению популяций и даже исчезновению некоторых видов.
+                    </p>
+                    <p>
+                        Влияние загрязнения водоемов на морских млекопитающих, таких как дельфины и киты, является особенно серьезным. 
+                        Предлагаемые выбросы нефтепродуктов и звуковое загрязнение от нефтяной промышленности и судоходства создают угрозу для их выживаемости.
+                    </p>
+                </div>
+                <div class="images_container">
+                    <div class="horizontal-imgs">
+                        <Image src={horizontalImg1} alt={altImg} />
+                        <Image src={horizontalImg2} alt={altImg} />
+                    </div>
+                    <div class="vertical-img">
+                        <Image src={vertticalImg1} alt={altImg} />
+                    </div>
+                </div>
+            </div>
+            <div class="main_text-2">
+                <div class="text-2">
+                    <h4>Загрязнение водоемов также влияет на водные растения и водоросли, которые играют важную роль в поддержании здоровья экосистемы.</h4>
+                    <p class="first-p">
+                        Излишнее наличие питательных веществ, водорослей и водных растений вызывает проблему эвтрофикации и приводит к нарушению баланса в водных системах.
+                    </p>
+                    <p>
+                        Все эти факторы угрожают разнообразию и равновесию животного мира, а также оказывают негативное влияние на человека, который зависит от здоровых водных экосистем для питья, пищи и рекреации.
+                    </p>
+                </div>
+                <div class="images_container images_container-reverse">
+                    <div class="horizontal-imgs">
+                        <Image src={horizontalImg3} alt={altImg} />
+                        <Image src={horizontalImg4} alt={altImg} />
+                    </div>
+                    <div class="vertical-img">
+                        <Image src={vertticalImg2} alt={altImg} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        --eco_concept__secondary-height: 76rem;
+        --eco_concept__secondary-container-height: 64.875rem;
+        --eco_concept__secondary-container-margin-top: 9.375rem;
+
+        --h2-font-size: 3.125rem;
+        --h2-margin-bottom: 2.5rem;
+
+        --subheading-container-width: 54.875rem;
+        --subheading-container-margin-bottom: 6.125rem;
+        --subheading-1-width: 21.25rem;
+        --subheading-2-width: 19.25rem;
+
+        --h3-font-size: 2.5rem;
+        --h3-margin-bottom: .625rem;
+        --p-font-size: 1rem;
+
+        /* Second part */
+        --main_text_container-height: 41.25rem;
+        --text-1-width: 39.375rem;
+        --text-2-width: 38.625rem;
+        --h4-font-size: 1.5rem;
+        --h4-margin-bottom: 1.25rem;
+        --first-p-mb: .625rem;
+
+        /* Images */
+        --images_container-width: 28.5rem;
+        --images_container-height: 19.625rem;
+        --horizontal-imgs-height: 100%;
+        --horizontal-imgs-width: 16.625rem;
+        --horizontal-imgs-img-height: 9.25rem;
+        --horizontal-imgs-img-width: 100%;
+        --vertical-img-height: 100%;
+        --vertical-img-width: 10.625rem;
+        --vertical-img-img-height: 100%;
+        --vertical-img-img-width: 100%;
+    }
+
+    .eco_concept__secondary {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: var(--eco_concept__secondary-height);
+    }
+
+    .eco_concept__secondary-container {
+        display: block;
+        width: var(--reduced-width);
+        height: var(--eco_concept__secondary-container-height);
+        margin-top: var(--eco_concept__secondary-container-margin-top);
+    }
+
+    h2, h3 {
+        font-family: var(--font-lulo-bold);
+    }
+
+    h4, p {
+        font-family: var(--font-inter);
+    }
+
+    h2 {
+        font-size: var(--h2-font-size);
+        margin-bottom: var(--h2-margin-bottom);
+    }
+
+    .subheading-container {
+        display: flex;
+        width: var(--subheading-container-width);
+        justify-content: space-between;
+        margin-bottom: var(--subheading-container-margin-bottom);
+    }
+
+    .subheading-1, .subheading-2 {
+        display: block;
+    }
+
+    .subheading-1 {
+        width: var(--subheading-1-width);
+    }
+
+    .subheading-2 {
+        width: var(--subheading-2-width);
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: var(--h3-font-size);
+        margin-bottom: var(--h3-margin-bottom);
+    }
+
+    p {
+        display: inline-block;
+        width: inherit;
+        font-size: var(--p-font-size);
+        color: var(--dark-grey);
+    }
+
+    /* Second part */
+    .main_text_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: var(--main_text_container-height);
+    }
+
+    .main_text-1, .main_text-2 {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .main_text-2 {
+        align-items: end;
+    }
+
+    .text-1, .text-2 {
+        display: inline-block;
+    }
+
+    .text-1 {
+        width: var(--text-1-width);
+    }
+
+    .text-2 {
+        width: var(--text-2-width);
+    }
+
+    h4 {
+        font-size: var(--h4-font-size);
+        margin-bottom: var(--h4-margin-bottom);
+    }
+
+    .first-p {
+        margin-bottom: var(--first-p-mb);
+    }
+
+    /* Images */
+
+    .images_container {
+        display: flex;
+        width: var(--images_container-width);
+        height: var(--images_container-height);
+        justify-content: space-between;
+    }
+
+    .images_container-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .horizontal-imgs {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: var(--horizontal-imgs-height);
+        width: var(--horizontal-imgs-width);
+    }
+
+    .horizontal-imgs img {
+        height: var(--horizontal-imgs-img-height);
+        width: var(--horizontal-imgs-img-width);
+    }
+
+    .vertical-img {
+        display: block;
+        height: var(--vertical-img-height);
+        width: var(--vertical-img-width);
+    }
+
+    .vertical-img img {
+        height: var(--vertical-img-img-height);
+        width: var(--vertical-img-img-width);
+    }
+
+    img {
+        border-radius: var(--border-radius);
+        object-fit: cover;
+    }
+
+    @media (960px <= width < 1200px) {
+        section {
+            --eco_concept__secondary-height: 65.875rem;
+            --eco_concept__secondary-container-height: 58.375rem;
+            --eco_concept__secondary-container-margin-top: 7.5rem;
+
+            --h2-font-size: 2.5rem;
+            --h2-margin-bottom: 2.5rem;
+
+            --subheading-container-width: 48.625rem;
+            --subheading-container-margin-bottom: 9.875rem;
+            --subheading-1-width: 21.25rem;
+            --subheading-2-width: 19.25rem;
+
+            --h3-font-size: 1.875rem;
+            --h3-margin-bottom: 1.25rem;
+            --p-font-size: .75rem;
+
+            /* Second part */
+            --main_text_container-height: 33.125rem;
+            --text-1-width: 31.5rem;
+            --text-2-width: 30.75rem;
+            --h4-font-size: 1.25rem;
+            --h4-margin-bottom: 1.25rem;
+            --first-p-mb: .625rem;
+
+            /* Images */
+            --images_container-width: 23.25rem;
+            --images_container-height: 15.375rem;
+            --horizontal-imgs-height: 100%;
+            --horizontal-imgs-width: 13.5rem;
+            --horizontal-imgs-img-height: 7.125rem;
+            --horizontal-imgs-img-width: 100%;
+            --vertical-img-height: 100%;
+            --vertical-img-width: 8.625rem;
+            --vertical-img-img-height: 100%;
+            --vertical-img-img-width: 100%;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        section {
+            --eco_concept__secondary-height: 99.2rem;
+            --eco_concept__secondary-container-height: 93rem;
+            --eco_concept__secondary-container-margin-top: 6.25rem;
+
+            --h2-font-size: 2.5rem;
+            --h2-margin-bottom: 2.5rem;
+
+            --subheading-container-width: 32.625rem;
+            --subheading-container-margin-bottom: 5rem;
+            --subheading-1-width: 13.75rem;
+            --subheading-2-width: 13.125rem;
+
+            --h3-font-size: 1.875rem;
+            --h3-margin-bottom: 1.25rem;
+            --p-font-size: .75rem;
+
+            /* Second part */
+            --main_text_container-height: 71.75rem;
+            --text-1-width: 31.5rem;
+            --text-2-width: 30.75rem;
+            --text-1-height: 36.5rem;
+            --text-2-height: 32.75rem;
+            --h4-font-size: 1.25rem;
+            --h4-margin-bottom: 1.25rem;
+            --first-p-mb: .625rem;
+
+            /* Images */
+            --images_container-width: var(--reduced-width);
+            --images_container-height: 18.625rem;
+            --horizontal-imgs-height: 100%;
+            --horizontal-imgs-width: 18.625rem;
+            --horizontal-imgs-img-height: 8.625rem;
+            --horizontal-imgs-img-width: 100%;
+            --vertical-img-height: 100%;
+            --vertical-img-width: 18.625rem;
+            --vertical-img-img-height: 100%;
+            --vertical-img-img-width: 100%;
+        }
+
+        .main_text-1, .main_text-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .main_text-1 {
+            height: var(--text-1-height);
+        }
+
+        .main_text-2 {
+            height: var(--text-2-height);
+            align-items: start;
+        }
+
+        .horizontal-imgs img {
+            object-position: 0 0;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        section {
+            --eco_concept__secondary-height: 76.875rem;
+            --eco_concept__secondary-container-height: 71.875rem;
+            --eco_concept__secondary-container-margin-top: 5rem;
+
+            --h2-font-size: 1rem;
+            --h2-margin-bottom: 1.25rem;
+
+            --subheading-container-width: 25.5rem;
+            --subheading-container-margin-bottom: 2.5rem;
+            --subheading-1-width: 11.5rem;
+            --subheading-2-width: 11.125rem;
+
+            --h3-font-size: 1rem;
+            --h3-margin-bottom: .625rem;
+            --p-font-size: .625rem;
+
+            /* Second part */
+            --main_text_container-height: 60.125rem;
+            --text-1-width: 24rem;
+            --text-2-width: 20.875rem;
+            --text-1-height: 30rem;
+            --text-2-height: 27.5625rem;
+            --h4-font-size: .75rem;
+            --h4-margin-bottom: 1.25rem;
+            --first-p-mb: .625rem;
+
+            /* Images */
+            --images_container-width: var(--reduced-width);
+            --images_container-height: 14.75rem;
+            --horizontal-imgs-height: 100%;
+            --horizontal-imgs-width: 13.125rem;
+            --horizontal-imgs-img-height: 6.75rem;
+            --horizontal-imgs-img-width: 100%;
+            --vertical-img-height: 100%;
+            --vertical-img-width: 13.125rem;
+            --vertical-img-img-height: 100%;
+            --vertical-img-img-width: 100%;
+        }
+
+        .main_text-1, .main_text-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .main_text-1 {
+            height: var(--text-1-height);
+        }
+
+        .main_text-2 {
+            height: var(--text-2-height);
+            align-items: start;
+        }
+
+        .horizontal-imgs img {
+            object-position: 0 0;
+        }
+
+        img {
+            border-radius: 1.25rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        section {
+            --eco_concept__secondary-height: 446vw;
+            --eco_concept__secondary-container-height: 427.5vw;
+            --eco_concept__secondary-container-margin-top: 18.75vw;
+
+            --h2-font-size: 5vw;
+            --h2-margin-bottom: 6.25vw;
+
+            --subheading-container-width: 81.875vw;
+            --subheading-container-margin-bottom: 9.375vw;
+            --subheading-1-width: 40.625vw;
+            --subheading-2-width: 35vw;
+
+            --h3-font-size: 5vw;
+            --h3-margin-bottom: 3.125vw;
+            --p-font-size: 2.5vw;
+
+            /* Second part */
+            --main_text_container-height: 375vw;
+            --text-1-width: 81.25vw;
+            --text-2-width: 79.375vw;
+            --text-1-height: 195vw;
+            --text-2-height: 170.625vw;
+            --h4-font-size: 3.75vw;
+            --h4-margin-bottom: 6.25vw;
+            --first-p-mb: 3.125vw;
+
+            /* Images */
+            --images_container-width: var(--reduced-width);
+            --images_container-height: 96.25vw;
+            --horizontal-imgs-height: 100%;
+            --horizontal-imgs-width: 40.625vw;
+            --horizontal-imgs-img-height: 45vw;
+            --horizontal-imgs-img-width: 100%;
+            --vertical-img-height: 100%;
+            --vertical-img-width: 40.625vw;
+            --vertical-img-img-height: 100%;
+            --vertical-img-img-width: 100%;
+        }
+
+        .main_text_container p {
+            font-size: 3.125vw;
+        }
+
+        .main_text-1, .main_text-2 {
+            display: block;
+        }
+
+        .main_text-1 {
+            height: var(--text-1-height);
+        }
+
+        .main_text-2 {
+            height: var(--text-2-height);
+            align-items: start;
+        }
+
+        .text-1, .text-2 {
+            margin-bottom: 1.875rem;
+        }
+
+        .horizontal-imgs img {
+            object-position: 0 0;
+        }
+
+        img {
+            border-radius: 1.25rem;
+        }
+    }
+</style>

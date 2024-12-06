@@ -1,0 +1,26 @@
+---
+import HelpSection from "../components/HelpSection.astro";
+import SocialSection from "../components/SocialSection.astro";
+import Layout from "../layouts/Layout.astro";
+import ecoHelpImg from '../images/eco/ecoHelp.png';
+import Environment from "../components/eco-2/Environment.astro";
+import EnvironmentWarning from "../components/eco-2/EnvironmentWarning.astro";
+import EcoConceptSecondary from "../components/eco-2/EcoConceptSecondary.astro";
+import EcoHeroSection from "../components/eco/EcoHeroSection.astro";
+---
+
+<Layout title="ECO">
+    <main>
+        <EcoHeroSection />
+        <Environment />
+        <EcoConceptSecondary />
+        <EnvironmentWarning />
+        <HelpSection page='eco' img={ecoHelpImg} imgDescr='Знак мира в виде рогатки' />
+        <SocialSection 
+            page="eco" 
+            tg_link='https://t.me/ecotimedaynews' 
+            inst_link = 'https://www.instagram.com/ecotimeday?igsh=MXd1NjA1MjZrNXBmNQ%3D%3D&utm_source=qr' 
+            yt_link = 'https://youtube.com/@ecotimeday?si=MUsm0ELH-GUNGkPA'
+        />
+    </main>
+</Layout>

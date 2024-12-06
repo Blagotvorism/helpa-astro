@@ -1,0 +1,148 @@
+<section class="environment">
+    <div class="environment_container">
+        <h2>Защита окружающей среды помогает сохранить <span class="gradient_span">видовое разнообразие</span></h2>
+        <h3>Каждый вид имеет свою роль в экосистеме и его исчезновение может привести к негативным последствиям для всего биологического разнообразия.</h3>
+        <p>Загрязнение окружающей среды может иметь негативное влияние на здоровье людей, вызывая ряд заболеваний и повышая риск развития аллергий.</p>
+    </div>
+</section>
+
+<style>
+    .environment {
+        /* dimensions */
+        --environment-section-height: 32rem;
+        --environment-container-height: 24rem;
+        /* Text */
+        --h2-width: 52.25rem;
+        --h2-mb: 2.5rem;
+        --h3-width: 51.9rem;
+        --h3-mb: 1.25rem;
+        --p-width: 41.25rem;
+        /* Fonts */
+        --container-top: 8.25rem;
+        --h2-fs: 3.125rem;
+        --h2-lh: 4rem;
+        --h3-fs: 1.5rem;
+        --p-fs: 1rem;
+    }
+
+    .environment {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: var(--environment-section-height);
+    }
+
+    .environment_container {
+        display: block;
+        height: var(--environment-container-height);
+        width: var(--reduced-width);
+        margin-top: var(--container-top);
+    }
+
+    h2, h3, p {
+        display: inline-block;
+    }
+
+    h2 {
+        font-family: var(--font-lulo-bold);
+        font-size: var(--h2-fs);
+        line-height: var(--h2-lh);
+        width: var(--h2-width);
+        margin-bottom: var(--h2-mb);
+    }
+
+    h3 {
+        font-family: var(--font-inter);
+        font-size: var(--h3-fs);
+        width: var(--h3-width);
+        margin-bottom: var(--h3-mb);
+    }
+
+    p {
+        color: var(--dark-grey);
+        font-family: var(--font-inter);
+        font-size: var(--p-fs);
+        width: var(--p-width);
+    }
+
+    @media (960px <= width < 1200px) {
+        .environment {
+            /* dimensions */
+            --environment-section-height: 27rem;
+            --environment-container-height: 19.875rem;
+            /* Text */
+            --h2-width: 42.875rem;
+            --h2-mb: 2.5rem;
+            --h3-width: 40.375rem;
+            --h3-mb: 1.25rem;
+            --p-width: 30.375rem;
+            /* Fonts */
+            --container-top: 6.875rem;
+            --h2-fs: 2.5rem;
+            --h2-lh: 3.125rem;
+            --h3-fs: 1.25rem;
+            --p-fs: .75rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .environment {
+            /* dimensions */
+            --environment-section-height: 27.5rem;
+            --environment-container-height: 21.25rem;
+            /* Text */
+            --h2-width: var(--reduced-width);
+            --h2-mb: 1.25rem;
+            --h3-width: var(--reduced-width);
+            --h3-mb: .625rem;
+            --p-width: 30.375rem;
+            /* Fonts */
+            --container-top: 6.25rem;
+            --h2-fs: 2.5rem;
+            --h2-lh: 3.125rem;
+            --h3-fs: 1.25rem;
+            --p-fs: .75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .environment {
+            /* dimensions */
+            --environment-section-height: 15rem;
+            --environment-container-height: 10.25rem;
+            /* Text */
+            --h2-width: 18.375rem;
+            --h2-mb: 1.25rem;
+            --h3-width: 24.5rem;
+            --h3-mb: .625rem;
+            --p-width: 25.125rem;
+            /* Fonts */
+            --container-top: 4.375rem;
+            --h2-fs: 1rem;
+            --h2-lh: 1.25rem;
+            --h3-fs: .75rem;
+            --p-fs: .625rem;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .environment {
+            /* dimensions */
+            --environment-section-height: 76.25vw;
+            --environment-container-height: 63.75vw;
+            /* Text */
+            --h2-width: var(--reduced-width);
+            --h2-mb: 6.25vw;
+            --h3-width: var(--reduced-width);
+            --h3-mb: 3.125vw;
+            --p-width: 83vw;
+            /* Fonts */
+            --container-top: 12.5vw;
+            --h2-fs: 5vw;
+            --h2-lh: 6.25vw;
+            --h3-fs: 3.75vw;
+            --p-fs: 3.125vw;
+        }
+    }
+
+</style>

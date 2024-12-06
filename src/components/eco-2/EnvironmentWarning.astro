@@ -1,0 +1,98 @@
+<section class="environment_warning">
+    <div class="environment_warning__container">
+        <h2>Для <span class="gradient_span">предотвращения</span> ухудшения ситуации</h2>
+        <p>необходимо принимать меры по сокращению загрязнения водоемов, их очистки и улучшению их качества, на что и направлены наши усилия. </p>
+    </div>
+</section>
+
+<style>
+    .environment_warning {
+        --section-height: 36.875rem;
+        --container-mt: 9.375rem;
+        --h2-fs: 3.125rem;
+        --h2-width: 42.875rem;
+        --h2-mb: 1.25rem;
+        --p-fs: 1.5rem;
+        --p-width: 28.5rem;
+        --ml: 29.5rem;
+    }
+
+    .environment_warning {
+        display: flex;
+        justify-content: center;
+        height: var(--section-height);
+        width: 100vw;
+    }
+
+    .environment_warning__container {
+        display: block;
+        width: var(--reduced-width);
+        margin-top: var(--container-mt);
+    }
+
+    h2 {
+        font-family: var(--font-lulo-bold);
+        font-size: var(--h2-fs);
+        width: var(--h2-width);
+        margin-bottom: var(--h2-mb);
+    }
+
+    p {
+        font-family: var(--font-inter);
+        font-size: var(--p-fs);
+        width: var(--p-width);
+        margin-left: var(--ml);
+    }
+
+    @media (960px <= width < 1200px) {
+        .environment_warning {
+            --section-height: 29rem;
+            --container-mt: 7.5rem;
+            --h2-fs: 2.5rem;
+            --h2-width: 42.875rem;
+            --h2-mb: 1.25rem;
+            --p-fs: 1.25rem;
+            --p-width: 28.5rem;
+            --ml: 29.5rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        .environment_warning {
+            --section-height: 25.875rem;
+            --container-mt: 5.75rem;
+            --h2-fs: 2.5rem;
+            --h2-width: 42.875rem;
+            --h2-mb: 1.25rem;
+            --p-fs: 1.25rem;
+            --p-width: 23.5rem;
+            --ml: 9.75rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        .environment_warning {
+            --section-height: 16.75rem;
+            --container-mt: 5rem;
+            --h2-fs: 1rem;
+            --h2-width: 14.375rem;
+            --h2-mb: 1.25rem;
+            --p-fs: .75rem;
+            --p-width: 25.75rem;
+            --ml: 0;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        .environment_warning {
+            --section-height: 75.625vw;
+            --container-mt: 18.75vw;
+            --h2-fs: 5vw;
+            --h2-width: 71.875vw;
+            --h2-mb: 6.25vw;
+            --p-fs: 3.75vw;
+            --p-width: 71.875vw;
+            --ml: 0;
+        }
+    }
+</style>

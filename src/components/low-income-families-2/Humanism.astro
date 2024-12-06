@@ -1,0 +1,161 @@
+<section class="humanism">
+    <div class="humanism_container">
+        <h2>
+            Можно ли назвать гуманизмом предоставление человеку орудия труда, 
+            лекарства без инструкции по применению?
+        </h2>
+        <h3>
+            Это то, что предложил нам капитализм ХХ века - окружил нас навязанными предметами быта, 
+            рассказывая о их необходимости ввиду наделения ими определённого социального статуса.
+        </h3>
+        <p>
+            Взамен предлагает работу, которая едва обеспечивает предметами первой необходимости, 
+            но выполняющую важную функцию для государства - налоги. Такая система побуждает человека 
+            к закредитованности, чем обрекает человека на вечное рабство. Капиталистическое рабство позволяет 
+            работадателю и всем получающим финансовые потоки от реализации продукта работать меньше или не работать вовсе. 
+            Неинформированность населения о данном финансовом инструменте ведёт к злоупотреблению и как результат, 
+            к опасным последствиям в виде долговой ямы, конфискации имущества, заморозки счёта, 
+            а в случае самых незащищённых слоёв граждан -  к изъятию несовершеннолетних детей у родителей и даже самоубийствам. 
+            А ведь такие фатальные события в культуре человека принято разъяснять. Да не просто разъяснять, а трубить об этом. 
+            Инструктаж по мерам безопасности во время чрезвычайных происшествий проводят с детских лет в школе. 
+            Так же рассказывается о вреде курения, злоупотреблении спиртных напитков, чрезмерном переедании, 
+            почему-то о безнадёжной задолженности они решили умолчать. 
+        </p>
+    </div>
+</section>
+
+<style>
+    section {
+        --humanism-height: 49.5rem;
+        --humanism-container-height: 44.5rem;
+        --humanism-container-margin-top: 5rem;
+
+        --h2-font-size: 3.125rem;
+        --h2-width: 64.625rem;
+        --h2-margin-bottom: 2.5rem;
+
+        --h3-font-size: 1.5rem;
+        --h3-width: 52.25rem;
+        --h3-margin-bottom: 1.25rem;
+
+        --p-font-size: 1rem;
+        --p-width: 47rem;
+    }
+
+    .humanism {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: var(--humanism-height);
+    }
+
+    .humanism_container {
+        display: block;
+        width: var(--reduced-width);
+        height: var(--humanism-container-height);
+        margin-top: var(--humanism-container-margin-top);
+    }
+
+    h2, h3, p {
+        display: inline-block;
+    }
+
+    h2 {
+        font-family: var(--font-lulo-bold);
+        font-size: var(--h2-font-size);
+        width: var(--h2-width);
+        margin-bottom: var(--h2-margin-bottom);
+    }
+
+    h3, p {
+        font-family: var(--font-inter);
+    }
+
+    h3 {
+        font-size: var(--h3-font-size);
+        width: var(--h3-width);
+        margin-bottom: var(--h3-margin-bottom);
+    }
+
+    p {
+        color: var(--dark-grey);
+        font-size: var(--p-font-size);
+        width: var(--p-width);
+    }
+
+    @media (960px <= width < 1200px) {
+        section {
+            --humanism-height: 43.125rem;
+            --humanism-container-height: 37rem;
+            --humanism-container-margin-top: 6.25rem;
+
+            --h2-font-size: 2.5rem;
+            --h2-width: 52.625rem;
+            --h2-margin-bottom: 2.5rem;
+
+            --h3-font-size: 1.25rem;
+            --h3-width: 42.75rem;
+            --h3-margin-bottom: 1.25rem;
+
+            --p-font-size: .75rem;
+            --p-width: 35.125rem;
+        }
+    }
+
+    @media (640px <= width < 960px) {
+        section {
+            --humanism-height: 54.875rem;
+            --humanism-container-height: 49.875rem;
+            --humanism-container-margin-top: 5rem;
+
+            --h2-font-size: 2.5rem;
+            --h2-width: 36.75rem;
+            --h2-margin-bottom: 2.5rem;
+
+            --h3-font-size: 1.25rem;
+            --h3-width: 32.625rem;
+            --h3-margin-bottom: 1.25rem;
+
+            --p-font-size: .75rem;
+            --p-width: 35.125rem;
+        }
+    }
+
+    @media (480px <= width < 640px) {
+        section {
+            --humanism-height: 25rem;
+            --humanism-container-height: 21.25rem;
+            --humanism-container-margin-top: 3.75rem;
+
+            --h2-font-size: 1rem;
+            --h2-width: 100%;
+            --h2-margin-bottom: 1.25rem;
+
+            --h3-font-size: .75rem;
+            --h3-width: 22.375rem;
+            --h3-margin-bottom: .625rem;
+
+            --p-font-size: .625rem;
+            --p-width: 100%;
+        }
+    }
+
+    @media (320px <= width < 480px) {
+        section {
+            --humanism-height: 168.25vw;
+            --humanism-container-height: 154vw;
+            --humanism-container-margin-top: 12.5vw;
+
+            --h2-font-size: 5vw;
+            --h2-width: 100%;
+            --h2-margin-bottom: 6.25vw;
+
+            --h3-font-size: 3.75vw;
+            --h3-width: 77.5vw;
+            --h3-margin-bottom: .625rem;
+
+            --p-font-size: 3.125vw;
+            --p-width: 100%;
+        }
+    }
+</style>
