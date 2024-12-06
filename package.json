@@ -13,7 +13,11 @@
   "dependencies": {
     "@astrojs/svelte": "^5.7.0",
     "@iconify-json/mdi": "^1.1.66",
-    "@iconify/tools": "^4.0.5",
+    "overrides": {
+      "astro-icon": {
+        "@iconify/tools": "^4.0.0"
+      }
+    },
     "astro": "^4.6.1",
     "astro-icon": "^1.1.0",
     "cheerio": "^1.0.0",
@@ -24,10 +28,5 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
-  },
-    "overrides": {
-    "astro-icon": {
-      "@iconify/tools": "^4.0.0"
-    }
   }
 }
