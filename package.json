@@ -16,7 +16,7 @@ x{
     "@iconify/tools": "^4.0.7",
     "astro": "^4.6.1",
     "astro-icon": "next",
-    "cheerio": "^1.0.0",
+    "cheerio": "1.0.0-rc.12",
     "siema": "^1.5.1",
     "svelte": "^4.2.18",
     "typescript": "^5.5.4"
