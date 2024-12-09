@@ -11,10 +11,9 @@
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             let currentPath = window.location.pathname;
-            mainPage ? currentPath : currentPath = currentPath.substring(0, window.location.pathname.length - 1);
+            // For Netlify
+                // mainPage ? currentPath : currentPath = currentPath.substring(0, window.location.pathname.length - 1);
             if (link.pathname === currentPath) {
-                console.log('link.pathname = ', link.pathname);
-                console.log('window.location.pathname = ', currentPath);
                 link.classList.add('gradient_span');
             }
         });

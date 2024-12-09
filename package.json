@@ -13,11 +13,7 @@
   "dependencies": {
     "@astrojs/svelte": "^5.7.0",
     "@iconify-json/mdi": "^1.1.66",
-<<<<<<< HEAD
     "@iconify/tools": "^4.0.4",
-=======
-    "@iconify/tools": "^4.0.7",
->>>>>>> c858d5e (Give project in good hands)
     "astro": "^4.6.1",
     "astro-icon": "^1.1.0",
     "cheerio": "^1.0.0",
