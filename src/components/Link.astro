@@ -10,11 +10,13 @@ interface Props {
         | "slider-square"
         | "tab-link";
     classes?: string;
+    target?: string;
+    rel?: string;
 }
 
-const { href, theme, classes } = Astro.props;
+const { href, theme, classes, target, rel } = Astro.props;
 ---
-<a href={href} class={`link ${theme ? `link_${theme}` : ''} ${classes ? classes : ''}`} id={theme === 'slider-square' ? 'svg_color' : ''}>
+<a target={target} rel={rel} href={href} class={`link ${theme ? `link_${theme}` : ''} ${classes ? classes : ''}`} id={theme === 'slider-square' ? 'svg_color' : ''}>
     <slot />
 </a>
 
