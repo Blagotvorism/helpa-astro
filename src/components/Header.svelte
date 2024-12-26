@@ -13,7 +13,7 @@
             let currentPath = window.location.pathname;
             // For Netlify
                 // mainPage ? currentPath : currentPath = currentPath.substring(0, window.location.pathname.length - 1);
-            if (link.pathname === currentPath) {
+            if (link.pathname === currentPath || link.pathname + '-2' === currentPath) {
                 link.classList.add('gradient_span');
             }
         });
