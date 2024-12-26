@@ -117,7 +117,7 @@
 
     .nav-link {
         display: inline-block;
-        font-family: var(--font-inter);
+        font-family: Arial, sans-serif;;
         font-size: var(--font-size);
         color: var(--dark-grey);
         text-decoration: none;
