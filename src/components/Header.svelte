@@ -63,7 +63,7 @@
         --header-width: var(--reduced-width);
         --header-height: 4.625rem;
         --nav-links-width: 58.25rem;
-        --font-size: 0.875rem;
+        --font-size: 14px;
         --main-logo-width: 2.9375rem;
         --tokenomika-logo-width: 2.9375rem;
         --tokenomika-logo-height: 1.625rem;
@@ -151,7 +151,7 @@
             --header-width: var(--reduced-width);
             --header-height: 4.125rem;
             --nav-links-width: 48.1875rem;
-            --font-size: 0.75rem;
+            --font-size: 12px;
             --main-logo-width: 2.25rem;
             --tokenomika-logo-width: 2.9375rem;
             --tokenomika-logo-height: 1.625rem;
@@ -163,7 +163,7 @@
             --header-width: var(--reduced-width);
             --header-height: 4.125rem;
             --nav-links-width: 48.1875rem;
-            --font-size: 0.75rem;
+            --font-size: 12px;
             --main-logo-width: 2.25rem;
             --tokenomika-logo-width: 2.9375rem;
             --tokenomika-logo-height: 1.625rem;
@@ -187,7 +187,7 @@
             --header-width: var(--reduced-width);
             --header-height: 2.6875rem;
             --nav-links-width: 48.1875rem;
-            --font-size: 0.625rem;
+            --font-size: 10px;
             --main-logo-width: 1.5625rem;
             --tokenomika-logo-width: 1.3125rem;
             --tokenomika-logo-height: 1rem;
