@@ -23,7 +23,8 @@
             scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down
         };
         window.addEventListener('scroll', handleScroll);
-
+        console.log('Current innerWidth:', innerWidth);
+        console.log('Current path:', window.location.pathname);
         return () => {
             window.removeEventListener('scroll', handleScroll); // Cleanup
         };
@@ -116,8 +117,10 @@
     }
 
     .nav-link {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         display: inline-block;
-        font-family: Arial, sans-serif;;
+        font-family: var(--font-inter);
         font-size: var(--font-size);
         color: var(--dark-grey);
         text-decoration: none;
