@@ -1,9 +1,12 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="ride_hero">
     <div class="letters"></div>
     <div class="subheading">
         <div class="subheading_text">
-            <h3>Международное спортивное сообщество</h3>
-            <p>Регулярные заезды по всему миру</p>
+            <h3>{locale === "en" && "International sports community" || "Международное спортивное сообщество"}</h3>
+            <p>{locale === "en" && "Regular races around the world" || "Регулярные заезды по всему миру"}</p>
         </div>
     </div>
 </section>

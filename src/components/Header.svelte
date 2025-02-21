@@ -1,10 +1,15 @@
 <script>
     import { onMount } from 'svelte';
-    import links from '../data/links.json';
+    //import links from '../data/links.json';
 	import BurgerMenu from './BurgerMenu.svelte';
     import Dropdown from './Dropdown.svelte';
+    import { getRelativeLocaleUrl } from 'astro:i18n';
 
     export let mainPage = false;
+    export let locale;
+    export let links;
+    export let pathname;
+
     let innerWidth = 0;
     let scrolled = 'false';
     onMount(() => {
@@ -36,25 +41,31 @@
 
 <header class='header {mainPage && !scrolled ? "" : "header_bg"}' id="main_header">
     <div class="header_container">
-        <a href="/" class="header-logo_main">
+        <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_main">
             <img src='/logos/logo-grey.svg' class="header-logo_main" alt="helpa-project-logo"/>
         </a>
         <nav class="nav-links">
             {#each links as link}
                 <a href={link.url} class="nav-link">{link.text}</a>
             {/each}
-        </nav>
+        </nav>        
         <nav class="dropdown-nav">
             <a href={links[0].url} class="nav-link">{links[0].text}</a>
             <Dropdown data={links} text='Направления помощи'/>
             <a href={links[5].url} class="nav-link">{links[5].text}</a>
         </nav>
         <div class="mobile_nav">
-            <a href="/" class="header-logo_tokenomika">
+            <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_tokenomika">
                 <img src='/logos/tokenomika_logo.svg' class="header-logo_tokenomika" alt="tokenomika-logo"/>
             </a>
             <BurgerMenu links={links} />
         </div>
+        <nav class="nav-lang-switch">
+            <ul>
+                <li class={locale === "ru" ? "selected" : ""}><a href={getRelativeLocaleUrl("ru", pathname)}>RU</a></li>
+                <li class={locale === "en" ? "selected" : ""}><a href={getRelativeLocaleUrl("en", pathname)}>EN</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
@@ -124,6 +135,30 @@
         font-size: var(--font-size);
         color: var(--dark-grey);
         text-decoration: none;
+    }
+
+    .nav-lang-switch {
+        position: relative;
+        font-family: var(--font-inter);
+        font-size: var(--font-size);
+    }
+
+    .nav-lang-switch a {
+        font-size: var(--font-size);
+        color: var(--dark-grey);
+    }
+
+    .nav-lang-switch .selected a {
+        color: black;
+    }
+
+    .nav-lang-switch:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0; right: 0; top: 50%;
+        height: 1px;
+        background-color: var(--dark-grey);
     }
 
     a {

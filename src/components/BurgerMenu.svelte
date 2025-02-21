@@ -1,6 +1,6 @@
 <script>
     import BurgerMenuLogo from "./BurgerMenuLogo.svelte";
-import Cancel from "./Cancel.svelte";
+    import Cancel from "./Cancel.svelte";
     export let links;
     let isMenuOpen = false;
 

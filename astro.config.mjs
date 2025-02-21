@@ -6,5 +6,16 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon(), svelte()],
-  output: 'static'
+  output: 'static',
+
+  i18n: {
+    locales: ["en", "ru"],
+    defaultLocale: "ru",
+    fallback: {
+      en: "ru"
+    },
+    routing: {
+      fallbackType: "rewrite"
+    }
+  }
 });

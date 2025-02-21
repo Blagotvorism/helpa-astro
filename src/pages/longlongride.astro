@@ -10,6 +10,8 @@ import RideVideoSection from '../components/longlonfride/RideVideoSection.astro'
 import HelpSection from '../components/HelpSection.astro';
 import SocialSection from '../components/SocialSection.astro';
 import RideHeroSection from '../components/longlonfride/RideHeroSection.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <Layout title='Long Long Ride'>
     <main>
@@ -17,26 +19,26 @@ import RideHeroSection from '../components/longlonfride/RideHeroSection.astro';
         <RidePhilosophy />
         <ConceptSection 
             pagePath="longlongride"
-            usualHeading='наш путь начался '
-            mainHeading='в 2018 году'
-            subHeading='В это время лонгбординг в России начал терять популярность, поэтому мы решили поддержать любимый вид спорта, являющийся частью нашей жизни.'
-            text='Мы начали проводить массовые заезды на лонгбордах. Со временем к нам присоединились участники на скейтах, роликах, велосипедах. Сейчас же мы организуем заезды на всём, что катится и скользит, по снегу или воде.'
+            usualHeading={locale === "en" && "Our journey started " || 'наш путь начался '}
+            mainHeading={locale === "en" && "in 2018" || 'в 2018 году'}
+            subHeading={locale === "en" && "At that time, longboarding in Russia began to lose popularity, so we decided to support our favorite sport, which is part of our lives." || 'В это время лонгбординг в России начал терять популярность, поэтому мы решили поддержать любимый вид спорта, являющийся частью нашей жизни.'}
+            text={locale === "en" && "We started holding mass longboarding races. Over time, some skateboarders, roller skaters, bicyclers joined us. Now we organize races on everything that can roll, skate, or slide, on snow or water." || 'Мы начали проводить массовые заезды на лонгбордах. Со временем к нам присоединились участники на скейтах, роликах, велосипедах. Сейчас же мы организуем заезды на всём, что катится и скользит, по снегу или воде.'}
         />
         <IntroSection 
             page='sport'
-            mainHeading="Нам важно единение людей, а ничто так не объединяет, как общий путь" 
-            text="Не важен вид транспорта, не важно, какая стихия" 
+            mainHeading={locale === "en" && "Unity of people is important to us, and nothing so unites as a shared track" || "Нам важно единение людей, а ничто так не объединяет, как общий путь"}
+            text={locale === "en" && "Of no matter a kind of transport or elements are" || "Не важен вид транспорта, не важно, какая стихия"}
             containerWidth="43.25rem"
             containerHeight="16.25rem"
             textWidth="14.375rem"
         />
         <RideGoals 
             page='ride'
-            usualTextStart='и это лишь '
-            gradientText='часть задач, '
-            usualTextFinish='стоящих перед нами'
-            subheading='Мы рады каждому новому доброму участнику нашего сообщества, поэтому предлагаем и Вам стать частью нашей команды.'
-            text='Некоторые участники нашего сообщества являются так же участниками других волонтёрских организаций, в том числе ECO TIME DAY, и принимают активное участие в достижении нашей общей глобальной цели - комфортное и мирное сосуществование и единение с природой и всеми, её наполняющими жизнью, жителями.'
+            usualTextStart={locale === "en" && "And this is only " || 'и это лишь '}
+            gradientText={locale === "en" && "a part of tasks " || 'часть задач, '}
+            usualTextFinish={locale === "en" && "facing us" || 'стоящих перед нами'}
+            subheading={locale === "en" && "We are glad to see every new kind participant of our community, so we invite you to become part of our team." || 'Мы рады каждому новому доброму участнику нашего сообщества, поэтому предлагаем и Вам стать частью нашей команды.'}
+            text={locale === "en" && "Some participants of our community are also participants of other volunteer organizations, including ECO TIME DAY, and take an active part in achieving our common global goal – comfortable and peaceful coexistence and unity with nature and all its inhabitants who brighten it with life." || 'Некоторые участники нашего сообщества являются так же участниками других волонтёрских организаций, в том числе ECO TIME DAY, и принимают активное участие в достижении нашей общей глобальной цели - комфортное и мирное сосуществование и единение с природой и всеми, её наполняющими жизнью, жителями.'}
         />
         <EcoGalery page="ride" />
         <!-- <RideVideoSection /> -->

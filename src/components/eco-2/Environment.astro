@@ -1,8 +1,20 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="environment">
     <div class="environment_container">
+        {locale === "en" &&
+        <>
+        <h2>Environmental protection helps preserve <span class="gradient_span">species diversity</span></h2>
+        <h3>Each species plays its role in the ecosystem and its loss can result in negative consequences for the entire biological diversity.</h3>
+        <p>Environmental pollution can have a negative impact on human health causing a number of diseases and increasing the allergies risk.</p>
+        </> ||
+        <>
         <h2>Защита окружающей среды помогает сохранить <span class="gradient_span">видовое разнообразие</span></h2>
         <h3>Каждый вид имеет свою роль в экосистеме и его исчезновение может привести к негативным последствиям для всего биологического разнообразия.</h3>
         <p>Загрязнение окружающей среды может иметь негативное влияние на здоровье людей, вызывая ряд заболеваний и повышая риск развития аллергий.</p>
+        </>
+        }
     </div>
 </section>
 

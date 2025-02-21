@@ -12,6 +12,8 @@ import FbSocial from './icons/FbSocial.svelte';
 import XSocial from './icons/XSocial.svelte';
 
 const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astro.props;
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="social">
     <div class="social__container">
@@ -21,8 +23,13 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
             {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='lazy' class="main-logo" />}
         </div>
         <div class="social__text">
-            <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>
-            <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
+            <h2 class="social__heading">
+                {locale === "en" &&
+                <><span class="gradient_span">Follow us</span> on social media</> ||
+                <><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</>
+                }
+            </h2>
+            <h3 class="social__subheading">{locale === "en" && "to stay tuned with the latest news and upcoming events" || "чтобы быть в курсе самых свежих новостей и предстоящих мероприятий"}</h3>
             <div class="social__logos">
                {tg_link && <a href={tg_link} aria-label="логотип телеграма"><TgSocial /></a>}
                 {yt_link && <a href={yt_link} aria-label="логотип ютуба"><YoutubeSocial /></a>}

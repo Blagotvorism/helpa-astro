@@ -2,18 +2,34 @@
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="ride_philosophy">
     <div class="ride_philosophy__container">
         <RadialGradient topPosition="-9.3125rem" leftPosition="59.875rem" />
         <RadialGradient topPosition="9.4375rem" leftPosition="-23.1875rem" />
         <div class="ride_philosophy__text">
-            <h2><span class="gradient_span">философия проекта </span>заключается</h2>
-            <h3>в безграничной интернациональной дружбе на основе интереса, любви к спорту и доступности каждому, 
-                а значит предполагает бесплатный характер мероприятий.
+            <h2>
+                {locale === "en" &&
+                <><span class="gradient_span">The philosophy of the project </span>is</> ||
+                <><span class="gradient_span">философия проекта </span>заключается</>
+                }                
+            </h2>
+            <h3>
+                {locale === "en" &&
+                <>in boundless international friendship based on interest, love for sports and accessibility to everyone, which means the events are free.</> ||
+                <>в безграничной интернациональной дружбе на основе интереса, любви к спорту и доступности каждому, 
+                а значит предполагает бесплатный характер мероприятий.</>
+                }
             </h3>
-            <p>Каждый участник даёт сообществу то, что он может, делая вклад в популяризацию спорта, здоровья, дружбы и взаимопомощи, 
-                а следовательно мира, эффективной коммуникации и как результат - развитие человеческой цивилизации. 
+            <p>
+                {locale === "en" &&
+                <>Every participant gives the community what they can, contributing to the popularization of sports, health, friendship,
+                and mutual assistance, and therefore peace, effective communication and, as a result, the development of human civilization. </> ||
+                <>Каждый участник даёт сообществу то, что он может, делая вклад в популяризацию спорта, здоровья, дружбы и взаимопомощи, 
+                а следовательно мира, эффективной коммуникации и как результат - развитие человеческой цивилизации. </>
+                }
             </p>
         </div>
         <div class="ride_philosophy__logo">

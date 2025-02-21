@@ -11,23 +11,26 @@ import HelpSection from '../components/HelpSection.astro';
 import ecoHelpImg from '../images/eco/ecoHelp.png';
 import SocialSection from '../components/SocialSection.astro';
 import EcoHeroSection from '../components/eco/EcoHeroSection.astro';
+
+const locale = Astro.currentLocale || "";
+
 ---
-<Layout title="ECO">
+<Layout title="Eco Time Day">
     <main>
         <EcoHeroSection />
         <EcoAbout />
         <EcoPolutionSection />
         <ConceptSection 
             pagePath='eco'
-            mainHeading="Концепция проекта"
-            subHeading='Уборка берегового пространства, являющееся фактически границей двух <br/> миров - земного и водного.'
-            text='Последствиями загрязнения этой зоны является колоссальный урон обеим экосистемам. Волонтёров проекта можно назвать защитниками естественных границ экосистем и здоровья людей, так как загрязнение окружающей среды повышает риск развития аллергий и ряда других заболеваний, в том числе онкологических.'
+            mainHeading={locale === "en" && "Project concept" || "Концепция проекта"}
+            subHeading={locale === "en" && "Cleaning the coastal area, which is the border of two worlds – terrestrial and aquatic." || "Уборка берегового пространства, являющееся фактически границей двух <br/> миров - земного и водного."}
+            text={locale === "en" && "The pollution of this zone causes tremendous damage to both ecosystems. Volunteers of the project can be called defenders of the natural boundaries of ecosystems and human health, since environmental pollution increases the risk of developing allergies and a number of other diseases, including cancer." || "Последствиями загрязнения этой зоны является колоссальный урон обеим экосистемам. Волонтёров проекта можно назвать защитниками естественных границ экосистем и здоровья людей, так как загрязнение окружающей среды повышает риск развития аллергий и ряда других заболеваний, в том числе онкологических."}
         />
         <IntroSection
             page='eco' 
-            mainHeading='Eco Time Day - люди, верящие в будущее и делающие для него всё возможное.' 
-            text='Люди, увлечённые и увлекающие других своим примером. Мы осознаем, что наше общее пространство влияет на каждого из нас и наших потомков, на цивилизацию, а значит и на нашу дальнейшую жизнь, судьбу наших дел, опыта, открытий, судьбу открытой нами информации и её сохранение. Это и есть здоровый эгоизм - объединение ради общей, полезной цели. '
-            containerWidth='53.8rem' 
+            mainHeading={locale === "en" && "Eco Time Day – people who believe in the future and do everything possible for it." || "Eco Time Day - люди, верящие в будущее и делающие для него всё возможное."}
+            text={locale === "en" && "People who are passionate and inspire others with their example. We realize that our common space affects each of us and our descendants, civilization, and therefore our future life, the fortunes of our affairs, experience, discoveries, the fortunes of the information we have discovered and its preservation. This is healthy egoism – become united for a common, useful goal." || "Люди, увлечённые и увлекающие других своим примером. Мы осознаем, что наше общее пространство влияет на каждого из нас и наших потомков, на цивилизацию, а значит и на нашу дальнейшую жизнь, судьбу наших дел, опыта, открытий, судьбу открытой нами информации и её сохранение. Это и есть здоровый эгоизм - объединение ради общей, полезной цели. "}
+            containerWidth='53.8rem'
             containerHeight='21.5rem'
         />
         <EcoEventsChain />

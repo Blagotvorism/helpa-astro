@@ -1,10 +1,17 @@
 ---
 import '../../styles/global.css';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="communication">
     <div class="communication__container">
         <div class="scroll_content">
-            <h2 class="scroll-content">Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</h2>
+            <h2 class="scroll-content">
+                {locale === "en" && 
+                <>Communication has allowed the species <span class="gradient_span">to act together. Together, humanity achieve the goals</span> that nature set for it.</> ||
+                <>Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</>
+                }
+                </h2>
         </div>
     </div>
 </section>

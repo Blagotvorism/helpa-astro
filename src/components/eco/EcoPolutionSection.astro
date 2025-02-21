@@ -2,28 +2,27 @@
 import '../../styles/global.css';
 import PolutionCard from '../GoalsCard.astro';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="eco-pollutions">
     <div class="eco-pollutions__container">
         <RadialGradient topPosition="1rem" leftPosition="43.75rem" />
         <div class="eco-pollutions__text">
             <h2 class="eco-pollutions__heading">
-                Основными
-                <span class="gradient_span">
-                    областями загрязнения
-                </span>
+                {locale === "en" && <>The main <span class="gradient_span">areas of pollution</span></> || <>Основными <span class="gradient_span">областями загрязнения</span></>}
             </h2>
-            <h3 class="eco-pollutions__subheading">окружающей среды являются:</h3>
+            <h3 class="eco-pollutions__subheading">{locale === "en" && "of the environment are" || "окружающей среды являются:"}</h3>
         </div>
         <div class="eco-pollutions__cards">
             <div class="card_box">
-                <PolutionCard goalsIcon='Air' goalsDescr='Воздух' />
+                <PolutionCard goalsIcon='Air' goalsDescr={locale === "en" && "Air" || "Воздух"} />
             </div>
             <div class="card_box">
-                <PolutionCard goalsIcon='Water' goalsDescr='Вода' />
+                <PolutionCard goalsIcon='Water' goalsDescr={locale === "en" && "Water" || "Вода"} />
             </div>
             <div class="card_box">
-                <PolutionCard goalsIcon='Ground' goalsDescr='Почва' />
+                <PolutionCard goalsIcon='Ground' goalsDescr={locale === "en" && "Soil" || "Почва"} />
             </div>
         </div>
     </div>

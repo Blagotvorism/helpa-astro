@@ -3,12 +3,14 @@ import Slogan from "../Slogan.astro";
 import sloganBG1 from '../../images/main/sloganBG1.jpg';
 import sloganBG2 from '../../images/main/sloganBG2.jpg';
 import '../../styles/global.css';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="slogans">
     <div class="slogans_container">
-        <Slogan sloganBG={sloganBG1} sloganTitle='опережая время' altText='Паутина' />
-        <Slogan sloganTitle='ASTROWAY' />
-        <Slogan sloganBG={sloganBG2} sloganTitle='создавая новый мир' altText='Иммерсивная выставка' />
+        <Slogan sloganBG={sloganBG1} sloganTitle={locale === "en" && "Ahead of time" || "Опережая время"} altText='Паутина' />
+        <Slogan sloganTitle='BLAGO TVORISM' />
+        <Slogan sloganBG={sloganBG2} sloganTitle={locale === "en" && "Creating a new world" || "Создавая новый мир"} altText='Иммерсивная выставка' />
     </div>
 </section>
 

@@ -6,58 +6,80 @@ import img1 from '../../images/gemohelp/gemoConceptCard1.jpg';
 import img2 from '../../images/gemohelp/gemoConceptCard2.jpeg';
 import img3 from '../../images/gemohelp/gemoConceptCard3.jpg';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="gemo_facts" id="gemo_section">
     <div class="gemo_facts__container" id="gemo_container">
         <RadialGradient topPosition="6.1875rem" leftPosition="58.125rem" />
         <RadialGradient topPosition="89.875rem" leftPosition="-24.375rem" />
-        <h2 class="gemo_facts__container-heading">Несколько фактов о <span class="gemo_facts__container-span gradient_span">лейкемии</span></h2>
+        <h2 class="gemo_facts__container-heading">
+            {locale === "en" &&
+            <>Some facts about <span class="gemo_facts__container-span gradient_span">leukemia</span></> ||
+            <>Несколько фактов о <span class="gemo_facts__container-span gradient_span">лейкемии</span></>
+            }            
+        </h2>
         <div class="facts">
             <div class="fact" id="fact1">
                 <GemoFactsNums 
                     num='1' 
-                    heading='Лейкемия' 
-                    text='Лейкемия - это онкологическое заболевание крови и кроветворных клеток в костном мозге. Они делятся на две основные категории: острые (развиваются внезапно и имеют кратковременный характер) и хронические (развиваются в течение длительного периода времени и носят долгосрочный характер). Лейкемия подразделяется на другие типы, названные по типу клеток, которые становятся злокачественными.'
+                    heading={locale === "en" && "Leukemia" || "Лейкемия"} 
+                    text={locale === "en" && "Leukemia is a cancer of the blood and blood-forming cells in the bone marrow. They are divided into two main categories: acute (develop suddenly and are short-term) and chronic (develop over a long period of time and are long-term). Leukemia is divided into other types, named for the type of cells that become malignant. " || "Лейкемия - это онкологическое заболевание крови и кроветворных клеток в костном мозге. Они делятся на две основные категории: острые (развиваются внезапно и имеют кратковременный характер) и хронические (развиваются в течение длительного периода времени и носят долгосрочный характер). Лейкемия подразделяется на другие типы, названные по типу клеток, которые становятся злокачественными."}
                 />
             </div>
             <div class="fact" id="fact2">
                 <GemoFactsNums 
                     num='2' 
-                    heading='Типы лейкемии' 
-                    text='Острый лимфолейкоз (ОЛЛ)<br> Острый миелоидный лейкоз (ОМЛ)<br> Хронический лимфолейкоз (ХЛЛ)<br> Хронический миелоидный лейкоз (ХМЛ)<br> Хронический миеломоноцитарный лейкоз (ХММЛ)'
+                    heading={locale === "en" && "Types of leukemia" || "Типы лейкемии"}
+                    text={locale === "en" && "Acute lymphocytic leukemia (ALL)<br/>Acute myeloid leukemia (AML)<br/>Chronic lymphocytic leukemia (CLL)<br/>Chronic myeloid leukemia (CML)<br/>Chronic myelomonocytic leukemia (CMML)" || "Острый лимфолейкоз (ОЛЛ)<br> Острый миелоидный лейкоз (ОМЛ)<br> Хронический лимфолейкоз (ХЛЛ)<br> Хронический миелоидный лейкоз (ХМЛ)<br> Хронический миеломоноцитарный лейкоз (ХММЛ)"}
                 />
             </div>
             <div class="fact" id="fact3">
                 <GemoFactsNums 
                     num='3' 
-                    heading='Возраст заболевших' 
-                    text='В 2015-2019 годах в среднем у 18 мужчин из 100 000 ежегодно диагностировалась лейкемия, и в среднем у 11 женщин из 100 000 ежегодно диагностировалось это заболевание.<br> Лейкемия является наиболее распространенным видом рака у детей, но она по-прежнему встречается редко. Наиболее распространенным типом лейкоза у детей является острый лимфоцитарный лейкоз, за которым следует острый миелоидный лейкоз. У детей в возрасте до 15 лет, 5,3 из 100 000, в 2019 году был диагностирован лейкоз.<br> Последние тенденции заболеваемости лейкемией по SEER с поправкой на возраст, 2000-2019 гг.. Средний возраст на момент постановки диагноза составляет 67 лет. У мужчин лейкемия диагностируется чаще, чем у женщин, а у взрослых - чаще, чем у детей.'
+                    heading={locale === "en" && "Age of disease" || "Возраст заболевших"} 
+                    text={locale === "en" && "In 2015-2019, an average of 18 men out of 100,000 were diagnosed with leukemia each year, and an average of 11 women out of 100,000 were diagnosed with the disease each year. Leukemia is the most common cancer in children, but it is still rare.<br/>The most common type of leukemia in children is acute lymphocytic leukemia, followed by acute myeloid leukemia. In children under 15, 5.3 out of 100,000 were diagnosed with leukemia in 2019.<br/>SEER Age-Adjusted Leukemia Tendencies, 2000-2019<br/>The median age at diagnosis is 67. Leukemia is diagnosed more often in men than in women, and more often in adults than in children. " || "В 2015-2019 годах в среднем у 18 мужчин из 100 000 ежегодно диагностировалась лейкемия, и в среднем у 11 женщин из 100 000 ежегодно диагностировалось это заболевание.<br> Лейкемия является наиболее распространенным видом рака у детей, но она по-прежнему встречается редко. Наиболее распространенным типом лейкоза у детей является острый лимфоцитарный лейкоз, за которым следует острый миелоидный лейкоз. У детей в возрасте до 15 лет, 5,3 из 100 000, в 2019 году был диагностирован лейкоз.<br> Последние тенденции заболеваемости лейкемией по SEER с поправкой на возраст, 2000-2019 гг.. Средний возраст на момент постановки диагноза составляет 67 лет. У мужчин лейкемия диагностируется чаще, чем у женщин, а у взрослых - чаще, чем у детей."}
                 />
             </div>
             <GemoFactsImg 
-                img1={img1} imgDescr1='Сравнение крови при лийкемии и без' 
+                img1={img1} imgDescr1='Сравнение крови при лейкемии и без' 
                 img2={img2} imgDescr2='Тромбоциты' 
-                img3={img3} imgDescr3='Лийкемия' 
+                img3={img3} imgDescr3='Лейкемия' 
             />
             <div class="fact" id="fact4">
                 <GemoFactsNums 
                     num='4' 
-                    heading='Происхождение' 
-                    text='Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно.'
+                    heading={locale === "en" && "Origins" || "Происхождение"} 
+                    text={locale === "en" && "Leukemia begins when the DNA (hereditary material) inside a bone marrow cell becomes abnormal, causing more abnormal cells to develop. What exactly causes the DNA change is unknown." || "Лейкемия начинается, когда ДНК (наследственный материал) внутри клетки костного мозга становится аномальной, что приводит к развитию большего количества аномальных клеток. Что именно вызывает изменение ДНК неизвестно."}
                 />
             </div>
             <div class="fact" id="fact5">
                 <GemoFactsNums 
                     num='5' 
-                    heading='Выживаемость' 
-                    text='В целом по ОЛЛ пятилетняя выживаемость составляет почти 66%. Выживаемость примерно одинакова среди людей любого пола. Пятилетняя выживаемость у детей младше 15 лет составляет 88%. Однако существуют мутации, влияющие на более тяжёлое течение болезни. В связи с этим, данный средний процент выживаемости иногда падает ниже 20%. При неоказании своевременной медицинской помощи смерть наступает в течении нескольких месяцев.'
+                    heading={locale === "en" && "Survival" || "Выживаемость"} 
+                    text={locale === "en" && "Overall, the five-year survival rate for ALL is nearly 66%. Survival is about the same for both sexes. The five-year survival rate in children under age 15 is 88%. However, there are mutations that can cause the disease to become more severe. Because of this, the average survival rate sometimes falls below 20%. If timely medical care is not provided, death occurs within a few months." || "В целом по ОЛЛ пятилетняя выживаемость составляет почти 66%. Выживаемость примерно одинакова среди людей любого пола. Пятилетняя выживаемость у детей младше 15 лет составляет 88%. Однако существуют мутации, влияющие на более тяжёлое течение болезни. В связи с этим, данный средний процент выживаемости иногда падает ниже 20%. При неоказании своевременной медицинской помощи смерть наступает в течении нескольких месяцев."}
                 />
             </div>
         </div>
         <div class="afterfacts_text">
-            <h2 class="afterfacts_heading">из этого следует <span class="gradient_span">Вывод</span></h2>
-            <h3>Исходя из статистики, опроса населения и личного мониторинга, мы наблюдаем серьёзный недостаток медикаментов по всему миру</h3>
-            <p>начиная с дорогостоящих химиопрепаратов, до обычных пластырей, катетеров и вспомогательных таблеток, смягчающих негативный эффект от тяжёлого лечения.</p>
+            <h2 class="afterfacts_heading">
+                {locale === "en" &&
+                <>the conclusion is like <span class="gradient_span">the following</span></> ||
+                <>из этого следует <span class="gradient_span">вывод</span></>
+                }                
+            </h2>
+            <h3>
+                {locale === "en" &&
+                <>Based on statistics, population surveys and personal monitoring, we observe a serious shortage of medicines around the world</> ||
+                <>Исходя из статистики, опроса населения и личного мониторинга, мы наблюдаем серьёзный недостаток медикаментов по всему миру</>
+                }                
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>starting with expensive chemotherapy drugs, to ordinary patches, catheters and auxiliary tablets that mitigate the negative effect of difficult treatment.</> ||
+                <>начиная с дорогостоящих химиопрепаратов, до обычных пластырей, катетеров и вспомогательных таблеток, смягчающих негативный эффект от тяжёлого лечения.</>
+                }                
+            </p>
         </div>
     </div>
 </section>

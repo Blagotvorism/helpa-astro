@@ -3,18 +3,20 @@ import '../styles/global.css';
 import Link from './Link.astro';
 
 const {url_buy, url_join, h3_text, p_text} = Astro.props;
+
+const locale = Astro.currentLocale || "";
 ---
 
 <div class="help__cta">
     <div class="help__cta-1" id="left">
-        <h3 class="help__cta-h3" id="left-heading">Приобрести криптоактив HELPA</h3>
-        <p class="help_text" id="left_text">и помогать проекту финансово за счет совершения транзакций.</p>
-        <Link href={url_buy} theme='primary' classes="link link_primary">Приобрести</Link>
+        <h3 class="help__cta-h3" id="left-heading">{locale === "en" && "Purchase HELPA crypto asset" || "Приобрести криптоактив HELPA"}</h3>
+        <p class="help_text" id="left_text">{locale === "en" && "and help the project financially by making transactions." || "и помогать проекту финансово за счет совершения транзакций."}</p>
+        <Link href={url_buy} theme='primary' classes="link link_primary">{locale === "en" && "Purchase" || "Приобрести"}</Link>
     </div>
     <div class="help__cta-1" id="right">
         <h3 class="help__cta-h3" id="right-heading">{h3_text}</h3>
         <p class={p_text ? "help_text" : 'help_text hidden'}>{p_text !== '' ? p_text : 'и принимать непосредственное участие в мероприятиях.'}</p>
-        <Link href={url_join} theme='primary' classes="link link_primary">Присоединиться</Link>
+        <Link href={url_join} theme='primary' classes="link link_primary">{locale === "en" && "Join" || "Присоединиться"}</Link>
     </div>
 </div>
 

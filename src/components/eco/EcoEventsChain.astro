@@ -3,6 +3,9 @@ import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import Link from '../Link.astro';
 import EcoEventChainCard from './EcoEventChainCard.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <section class="eco-events-chain">
@@ -10,43 +13,45 @@ import EcoEventChainCard from './EcoEventChainCard.astro';
         <!-- <RadialGradient topPosition="-16.8125rem" leftPosition="-14.625rem" />
         <RadialGradient topPosition="3.75rem" leftPosition="45.1875rem" /> -->
         <div class="card" id="air">
-            <EcoEventChainCard text="Загрязнение окружающей среды" textWidth="10.125rem" />
+            <EcoEventChainCard text={locale === "en" && "Environmental pollution" || "Загрязнение окружающей среды"} textWidth="10.125rem" />
         </div>
         <div class="icon" id="arrow-1">
             <Icon name="arrowLong" class='horizontal_arrow'/>
         </div>
         <div class="card" id="eco">
-            <EcoEventChainCard text="Нарушение <br/> естественных экосистем" textWidth="10.7rem" />
+            <EcoEventChainCard text={locale === "en" && "Violation of natural ecosystems" || "Нарушение естественных экосистем"} textWidth="10.7rem" />
         </div>
         <div class="icon" id="arrow-2">
             <Icon name="arrowLong" class='horizontal_arrow'/>
         </div>
         <div class="card" id="animals">
-            <EcoEventChainCard text="Ухудшение состояния животных и растений" textWidth='10.875rem'/>
+            <EcoEventChainCard text={locale === "en" && "Deterioration of animals and plants condition" || "Ухудшение состояния животных и растений"} textWidth='10.875rem'/>
         </div>
         <div class="icon"  id="arrow-3">
             <Icon name="arrowLong" id="vertical-arrow" />
         </div>
         <div class="eco-events-chain__text">
             <h3 class="eco-events-chain__heading">
-                Посмотрите на эту пугающую цепочку событий
+                {locale === "en" && "Look at this frightening chain of events" || "Посмотрите на эту пугающую цепочку событий"}
             </h3>
-            <h4 class="eco-events-chain__subheading">Но в наших силах ее прекратить!</h4>
+            <h4 class="eco-events-chain__subheading">{locale === "en" && "But it is in our power to stop it!" || "Но в наших силах ее прекратить!"}</h4>
             <div class="link_container">
-                <Link href="/eco-2" theme="text" classes="link link_text">
-                    <span class="link_innertext_secondary">Читать подробнее о последствиях загрязнений</span>
+                <Link href={getRelativeLocaleUrl(locale, "eco-2")} theme="text" classes="link link_text">
+                    <span class="link_innertext_secondary">
+                        {locale === "en" && "Read more about the effects of pollution" || "Читать подробнее о последствиях загрязнений"}
+                    </span>
                     <Icon name="arrowText" />
                 </Link>
             </div>
         </div>
         <div class="card" id="variety">
-            <EcoEventChainCard text="Уменьшение биологического разнообразия <br/> животных и растений" textWidth='10.875rem' />
+            <EcoEventChainCard text={locale === "en" && "Reduction in the biological diversity of animals and plants" || "Уменьшение биологического разнообразия <br/> животных и растений"} textWidth='10.875rem' />
         </div>
         <div class="icon" id="arrow-4">
             <Icon name="arrowLong" id="rotate-arrow" class='horizontal_arrow' id="special_arrow-2" />
         </div>
         <div class="card" id="species">
-            <EcoEventChainCard text="Исчезновение видов" textWidth='8.875rem' />
+            <EcoEventChainCard text={locale === "en" && "Extinction of species" || "Исчезновение видов"} textWidth='8.875rem' />
         </div>
     </div>
 </section>

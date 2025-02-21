@@ -3,8 +3,9 @@ import { Image } from 'astro:assets';
 import BSCScanLogo from '../images/logos/BSCScan.png';
 import coinMarketCapLogo from '../images/logos/CoinMarketCap.png';
 import pancakeswapLogo from '../images/logos/pancakeswap.png';
-import links from '../data/links.json';
 import "../styles/global.css";
+
+const { links } = Astro.props;
 ---
 <footer>
     <div class="full-footer">
@@ -28,7 +29,7 @@ import "../styles/global.css";
                 </a>
             </div>
         </div>
-        <p class="cr">© <span id="year">2025</span> Astroway</p>
+        <p class="cr">© <span id="year">2025</span> Blagotvorism</p>
     </div>
 </footer>
 

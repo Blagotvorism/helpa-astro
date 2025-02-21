@@ -2,16 +2,24 @@
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 import CharityCard from './CharityCard.astro';
+
+const locale = Astro.currentLocale || "";
+
 ---
 <section class="charity">
     <div class="charity__container">
         <RadialGradient topPosition="-5.25rem" leftPosition="-23.0625rem" />
-        <h2>направления <span class="gradient_span">благотворительности</span></h2>
+        <h2>
+            {locale === "en" &&
+            <>Charity <span class="gradient_span">areas</span></> ||
+            <>направления <span class="gradient_span">благотворительности</span></>
+            }            
+        </h2>
         <div class="charity__cards">
-            <CharityCard id="gemo" heading="gemohelp" subheading="Международный благотворительный проект" text="Помощь больным лейкемией" />
-            <CharityCard id="eco" heading="eco<br>time day" subheading="Международное экологическое сообщество" text="Уборка береговых зон" />
-            <CharityCard id="ride" heading="long<br>long ride" subheading="Международное спортивное сообщество" text="Бесплатные массовые заезды" />
-            <CharityCard id="repay" heading="repay" subheading="Международный благотворительный проект" text="Выкуп долга социально незащищенных" />
+            <CharityCard id="gemo" heading="gemohelp" subheading={locale === "en" && "International charity project" || "Международный благотворительный проект"} text={locale === "en" && "Help for leukemia patients" || "Помощь больным лейкемией"} />
+            <CharityCard id="eco" heading="eco<br>time day" subheading={locale === "en" && "International environmental community" || "Международное экологическое сообщество"} text={locale === "en" && "Coastal cleaning" || "Уборка береговых зон"} />
+            <CharityCard id="ride" heading="long<br>long ride" subheading={locale === "en" && "International sports community " || "Международное спортивное сообщество"} text={locale === "en" && "Free mass races" || "Бесплатные массовые заезды"} />
+            <CharityCard id="repay" heading="repay" subheading={locale === "en" && "International charity project" || "Международный благотворительный проект"} text={locale === "en" && "Buying out debt of socially vulnerable people " || "Выкуп долга социально незащищенных"} />
         </div>
     </div>
 </section>

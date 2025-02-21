@@ -2,30 +2,36 @@
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="transaction" id="transaction">
     <div class="transaction__container">
         <RadialGradient topPosition="7.875rem" leftPosition="56rem" />
-        <h2><span class="gradient_span">0,6%</span> комиссия за транзакцию:</h2>
+        <h2><span class="gradient_span">0,6%</span> {locale === "en" && "transaction fee:" || "комиссия за транзакцию:"}</h2>
         <div class="transaction__container-box">
             <Icon name='transactionLogo' class='transactionLogo'/>
             <div class="transaction__container-text">
-                <h3>Комиссия за транзакцию в размере 0,5%, выделяющаяся на благотворительность, откладывается в отдельное хранилище.</h3>
-                <p>После чего этот токен будет вновь распродан в конце каждого месяца, а вырученные средства пойдут на развитие выбранных проектов.</p>
+                <h3>
+                    {locale === "en" && "A 0.5% transaction fee allocated to charity is set aside in a separate wallet." || "Комиссия за транзакцию в размере 0,5%, выделяющаяся на благотворительность, откладывается в отдельное хранилище."}
+                </h3>
+                <p>
+                    {locale === "en" && "The token will then be sold again at the end of each month, with proceeds going to the development of selected projects." || "После чего этот токен будет вновь распродан в конце каждого месяца, а вырученные средства пойдут на развитие выбранных проектов."}
+                </p>
             </div>
         </div>
         <div class="transaction_values">
             <div class="transaction_value">
                 <p class="text-bold"><span class="gradient_span">0,1%</span></p>
-                <p class="text_descr">от каждой транзакции сгорает</p>
+                <p class="text_descr">{locale === "en" && "of each transaction is burned" || "от каждой транзакции сгорает"}</p>
             </div>
             <div class="transaction_value">
                 <p class="text-bold"><span class="gradient_span">0,5%</span></p>
-                <p class="text_descr">от каждой транзакции откладывается на благотворительность</p>
+                <p class="text_descr">{locale === "en" && "of each transaction is set aside for charity" || "от каждой транзакции откладывается на благотворительность"}</p>
             </div>
             <div class="transaction_value">
                 <p class="text-bold"><span class="gradient_span">0,1%</span></p>
-                <p class="text_descr">каждая транзакция повышает стоимость токена на 0,1% от транзакции</p>
+                <p class="text_descr">{locale === "en" && "each transaction increases the token value by 0.1% of the transaction" || "каждая транзакция повышает стоимость токена на 0,1% от транзакции"}</p>
             </div>
         </div>
     </div>

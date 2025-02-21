@@ -1,7 +1,10 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="eco_hero">
     <div class="letters"></div>
     <div class="subheading">
-        <h2>Добро пожаловать</h2>
+        <h2>{locale === "en" && "Welcome" || "Добро пожаловать"}</h2>
     </div>
 </section>
 

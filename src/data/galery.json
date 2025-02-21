@@ -5,6 +5,10 @@
         "imgPath": "",
         "imgDescr": "",
         "cardText": "Совместными усилиями",
+        "text": {
+            "ru": "Совместными усилиями",
+            "en": "Together"
+        },
         "fontSize": "1.5rem"
     },
     {
@@ -37,6 +41,10 @@
         "imgPath": "",
         "imgDescr": "",
         "cardText": "Мы сможем",
+        "text": {
+            "ru": "Мы сможем",
+            "en": "We can"
+        },
         "fontSize": "3.125rem"
     },
     {
@@ -69,6 +77,10 @@
         "imgPath": "",
         "imgDescr": "",
         "cardText": "Cохранить нашу планету",
+        "text": {
+            "ru": "Сохранить нашу планету",
+            "en": "Save our planet"
+        },
         "fontSize": "1.5rem"
     },
     {

@@ -4,34 +4,46 @@ import '../../styles/global.css';
 import Link from '../Link.astro';
 import DebtProblemCard from './DebtProblemCard.astro';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="debt_problem">
     <div class="debt_problem__container">
         <RadialGradient topPosition="6.6875rem" leftPosition="59.6875rem" />
         <RadialGradient topPosition="29.125rem" leftPosition="-23.375rem" />
         <div class="debt_problem__text">
-            <h2><span class="gradient_span">Проблема закредитованности </span>населения планеты остается значительной в многих странах</h2>
-            <h3>Она может иметь серьезные последствия для экономики и благополучия людей. Вот некоторые основные аспекты этой проблемы:</h3>
+            <h2>
+                {locale === "en" &&
+                <><span class="gradient_span">The problem of global indebt  </span>remains significant in many countries</> ||
+                <><span class="gradient_span">Проблема закредитованности </span>населения планеты остается значительной в многих странах</>
+                }                
+            </h2>
+            <h3>
+                {locale === "en" &&
+                <>It can have serious consequences for the economy and human well-being. Here are some key aspects of this problem:</> ||
+                <>Она может иметь серьезные последствия для экономики и благополучия людей. Вот некоторые основные аспекты этой проблемы:</>
+                }                
+            </h3>
             <div class="debt_problem__text-link">
                 <Link href="/low-income-families-2" theme='text' classes="link link_text debt_problem__text-link"><span class="link_innertext_secondary gradient_span">Подробнее о последствиях</span><Icon name="arrowText" /></Link>
             </div>
         </div>
         <div class="debt_problem__cards">
             <DebtProblemCard 
-                heading="Личная финансовая нагрузка" 
-                text="Многие люди сталкиваются с высоким уровнем закредитованности из-за кредитных карт, студенческих займов, ипотечных кредитов и других форм потребительского кредитования. Это может привести к финансовому стрессу, увеличению долговой нагрузки и затруднениям с выплатой долгов." 
+                heading={locale === "en" && "Personal Financial Burden" || "Личная финансовая нагрузка"}
+                text={locale ==="en" && "Many people face high levels of debt from credit cards, student loans, mortgages, and other forms of consumer debt. This can lead to financial stress, increased debt load, and difficulty paying off debt. Reduced Ability to Save and Invest" || "Многие люди сталкиваются с высоким уровнем закредитованности из-за кредитных карт, студенческих займов, ипотечных кредитов и других форм потребительского кредитования. Это может привести к финансовому стрессу, увеличению долговой нагрузки и затруднениям с выплатой долгов."}
             />
             <DebtProblemCard 
-                heading="Снижение способности к сбережению и инвестированию" 
-                text="Закредитованность может снижать возможности для накопления сбережений и инвестирования на будущее. Люди, обремененные долгами, могут испытывать трудности в формировании финансового резерва и планировании на пенсию." 
+                heading={locale === "en" && "Reduced Ability to Save and Invest" || "Снижение способности к сбережению и инвестированию"}
+                text={locale === "en" && "Over-indebtedness can reduce the ability to save and invest for the future. People who are burdened with debt may be difficult in building a financial reserve and planning for retirement." || "Закредитованность может снижать возможности для накопления сбережений и инвестирования на будущее. Люди, обремененные долгами, могут испытывать трудности в формировании финансового резерва и планировании на пенсию."}
             />
             <DebtProblemCard 
-                heading="Экономическая нестабильность" 
-                text="Крупная закредитованность населения может стать источником экономической нестабильности, так как уровень потребительского спроса, финансовые риски и системные риски могут возрасти, что в конечном итоге может сказаться на экономическом росте." 
+                heading={locale === "en" && "Economic Instability" || "Экономическая нестабильность"}
+                text={locale === "en" && "High levels of household debt can be a source of economic instability because consumer demand, financial risks, and systemic risks may increase, which can ultimately impact economic growth." || "Крупная закредитованность населения может стать источником экономической нестабильности, так как уровень потребительского спроса, финансовые риски и системные риски могут возрасти, что в конечном итоге может сказаться на экономическом росте."}
             />
             <DebtProblemCard 
-                heading="Риск финансового кризиса" 
-                text="Коллективная закредитованность может увеличить вероятность возникновения финансового кризиса, особенно если многие заемщики одновременно столкнутся с невыплатами кредитов." 
+                heading={locale === "en" && "Risk of financial crisis" || "Риск финансового кризиса"}
+                text={locale === "en" && "Collective debt overload can increase the likelihood of a financial crisis, especially if many borrowers’ defaults on their loans happen at the same time." || "Коллективная закредитованность может увеличить вероятность возникновения финансового кризиса, особенно если многие заемщики одновременно столкнутся с невыплатами кредитов."}
             />
         </div>
     </div>
@@ -73,7 +85,7 @@ import RadialGradient from '../RadialGradient.astro';
     .debt_problem__text {
         display: block;
         width: inherit;
-        height: var(--text-height);
+        /* height: var(--text-height); */
         margin-bottom: var(--heading-margin-bottom);
     }
 

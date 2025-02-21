@@ -1,38 +1,45 @@
 ---
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="profit">
     <div class="profit__container">
         <RadialGradient topPosition="var(--radial-gradient-top1)" leftPosition="var(--radial-gradient-left1)" />
         <RadialGradient topPosition="var(--radial-gradient-top2)" leftPosition="var(--radial-gradient-left2)" />
-        <h2>ваша <span class="gradient_span">польза</span></h2>
+        <h2>
+            {locale === "en" &&
+            <>your <span class="gradient_span">benefit</span></> ||
+            <>ваша <span class="gradient_span">польза</span></>
+            }
+        </h2>
         <div class="profit__cards">
             <div class="profit_row row-center">
                 <div class="card">
-                    <p>Возможность участия в проектах без приобретения токена в качестве волонтера</p>
+                    <p>{locale === "en" && "Possibility to participate in projects without purchasing a token as a volunteer" || "Возможность участия в проектах без приобретения токена в качестве волонтера"}</p>
                 </div>
                 <div class="card">
-                    <p>Позитивный эффект на окружающую среду от реализации проектов</p>
+                    <p>{locale === "en" && "Positive effect on the environment by  implementing the projects " || "Позитивный эффект на окружающую среду от реализации проектов"}</p>
                 </div>
             </div>
             <div class="profit_row row-middle">
                 <div class="card" id="card3">
-                    <p>Создание благоприятной социальной среды</p>
+                    <p>{locale === "en" && "Creation of a favorable social environment " || "Создание благоприятной социальной среды"}</p>
                 </div>
                 <div class="card">
-                    <p>Сохранение и приумножение капитала</p>
+                    <p>{locale === "en" && "Preservation and increase of capital " || "Сохранение и приумножение капитала"}</p>
                 </div>
                 <div class="card">
-                    <p>Позитивный эффект на экономическую систему</p>
+                    <p>{locale === "en" && "Positive effect on the economic system " || "Позитивный эффект на экономическую систему"}</p>
                 </div>
             </div>
             <div class="profit_row row-center">
                 <div class="card">
-                    <p>Благотворительность без специальной траты времени и средств</p>
+                    <p>{locale === "en" && "Charity without spending dedicated time and money" || "Благотворительность без специальной траты времени и средств"}</p>
                 </div>
                 <div class="card">
-                    <p>Резонирование позитивного эффекта за счет трансляции положительного примера поведения</p>
+                    <p>{locale === "en" && "Resonance of the positive effect by broadcasting a positive behavioral model" || "Резонирование позитивного эффекта за счет трансляции положительного примера поведения"}</p>
                 </div>
             </div>
         </div>

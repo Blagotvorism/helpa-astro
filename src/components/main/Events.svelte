@@ -10,6 +10,8 @@
     let scrollable = true;
     let myComponent;
 
+    export let locale;
+
     const wheel = (node, options) => {
         let { scrollable } = options;
         
@@ -86,7 +88,7 @@
 <svelte:window use:wheel={{scrollable}} />
 
 <div class="cards_container">
-    <EventsTab bind:category btnAction={slider} cards={cards} />
+    <EventsTab locale={locale} bind:category btnAction={slider} cards={cards} />
     <SelectDropDown events={events} />
     <div class="event_cards">
         {#if findCards(category) !== 0}

@@ -6,6 +6,8 @@ import RadialGradient from './RadialGradient.astro';
 
 const {page, img, imgDescr = ''} = Astro.props;
 
+const locale = Astro.currentLocale || "";
+
 let heading_start, heading_gradient, heading_finish;
 let sectionHeight_1200, sectionHeight_960, sectionHeight_640, sectionHeight_480, sectionHeight_320; 
 let headingWidth_1200, headingWidth_960, headingWidth_640, headingWidth_480, headingWidth_320;
@@ -14,9 +16,9 @@ let url_buy, url_join, h3_text = 'Стать участником наших а�
 
 switch(page) {
     case 'eco':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'быть полезным природе, заботиться ';
-        heading_finish = 'о своём доме под названием планета Земля, можно';
+        heading_start = locale === "en" && "To be " || 'Чтобы ';
+        heading_gradient = locale === "en" && "useful to nature, take care " || 'быть полезным природе, заботиться ';
+        heading_finish = locale === "en" && "of our home called planet Earth, you can" || 'о своём доме под названием планета Земля, можно';
         // Section Height
         sectionHeight_1200 = '36rem';
         sectionHeight_960 = '29.375rem';
@@ -31,14 +33,14 @@ switch(page) {
         headingWidth_320 = '87.5vw';
         url_buy = '/';
         url_join = 'https://t.me/ecotimeday';
-        h3_text = 'Стать участником наших экологических акций';
-        p_text = 'и принимать непосредственное участие в спасении планеты.';
+        h3_text = locale === "en" && "Participate in our environmental campaigns" || 'Стать участником наших экологических акций';
+        p_text = locale === "en" && "and take direct part in saving the planet." || 'и принимать непосредственное участие в спасении планеты.';
         break;
     case 'low-income-families':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'быть полезным людям ';
-        heading_finish = 'и поддержать проект, можно';
-        h3_text = 'Стать участником наших акций помощи';
+        heading_start = locale === "en" && "To be " || 'Чтобы ';
+        heading_gradient = locale === "en" && "useful to people " || 'быть полезным людям ';
+        heading_finish = locale === "en" && "and support the project, you can" || 'и поддержать проект, можно';
+        h3_text = locale === "en" && "Become a participant in our helping campaigns" || 'Стать участником наших акций помощи';
         sectionHeight_1200 = '30rem';
         sectionHeight_960 = '21.75rem';
         sectionHeight_640 = '25.7rem';
@@ -54,11 +56,11 @@ switch(page) {
         url_join = 'https://t.me/helparepay';
         break;
     case 'ride':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'сделать мир спортивнее ';
-        heading_finish = 'и поддержать проект, можно';
-        h3_text = 'Стать участником или организатором заезда';
-        p_text = 'и принимать непосредственное участие в мероприятиях.';
+        heading_start = locale === "en" && "To make " || 'Чтобы ';
+        heading_gradient = locale === "en" && "the world friendly and healthy " || 'сделать мир спортивнее ';
+        heading_finish = locale === "en" && "you can support the project" || 'и поддержать проект, можно';
+        h3_text = locale === "en" && "Become a participant or organizer of the race " || 'Стать участником или организатором заезда';
+        p_text = locale === "en" && "and take direct part in the events." || 'и принимать непосредственное участие в мероприятиях.';
         // Section Height
         sectionHeight_1200 = '27rem';
         sectionHeight_960 = '21.75rem';
@@ -76,10 +78,10 @@ switch(page) {
         url_join = 'https://t.me/longlongride';
         break;
     case 'gemo':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'быть полезным людям ';
-        heading_finish = 'и поддержать проект, можно';
-        h3_text = 'Подписаться на социальные сети проекта';
+        heading_start = locale === "en" && "To be " || 'Чтобы ';
+        heading_gradient = locale === "en" && "useful to people " || 'быть полезным людям ';
+        heading_finish = locale === "en" && "and support the project you can" || 'и поддержать проект, можно';
+        h3_text = locale === "en" && "Subscribe to the project's social networks" || 'Подписаться на социальные сети проекта';
         // Section Height
         sectionHeight_1200 = '30rem';
         sectionHeight_960 = '25rem';

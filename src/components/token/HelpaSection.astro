@@ -1,30 +1,38 @@
 ---
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="helpa" id="helpa">
     <div class="helpa__container">
         <RadialGradient topPosition="-19rem" leftPosition="58.125rem" />
         <RadialGradient topPosition="14.6875rem" leftPosition="-23rem" />
         <h2 class="helpa__container-heading">HELP PLANET (<span class="gradient_span">HELPA</span>)</h2>
-        <p class="helpa__container-text">Контракт: 0x6B8686BDF9DfE41790B0147d4096BF0c44b9c90f</p>
+        <p class="helpa__container-text">{locale === "en" && "Contract" || "Контракт"}: 0x6B8686BDF9DfE41790B0147d4096BF0c44b9c90f</p>
         <div class="helpa__container_cards">
             <div class="card">
                 <div class="text1">
-                    <p class="card_name">Общее количество токена составляет:</p>
+                    <p class="card_name">{locale === "en" && "Total token supply:" || "Общее количество токена составляет:"}</p>
                     <p class="card_text-bold"><span class="gradient_span">12345678987654321</span></p>
                 </div>
             </div>
             <div class="card">
                 <div class="text2">
-                    <p class="card_name">Токенсейл <span class="gradient_span">до 1%</span> ЕЖЕГОДНО</p>
-                    <p class="card_text-common">Нераспроданное количество <br/> токенов переносится <br/> на следующий год</p>
+                    <p class="card_name">
+                        {locale === "en" &&
+                        <>Tokensale <span class="gradient_span">up to 1%</span> ANNUALLY</> || 
+                        <>Токенсейл <span class="gradient_span">до 1%</span> ЕЖЕГОДНО</>
+                        }
+                    </p>
+                    <p class="card_text-common">
+                        {locale === "en" && "Unsold tokens are allocated to the next year" || "Нераспроданное количество токенов переносится на следующий год"}</p>
                 </div>
             </div>
             <div class="card">
                 <div class="text3">
                     <p class="card_name-h2"><span class="gradient_span">100%</span></p>
-                    <p class="card_text-black">Полная продажа токена рассчитана на 100 лет</p>
+                    <p class="card_text-black">{locale === "en" && "Full token sale is scheduled for 100 years" || "Полная продажа токена рассчитана на 100 лет"}</p>
                 </div>
             </div>
         </div>

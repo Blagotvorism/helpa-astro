@@ -2,22 +2,28 @@
 import Events from "./Events.svelte";
 import '../../styles/global.css';
 import RadialGradient from "../RadialGradient.astro";
+
+const {locale} = Astro.props;
 ---
 <section class="main_events" id="component-container">
     <div class="events_container">
 		<RadialGradient topPosition="13.0625rem" leftPosition="-8.375rem" />
         <div class="events_text">
             <div class="events_title">
-                <h4 class="events_heading-1">Мы не просто вносим пожертвования в благотворительные организации</h4>
-                <h2 class="events_heading-2 gradient_span">а также проводим мероприятия самостоятельно</h2>
+                <h4 class="events_heading-1">
+					{locale === "en" && "We don't just donate to charities" || "Мы не просто вносим пожертвования в благотворительные организации"}					
+				</h4>
+                <h2 class="events_heading-2 gradient_span">
+					{locale === "en" && "we also hold out own events" || "а также проводим мероприятия самостоятельно"}
+				</h2>
             </div>
             <div class="events_descr">
-                <h3 class="events_heading-3">Вы можете принять участие в наших событиях без покупки и использования криптовалюты.</h3>
-                <h4 class="events_heading-4">Посмотрите архив проведенных мероприятий и оцените масштаб.</h4>
+                <h3 class="events_heading-3">{locale === "en" && "You can participate in our events without buying or using cryptocurrency." || "Вы можете принять участие в наших событиях без покупки и использования криптовалюты."}</h3>
+                <h4 class="events_heading-4">{locale === "en" && "View the archive of events held and appreciate the scale." || "Посмотрите архив проведенных мероприятий и оцените масштаб."}</h4>
             </div>
         </div>
 		<p class="tab_name">Направление</p>
-		<Events client:load />
+		<Events locale={locale} client:load />
     </div>
 </section>
 

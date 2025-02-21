@@ -4,43 +4,50 @@ import GemoStatisticsObj from './GemoStatisticsObj.astro';
 import euGraph from '../../images/gemohelp/gemoGraph1.png';
 import usGraph from '../../images/gemohelp/gemoGraph2.png';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="statistics">
     <div class="statistics__container">
         <RadialGradient topPosition="-3.8125rem" leftPosition="60.3125rem" />
-        <h2>Немного <span class="gradient_span">статистики</span></h2>
+        <h2>
+            {locale === "en" &&
+            <>Some <span class="gradient_span">statistics</span></> ||
+            <>Немного <span class="gradient_span">статистики</span></>
+            }
+        </h2>
         <div class="statistics__graphs">
             <GemoStatisticsObj 
                 id='obj_1'
                 img={euGraph}
                 altText='График болезней в Европе'
-                imgDescr='Количество стран ЕС, сообщивших о нехватке лекарственных препаратов'
+                imgDescr={locale === "en" && "Number of EU countries reporting shortages of medicines" || "Количество стран ЕС, сообщивших о нехватке лекарственных препаратов"}
             />
             <GemoStatisticsObj
                 id='obj_2'
-                heading='Европа'
-                text='Согласно опросу, проведенному в конце 2022 года, все 29 европейских стран, включенных в опрос, сообщили о нехватке лекарств в своих странах в течение предыдущих 12 месяцев.'
+                heading={locale === "en" && "Europe" || "Европа"}
+                text={locale === "en" && "According to a survey conducted in late 2022, all 29 European countries included in the survey reported drug shortages in their countries in the previous 12 months." || "Согласно опросу, проведенному в конце 2022 года, все 29 европейских стран, включенных в опрос, сообщили о нехватке лекарств в своих странах в течение предыдущих 12 месяцев."}
             />
             <GemoStatisticsObj
                 id='obj_3'
-                heading='Азия'
-                text='В Азии проживает значительная часть населения мира, включая Китай и Индию. В связи с этим требуется больше лекарственных препаратов. В некоторых бедных странах, особенно в сельских отдаленных районах, медицинская инфраструктура не развита, поэтому доступ к лекарствам ограничен.'
+                heading={locale === "en" && "Asia" || "Азия"}
+                text={locale === "en" && "Asia is home to a significant portion of the world's population, including China and India. As a result, more medicines are needed. In some poor countries, especially in rural and remote areas, the medical infrastructure is weak, therefore access to drugs is limited. " || "В Азии проживает значительная часть населения мира, включая Китай и Индию. В связи с этим требуется больше лекарственных препаратов. В некоторых бедных странах, особенно в сельских отдаленных районах, медицинская инфраструктура не развита, поэтому доступ к лекарствам ограничен."}
             />
             <GemoStatisticsObj 
                 id='obj_4'
                 img={usGraph}
                 altText='График изобретения лекарств в США'
-                imgDescr='Количество стран ЕС, сообщивших о нехватке лекарственных препаратов'
+                imgDescr={locale === "en" && "Number of EU countries reporting shortages of medicines" || "Количество стран ЕС, сообщивших о нехватке лекарственных препаратов"}
             />
             <GemoStatisticsObj
                 id='obj_5'
-                heading='США'
-                text='По данным опроса Американского онкологического общества, каждый десятый человек, проходящий сегодня лечение, говорит, что в течение последнего года сталкивался с нехваткой лекарств. Когда мы говорим о нехватке лекарств для лечения рака, речь может идти о жизни и смерти.'
+                heading={locale === "en" && "USA" || "США"}
+                text={locale === "en" && "According to a survey by the American Cancer Society, one in ten people undergoing treatment today says they have experienced a drug shortage in the past year. When we talk about drug shortages for cancer treatment, we can talk about life and death." || "По данным опроса Американского онкологического общества, каждый десятый человек, проходящий сегодня лечение, говорит, что в течение последнего года сталкивался с нехваткой лекарств. Когда мы говорим о нехватке лекарств для лечения рака, речь может идти о жизни и смерти."}
             />
             <GemoStatisticsObj
                 id='obj_6'
-                heading='Россия'
-                text='Сервис дистанционного обучения медработников Vrachu.ru провел опрос среди 1 843 медиков и выяснил, что почти 80% врачей заявляют о дефиците препаратов в России. Чаще всего ощущается нехватка антибиотиков(и взрослых, и детских), инсулина, препаратов для лечения гормональных расстройств и онкологических заболеваний. Анонимное анкетирование медработников проходило с 28 ноября по 2 декабря 2022 года. '
+                heading={locale === "en" && "Russia" || "Россия"}
+                text={locale === "en" && "The Vrachu.ru distance learning service for medical workers conducted a survey among 1,843 doctors and found that almost 80% of doctors report drug shortages in Russia. The most common shortages are antibiotics (both for adults and children), insulin, medicines for treating hormonal disorders and cancer. An anonymous survey of health workers was conducted from November 28 to December 2, 2022." || "Сервис дистанционного обучения медработников Vrachu.ru провел опрос среди 1 843 медиков и выяснил, что почти 80% врачей заявляют о дефиците препаратов в России. Чаще всего ощущается нехватка антибиотиков(и взрослых, и детских), инсулина, препаратов для лечения гормональных расстройств и онкологических заболеваний. Анонимное анкетирование медработников проходило с 28 ноября по 2 декабря 2022 года. "}
             />
         </div>
     </div>

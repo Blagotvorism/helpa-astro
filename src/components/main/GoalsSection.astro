@@ -3,6 +3,8 @@ import '../../styles/global.css';
 import GoalsBusinessCard from './GoalsBusinessCard.astro';
 import GoalsCard from '../GoalsCard.astro';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <section class="main_goals">
@@ -10,19 +12,19 @@ import RadialGradient from '../RadialGradient.astro';
         <RadialGradient topPosition="15.625rem" leftPosition="32.125rem" />
         <RadialGradient topPosition="4.125rem" leftPosition="40.3125rem" />
         <div class="goals_title">
-            <h1 class="goals_heading-1">Наши&nbsp;</h1>
-            <h1 class="gradient_span">долгосрочные&nbsp;</h1>
-            <h1 class="goals_heading-1">цели</h1>
+            <h1 class="goals_heading-1">{locale === "en" && <>Our&nbsp;</> || <>Наши&nbsp;</>}</h1>
+            <h1 class="gradient_span">{locale === "en" && <>long-term</> || <>долгосрочные&nbsp;</>}</h1>
+            <h1 class="goals_heading-1">{locale === "en" && <>goals</> || <>цели</>}</h1>
         </div>
         <div class="goals_cards">
-            <GoalsCard goalsIcon="goalsIcon1" goalsDescr="Развитие цивилизации" />
-            <GoalsCard goalsIcon="goalsIcon2" goalsDescr="Эффективная экономика" />
-            <GoalsCard goalsIcon="goalsIcon3" goalsDescr="Повышение общей грамотности населения" cardId={3} />
-            <GoalsCard goalsIcon="goalsIcon4" goalsDescr="Улучшение качества жизни" />
+            <GoalsCard goalsIcon="goalsIcon1" goalsDescr={locale === "en" && "Development of civilization" || "Развитие цивилизации"} />
+            <GoalsCard goalsIcon="goalsIcon2" goalsDescr={locale === "en" && "Efficient economy" || "Эффективная экономика"} />
+            <GoalsCard goalsIcon="goalsIcon3" goalsDescr={locale === "en" && "Increasing the general literacy of the population" || "Повышение общей грамотности населения"} cardId={3} />
+            <GoalsCard goalsIcon="goalsIcon4" goalsDescr={locale === "en" && "Improving the quality of life" || "Улучшение качества жизни"} />
             <GoalsBusinessCard />
-            <GoalsCard goalsIcon="goalsIcon5" goalsDescr="Чистая среда обитания" />
-            <GoalsCard goalsIcon="goalsIcon6" goalsDescr="Улучшение здоровья" />
-            <GoalsCard goalsIcon="goalsIcon7" goalsDescr="Свободная миграция" />
+            <GoalsCard goalsIcon="goalsIcon5" goalsDescr={locale === "en" && "Clean living environment" || "Чистая среда обитания"} />
+            <GoalsCard goalsIcon="goalsIcon6" goalsDescr={locale === "en" && "Improving health" || "Улучшение здоровья"} />
+            <GoalsCard goalsIcon="goalsIcon7" goalsDescr={locale === "en" && "Free migration" || "Свободная миграция"} />
         </div>
     </div>
 </section>

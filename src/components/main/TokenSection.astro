@@ -2,30 +2,38 @@
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import Link from "../Link.astro";
+import { getRelativeLocaleUrl, getRelativeLocaleUrlList } from 'astro:i18n';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="main_token">
     <div class="main_container">
         <div class="token_container">
             <div class="token_title">
                 <h1 class="gradient_span">Helpa</h1>
-                <h1 class="gradient_span">-</h1>
-                <h1 class="token_heading-3">это</h1>
+                <h1 class="gradient_span">{locale === "en" && "is" || "-"}</h1>
+                <h1 class="token_heading-3">{locale === "en" && "a" || "это"}</h1>
             </div>
             <div class="token_description">
-                <h3 class="token_heading--descr">криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за транзакцию, которая идет на развитие благотворительности.</h3>
-                <p class="token_descr">Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров.</p>
+                <h3 class="token_heading--descr">
+                    {locale === "en" && "crypto token created in BEP20 network with a 0.5% fee per transaction, which is spent on the development of charity." || "криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за транзакцию, которая идет на развитие благотворительности."}
+                </h3>
+                <p class="token_descr">
+                    {locale === "en" && "By saving and increasing your own capital, you help socially disadvantaged strata of society to get back on their feet and move on to the future of new people and new times, of tolerance and high intellectual development without state borders, language barriers." || "Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров."}
+                </p>
             </div>
         </div>
         <div class="charity_text">
             <h2 class="charity_heading">
-                Как же нам удается сохранять и приумножать капитал и успешно развивать благотворительные направления?
+                {locale === "en" && "How do we manage to save and increase capital and successfully develop charity?" || "Как же нам удается сохранять и приумножать капитал и успешно развивать благотворительные направления?"}
             </h2>
             <div class="charity_descr">
                 <p>
-                    Комиссия идёт на развитие выбранных направлений в благотворительности, а вырученные средства с реализации токена будут направлены на развитие компании, поддержание экономики. Таким образом, сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, без государственных границ, языковых барьеров, в мир терпимости и высокого интеллектуального развития.
+                    {locale === "en" && "The paid fees are spent to the development of selected charity areas, and the proceeds from token sale will be directed to the development of the company and economy support. Thus, by saving and increasing your own capital, you help socially disadvantaged strata of society to get back on their feet and move forward into the future of new people and new times, without state borders, language barriers, into a world of tolerance and high intellectual development." || "Комиссия идёт на развитие выбранных направлений в благотворительности, а вырученные средства с реализации токена будут направлены на развитие компании, поддержание экономики. Таким образом, сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, без государственных границ, языковых барьеров, в мир терпимости и высокого интеллектуального развития."}
                 </p>
                 <div class="link_container">
-                    <Link href="/token" theme='text' classes="link link_text"><span class="link_innertext_secondary">Узнать подробнее</span><Icon name="arrowText" /></Link>
+                    <Link href={getRelativeLocaleUrl(locale, "/token")} theme='text' classes="link link_text"><span class="link_innertext_secondary">
+                        {locale === "en" && "Learn more" || "Узнать подробнее"}</span><Icon name="arrowText" /></Link>
                 </div>
             </div>
         </div>

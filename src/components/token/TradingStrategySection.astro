@@ -2,31 +2,38 @@
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 import TradingStrategy from '../token/TradingStrategy.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="trading">
     <div class="trading__container">
         <RadialGradient topPosition="var(--radial-gradient-top1)" leftPosition="var(--radial-gradient-left1)" />
         <RadialGradient topPosition="var(--radial-gradient-top2)" leftPosition="var(--radial-gradient-left2)" />
-        <h2>наша торговая <span class="gradient_span">стратегия</span></h2>
+        <h2>
+            {locale === "en" &&
+            <>our trading <span class="gradient_span">strategy</span></> ||
+            <>наша торговая <span class="gradient_span">стратегия</span></>
+            }
+        </h2>
         <div class="strategy_nums">
             <TradingStrategy
                 num="1"
-                heading="Закрытый токенсейл"
-                text="между людьми, активно принимающими участие в запуске проекта"
+                heading={locale === "en" && "Closed tokensale" || "Закрытый токенсейл"}
+                text={locale === "en" && "between people actively participating in the launch of the project" || "между людьми, активно принимающими участие в запуске проекта"}
             />
             <TradingStrategy 
                 num="2"
-                heading="Открытый токенсейл"
-                text="для всех желающих, ограниченный количеством токена в одни руки"
+                heading={locale === "en" && "Open tokensale" || "Открытый токенсейл"}
+                text={locale === "en" && "for everyone, limited to the number of tokens per person" || "для всех желающих, ограниченный количеством токена в одни руки"}
             />
             <TradingStrategy 
                 num="3"
-                heading="открытый токенсейл"
-                text="для всех желающих"
+                heading={locale === "en" && "Open tokensale" || "Открытый токенсейл"}
+                text={locale === "en" && "for everyone" || "для всех желающих"}
             />
             <TradingStrategy 
                 num="4"
-                heading="Выход на биржи"
+                heading={locale === "en" && "Listing on the exchanges" || "Выход на биржи"}
             />
         </div>
     </div>

@@ -2,6 +2,9 @@
 import AboutCard from "../../components/main/AboutCard.astro";
 import '../../styles/global.css';
 import RadialGradient from "../RadialGradient.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const {locale} = Astro.props;
 ---
 <section class="about-prj">
     <div class="about-container">
@@ -10,22 +13,38 @@ import RadialGradient from "../RadialGradient.astro";
         <div class="about-text">
             <div class="about-title">
                 <h1 class="about-heading">
-                    <span class="about-heading-1">О проекте</span>
+                    <span class="about-heading-1">
+                        {locale === "ru" && "О проекте"}
+                        {locale === "en" && "About project"}
+                    </span>
                     <span class="gradient_span">ASTROWAY<span class="dash-span">-</span></span>
                 </h1>
             </div>
             <div class="about-descr">
-                <p class="about-descr-1">благотворительное криптофутурологическое сообщество, 
+                <p class="about-descr-1">
+                    {locale === "en" && <>
+                    is a charity cryptofuturological community that changes the world through the latest technological
+                    achievements of mankind and in-house economic models and strategies. 
+                    </> || <>
+                    благотворительное криптофутурологическое сообщество, 
                     меняющее мир, используя последние технические достижения человечества и собственные 
-                    экономические модели и стратегии.</p>
-                <p class="about-descr-2">Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:</p>
+                    экономические модели и стратегии.
+                    </>}
+                    </p>
+                <p class="about-descr-2">
+                    {locale === "en" && <>
+                    Our community issues HELPA crypto token and directs the proceeds to the development of four main areas:
+                    </> || <>
+                    Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:
+                    </>}                    
+                </p>
             </div>
         </div>
         <div class="about-cards">
-            <AboutCard href="/eco" cardDescription='Защита природы' imagePath='forestCard' imageDescription='Лес на хребте горы' />
-            <AboutCard href="/gemohelp" cardDescription='Помощь онкобольным' imagePath='medicalCard' imageDescription='Два человека держат руки' /> 
-            <AboutCard href="/low-income-families" cardDescription='Помощь закредитованным <br/> малоимущим семьям' imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
-            <AboutCard href="/longlongride" cardDescription='Развитие спорта' imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на фоне заката' />
+            <AboutCard href={getRelativeLocaleUrl(locale, "/eco")} cardDescription={locale === "en" ? "Nature protection" : "Защита природы"} imagePath='forestCard' imageDescription='Лес на хребте горы' />
+            <AboutCard href={getRelativeLocaleUrl(locale, "/gemohelp")} cardDescription={locale === "en" ? "Cancer patients support" : "Помощь онкобольным"} imagePath='medicalCard' imageDescription='Два человека держат руки' /> 
+            <AboutCard href={getRelativeLocaleUrl(locale, "/low-income-families")} cardDescription={locale === "en" ? "Indebted low-income families support" : "Помощь закредитованным <br/> малоимущим семьям"} imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
+            <AboutCard href={getRelativeLocaleUrl(locale, "/longlongride")} cardDescription={locale === "en" ? "Sports development" : "Развитие спорта"} imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на фоне заката' />
         </div>
     </div>
 </section>

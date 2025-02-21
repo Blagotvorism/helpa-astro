@@ -2,6 +2,8 @@
 import '../../styles/global.css';
 import { Image } from 'astro:assets';
 import mapImage from '../../images/eco/map.png';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <section class="eco_about">
@@ -9,14 +11,14 @@ import mapImage from '../../images/eco/map.png';
         <!-- <RadialGradient topPosition="40.625rem" leftPosition="-25.25rem" />
         <RadialGradient topPosition="25rem" leftPosition="63.25rem" /> -->
         <h2 class="eco_about__heading">
-            <span class="gradient_span">ECO TIME DAY - </span>
-            это обособленный проект по защите окружающей среды, не имеющий государственных границ
+            <span class="gradient_span">{locale === "en" && "Eco Time Day is" || "ECO TIME DAY - "}</span>
+            {locale === "en" && "an independent environmental protection project without state borders" || "это обособленный проект по защите окружающей среды, не имеющий государственных границ"}
         </h2>
         <h3 class="eco_about__subheading">
-            Первая экологическая акция была проведена 14.02.2022 в Шри-Ланке, г. Велигама.
+            {locale === "en" && "The first environmental action was held on Feb 14,2022 in Sri Lanka, Weligama." || "Первая экологическая акция была проведена 14.02.2022 в Шри-Ланке, г. Велигама."}
         </h3>
         <p class="eco_about__text">
-            Последующие акции в Грузии, России, Израиле.
+            {locale === "en" && "Following actions in Georgia, Russia, Israel, and other countries." || "Последующие акции в Грузии, России, Израиле."}
         </p>
         <Image src={mapImage} alt='Карта мира' class='eco_about_image' loading='eager'/>
     </div>

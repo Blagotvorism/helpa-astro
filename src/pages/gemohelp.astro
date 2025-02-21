@@ -10,24 +10,26 @@ import SocialSection from '../components/SocialSection.astro';
 import SlogansSection from '../components/main/SlogansSection.astro';
 import GemoHeroSection from '../components/gemohelp/GemoHeroSection.astro';
 import HelpSection from '../components/HelpSection.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <Layout title="GEMOHELP">
     <main>
         <GemoHeroSection />
         <RideGoals 
             page='gemohelp'
-            usualTextStart='Почему мы '
-            gradientText='думаем о других, '
-            usualTextFinish='когда могли бы думать о себе?'
-            subheading='Помимо милосердия на языке математики без цифр на пальцах вносим теоретическое разъяснение.'
-            text='Сохранение чужой жизни является ведущей задачей поддержания благоприятной экосистемы на планете. Человек меняет мир каждый день и оказывает прямое влияние на будущее видов. Формирование позитивных принципов у вида человек разумный положительно сказывается на развитии цивилизации. Таким образом создаётся благоприятная среда для наших потомков. Такие принципы значительно увеличивают шансы на выживаемость всего вида.'
+            usualTextStart={locale === "en" && "Why do we " || "Почему мы "}
+            gradientText={locale === "en" && "think about others " || "думаем о других, "}
+            usualTextFinish={locale === "en" && "when we could think about ourselves" || "когда могли бы думать о себе?"}
+            subheading={locale === "en" && "In addition to mercy in the language of mathematics without numbers, explaining in simple terms, we introduce a theoretical explanation." || "Помимо милосердия на языке математики без цифр на пальцах вносим теоретическое разъяснение."}
+            text={locale === "en" && "Preservation of other people's lives is the leading task of maintaining a favorable ecosystem on the planet. Man changes the world every day and has a direct impact on the future of species. The formation of positive principles in the species Homo Sapiens has a positive effect on the development of civilization. Thus, a favorable environment is created for our descendants. Such principles significantly increase the chances of survival of the entire species." || "Сохранение чужой жизни является ведущей задачей поддержания благоприятной экосистемы на планете. Человек меняет мир каждый день и оказывает прямое влияние на будущее видов. Формирование позитивных принципов у вида человек разумный положительно сказывается на развитии цивилизации. Таким образом создаётся благоприятная среда для наших потомков. Такие принципы значительно увеличивают шансы на выживаемость всего вида."}
         />
         <GemoCommunicationSection />
         <GemoStatistics />
         <GemoFactsSection />
         <IntroSection 
             page="gemo"
-            mainHeading="Мы приложим все усилия, чтобы однажды переломить эту ситуацию!" 
+            mainHeading={locale === "en" && "We will make every effort to break this situation one day!" || "Мы приложим все усилия, чтобы однажды переломить эту ситуацию!"}
             containerWidth="43.25rem"
             containerHeight='16.25rem'
         />

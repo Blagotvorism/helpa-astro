@@ -15,6 +15,7 @@ interface Props {
 const { page, usualTextStart, gradientText, usualTextFinish, subheading, text } = Astro.props;
 
 let textWidth, sectionHeight, containerHeight, headingWidth;
+
 switch(page) {
     case 'ride':
         textWidth = 'var(--text-width-ride)';
@@ -29,6 +30,8 @@ switch(page) {
         headingWidth = 'var(--h2-width-gemohelp)'
         break;
 }
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="ride_goals">
     <div class="ride_goals__containers">
@@ -42,10 +45,10 @@ switch(page) {
         {
             page === 'ride' && 
             <div class="ride_goals__cards">
-                <RideGoalCard iconName="rideGoal1" cardText="Привлечение новых участников" />
-                <RideGoalCard iconName="rideGoal2" cardText="Повышение узнаваемости" />
-                <RideGoalCard iconName="rideGoal3" cardText="Информирование масс" />
-                <RideGoalCard iconName="rideGoal4" cardText="Повышение мотивации" />
+                <RideGoalCard iconName="rideGoal1" cardText={locale === "en" && "Attracting new participants" || "Привлечение новых участников"} />
+                <RideGoalCard iconName="rideGoal2" cardText={locale === "en" && "Increasing awareness" || "Повышение узнаваемости"} />
+                <RideGoalCard iconName="rideGoal3" cardText={locale === "en" && "Delivering information to mass" || "Информирование масс"} />
+                <RideGoalCard iconName="rideGoal4" cardText={locale === "en" && "Increasing motivation" || "Повышение мотивации"} />
             </div>
         }
         <div class="ride_goals__text">

@@ -1,15 +1,34 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="humanism">
     <div class="humanism_container">
         <h2>
-            Можно ли назвать гуманизмом предоставление человеку орудия труда, 
-            лекарства без инструкции по применению?
+            {locale === "en" &&
+            <>Can we call humanism that provides a human with a tool of labor, a medicine without instructions for use?</> ||
+            <>Можно ли назвать гуманизмом предоставление человеку орудия труда, 
+            лекарства без инструкции по применению?</>
+            }
         </h2>
         <h3>
-            Это то, что предложил нам капитализм ХХ века - окружил нас навязанными предметами быта, 
-            рассказывая о их необходимости ввиду наделения ими определённого социального статуса.
+            {locale === "en" &&
+            <>This is what the capitalism of the 20th century offered us – it surrounded us with imposed household items,
+            telling us about their necessity because they help to gain a certain social status. </> ||
+            <>Это то, что предложил нам капитализм ХХ века - окружил нас навязанными предметами быта, 
+            рассказывая о их необходимости ввиду наделения ими определённого социального статуса.</>
+            }
         </h3>
         <p>
-            Взамен предлагает работу, которая едва обеспечивает предметами первой необходимости, 
+            {locale === "en" &&
+            <>In return, it offers work that barely provides the necessities, but performs an important function for the state – taxes.
+            Such a system encourages a person to become over-indebted, which condemns a person to eternal slavery.
+            Capitalist slavery allows the employer and all those receiving financial flows from the sale of the product to work less or not work at all.
+            The lack of information about this financial instrument leads to abuse and, as a result, to dangerous consequences in the form of a debt trap,
+            confiscation of property, freezing of an account, and in case of the most vulnerable layers of citizens – minor children removal from
+            their parents and even suicide. But such fatal events in human culture are usually explained. And not just explained but trumpeted about.
+            Instructions on safety measures during emergencies are conducted from childhood in school. They also talk about the dangers of smoking,
+            alcohol abuse, excessive overeating, and for some reason they decided to keep silent about hopeless debt.</> ||
+            <>Взамен предлагает работу, которая едва обеспечивает предметами первой необходимости, 
             но выполняющую важную функцию для государства - налоги. Такая система побуждает человека 
             к закредитованности, чем обрекает человека на вечное рабство. Капиталистическое рабство позволяет 
             работадателю и всем получающим финансовые потоки от реализации продукта работать меньше или не работать вовсе. 
@@ -19,7 +38,8 @@
             А ведь такие фатальные события в культуре человека принято разъяснять. Да не просто разъяснять, а трубить об этом. 
             Инструктаж по мерам безопасности во время чрезвычайных происшествий проводят с детских лет в школе. 
             Так же рассказывается о вреде курения, злоупотреблении спиртных напитков, чрезмерном переедании, 
-            почему-то о безнадёжной задолженности они решили умолчать. 
+            почему-то о безнадёжной задолженности они решили умолчать. </>
+            }            
         </p>
     </div>
 </section>

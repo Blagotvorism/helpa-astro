@@ -4,9 +4,21 @@
 
     let showIcons = false; // Reactive variable to toggle button design
 
+    export let locale;
+
     function toggleButton() {
     showIcons = !showIcons; // Toggle the state
     }
+
+    let joinButtonText = (function(locale) {
+        switch (locale) {
+            case "en":
+                return "Join";
+            case "ru":
+            default:
+                return "Присоединиться";            
+        }
+    })(locale);
 </script>
 
 <div class="split_btn">
@@ -22,7 +34,7 @@
     {:else}
       <!-- Button with text -->
       <button class="button-simple" on:click={toggleButton}>
-        Присоединиться
+        {joinButtonText}
       </button>
     {/if}
   </div>

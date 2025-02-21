@@ -3,23 +3,37 @@ import { Image } from 'astro:assets';
 import '../../styles/global.css';
 import Link from "../Link.astro";
 import welomePng from '../../images/main/welcome.png';
+
+let {locale} = Astro.props;
+
 ---
 <section class="welcome">
     <div class="welcome_container">
         <div class="container_left">
             <div class="welcome_text">
                 <h1 class="welcome_title">
-                    <span class="gradient_span">добро пожаловать</span>
-                    <span class="community_span">в наше сообщество</span>
+                    <span class="gradient_span">
+                        {locale === "en" && "Welcome" || "Добро пожаловать"}
+                    </span>
+                    <span class="community_span">{locale === "en" && "to our community" || "в наше сообщество"}</span>
                 </h1>
                 <p class="welcome_descr">
+                    {locale === "ru" && <>
                     экоактивистов, криптоэнтузиастов, спортсменов, 
                     интеллектуалов, волонтёров, меценатов, философов, 
-                    предпринимателей, учёных, деятелей искусств <br/> и свободных людей. 
+                    предпринимателей, учёных, деятелей искусств <br/> и свободных людей.
+                    </>}
+                    {locale === "en" && <>
+                    of eco-activists, crypto enthusiasts, athletes, intellectuals, volunteers,
+                    philanthropists, philosophers, entrepreneurs, scientists, artists, and free people.
+                    </>}
                 </p>
             </div>
             <div class="welcome_link">
-                <Link href="https://t.me/astrowayhelpplanet" theme='primary' classes="link link_primary">Присоединиться</Link>
+                <Link href="https://t.me/astrowayhelpplanet" theme='primary' classes="link link_primary">
+                    {locale === "ru" && "Присоединиться"}
+                    {locale === "en" && "Join"}
+                </Link>
             </div>  
         </div>
         <div class="container_right">

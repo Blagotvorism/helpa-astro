@@ -1,7 +1,10 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="gemohelp_hero">
     <div class="letters"></div>
     <div class="subheading">
-        <h3>90% пациентов в отделении гематологии являются онкобольными</h3>
+        <h3>{locale === "en" && "90% of patients in the hematology department are cancer patients" || "90% пациентов в отделении гематологии являются онкобольными"}</h3>
     </div>
 </section>
 
