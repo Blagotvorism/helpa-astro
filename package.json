@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^5.7.0",
+    "@fontsource-variable/inter": "^5.1.1",
+    "@fontsource-variable/montserrat": "^5.1.1",
     "@iconify-json/mdi": "^1.1.66",
     "@iconify/tools": "^4.0.4",
     "astro": "^4.6.1",

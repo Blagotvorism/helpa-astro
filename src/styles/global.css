@@ -1,14 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
-@font-face {
-  font-family: "Lulo-OneBold";
-  src: url("/FontsFree-Net-Lulo-Clean-W01-One-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Lulo-Clean";
-  src: url("/Inter-VariableFont_slnt,wght.ttf");
-}
-
 *,
 *::before,
 *::after {
@@ -28,8 +17,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Inter Variable', sans-serif;
+}
+
 h1, h2, h3, h4 {
-  font-weight: normal;
+  font-family: 'Montserrat Variable', sans-serif;
+  font-weight: 700;
 }
 
 h1, h2 {
@@ -55,9 +49,9 @@ button, button:hover, button:active, button:visited, button:focus {
 
 :root {
   /* Fonts */
-  --font-lulo-clean: Lulo-Clean;
-  --font-lulo-bold: Lulo-OneBold;
-  --font-inter: Inter;
+  /* --font-lulo-clean: Lulo-Clean; */
+  /* --font-lulo-bold: Lulo-OneBold; */
+  /* --font-inter: Inter; */
   /* Colors */
   --gradient: linear-gradient(to top, #094A6F, #64C8BD);
   --white: #FFFFFF;
