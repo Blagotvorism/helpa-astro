@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Lulo-OneBold";
+  src: url("/FontsFree-Net-Lulo-Clean-W01-One-Bold.ttf");
+}
+
 *,
 *::before,
 *::after {
@@ -50,8 +55,9 @@ button, button:hover, button:active, button:visited, button:focus {
 :root {
   /* Fonts */
   /* --font-lulo-clean: Lulo-Clean; */
-  /* --font-lulo-bold: Lulo-OneBold; */
+  /*--font-lulo-bold: Lulo-OneBold;*/
   /* --font-inter: Inter; */
+  --font-extra-bold: "Lulo-OneBold";
   /* Colors */
   --gradient: linear-gradient(to top, #094A6F, #64C8BD);
   --white: #FFFFFF;
