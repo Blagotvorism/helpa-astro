@@ -75,6 +75,7 @@
     }
 
     export function handleClick(event) {
+        console.info('handleClick', event);
         let eventCard = event;
         const container = document.getElementById('component-container');
         renderComponent(container, {event: eventCard, scrollable: scrollable});
@@ -90,7 +91,7 @@
     {#if totalCards > 0}
         <div class="cards">
             {#each cards.slice(0, itemsToShow) as card}
-                <div class="event_card" on:click={() => handleClick(event)}>
+                <div class="event_card" on:click={() => handleClick(card)}>
                     <img src={card.imageURL} alt={card.title} class='event_card-img' />
                     <div class="event_card-text">
                         <h3 class="event_card-title">{card.title}</h3>
