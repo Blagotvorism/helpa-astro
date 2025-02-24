@@ -59,6 +59,10 @@ const locale = Astro.currentLocale || "";
         --card-height: 62px;
     }
 
+    .eco-events-chain__text {
+        margin-bottom: 30px;
+    }
+
     .eco-events-chain__text h3,
     .eco-events-chain__text h4 {
         font-family: "Inter Variable";
@@ -69,7 +73,7 @@ const locale = Astro.currentLocale || "";
     .cards {
         position: relative;
         height: calc((var(--card-height) + 20px) * 3);
-        margin-top: calc(-1 * var(--card-height));
+        /* margin-top: calc(-1 * var(--card-height)); */
     }
 
     .card {
@@ -145,6 +149,7 @@ const locale = Astro.currentLocale || "";
 
         .eco-events-chain__text {
             width: 50%;
+            margin: 0;
         }
 
         .eco-events-chain__text h3 {
@@ -157,6 +162,7 @@ const locale = Astro.currentLocale || "";
 
         .cards {
             height: calc((var(--card-height) + 30px) * 3);
+            margin-top: -120px;
         }
 
         .card {
