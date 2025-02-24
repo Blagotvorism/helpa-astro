@@ -10,26 +10,7 @@ const locale = Astro.currentLocale || "";
 
 <section class="eco-events-chain">
     <div class="eco-events-chain__container">
-        <!-- <RadialGradient topPosition="-16.8125rem" leftPosition="-14.625rem" />
-        <RadialGradient topPosition="3.75rem" leftPosition="45.1875rem" /> -->
-        <div class="card" id="air">
-            <EcoEventChainCard text={locale === "en" && "Environmental pollution" || "Загрязнение окружающей среды"} textWidth="10.125rem" />
-        </div>
-        <div class="icon" id="arrow-1">
-            <Icon name="arrowLong" class='horizontal_arrow'/>
-        </div>
-        <div class="card" id="eco">
-            <EcoEventChainCard text={locale === "en" && "Violation of natural ecosystems" || "Нарушение естественных экосистем"} textWidth="10.7rem" />
-        </div>
-        <div class="icon" id="arrow-2">
-            <Icon name="arrowLong" class='horizontal_arrow'/>
-        </div>
-        <div class="card" id="animals">
-            <EcoEventChainCard text={locale === "en" && "Deterioration of animals and plants condition" || "Ухудшение состояния животных и растений"} textWidth='10.875rem'/>
-        </div>
-        <div class="icon"  id="arrow-3">
-            <Icon name="arrowLong" id="vertical-arrow" />
-        </div>
+
         <div class="eco-events-chain__text">
             <h3 class="eco-events-chain__heading">
                 {locale === "en" && "Look at this frightening chain of events" || "Посмотрите на эту пугающую цепочку событий"}
@@ -44,339 +25,365 @@ const locale = Astro.currentLocale || "";
                 </Link>
             </div>
         </div>
-        <div class="card" id="variety">
-            <EcoEventChainCard text={locale === "en" && "Reduction in the biological diversity of animals and plants" || "Уменьшение биологического разнообразия <br/> животных и растений"} textWidth='10.875rem' />
-        </div>
-        <div class="icon" id="arrow-4">
-            <Icon name="arrowLong" id="rotate-arrow" class='horizontal_arrow' id="special_arrow-2" />
-        </div>
-        <div class="card" id="species">
-            <EcoEventChainCard text={locale === "en" && "Extinction of species" || "Исчезновение видов"} textWidth='8.875rem' />
+
+        <div class="cards">
+            <div class="card" id="air">
+                {locale === "en" && <>Environmental pollution</> || <>Загрязнение окружающей среды</>}
+            </div>
+
+            <div class="card" id="eco">
+                {locale === "en" && <>Violation of natural ecosystems</> || <>Нарушение естественных экосистем</>}
+            </div>
+
+            <div class="card" id="animals">
+                {locale === "en" && <>Deterioration of animals and plants condition</> || <>Ухудшение состояния животных и растений</>}
+            </div>
+
+            <div class="card" id="species">
+                {locale === "en" && <>Extinction of species</> || <>Исчезновение видов</>}
+            </div>
+            
+            <div class="card" id="variety">
+                {locale === "en" && <>Reduction in the biological diversity of animals and plants</> || <>Уменьшение биологического разнообразия <br/> животных и растений</>}
+            </div>
+            
         </div>
     </div>
 </section>
 
 <style>
-    .eco-events-chain {
-        --chain-height: 33.125rem;
-        --container-height: 25rem;
-        --column-gap: 19px;
-        --vertical-arrow-right: 7rem;
-        --vertical-arrow-width: 2.5rem;
-        --horizontal-arrow-width: 7.625rem;
-        --vertical-arrow-stroke-width: 4px;
-        --text-width-no-card: 21.875rem;
-        --text-height: 10rem;
-        --text-margin-right: 36px;
-        --vertical-arrow-top: 12rem;
-        --heading-font-size: 1.2rem;
-        --heading-margin-bottom: 1.25rem;
-        --subheading-font-size: 1rem;
-        --subheading-color: var(--dark-grey);
-        --subheading-margin-bottom: 1.875rem;
-        --link-font-size: .85rem;
-        --link-width: 100%;
-    }
 
     .eco-events-chain {
+        width: 280px;
+        margin: 0 auto 50px;
+        --card-height: 62px;
+    }
+
+    .eco-events-chain__text h3,
+    .eco-events-chain__text h4 {
+        font-family: "Inter Variable";
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+
+    .cards {
         position: relative;
-        display: block;
-        width: var(--section-width);
-        height: var(--chain-height);
+        height: calc((var(--card-height) + 20px) * 3);
+        margin-top: calc(-1 * var(--card-height));
     }
 
-    .eco-events-chain__container {
+    .card {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 130px; height: var(--card-height);
+        font-size: 8px;
         display: flex;
-        flex-wrap: wrap;
-        /* justify-content: space-between; */
-        column-gap: var(--column-gap);
         align-items: center;
-        align-content: space-between;
-        width: var(--reduced-width);
-        height: var(--container-height);
+        justify-content: center;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: var(--box-shadow);
+        padding: 0 10px;
     }
 
-    #vertical-arrow {
-        display: inline-block;
+    .card:after { /* Arrow linking card with next card*/
+        content: '';
+        display: block;
         position: absolute;
-        right: var(--vertical-arrow-right);
-        top: var(--vertical-arrow-top);
+        width: 20px; height: 20px;
+        background: transparent url(/src/images/eco/chain-arrow-small.svg) center no-repeat;
+    }
+
+    .card:last-child::after { /* Last arrow not needed */
+        display: none;
+    }
+
+    #air {
+        left: 0; top: 0;
+    }
+
+    #air:after {
+        right: -20px;
+    }
+
+    #eco {
+        top: 0; right: 0;
+    }
+
+    #eco:after {
+        bottom: -20px;
         transform: rotate(90deg);
-        width: var(--vertical-arrow-width);
-        stroke: url(#a);
-        stroke-width: var(--vertical-arrow-stroke-width);
     }
 
-    .horizontal_arrow {
-        width: var(--horizontal-arrow-width);
+    #animals {
+        top: calc(var(--card-height) + 20px); right: 0;
     }
 
-    #rotate-arrow {
+    #animals:after {
+        left: -20px;
         transform: rotate(180deg);
     }
 
-    #special_arrow-2 {
-        transform: rotate(180deg);
+    #species {
+        top: calc(var(--card-height) + 20px);
     }
 
-    .eco-events-chain__text {
-        font-family: var(--font-inter);
-        display: inline-block;
-        width: var(--text-width-no-card);
-        height: var(--text-height);
-        margin-right: var(--text-margin-right);
+    #species:after {
+        bottom: -20px;
+        transform: rotate(90deg);
     }
 
-    .eco-events-chain__heading {
-        font-size: var(--heading-font-size);
-        margin-bottom: var(--heading-margin-bottom);
+    #variety {
+        top: calc((var(--card-height) + 20px) * 2);
     }
 
-    .eco-events-chain__subheading {
-        font-size: var(--subheading-font-size);
-        color: var(--subheading-color);
-        margin-bottom: var(--subheading-margin-bottom);
-    }
+    @media (width >= 480px) {
 
-    .link_container {
-        width: var(--link-width);
-    }
-
-    .link_innertext_secondary {
-        font-size: var(--link-font-size);
-    }
-
-    @media (960px <= width < 1200px) {
         .eco-events-chain {
-            --chain-height: 32.875rem;
-            --container-height: 21.125rem;
-            --column-gap: 14px;
-            --vertical-arrow-right: 5.5rem;
-            --vertical-arrow-top: 10rem;
-            --vertical-arrow-width: 2.5rem;
-            --horizontal-arrow-width: 6.6875rem;
-            --vertical-arrow-stroke-width: 4px;
-            --text-width-no-card: 20rem;
-            --text-height: 7.375rem;
-            --text-margin-right: 2px;
-            --heading-font-size: 1.25rem;
-            --heading-margin-bottom: 1.25rem;
-            --subheading-font-size: 0.75rem;
-            --subheading-color: var(--dark-grey);
-            --subheading-margin-bottom: 1.25rem;
-            --link-font-size: .75rem;
-            --link-width: 19rem;
-        }
-    }
-
-    @media (640px <= width < 960px) {
-        .eco-events-chain {
-            --chain-height: 44rem;
-            --container-height: 33.125rem;
-            --vertical-arrow-right: 5.5rem;
-            --vertical-arrow-width: 2.5rem;
-            --horizontal-arrow-width: 6.6875rem;
-            --vertical-arrow-stroke-width: 4px;
-            --text-width-no-card: 19.5625rem;
-            --text-height: 7.625rem;
-            --text-margin-right: 0;
-            --heading-font-size: 1.25rem;
-            --heading-margin-bottom: 1.25rem;
-            --subheading-font-size: 0.75rem;
-            --subheading-color: var(--dark-grey);
-            --subheading-margin-bottom: 1.25rem;
-            --link-font-size: .75rem;
-            --link-width: 19rem;
-        }
-
-        .eco-events-chain__container {
-            column-gap: 0;
-            justify-content: space-between;
-        }
+            width: 440px;
+            --card-height: 68px;            
+        }        
 
         .eco-events-chain__text {
-            order: -1;
+            width: 50%;
         }
 
-        .horizontal_arrow {
-            transform: rotate(90deg);
-            width: 2.5rem;
+        .eco-events-chain__text h3 {
+            font-size: 12px;
         }
 
-        .icon {
-            position: absolute;
+        .eco-events-chain__text h4 {
+            font-size: 10px;
         }
 
-       #arrow-1 {
-            top: 10rem;
-            right: 5.5rem;
+        .cards {
+            height: calc((var(--card-height) + 30px) * 3);
         }
 
-        #arrow-2 {
-            top: 22.2rem;
-            right: 5.5rem;
-        }
-
-        #arrow-3 {
-            transform: rotate(180deg);
-            width: 2.5rem;
-            top: 35.1rem;
-            left: 0;
-        }
-
-        #vertical-arrow {
-            stroke-width: 1px;
-            width: inherit;
-        }
-
-        #arrow-4 {
-            width: 6.6875rem;
-            top: 28rem;
-            left: 15.5rem;
-            transform: rotate(90deg);
-        }
-
-        #special_arrow-2 {
-            transform: rotate(90deg);
-            width: inherit;
-        }
-    }
-
-    @media (480px <= width < 640px) {
-        .eco-events-chain {
-            --chain-height: 27.1875rem;
-            --container-height: 19.0625rem;
-            --vertical-arrow-right: 5.5rem;
-            --vertical-arrow-width: 2.5rem;
-            --horizontal-arrow-width: 6.6875rem;
-            --vertical-arrow-stroke-width: 4px;
-            --text-width-no-card: 13.125rem;
-            --text-height: 7.625rem;
-            --text-margin-right: 0;
-            --heading-font-size: .75rem;
-            --heading-margin-bottom: .625rem;
-            --subheading-font-size: .625rem;
-            --subheading-color: var(--dark-grey);
-            --subheading-margin-bottom: 5px;
-            --link-font-size: .625rem;
-            --link-width: 13.125rem;
-        }
-
-        .eco-events-chain__container {
-            column-gap: 0;
-            justify-content: space-between;
-            align-content: space-between;
-        }
-
-        .eco-events-chain__text {
-            order: -1;
-        }
-
-        .horizontal_arrow {
-            width: inherit;
-            transform: rotate(90deg);
-            stroke-width: 10px;
-        }
-
-        .icon {
-            position: absolute;
+        .card {
+            width: 210px;
+            padding: 0 20px;
+            font-size: 10px;
         }
 
         #air {
-            margin-bottom: 3.5rem;
+            left: auto; top: 0; right: 0;
         }
 
-       #arrow-1 {
-            width: 2.5rem;
-            top: 6.3rem;
-            right: 5.5rem;
-            stroke-width: 10px;
-        }
-
-        #arrow-2 {
+        #air::after {
+            left: auto; bottom: -30px; right: auto;
             transform: rotate(90deg);
-            width: 1rem;
-            top: 10.5rem;
-            right: 13.4rem;
         }
 
-        #arrow-2 .horizontal_arrow {
-            width: inherit;
-            stroke-width: 1rem;
+        #eco {
+            left: auto; top: calc(var(--card-height) + 40px); right: 0;
         }
 
-        #arrow-3 {
-            width: 1rem;
-            height: 1rem;
-            top: 26px;
+        #eco::after {
+            left: -20px; bottom: auto; right: auto;
+            transform: rotate(180deg);
         }
 
-        #vertical-arrow {
-            stroke-width: 4px;
-            width: 1rem;
-            left: 6rem;
+        #animals {
+            left: 0; top: calc(var(--card-height) + 40px); right: auto;
         }
 
-        #arrow-4 {
-            width: 1rem;
-            top: 16.2rem;
-            right: 13.052rem;
-            transform: rotate(270deg);
-        }
-
-        #special_arrow-2 {
+        #animals::after {
+            left: auto; bottom: -30px; right: auto;
             transform: rotate(90deg);
-            width: inherit;
+        }
+
+        #species {
+            left: 0; top: calc((var(--card-height) + 40px) * 2); right: auto;
+        }
+
+        #species::after {
+            left: auto; bottom: auto; right: -20px;
+            transform: rotate(0);
+        }
+
+        #variety {
+            left: auto; top: calc((var(--card-height) + 40px) * 2); right: 0;
         }
     }
 
-    @media (320px <= width < 480px) {
+    @media (width >= 640px) {
+
         .eco-events-chain {
-            --chain-height: 136.5625vw;
-            --container-height: 105vw;
-            --vertical-arrow-right: 5.5rem;
-            --vertical-arrow-width: 2.5rem;
-            --horizontal-arrow-width: 6.6875rem;
-            --vertical-arrow-stroke-width: 4px;
-            --text-width-no-card: 79.6875vw;
-            --text-height: 25vw;
-            --text-margin-right: 0;
-            --heading-font-size: 3.84375vw;
-            --heading-margin-bottom: 3.125vw;
-            --subheading-font-size: 3.125vw;
-            --subheading-color: var(--dark-grey);
-            --subheading-margin-bottom: 3.125vw;
-            --link-font-size: 3.125vw;
-            --link-width: 79.6875vw;
+            width: 600px;
+            margin: 0 auto 50px;
+            --card-height: 134px;
         }
 
-        .eco-events-chain__container {
-            column-gap: 0;
-            justify-content: space-between;
-            align-content: space-between;
+        .eco-events-chain__text h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
-        .eco-events-chain__heading {
-            width: 67.5vw;
+        .eco-events-chain__text h4 {
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            height: calc((var(--card-height) + 60px) * 3);
+        }
+
+        .card {
+            width: 220px;
+            font-size: 12px;
+            border-radius: 30px;
+        }
+
+        .card::after {
+            width: 20px; height: 42px;
+            background-image: url(/src/images/eco/chain-arrow-middle.svg);
+        }
+
+        #air::after {
+            left: auto; bottom: -52px; right: auto;
+            transform: rotate(0deg);
+        }
+
+        #eco {
+            left: auto; top: calc(var(--card-height) + 60px); right: 0;
+        }
+
+        #eco::after {
+            left: auto; bottom: -52px; right: auto;
+            transform: rotate(0deg);
+        }
+
+        #animals {
+            left: auto; top: calc((var(--card-height) + 60px) * 2); right: 0;
+        }
+
+        #animals::after {
+            width: 109px;
+            background-image: url(/src/images/eco/chain-arrow-long.svg);
+            left: -130px; bottom: auto; right: auto;
+            transform: rotate(0);
+        }
+
+        #species {
+            left: 0; top: calc((var(--card-height) + 60px) * 2); right: auto;
+        }
+
+        #species::after {
+            left: auto; top: -52px; right: auto;
+            transform: rotate(180deg);
+        }
+
+        #variety {
+            left: 0; top: calc(var(--card-height) + 60px); right: auto;
+        }
+    }
+
+    @media (width >= 960px) {
+
+        .eco-events-chain {
+            position: relative;
+            width: 920px;
+            --card-height: 134px;
         }
 
         .eco-events-chain__text {
-            order: -1;
-        }
-
-        .horizontal_arrow {
-            width: inherit;
-            transform: rotate(90deg);
-            stroke-width: 10px;
-        }
-
-        .icon {
-            display: none;
+            width: 35%;
             position: absolute;
+            left: 0; bottom: 0;
+        }
+
+        .cards {
+            height: calc(var(--card-height) * 2 + 60px);
+            margin-top: 0;
+        }
+
+        .card::after {
+            width: 109px;
+            background-image: url(/src/images/eco/chain-arrow-long.svg);
+        }
+
+        #air {
+            left: 0; top: 0; right: auto;
+        }
+
+        #air:after {
+            left: auto; bottom: auto; right: -119px;
+            transform: rotate(180deg);
+        }
+
+        #eco {
+            left: 50%; top: 0; right: auto;
+            margin-left: -110px;
+        }
+
+        #eco::after {
+            left: auto; bottom: auto; right: -119px;
+            transform: rotate(180deg);
+        }
+
+        #animals {
+            left: auto; top: 0; right: 0;
+        }
+
+        #animals::after {
+            width: 20px; height: 42px;
+            background-image: url(/src/images/eco/chain-arrow-middle.svg);
+            left: auto; bottom: -52px; right: auto;
+        }
+
+        #species {
+            left: auto; top: calc(var(--card-height) + 60px); right: 0;
+        }
+
+        #species::after {
+            left: -119px; top: auto; bottom: auto; right: auto;
+            transform: rotate(0);
+        }
+
+        #variety {
+            left: 50%; top: calc(var(--card-height) + 60px); right: auto;
+            margin-left: -110px;
+        }
+    }
+
+    @media (width >= 1200px) {
+
+        .eco-events-chain {
+            width: 1160px;
+            margin-bottom: 100px;
+            --card-height: 159px;
+        }
+
+        .cards {
+            height: calc(var(--card-height) * 2 + 60px);
+        }
+
+        .card {
+            width: 266px;
+        }
+
+        #air {
+            left: 0; top: 0; right: auto;
+        }
+
+        #air:after {
+            right: -140px;
+        }
+
+        #eco {
+            margin-left: -133px;
+        }
+
+        #eco::after {
+            right: -140px;
+        }
+
+        #species::after {
+            left: -140px;
+        }
+
+        #variety {
+            margin-left: -133px;
         }
     }
 </style>
