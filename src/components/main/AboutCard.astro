@@ -34,8 +34,8 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
     .about-card {
         display: block;
         width: var(--card-width);
-        height: var(--card-height);
-    }
+        height: var(--card-height);        
+    }    
 
     .card-link {
         border-radius: var(--border-radius);
@@ -50,13 +50,19 @@ const { imagePath, imageDescription, cardDescription, href } = Astro.props;
         height: var(--bg-height);
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-    }
+        overflow: hidden;     
+    }    
 
     .about-card-img {
         width: inherit;
         height: inherit;
         border-radius: inherit;
         object-fit: cover;
+        transition: transform 0.5s;
+    }
+
+    .about-card-img:hover {
+        transform: scale(1.1);
     }
 
     .about-card-descr {

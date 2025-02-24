@@ -97,7 +97,9 @@
                     {#if category === 'all'}
                         {#each events as event, index (index)}
                             <div class="event_card" on:click={() => handleClick(event)}>
-                                <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                <div class="event_image">
+                                    <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                </div>
                                 <div class="event_card-text">
                                     <h3 class="event_card-title">{event.title}</h3>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
@@ -109,7 +111,9 @@
                         {#each events as event, index (index)}
                             {#if category === event.category}
                             <div class="event_card" on:click={() => handleClick(event)}>
-                                <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                <div class="event_image">
+                                    <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                </div>
                                 <div class="event_card-text">
                                     <h3 class="event_card-title">{event.title}</h3>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
@@ -212,16 +216,26 @@
         background-color: white;
         position: relative;
         border: 1px solid #eee;
+        overflow: hidden;
     }
 
-
-    .event_card-img {
+    .event_card-img,
+    .event_image {
         display: block;
         height: inherit;
         width: var(--event-card-img-width);
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
         object-fit: cover;
+        overflow: hidden;  
+    }
+
+    .event_card-img {
+        transition: transform 0.5s;
+    }
+
+    .event_card:hover .event_card-img {
+        transform: scale(1.1);
     }
 
     .event_card-text {
