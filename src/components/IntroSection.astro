@@ -108,11 +108,47 @@ switch (page) {
 <section class="main_intro" id="main_intro">
     <div class="main_intro__container">
         <h2 class="main_intro__title">
-            {mainHeading}
+            <span class="typed"></span><span class="untyped">{mainHeading}</span>
         </h2>
 		{text && <h4 class="main_intro__text">{text}</h4>}
     </div>
 </section>
+
+<script>
+
+	const introSection = document.getElementById("main_intro");	
+
+	window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+	function onBodyScroll() {
+		if (isMostlyVisible()) {
+			window.removeEventListener('scroll', onBodyScroll);
+			simulateTyping();			
+		}
+	}
+
+	function isMostlyVisible() {
+		return introSection!.getBoundingClientRect().top < window.innerHeight / 2;
+	}
+
+	function simulateTyping() {
+		const mainIntroTitle = introSection?.getElementsByTagName("h2")[0];
+		const typed = mainIntroTitle?.querySelector(".typed") as HTMLSpanElement;
+		const untyped = mainIntroTitle?.querySelector(".untyped") as HTMLSpanElement;
+		let untypedString = untyped.innerText;
+		let typingInterval = setInterval(type, 50);
+		function type() {			
+			if (untypedString.length > 0) {
+				const symbol = untypedString[0];
+				typed.innerText += symbol;
+				untypedString = untypedString.substring(1);
+				untyped.innerText = untypedString;
+			} else {
+				clearInterval(typingInterval);
+			}			
+		}
+	}
+</script>
 
 <style define:vars=
 	{{
@@ -168,6 +204,10 @@ switch (page) {
 		position: absolute;
 		right: -1rem;
 		bottom: 0;
+	}
+
+	.untyped {
+		opacity: 0;
 	}
 
 	@media (960px <= width < 1200px) {
