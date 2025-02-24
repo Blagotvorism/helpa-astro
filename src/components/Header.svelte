@@ -144,7 +144,7 @@
     }
 
     .nav-lang-switch a {
-        font-size: var(--font-size);
+        font-size: 12px;
         color: var(--dark-grey);
     }
 
