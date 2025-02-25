@@ -1,25 +1,26 @@
 ---
 import { Image } from 'astro:assets';
 import mapImage from '../images/eco/world-map.png';
+import markerImage from '../images/eco/world-map-marker.svg';
 ---
 
 <div class="world-map">
     <Image src={mapImage} alt='Карта мира' class='eco_about_image' loading='eager'/>
     <ul class="country-markers">
         <li class="russia">
-            <button><img src="/src/images/eco/world-map-marker.svg"/></button>
+            <button><Image src={markerImage} alt="Marker"/></button>
             <span>Россия</span>
         </li>
         <li class="georgia">
-            <button><img src="/src/images/eco/world-map-marker.svg"/></button>
+            <button><Image src={markerImage} alt="Marker"/></button>
             <span>Грузия</span>
         </li>
         <li class="israel">
-            <button><img src="/src/images/eco/world-map-marker.svg"/></button>
+            <button><Image src={markerImage} alt="Marker"/></button>
             <span>Израиль</span>
         </li>
         <li class="sri-lanka">
-            <button><img src="/src/images/eco/world-map-marker.svg"/></button>
+            <button><Image src={markerImage} alt="Marker"/></button>
             <span>Шри-Ланка</span>
         </li>
     </ul>
