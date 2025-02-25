@@ -2,7 +2,6 @@
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import Link from '../Link.astro';
-import EcoEventChainCard from './EcoEventChainCard.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const locale = Astro.currentLocale || "";
@@ -51,6 +50,35 @@ const locale = Astro.currentLocale || "";
     </div>
 </section>
 
+<script>
+
+    const cardsBlock = document.querySelector(".cards");
+
+    window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+    function onBodyScroll() {
+        if (isMostlyVisible()) {
+            window.removeEventListener('scroll', onBodyScroll);
+            animateAppearing();
+        }
+    }
+
+    function isMostlyVisible() {
+        return cardsBlock!.getBoundingClientRect().top < window.innerHeight / 2;
+    }
+
+    function animateAppearing() {
+        const appearingCounterLimit = 5;
+        let appearingCounter = 0;
+        let interval = setInterval(function() {
+            console.info(appearingCounter);
+            let card = cardsBlock!.querySelector(".card:nth-child(" + ++appearingCounter + ")") as HTMLDivElement;
+            card!.classList.add("appeared");
+            if (appearingCounter >= appearingCounterLimit) clearInterval(interval);
+        }, 600);
+    }
+</script>
+
 <style>
 
     .eco-events-chain {
@@ -77,7 +105,7 @@ const locale = Astro.currentLocale || "";
         /* margin-top: calc(-1 * var(--card-height)); */
     }
 
-    .card {
+    .card {        
         position: absolute;
         width: 130px; height: var(--card-height);
         font-size: 8px;
@@ -88,6 +116,9 @@ const locale = Astro.currentLocale || "";
         border-radius: 15px;
         box-shadow: var(--box-shadow);
         padding: 0 10px;
+        opacity: 0; /* Hide to perform appearing animation */
+        translate: 0 10px;
+        transition: opacity 1s, translate 0.2s;
     }
 
     .card:after { /* Arrow linking card with next card*/
@@ -96,6 +127,10 @@ const locale = Astro.currentLocale || "";
         position: absolute;
         width: 20px; height: 20px;
         background: transparent url(/src/images/eco/chain-arrow-small.svg) center no-repeat;
+        opacity: 0;       
+        translate: 0 10px;
+        transition: opacity 1s, translate 0.2s;
+        transition-delay: 0.2s;
     }
 
     .card:last-child::after { /* Last arrow not needed */
@@ -139,6 +174,14 @@ const locale = Astro.currentLocale || "";
 
     #variety {
         top: calc((var(--card-height) + 20px) * 2);
+    }
+
+    /* Animation */
+
+    .card.appeared,
+    .card.appeared::after {
+        opacity: 1;
+        translate: 0;
     }
 
     @media (width >= 480px) {
