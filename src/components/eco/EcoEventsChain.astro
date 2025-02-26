@@ -53,13 +53,14 @@ const locale = Astro.currentLocale || "";
 <script>
 
     const cardsBlock = document.querySelector(".cards");
+    const cards = document.querySelectorAll(".card");
 
     window.addEventListener('scroll', onBodyScroll, {passive: true});
 
     function onBodyScroll() {
         if (isMostlyVisible()) {
             window.removeEventListener('scroll', onBodyScroll);
-            animateAppearing();
+            startAnimateAppearing();
         }
     }
 
@@ -67,15 +68,17 @@ const locale = Astro.currentLocale || "";
         return cardsBlock!.getBoundingClientRect().top < window.innerHeight / 2;
     }
 
-    function animateAppearing() {
-        const appearingCounterLimit = 5;
-        let appearingCounter = 0;
+    function startAnimateAppearing() {
+        let cardIndex = 0;
+        animateAppearing(cardIndex++);
         let interval = setInterval(function() {
-            console.info(appearingCounter);
-            let card = cardsBlock!.querySelector(".card:nth-child(" + ++appearingCounter + ")") as HTMLDivElement;
-            card!.classList.add("appeared");
-            if (appearingCounter >= appearingCounterLimit) clearInterval(interval);
+            animateAppearing(cardIndex++);
+            if (cardIndex >= cards.length) clearInterval(interval);
         }, 600);
+    }
+
+    function animateAppearing(cardIndex) {
+        cards[cardIndex].classList.add("appeared");
     }
 </script>
 

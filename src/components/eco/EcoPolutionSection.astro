@@ -28,6 +28,39 @@ const locale = Astro.currentLocale || "";
     </div>
 </section>
 
+<script>
+
+    const cardsContainer = document.querySelector(".eco-pollutions__cards") as HTMLDivElement;
+    const cards = document.querySelectorAll(".card_box");
+    console.info('cards.length', cards.length);
+
+    window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+    function onBodyScroll() {
+        if (isMostlyVisible()) {
+            window.removeEventListener('scroll', onBodyScroll);
+            startAnimateAppearing();
+        }
+    }
+
+    function isMostlyVisible() {
+        return cardsContainer!.getBoundingClientRect().top < window.innerHeight / 2 + 50;
+    }
+
+    function startAnimateAppearing() {
+        let cardIndex = 0;
+        animateAppearing(cardIndex++);
+        let interval = setInterval(function() {
+            animateAppearing(cardIndex++);
+            if (cardIndex >= cards.length) clearInterval(interval);
+        }, 400);
+    }
+
+    function animateAppearing(cardIndex) {
+        cards[cardIndex].classList.add("appeared");
+    }
+</script>
+
 <style>
     .eco-pollutions {
         --section-height: 35.2rem;
@@ -76,6 +109,17 @@ const locale = Astro.currentLocale || "";
         display: flex;
         justify-content: space-between;
         width: var(--cards-width);
+    }
+
+    .card_box {
+        opacity: 0;
+        translate: 0 30px;
+        transition: translate 0.3s, opacity 0.3s;
+    }
+
+    .card_box.appeared {
+        opacity: 1;
+        translate: 0;
     }
 
     @media (960px <= width < 1200px) {
