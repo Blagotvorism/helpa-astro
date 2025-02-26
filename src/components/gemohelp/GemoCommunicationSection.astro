@@ -6,15 +6,108 @@ const locale = Astro.currentLocale || "";
 <section class="communication">
     <div class="communication__container">
         <div class="scroll_content">
-            <h2 class="scroll-content">
+            <h2 class="scroll-content text-content">
                 {locale === "en" && 
                 <>Communication has allowed the species <span class="gradient_span">to act together. Together, humanity achieve the goals</span> that nature set for it.</> ||
                 <>Коммуникация позволила виду <span class="gradient_span">действовать сообща. Вместе человечество достигает целей</span>, которые ставит перед ним природа.</>
                 }
-                </h2>
+            </h2>
         </div>
     </div>
 </section>
+
+<script>
+
+	const textContainer = document.querySelector(".scroll-content");
+    const untypedContainer = document.createElement('span');
+    const typedContainer = document.createElement('span');
+
+    untypedContainer.innerHTML = textContainer!.innerHTML.trim();
+    untypedContainer.style.opacity = "0";
+    textContainer!.innerHTML = '';
+    textContainer!.appendChild(typedContainer);
+    textContainer!.appendChild(untypedContainer);    
+
+	window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+	function onBodyScroll() {
+		if (isMostlyVisible()) {
+			window.removeEventListener('scroll', onBodyScroll);
+			simulateTyping();			
+		}
+	}
+
+	function isMostlyVisible() {
+		return textContainer!.getBoundingClientRect().top < window.innerHeight / 2;
+	}
+
+    function simulateTyping() {
+
+        let typingInterval = setInterval(type, 50);
+
+        function type() {
+
+            const firstChild = untypedContainer.firstChild;
+            if (firstChild === null) {
+                clearInterval(typingInterval);
+                return;
+            }
+
+            if (firstChild.nodeType === Node.TEXT_NODE) {
+                if (firstChild.textContent!.length === 0) {
+                    firstChild.parentNode!.removeChild(firstChild);
+                    return;
+                }
+                const nextSymbol = firstChild.textContent![0];
+
+                if (typedContainer!.lastChild === null || typedContainer!.lastChild.nodeType === Node.ELEMENT_NODE)
+                    typedContainer.appendChild(document.createTextNode(''));
+
+                if (typedContainer!.lastChild!.nodeType === Node.TEXT_NODE) {
+                    let lastChild = typedContainer!.lastChild as Node;
+                    lastChild.textContent += nextSymbol;
+                }
+
+                firstChild!.textContent = firstChild.textContent!.substring(1);      
+            }
+
+            if (firstChild.nodeType === Node.ELEMENT_NODE) {
+                const sourceChild = firstChild as Element;
+                if (sourceChild!.textContent!.length === 0) {
+                    sourceChild.parentNode!.removeChild(sourceChild);
+                    return;
+                }
+                if (typedContainer!.lastChild === null || typedContainer!.lastChild.nodeType === Node.TEXT_NODE) {
+                    let lastChild = document.createElement(sourceChild.nodeName) as Element;
+                    lastChild.classList.add(...sourceChild.classList.toString().split(' '));
+                    typedContainer.appendChild(lastChild);
+                }
+                const nextSymbol = sourceChild.textContent![0];
+                let lastChild = typedContainer!.lastChild as Node;
+                lastChild.textContent += nextSymbol;
+                firstChild!.textContent = firstChild.textContent!.substring(1);
+            }
+        }
+    }
+
+	function _simulateTyping() {
+		/* const mainIntroTitle = introSection?.getElementsByTagName("h2")[0];
+		const typed = mainIntroTitle?.querySelector(".typed") as HTMLSpanElement;
+		const untyped = mainIntroTitle?.querySelector(".untyped") as HTMLSpanElement;
+		let untypedString = untyped.innerText;
+		let typingInterval = setInterval(type, 50);
+		function type() {			
+			if (untypedString.length > 0) {
+				const symbol = untypedString[0];
+				typed.innerText += symbol;
+				untypedString = untypedString.substring(1);
+				untyped.innerText = untypedString;
+			} else {
+				clearInterval(typingInterval);
+			}			
+		} */
+	}
+</script>
 
 <style>
     .communication {
@@ -43,6 +136,10 @@ const locale = Astro.currentLocale || "";
         font-size: var(--h2-font-size);
         line-height: var(--h2-line-height);
         margin-bottom: var(--h2-margin-bottom);
+    }
+
+    .text-content span {
+        opacity: 0;
     }
 
     @media (960px <= width < 1200px) {
