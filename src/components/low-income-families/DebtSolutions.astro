@@ -14,7 +14,7 @@ const locale = Astro.currentLocale || "";
             <>Преодоление проблемы закредитованности требует <span class="gradient_span">системного подхода</span>, включающего в себя</>
             }            
         </h2>
-        <ul>
+        <ul class="solution_items">
             <li><span class="number">1</span><span class="text first_el">{locale === "en" && "Financial literacy " || "Финансовую грамотность"}</span></li>
             <li class="end"><span class="number">2</span><span class="text">{locale === "en" && "Regulation of consumer lending" || "Регулирование потребительского кредитования"}</span></li>
             <li><span class="number">3</span><span class="text">{locale === "en" && "Providing affordable alternatives for financing " || "Предоставление доступных альтернатив для финансирования"}</span></li>
@@ -22,6 +22,38 @@ const locale = Astro.currentLocale || "";
         </ul>
     </div>
 </section>
+
+<script>
+
+	const solutionItemsElement = document.querySelector(".solution_items");
+
+	window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+	function onBodyScroll() {
+		if (isMostlyVisible()) {
+			window.removeEventListener('scroll', onBodyScroll);
+			animateAppearing();			
+		}
+	}
+
+	function isMostlyVisible() {
+		return solutionItemsElement!.getBoundingClientRect().top < window.innerHeight / 2;
+	}
+
+	function animateAppearing() {
+        const solutionItems = solutionItemsElement?.querySelectorAll("li");
+        let counter = 0;
+        appear(solutionItems![counter++]);
+        const interval = setInterval(function() {
+            appear(solutionItems![counter++]);
+            if (counter >= solutionItems!.length) clearInterval(interval);
+        }, 500);
+	}
+
+    function appear(item) {
+        item.classList.add("appeared");
+    }
+</script>
 
 <style>
     .debt_solutions {
@@ -85,9 +117,18 @@ const locale = Astro.currentLocale || "";
     }
 
     .number {
+        display: block;
         font-family: var(--font-extra-bold);
         font-size: var(--number-font-size);
         color: var(--number-color);
+        opacity: 0;
+        translate: 0 30px;
+        transition: opacity 0.5s, translate 0.5s;
+    }
+
+    .appeared .number {
+        opacity: 1;
+        translate: 0;
     }
 
     .text {
@@ -97,6 +138,15 @@ const locale = Astro.currentLocale || "";
         left: var(--text-left);
         bottom: var(--text-bottom);
         width: var(--text-width);
+        opacity: 0;
+        translate: 0 30px;
+        transition: opacity 0.5s, translate 0.5s;
+        transition-delay: 0.25s;
+    }
+
+    .appeared .text {
+        opacity: 1;
+        translate: 0;
     }
 
     .first_el {
