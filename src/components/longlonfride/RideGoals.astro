@@ -59,6 +59,49 @@ const locale = Astro.currentLocale || "";
     </div>
 </section>
 
+<script>
+
+	const rideGoalsCardsElement = document.querySelector(".ride_goals__cards");
+
+    if (rideGoalsCardsElement) {
+
+        for (let i = 0; i < rideGoalsCardsElement.children.length; i++) {
+            const item = rideGoalsCardsElement.children[i] as HTMLElement;
+            item.style.opacity = "0";
+            item.style.translate = "0 30px";
+            setTimeout(() => item.style.transition = "opacity 0.5s, translate 0.5s", 0);            
+        }
+
+        window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+        function onBodyScroll() {
+            if (isMostlyVisible()) {
+                window.removeEventListener('scroll', onBodyScroll);
+                animateAppearing();			
+            }
+        }
+
+        function isMostlyVisible() {
+            return rideGoalsCardsElement!.getBoundingClientRect().top < window.innerHeight / 2;
+        }
+
+        function animateAppearing() {
+            const items = rideGoalsCardsElement?.children;
+            let counter = 0;
+            appear(items![counter++]);
+            const interval = setInterval(function() {
+                appear(items![counter++]);
+                if (counter >= items!.length) clearInterval(interval);
+            }, 300);
+        }
+
+        function appear(item) {
+            item.style.opacity = "1";
+            item.style.translate = "0";
+        }
+    }
+</script>
+
 <style define:vars={{sectionHeight, textWidth, containerHeight, headingWidth}}>
     .ride_goals {
         /* Specific page configurations */
