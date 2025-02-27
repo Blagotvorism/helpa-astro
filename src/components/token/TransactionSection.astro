@@ -22,20 +22,64 @@ const locale = Astro.currentLocale || "";
         </div>
         <div class="transaction_values">
             <div class="transaction_value">
-                <p class="text-bold"><span class="gradient_span">0,1%</span></p>
+                <p class="text-bold"><span class="counter gradient_span">0,1%</span></p>
                 <p class="text_descr">{locale === "en" && "of each transaction is burned" || "от каждой транзакции сгорает"}</p>
             </div>
             <div class="transaction_value">
-                <p class="text-bold"><span class="gradient_span">0,5%</span></p>
+                <p class="text-bold"><span class="counter gradient_span">0,5%</span></p>
                 <p class="text_descr">{locale === "en" && "of each transaction is set aside for charity" || "от каждой транзакции откладывается на благотворительность"}</p>
             </div>
             <div class="transaction_value">
-                <p class="text-bold"><span class="gradient_span">0,1%</span></p>
+                <p class="text-bold"><span class="counter gradient_span">0,1%</span></p>
                 <p class="text_descr">{locale === "en" && "each transaction increases the token value by 0.1% of the transaction" || "каждая транзакция повышает стоимость токена на 0,1% от транзакции"}</p>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+
+	const onScreenDetectorElement = document.querySelector(".transaction_values");
+
+    if (onScreenDetectorElement) {
+        const counterElements = onScreenDetectorElement.querySelectorAll(".counter");
+        for (let counterElement of counterElements) initCounterElement(counterElement);        
+    }
+
+    function initCounterElement(counterElement) {
+
+        const originalValue = parseFloat(counterElement.textContent.replace(",", "."));
+
+        let currentValue = 0;
+
+        counterElement.textContent = "0.0%";
+
+        window.addEventListener('scroll', onScroll, {passive: true});
+
+        function onScroll() {
+            if (counterElement.getBoundingClientRect().top < window.innerHeight / 3 * 2) {
+                window.removeEventListener("scroll", onScroll);
+                animateCounting();
+            }
+        }
+
+        function animateCounting() {
+            let counter = 0;
+            counterElement.textContent = getRandomValue() + "%";
+            const interval = setInterval(function() {
+                counterElement.textContent = getRandomValue() + "%";
+                if (counter++ === 50) {
+                    clearInterval(interval);
+                    counterElement.textContent = originalValue + "%";
+                }
+            }, 10);
+        }        
+    }
+
+    function getRandomValue() {
+        return Math.floor(Math.random() * 8 + 1) / 10;
+    }
+</script>
 
 <style>
     .transaction {
@@ -52,7 +96,8 @@ const locale = Astro.currentLocale || "";
         --transaction-text-height: 10.625rem;
         --transaction-values-width: 100%;
         --transaction-value-width: 21.5625rem;
-        --h3-font-size: 1.5rem;
+        --h2-font-size: 3rem;
+        --h3-font-size: 1.5rem;        
         --text-bold-fs: 5rem;
         --text-bold-margin-bottom: 1.25rem;
         --text-common-font-size: 1rem;
@@ -75,14 +120,15 @@ const locale = Astro.currentLocale || "";
         height: var(--transaction-container-height);
     }
 
-    h2, .text-bold {
+    .text-bold {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
+        font-family: var(--font-extra-bold);
         font-size: var(--transaction-heading-font-size);
     }
 
     h2 {
         margin-bottom: var(--transaction-heading-margin-bottom);
+        font-size: var(--h2-font-size);
     }
 
     .transaction__container-box {
@@ -155,6 +201,7 @@ const locale = Astro.currentLocale || "";
             --transaction-text-height: 8.75rem;
             --transaction-values-width: 100%;
             --transaction-value-width: 18.875rem;
+            --h2-font-size: 2.5rem;
             --h3-font-size: 1.25rem;
             --text-bold-fs: 4.5rem;
             --text-bold-margin-bottom: 1.25rem;
@@ -183,6 +230,7 @@ const locale = Astro.currentLocale || "";
             --transaction-text-height: 10.375rem;
             --transaction-values-width: 100%;
             --transaction-value-width: 16.375rem;
+            --h2-font-size: 2.5rem;
             --h3-font-size: 1.25rem;
             --text-bold-fs: 4.375rem;
             --text-bold-margin-bottom: 1rem;
@@ -216,6 +264,7 @@ const locale = Astro.currentLocale || "";
             --transaction-text-height: 5.875rem;
             --transaction-values-width: 100%;
             --transaction-value-width: 33.3%;
+            --h2-font-size: 1.5rem;
             --h3-font-size: .75rem;
             --text-bold-fs: 1.5rem;
             --text-bold-margin-bottom: .625rem;
@@ -229,7 +278,7 @@ const locale = Astro.currentLocale || "";
         }
     }
 
-    @media (320px <= width < 480px) {
+    @media (320px <= width < 480px) {        
         .transaction {
             --transaction-section-height: 160.75vw;
             --transaction-container-height: 128.75vw;
@@ -244,6 +293,7 @@ const locale = Astro.currentLocale || "";
             --transaction-text-height: 46.875vw;
             --transaction-values-width: 100%;
             --transaction-value-width: 30vw;
+            --h2-font-size: 4.5vw;
             --h3-font-size: 3.75vw;
             --text-bold-fs: 7.5vw;
             --text-bold-margin-bottom: 3.125vw;
