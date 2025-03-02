@@ -16,7 +16,7 @@ const locale = Astro.currentLocale || "";
 
 ---
 <Layout title="Eco Time Day">
-    <main>
+    <main id="main">
         <EcoHeroSection />
         <EcoAbout />
         <EcoPolutionSection />
@@ -34,7 +34,38 @@ const locale = Astro.currentLocale || "";
             containerHeight='21.5rem'
         />
         <EcoEventsChain />
-        <EcoGalery page="eco"/>
+        <!-- <EcoGalery page="eco"/> -->
+
+        <section id="gallery" class="gallery">
+            <div class="row">
+                <div class="slide">
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard2.jpg"/></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card text"><span>{locale === "en" ? "Together" : "Совместными усилиями"}</span></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="slide">
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>                    
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card text"><span>{locale === "en" ? <>We&nbsp;can</> : "Мы сможем"}</span></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="slide">
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>                    
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card text"><span>{locale === "en" ? <>Save our&nbsp;planet</> : "Спасти планету"}</span></div>
+                </div>
+            </div>
+        </section>
+
         <HelpSection page='eco' img={ecoHelpImg} imgDescr='Знак мира в виде рогатки' />
         <SocialSection 
             page="eco" 
@@ -45,6 +76,65 @@ const locale = Astro.currentLocale || "";
     </main>
 </Layout>
 
+<script>
+
+    // Implement horizontal scrolling for gallery
+
+    const galleryElement = document.getElementById('gallery');
+    const slides = galleryElement?.querySelectorAll(".slide");
+
+    const slide0 = slides![0] as HTMLElement;
+    const textCard0 = slide0.querySelector(".card.text") as HTMLElement;
+
+    const slide1 = slides![1] as HTMLElement;
+    const textCard1 = slide1.querySelector(".card.text") as HTMLElement;
+
+    const slide2 = slides![2] as HTMLElement;
+    const textCard2 = slide2.querySelector(".card.text") as HTMLElement;
+
+    document.documentElement.style.height = document.body.offsetHeight
+        + textCard0.offsetLeft
+        + (textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2)
+        + (textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth)
+        + "px";
+
+    document.addEventListener("scroll", onScroll, {passive: true});
+
+    function onScroll() {
+        if (document.documentElement.scrollTop > galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2) {
+            document.body.style.position = "fixed";
+            document.body.style.top = -(galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2) + "px";
+            let diff = document.documentElement.scrollTop - (galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2);
+            
+            
+            if (diff < textCard0.offsetLeft) {
+                slide0.style.translate = -diff + "px";
+                return;
+            }
+            slide0.style.translate = -textCard0.offsetLeft + "px"; // Final position
+            diff -= textCard0.offsetLeft;
+            
+            if (diff < textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2) {
+                slide1.style.translate = -diff + "px";
+                return;
+            }
+            slide1.style.translate = -(textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2) + "px"; // Final position
+            diff -= textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2;
+            
+            if (diff < textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth) {
+                slide2.style.translate = -diff + "px";
+                return;
+            }
+            slide2.style.translate = -(textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth) + "px"; // Final position
+            document.body.style.position = "absolute";
+            document.body.style.top = textCard0.offsetLeft + (textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2) + (textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth) + "px";
+        } else {
+            document.body.style.position = "";
+            document.body.style.top = "";
+        }
+    }
+</script>
+
 <style>
 	main {
 		position: relative;
@@ -52,4 +142,94 @@ const locale = Astro.currentLocale || "";
 		width: 100%;
 		height: auto;
 	}
+
+    .gallery {
+        margin-left: 20px;
+        margin-right: 20px;;
+        margin-bottom: 100px;
+    }
+
+    .gallery .row {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .gallery .row .slide {
+        display: flex;
+        gap: 20px;
+    }
+
+    .gallery .card {
+        width: 130px; height: 70px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .gallery .card.text {
+        display: flex;        
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat Variable";
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;        
+        box-shadow: var(--box-shadow);
+    }
+
+    .gallery .card.text span {
+        flex: 0;
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gallery .card img {
+        display: block;
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+
+        .gallery .card {
+            width: 210px; height: 110px;
+        }
+    }
+
+    @media (width >= 640px) {
+
+        .gallery .card {
+            width: 298px; height: 165px;
+            border-radius: 30px;
+        }
+
+        .gallery .card.text {
+            font-size: 20px;
+        }
+    }
+
+    @media (width >= 960px) {
+
+        .gallery .card {
+            width: 293px; height: 165px;
+        }
+    }
+
+    @media (width >= 1200px) {
+    
+        .gallery {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery .card {
+            width: 360px; height: 205px;
+        }
+
+        .gallery .card.text {
+            font-size: 35px;
+        }
+    }
 </style>
