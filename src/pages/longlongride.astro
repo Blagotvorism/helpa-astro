@@ -11,6 +11,17 @@ import HelpSection from '../components/HelpSection.astro';
 import SocialSection from '../components/SocialSection.astro';
 import RideHeroSection from '../components/longlonfride/RideHeroSection.astro';
 
+import galleryCard1 from '../images/longLongRide/rideGaleryCard1.jpg';
+import galleryCard2 from '../images/longLongRide/rideGaleryCard2.jpg';
+import galleryCard3 from '../images/longLongRide/rideGaleryCard3.jpg';
+import galleryCard4 from '../images/longLongRide/rideGaleryCard4.jpg';
+import galleryCard5 from '../images/longLongRide/rideGaleryCard5.jpg';
+import galleryCard6 from '../images/longLongRide/rideGaleryCard6.jpg';
+import galleryCard7 from '../images/longLongRide/rideGaleryCard7.jpg';
+import galleryCard8 from '../images/longLongRide/rideGaleryCard8.jpg';
+import galleryCard9 from '../images/longLongRide/rideGaleryCard9.jpg';
+import galleryCard10 from '../images/longLongRide/rideGaleryCard10.jpg';
+
 const locale = Astro.currentLocale || "";
 ---
 <Layout title='Long Long Ride'>
@@ -40,7 +51,31 @@ const locale = Astro.currentLocale || "";
             subheading={locale === "en" && "We are glad to see every new kind participant of our community, so we invite you to become part of our team." || 'Мы рады каждому новому доброму участнику нашего сообщества, поэтому предлагаем и Вам стать частью нашей команды.'}
             text={locale === "en" && "Some participants of our community are also participants of other volunteer organizations, including ECO TIME DAY, and take an active part in achieving our common global goal – comfortable and peaceful coexistence and unity with nature and all its inhabitants who brighten it with life." || 'Некоторые участники нашего сообщества являются так же участниками других волонтёрских организаций, в том числе ECO TIME DAY, и принимают активное участие в достижении нашей общей глобальной цели - комфортное и мирное сосуществование и единение с природой и всеми, её наполняющими жизнью, жителями.'}
         />
-        <EcoGalery page="ride" />
+        <!-- <EcoGalery page="ride" /> -->
+
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <div class="row">
+                    <div class="card"><img src={galleryCard1.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard2.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard3.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard4.src} alt=""/></div>
+                </div>
+                <div class="row">
+                    <div class="card"><img src={galleryCard5.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard6.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard7.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard8.src} alt=""/></div>
+                </div>
+                <div class="row">
+                    <div class="card"><img src={galleryCard9.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard10.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard1.src} alt=""/></div>
+                    <div class="card"><img src={galleryCard2.src} alt=""/></div>
+                </div>
+            </div>
+        </section>
+
         <!-- <RideVideoSection /> -->
         <HelpSection page='ride' />
         <SocialSection 
@@ -52,3 +87,116 @@ const locale = Astro.currentLocale || "";
         />
     </main>
 </Layout>
+
+<script>
+
+    // Implement horizontal scrolling for gallery
+
+    const galleryElement = document.getElementById('gallery');
+    const galleryContainer = galleryElement?.querySelector(".container") as HTMLElement;
+
+    const scrollDiff = galleryContainer.offsetWidth - galleryElement!.offsetWidth;
+
+    console.info('scrollDiff', scrollDiff);
+
+    const galleryTopTrigger = galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2;
+
+    document.documentElement.style.height = document.body.offsetHeight + scrollDiff + "px";
+
+    document.addEventListener("scroll", onScroll, {passive: true});
+
+    function onScroll() {
+
+        const scrollTop = document.documentElement.scrollTop;
+
+        if (scrollTop < galleryTopTrigger) {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            return;
+        }
+
+        if (scrollTop >= galleryTopTrigger && scrollTop < galleryTopTrigger + scrollDiff) {
+            document.body.style.position = "fixed";
+            document.body.style.top = -galleryTopTrigger + "px";
+            const diff = scrollTop - galleryTopTrigger;
+            galleryContainer!.style.translate = -diff + "px";
+            return;
+        }
+
+        document.body.style.position = "relative";
+        document.body.style.top = scrollDiff + "px";
+
+    }
+</script>
+
+<style>
+
+    .gallery {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    .gallery .container {
+        display: inline-flex;
+        flex-direction: column;
+    }
+
+    .gallery .row {
+        display: inline-flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .row:nth-child(2) {
+        translate: -75px;
+    }
+
+    .gallery .card {
+        width: 130px; height: 70px;
+        min-width: 130px;
+        max-width: 130px;
+        border-radius: 20px;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .gallery .card img {
+        display: block;
+        width: 100%; height: 100%;
+        object-fit: cover;;
+    }
+
+    @media (width >= 480px) {
+        .gallery .card {
+            width: 210px; height: 110px;
+            min-width: 210px; max-width: 210px;
+        }
+    }
+
+    @media (width >= 640px) {
+        .gallery .card {
+            width: 298px; height: 165px;
+            min-width: 298px; max-width: 298px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .gallery .card {
+            width: 293px; height: 165px;
+            min-width: 293px; max-width: 293px;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .gallery {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gallery .card {
+            width: 360px; height: 205px;
+            min-width: 360px; max-width: 360px;
+        }
+    }
+</style>
