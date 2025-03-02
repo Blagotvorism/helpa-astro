@@ -1,0 +1,414 @@
+---
+import womanMicroscopeImage from "/src/images/eco/woman-microscope.jpg";
+import laboratoryImage from "/src/images/eco/laboratory.jpg";
+import plantBuildingImage from "/src/images/eco/plant-building.jpg";
+import schoolClassImage from "/src/images/eco/school-class.jpg";
+import smartphoneHandImage from "/src/images/eco/smartphone-hand.jpg";
+import garbageLinesImage from "/src/images/eco/garbage-lines.jpg";
+import photographerImage from "/src/images/eco/photographer.jpg";
+
+const locale = Astro.currentLocale || "";
+---
+<section class="solutions">
+    <h2>
+        {locale === "en" &&
+            <><span class="gradient_span">Planned activities</span> to achieve the set goals</> ||
+            <><span class="gradient_span">Планируемые мероприятия</span> для решения поставленных задач</>
+        }
+    </h2>
+
+    <p class="important">
+        {locale === "en" &&
+            <>Eco Time Day holds various coastal litter collection events around the world to improve the health of ecosystems and protect marine flora and fauna. </> ||
+            <>Eco Time Day по всему миру проводит разнообразные мероприятия по сбору мусора в прибрежных зонах с целью улучшения состояния экосистем и защиты морской флоры и фауны.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Our activities include the following:</> ||
+            <>Наши мероприятия включают следующие аспекты:</>
+        }
+    </p>
+
+    <div class="activities">
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Organizing volunteer events</> ||
+                <>Организация волонтёрских акций</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Regular volunteer environmental events, where volunteers collect litter on the beaches and in coastal waters. These can be one-day events or larger campaigns, when participants with their families are invited for a weekend.</> ||
+                <>Проведение регулярных волонтёрских экологических акций, на которых волонтёры собирают мусор на пляжах и в прибрежных водах. Это могут быть однодневные события или более масштабные кампании, когда участники приглашаются на выходные с семьями.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Installing garbage containers and information signs</> ||
+                <>Установка мусорных контейнеров и информационных табличек</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Part of the funds raised can be used to install special garbage containers, as well as to create information stands on the beaches, which clarify the problems of pollution and call for maintaining cleanliness.</> ||
+                <>Часть собранных средств может быть направлена на установку специальных контейнеров для мусора, а также на создание информационных стендов на пляжах, которые проясняют проблемы загрязнения и призывают к соблюдению чистоты.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={womanMicroscopeImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Development of mobile apps</> ||
+                <>Создание мобильных приложений</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Designing and implementing apps where users can report polluted areas and help organize clean-up events.</> ||
+                <>Разработка и внедрение приложений, где пользователи могут сообщать о загрязнённых зонах и участвовать в организации мероприятий по очистке.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={laboratoryImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Creating laboratories</> ||
+                <>Создание лабораторий</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>to conduct research on the impact of plastic on marine life: Funding scientific research on the impact of plastic pollution on marine flora and fauna will collect data on which effective solutions and policies can be developed to reduce the use of single-use plastic.</> ||
+                <>для проведения исследований о воздействии пластика на морскую жизнь: Финансирование научных исследований, касающихся влияния пластикового загрязнения на морскую флору и фауну, позволит собрать данные, на основании которых можно будет разработать эффективные решения и политику по снижению использования одноразового пластика.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={plantBuildingImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Participation in international campaigns</> ||
+                <>Участие в международных кампаниях</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Teaming up with other organizations to participate in global initiatives such as World Beach Cleanup Day helps to raise awareness and increase the amount of waste collected.</> ||
+                <>Объединение с другими организациями для участия в глобальных инициативах, таких как «Мировой день очищения пляжей», способствует более широкому охвату проблемы и увеличивает количество собранного мусора.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Creating environmental education programs for schools</> ||
+                <>Создание экопросвещающих программ для школ</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Encouraging youth to engage in environmental protection through educational aspects is also an important part of the activities. Developing a program for schoolchildren that includes field trips to nature, where children can study nature and learn how to properly dispose of waste.</> ||
+                <>Поощрение участия молодёжи в охране окружающей среды через образовательные аспекты также является важной частью мероприятий. Разработка программы для школьников, включающей выездные занятия на природу, где дети смогут изучать природу и учиться правильно утилизировать отходы.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={schoolClassImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Seminars and educational programs</> ||
+                <>Семинары и образовательные программы</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>As part of the litter collection events, holding classes and master classes for local people and tourists talking about the problems of ocean pollution, ecosystems, and methods of proper waste disposal.</> ||
+                <>В рамках мероприятий по сбору мусора проведение занятий и мастер-классов для местного населения и туристов, на которых будет рассказываться о проблемах загрязнения океанов, экосистемах и методах правильной утилизации отходов.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Improvement of recreational areas</> ||
+                <>Обустройство зон отдыха</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Creating and maintaining clean recreational areas, including the benches and designated areas for waste collection, will enhance the attractiveness of the beaches and encourage more environmentally conscious visitors.</> ||
+                <>Создание и поддержка чистых зон отдыха, включая скамейки и оборудованные площади для сбора мусора, что позволит повысить привлекательность пляжей и будет способствовать более сознательному отношению посетителей к экологии.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Partnerships with local businesses</> ||
+                <>Партнёрство с местными предприятиями</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Partnering with local businesses to host clean-up events and awards for volunteers will encourage wider participation.</> ||
+                <>Сотрудничество с местным бизнесом для проведения мероприятий по очистке и организации призов для волонтёров, что будет способствовать вовлечению более широкого круга участников.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={smartphoneHandImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Creating training grounds</> ||
+                <>Создание тренировочных площадок</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>in the city for school-age children, where they will practice collecting garbage and separating it into different containers. Demonstration of the result of recycled plastic waste into useful household items. Souvenirs made of recycled plastic for participants.</> ||
+                <>в городе для детей школьного возраста, где будет проходить практика по сбору мусора и его разделению в различные контейнеры. Демонстрация результата переработанных отходов из пластика в полезные в быту вещи. Сувениры из переработанного пластика участникам.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Cooperation with local authorities</> ||
+                <>Сотрудничество с местными властями</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Working with government agencies to improve waste disposal legislation and protect the coastal zones.</> ||
+                <>Работа с правительственными структурами для улучшения законодательства по утилизации отходов и защиты прибрежных зон.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Creating industries to develop environmentally friendly solutions</> ||
+                <>Создание производств для разработки экологически безопасных решений</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Invest in technologies that help reduce the production and use of plastic, as well as in the creation of biodegradable materials. In addition, this may include research and testing of new materials that are less harmful to the environment.</> ||
+                <>Инвестиции в технологии, способствующие уменьшению производства и использования пластика, а также в создание биоразлагаемых материалов. Кроме того, это может включать в себя проведение исследований и тестирований новых материалов, которые менее вредны для окружающей среды.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Monitoring and research</> ||
+                <>Мониторинг и исследование</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>A portion of the charity’s funds can be used to monitor pollution and study its impact on local flora and fauna, allowing for more effective strategies to clean up and prevent further pollution.</> ||
+                <>Часть благотворительных средств может быть направлена на мониторинг загрязнения и изучение его влияния на местную флору и фауну, что позволит выработать более эффективные стратегии по очистке и предотвращению дальнейшего загрязнения.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={garbageLinesImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Creating social media campaigns</> ||
+                <>Создание социальных медиакампаний</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Information campaigns on social networks, video reports of environmental actions that involve the public and show the results of the actions are an effective tool. Creating content that ensures greater involvement and awareness of the problems of pollution and the importance of everyone's participation. </> ||
+                <>Информационные кампании в социальных сетях, видеоотчёты экологических акций, которые вовлекают общественность и показывают результаты проведённых акций, являются эффективным инструментом. Создание контента, обеспечивающего большое вовлечение и осведомлённость о проблемах загрязнения и важности участия каждого.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={photographerImage.src} alt="" />
+        </div>
+    </div>
+
+    <p class="important">
+        {locale === "en" &&
+            <>The ecology and cleanliness of the coastal zones require an integrated approach that combines both physical cleaning activities and education and research</> ||
+            <>Экология и чистота прибрежных зон требуют комплексного подхода, сочетающего как мероприятия по физическому очищению, так и просвещение и исследовательскую работу</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>This will help not only improve the current situation with pollution, but also ensure the sustainability of ecosystems for future generations. The funds raised can significantly increase the effectiveness of garbage collection activities in the coastal zones around the world, contributing both to cleaning and raising awareness of environmental issues.</> ||
+            <>Это поможет не только улучшить текущую ситуацию с загрязнением, но и обеспечить устойчивость экосистем для будущих поколений. Собранные средства могут значительно повысить эффективность мероприятий по сбору мусора в прибрежных зонах по всему миру, способствуя не только очищению, но и повышению осведомлённости об экологических проблемах.</>
+        }
+    </p>
+</section>
+
+<style>
+
+    .solutions {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-size: 10px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 10px
+    }
+
+    .activities {
+        margin-bottom: 50px;
+    }
+
+    .activity {
+        border-radius: 30px;
+        box-shadow: var(--box-shadow);
+        padding: 30px;
+        height: 270px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .activity img {
+        display: block;
+        position: absolute;
+        left: 0; top: 0; right: 0; bottom: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
+    .activity h3 {
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 30px;        
+    }
+
+    .activities .activity:last-child {
+        display: none;
+    }
+
+    @media (width >= 480px) {
+        .activities {
+            width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            column-gap: 10px;
+            height: 2900px;
+        }
+        .activity {
+            width: 210px;
+        }
+        .activity h3 {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        .activities {
+            width: 620px;
+            height: 3650px;
+        }
+        .activity {
+            width: 293px; height: 341px;
+        }
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .activities {
+            width: 920px; height: 2600px;
+
+        }
+        .activity {
+
+        }
+        .activities .activity:last-child {
+            display: block;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .solutions {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .activities {
+            width: 1120px; height: 2600px;
+        }
+        .activity {
+            width: 360px; height: 341px;
+        }
+        .activity p {
+            font-size: 14px;
+        }
+    }
+</style>

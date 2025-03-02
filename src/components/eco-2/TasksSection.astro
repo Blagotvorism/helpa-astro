@@ -1,0 +1,238 @@
+---
+const locale = Astro.currentLocale || "";
+---
+<section class="tasks">
+    <h2 class="heading">
+        {locale === "en" &&
+            <>Achieving our goals depends on a <span class="gradient_span">number of objectives</span></> ||
+            <>Достижение наших целей зависит от <span class="gradient_span">ряда задач</span></>
+        }
+    </h2>
+    <p class="important">
+        {locale === "en" &&
+        <>Эти факторы служат основой для успеха мероприятий по сбору мусора в прибрежных зонах и способствуют формированию устойчивого отношения общества к проблемам экологии.</> ||
+        <>Эти факторы служат основой для успеха мероприятий по сбору мусора в прибрежных зонах и способствуют формированию устойчивого отношения общества к проблемам экологии.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Public Participation and Awareness</> ||
+        <>Общественное участие и осведомленность</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>The level of awareness of local residents and tourists about the problem of coastal pollution plays a key role. A clear understanding of the negative consequences of pollution on the ecosystem and human health can attract more participants to the events. </> ||
+        <>Уровень информированности местных жителей и туристов о проблеме загрязнения прибрежных зон играет ключевую роль. Чёткое понимание негативных последствий загрязнения для экосистемы и здоровья людей способно привлечь больше участников к акциям.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Local Government Support</> ||
+        <>Поддержка местных властей</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Support from municipal and regional authorities in providing resources, permits for holding events, as well as information support, can significantly increase the status of the event and its visibility in society.</> ||
+        <>Поддержка со стороны муниципальных и региональных властей в виде предоставления ресурсов, разрешений на проведение мероприятий, а также информационного сопровождения может значительно повысить статус мероприятия и его видимость в обществе.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Cooperation with local organizations and businesses</> ||
+        <>Сотрудничество с местными организациями и бизнесом</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Partnerships with local NGOs, educational institutions and commercial entities can help attract additional resources and volunteers, as well as create a stable platform for regular events. </> ||
+        <>Партнёрство с местными НКО, учебными заведениями и коммерческими структурами может помочь привлечь дополнительные ресурсы и волонтёров, а также создать устойчивую платформу для регулярного проведения мероприятий.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Effective Advertising and PR</> ||
+        <>Эффективная реклама и PR</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Developing an attractive and accessible advertising campaign, as well as using social media to disseminate information about events can significantly increase the number of participants and boost awareness.</> ||
+        <>Разработка привлекательной и доступной рекламной кампании, а также использование социальных медиа для распространения информации о событиях могут значительно увеличить количество участников и уровень осведомлённости.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Availability of resources</> ||
+        <>Наличие ресурсов</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Funding, equipment: gloves, garbage bags, garbage collection, distribution and recycling, information on proper disposal, as well as ensuring all necessary conditions for the safety of the event participants are important factors.</> ||
+        <>Финансирование, оборудование: перчатки, мешки для мусора, вывоз мусора, распределение и переработка, информация о правильной утилизации, а также обеспечение всех необходимых условий для безопасности участников мероприятия являются важными факторами.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Regularity of events</> ||
+        <>Регулярность событий</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Regular garbage collection events help create a habit in bystanders and locals, which contributes to a culture of responsibility for the environment well-being.</> ||
+        <>Регулярное проведение акций по сбору мусора позволяет создать привычку среди обходящих и местных жителей, что способствует формированию культуры ответственности за состояние окружающей среды.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Results Monitoring</> ||
+        <>Мониторинг результатов</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Evaluation of results of the events, as the amount of garbage collected or the number of participants, will help to improve future events and demonstrate the actual results of the work.</> ||
+        <>Оценка результатов проведённых акций, например количества собранного мусора или охвата участников, будет способствовать улучшению будущих мероприятий и демонстрации фактических результатов работы.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Use of scientific data and achievements</> ||
+        <>Использование научных данных и достижений</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Application of knowledge about nature and ecology when organizing events will help to plan actions more effectively and make them targeted, based on up-to-date data on the state of coastal zones.</> ||
+        <>Применение знаний о природе и экологии при организации мероприятий поможет более эффективно планировать действия и делать их целенаправленными, основываясь на актуальных данных о состоянии прибрежных зон.</>
+        }
+    </p>
+</section>
+
+<style>
+
+    .tasks {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;;
+    }
+
+    .tasks:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .heading {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 12px;
+        font-weight: 400;
+        width: 50%;
+        float: left;
+        clear: both;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        font-weight: 600;
+        color: black;
+        margin-bottom: 30px;
+    }
+
+    h3 + p {
+        width: 50%;
+        float: right;
+    }
+
+    img {
+        width: 100%; height: auto;
+        border-radius: 15px;
+    }
+
+    .goals_image {
+        width: 95px; height: 244px;
+        border-radius: 15px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .final_image {
+        width: 280px; height: 130px;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+        h3 {
+            padding-right: 20px;
+        }
+        h3+p {
+            padding-left: 20px;
+        }
+    }
+
+    @media (width >= 640px) {
+        .heading {
+            font-size: 37px;
+        }
+        p {
+            font-size: 14px;
+        }
+        p.important {
+            font-size: 20px;
+            font-weight: 400;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        h3+p {
+            padding-left: 0;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (width >= 960px) {
+        p.important {
+            padding-left: 50%;
+        }
+        h3 {
+            width: 35%;
+        }
+        h3+p {
+            width: 65%;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .tasks {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+        }
+        .heading {
+            font-size: 48px;
+        }
+        p.important {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+        h3 {
+            font-size: 24px;
+        }
+    }
+</style>

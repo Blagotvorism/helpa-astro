@@ -1,7 +1,20 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="environment_warning">
     <div class="environment_warning__container">
-        <h2>Для <span class="gradient_span">предотвращения</span> ухудшения ситуации</h2>
-        <p>необходимо принимать меры по сокращению загрязнения водоемов, их очистки и улучшению их качества, на что и направлены наши усилия. </p>
+        <h2>
+            {locale === "en" &&
+                <>To <span class="gradient_span">prevent</span> the worse situation</> ||
+                <>Для <span class="gradient_span">предотвращения</span> ухудшения ситуации</>
+            }            
+        </h2>
+        <p>
+            {locale === "en" &&
+                <>it is necessary to take measures to reduce pollution of water bodies, clean them and improve their quality. That is what our efforts are aimed at. </> ||
+                <>необходимо принимать меры по сокращению загрязнения водоемов, их очистки и улучшению их качества, на что и направлены наши усилия.</>
+            }
+        </p>
     </div>
 </section>
 

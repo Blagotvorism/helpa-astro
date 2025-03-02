@@ -1,0 +1,223 @@
+---
+
+import coastPinImage from '/src/images/eco/coast-pin.jpg';
+import beeFlowerImage from '/src/images/eco/bee-flower.jpg';
+
+const locale = Astro.currentLocale || "";
+---
+<section class="goals">
+    <h2 class="heading">
+        {locale === "en" &&
+            <><span class="gradient_span">Goals</span> of Eco Time Day project </> ||
+            <><span class="gradient_span">Цели проекта</span> Eco&nbsp;Time&nbsp;Day</>
+    }</h2>
+    <p class="important">
+        {locale === "en" &&
+        <>The goals of our project are to save and create favorable conditions for ecosystems,
+        so we have chosen the natural boundary of these ecosystems – the coastal zone – as the object of our activities.</> ||
+        <>Цели нашего проекта — это сохранение и создание благоприятных условий для развития экосистем,
+        поэтому мы в качестве объекта нашей деятельности выбрали естественную границу этих экосистем — прибрежную зону.</>
+        }
+    </p>
+    <img src={coastPinImage.src} alt="" class="goals_image" />
+    <p>
+        {locale === "en" &&
+        <>Ecosystems provide habitat for many species of animals, plants, and microorganisms. A high level of biodiversity is important for maintaining the stability
+        of ecosystems and their ability to adapt to change. Healthy ecosystems play an important role in climate regulation.
+        They absorb carbon dioxide, reducing the concentration of greenhouse gases in the atmosphere and thereby slowing down global warming.
+        Ecosystems are actively involved in filtering pollutants, cleaning water and air, therefore maintain the health of humans and animals.
+        This is important for providing living organisms with high-quality drinking water and clean air. Maintaining the health of soils and ecosystems helps ensure
+        the sustainability of food chains.</> ||
+        <>Экосистемы обеспечивают среду обитания для множества видов животных, растений и микроорганизмов.
+        Высокий уровень биологического разнообразия важен для поддержания стабильности экосистем и их способности адаптироваться к изменениям.
+        Здоровые экосистемы играют важную роль в регулировании климата. Они поглощают углеродный диоксид, уменьшая концентрацию парниковых газов
+        в атмосфере и тем самым замедляя глобальное потепление. Экосистемы активно участвуют в фильтрации загрязнителей, очищая воду и воздух,
+        что способствует сохранению здоровья человека и животных. Это важно для обеспечения живых организмов качественной питьевой водой и чистым воздухом.
+        Сохранение здоровья почв и экосистем позволяет обеспечить устойчивость продовольственных цепочек.</>
+        }
+    </p>
+    <img src={beeFlowerImage.src} alt="" class="eco_image" />
+    <p>
+        {locale === "en" &&
+        <>Many sectors of the economy, including agriculture, fisheries, tourism, and pharmaceuticals, depend on health ecosystems.
+        The loss of ecosystems can lead to economic losses and reduction in sources of income for people.
+        Many cultures and communities deeply connect with nature and specific ecosystems that play an important role in their traditions, arts, and spiritual practices.
+        Preserving these places supports cultural heritage and identity. </> ||
+        <>Множество отраслей экономики, включая сельское хозяйство, рыболовство, туризм и фармацевтику, зависят от здоровья экосистем.
+        Потеря экосистем может привести к экономическим потерям и сокращению источников дохода для людей. Многие культуры и сообщества имеют глубокую связь
+        с природой и определёнными экосистемами, которые играют важную роль в их традициях, искусствах и духовных практиках.
+        Сохранение этих мест поддерживает культурное наследие и идентичность.</>
+        }
+    </p>
+    <p>
+        {locale === "en" &&
+        <>Ecosystems exhibit properties as pollination, pest control, water conservation, and soil stabilization.
+        These properties are essential for human well-being and life support.</> ||        
+        <>Экосистемы обладают такими свойствами, как: опыление, контроль за вредителями, сохранение водных ресурсов и стабилизация почвы.
+        Эти свойства являются необходимыми для благосостояния человека и поддержания жизнедеятельности.</>
+        }
+    </p>
+    <p>
+        {locale === "en" &&
+        <>Preserving ecosystems is critical not only for nature, but also for the survival and quality of life of the people who are part of it.</> ||        
+        <>Сохранение экосистем имеет критическую важность не только для природы, но и для выживания и качества жизни человека, которые являются её частью.</>
+        }
+    </p>
+    <img src={beeFlowerImage.src} alt="" class="final_image" />
+</section>
+
+<style>
+
+    .goals {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;;
+    }
+
+    .goals:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .heading {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+    }
+
+    img {
+        width: 100%; height: auto;
+        border-radius: 15px;
+    }
+
+    .goals_image {
+        width: 95px; height: 244px;
+        border-radius: 15px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 30px;
+    }
+
+    .eco_image + p {
+        clear: left;
+    }
+
+    .eco_image {
+        display: none;
+    }
+
+    .final_image {
+        width: 280px; height: 130px;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+
+        p {
+            font-size: 10px;
+        }
+
+        .goals_image {
+            height: 208px;
+            margin-right: 20px;
+        }
+
+        .eco_image {
+            display: block;
+            width: 128px; height: 130px;
+            object-fit: cover;
+            float: right;
+            clear: both;
+        }
+
+        .final_image {
+            display: none;
+        }
+    }
+
+    @media (width >= 640px) {
+
+        .goals {
+            margin-bottom: 100px;
+        }
+
+        .heading {
+            font-size: 37px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        p.important {
+            font-size: 20px;
+        }
+
+        .goals_image {
+            width: 219px; height: 257px;
+        }
+
+        .eco_image {
+            width: 300px; height: 378px;
+        }
+    }
+
+    @media (width >= 960px) {
+
+        .heading {
+            width: 50%;
+        }
+
+        .goals_image {
+            width: 372px; height: 257px;
+            border-radius: 30px;
+        }
+
+        .goals_image + p {
+            display: flex;
+            align-items: center;
+            height: 257px;
+        }
+
+        .eco_image {
+            width: 528px; height: 358px;
+            border-radius: 30px;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .goals {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        p {
+            font-size: 16px;
+        }
+        p.important {
+            font-size: 24px;
+        }
+        .goals_image {
+            width: 455px; height: 314px;
+            margin-bottom: 50px;
+        }
+        .goals_image+p {
+            height: 314px;
+        }
+        .eco_image {
+            width: 649px; height: 509px;
+            margin-left: 20px;
+        }
+    }
+</style>
