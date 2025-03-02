@@ -12,6 +12,15 @@ import ecoHelpImg from '../images/eco/ecoHelp.png';
 import SocialSection from '../components/SocialSection.astro';
 import EcoHeroSection from '../components/eco/EcoHeroSection.astro';
 
+import ecoGalleryCard1 from '../images/eco/ecoGaleryCard1.jpg';
+import ecoGalleryCard2 from '../images/eco/ecoGaleryCard2.jpg';
+import ecoGalleryCard3 from '../images/eco/ecoGaleryCard3.jpg';
+import ecoGalleryCard4 from '../images/eco/ecoGaleryCard4.jpg';
+import ecoGalleryCard5 from '../images/eco/ecoGaleryCard5.jpg';
+import ecoGalleryCard6 from '../images/eco/ecoGaleryCard6.jpg';
+import ecoGalleryCard7 from '../images/eco/ecoGaleryCard7.jpg';
+import ecoGalleryCard8 from '../images/eco/ecoGaleryCard8.jpg';
+
 const locale = Astro.currentLocale || "";
 
 ---
@@ -39,28 +48,28 @@ const locale = Astro.currentLocale || "";
         <section id="gallery" class="gallery">
             <div class="row">
                 <div class="slide">
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard2.jpg"/></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src={ecoGalleryCard2.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard1.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? "Together" : "Совместными усилиями"}</span></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src={ecoGalleryCard3.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>
                 </div>
             </div>
             <div class="row">
                 <div class="slide">
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>                    
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src={ecoGalleryCard5.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard6.src} alt=""/></div>           
+                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? <>We&nbsp;can</> : "Мы сможем"}</span></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>
                 </div>
             </div>
             <div class="row">
                 <div class="slide">
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>                    
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
-                    <div class="card"><img src="/src/images/eco/ecoGaleryCard1.jpg"/></div>
+                    <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard6.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard5.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? <>Save our&nbsp;planet</> : "Спасти планету"}</span></div>
                 </div>
             </div>
