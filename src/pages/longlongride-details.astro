@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HelpSection from '../components/HelpSection.astro';
+import SocialSection from '../components/SocialSection.astro';
+import RideHeroSection from '../components/longlonfride/RideHeroSection.astro';
+import GoalsSection from '../components/longlongride-details/GoalsSection.astro';
+
+const locale = Astro.currentLocale || "";
+---
+<Layout title='Long Long Ride'>
+    <main>
+        <RideHeroSection />
+        <GoalsSection />
+        <HelpSection page='ride' />
+        <SocialSection 
+            tg_link='https://t.me/longlongridechannel' 
+            inst_link = 'https://www.instagram.com/longlongride?igsh=YnV1YXZ5cTV6eHdi&utm_source=qr' 
+            yt_link = 'https://youtube.com/@longlongride?feature=shared'
+            fb_link = 'https://www.facebook.com/share/g/5GTkequcC1tW1bSD/?mibextid=adzO7l'
+            tiktok_link = 'https://www.tiktok.com/@longlongride?_t=8pQ3gih8h1t&_r=1'
+        />
+    </main>
+</Layout>
