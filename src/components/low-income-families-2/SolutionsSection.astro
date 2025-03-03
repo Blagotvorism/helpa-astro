@@ -1,0 +1,255 @@
+---
+import desktopCalculatorImage from "/src/images/lowIncome/desktop-calculator.jpg";
+import twoWomenTalkingImage from "/src/images/lowIncome/two-women-talking.jpg";
+import desktopWritingImage from "/src/images/lowIncome/desktop-writing.jpg";
+
+const locale = Astro.currentLocale || "";
+---
+
+<section class="solutions">
+    
+    <h2>
+        {locale === "en" &&
+        <><span class="gradient_span">Planned activities</span> to achieve the set objectives</> ||
+        <><span class="gradient_span">Планируемые мероприятия</span> для решения поставленных задач</>
+        }
+    </h2>
+
+    <p class="important">
+        {locale === "en" &&
+        <>These programs are aimed at providing comprehensive support to low-income, indebted families, and enabling them to develop sustainable strategies to improve their financial situation and quality of life.</> ||
+        <>Эти программы направлены на комплексную поддержку малоимущих закредитованных семей, позволяя им вырабатывать устойчивые стратегии для улучшения своего финансового положения и качества жизни.</>
+        }
+    </p>
+
+    <div class="activities">
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Financial charities</> ||
+                <>Финансовые благотворительные организации</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Establishing financial organizations in different countries to find low-income families and pay off their bad debts. Bad debt is a debt that the debtor is unable to pay. Often these are people who have been repeatedly refinanced, taking out new loans to pay off old ones. Such debts are borne by large families, disabled people, or families who have lost the breadwinner. As a result of paying off such a debt, the family situation may transform and change completely.</> ||
+                <>Создание финансовых организаций в разных странах для поиска малоимущих семей и погашения их безнадёжной задолженности. Безнадёжная задолженность — это долг, который должник оплатить не в состоянии. Часто это многократно перекредитованные люди, берущие всё новые кредиты для погашения старых. Такими долгами обладают многодетные семьи, инвалиды или семьи, утратившие кормильца. В результате погашения такого долга может произойти полное преображение и изменение положения дел.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Financial counseling and education</> ||
+                <>Финансовое консультирование и обучение</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Free programs that offer financial literacy training can help families learn how to manage their budget, savings, and loans. Counselors can conduct seminars and individual sessions, explaining the basics of sound financial behavior and spending planning.</> ||
+                <>Бесплатные программы, предлагающие обучение финансовой грамотности, могут помочь семьям научиться управлять своим бюджетом, сбережениями и кредитами. Консультанты могут проводить семинары и индивидуальные занятия, разъясняя основы грамотного финансового поведения и планирования расходов.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={desktopCalculatorImage.src} alt="" />
+        </div>        
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Debt reduction programs</> ||
+                <>Программы по снижению долговой нагрузки</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Debt management programs that help families refinance or restructure their loans. This may include setting up legal departments within financial charities and having them negotiate with creditors to lower interest rates or ease payment terms.</> ||
+                <>Программы работы с долгами, которые помогают семье рефинансировать или реструктурировать свои кредиты. Это может включать в себя создание юридических отделов в финансовых благотворительных фондах и ведение ими переговоров с кредиторами для снижения процентных ставок или облегчения условий платежей.</>
+                }
+            </p>
+        </div>        
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Employment Training</> ||
+                <>Обучение для трудоустройства</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Free programs that offer training and retraining can help family members gain new skills that will improve their chances for employment and improving their financial situation. Courses can range from vocational skills to computer basics and entrepreneurship. </> ||
+                <>Бесплатные программы, предлагающие обучение и переквалификацию, могут помочь членам семьи получить новые навыки, что повысит их шансы на трудоустройство и улучшение финансового положения. Курсы могут варьироваться от профессиональных навыков до основ компьютеров и предпринимательства.</>
+                }
+            </p>
+        </div>        
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Social Support Programs</> ||
+                <>Программы социальной поддержки</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Some organizations offer psychological support and counseling services, which can be helpful for families suffering from stress, anxiety, or other mental health issues due to financial pressure.</> ||
+                <>Некоторые организации предлагают услуги по психологической поддержке и консультированию, что может быть полезно для семей, страдающих от стресса, тревожности или других психоэмоциональных проблем, связанных с финансовым давлением.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <img src={twoWomenTalkingImage.src} alt="" />
+        </div>
+
+        <div class="activity dummy">
+            <img src={desktopWritingImage.src} alt="" />
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Charity Foundations and Grants</> ||
+                <>Благотворительные фонды и гранты</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Programs that provide financial help, grants, or subsidies to cover unexpected expenses, such as medical bills or children’s education costs. This can help keep families from falling into debt due to emergencies.</> ||
+                <>Программы, предоставляющие финансовую помощь, гранты или субсидии для покрытия непредвиденных расходов, таких как медицинские счета или расходы на учёбу детей. Это может помочь семьям не впадать в долговую яму из-за экстренных ситуаций.</>
+                }
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    .solutions {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 10px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+    }
+
+    .activities {
+        margin-bottom: 50px;
+    }
+
+    .activity {
+        border-radius: 30px;
+        box-shadow: var(--box-shadow);
+        padding: 30px;
+        height: 270px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .activity img {
+        display: block;
+        position: absolute;
+        left: 0; top: 0; right: 0; bottom: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
+    .activity h3 {
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 30px;        
+    }
+
+    @media (width >= 480px) {
+        .activities {
+            width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .activity {
+            width: 210px;
+        }
+        .activity:first-child {
+            width: 100%; height: auto;
+        }
+        .activity h3 {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        .activities {
+            width: 600px;
+        }
+        .activity {
+            width: 293px; height: 341px;
+        }
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .activities {
+            width: 920px;
+        }
+        .activity {
+            width: 294px;
+        }
+        .activity:first-child {
+            width: 607px;
+        }
+        .activity.dummy {
+            display: none;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .solutions {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .activities {
+            width: 1120px;
+        }
+        .activity {
+            width: 360px; height: 341px;
+        }
+        .activity:first-child {
+            width: 740px;
+        }
+        .activity p {
+            font-size: 14px;
+        }
+    }
+</style>
