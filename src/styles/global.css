@@ -123,3 +123,35 @@ li, ul {
   color: #fff;
   background: #2f8191;
 } */
+
+/* Text link with arrow cap */
+
+a.arrow-cap {
+  font-size: inherit;
+  background-color: var(--green);
+  background-image: var(--gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  position: relative;
+  padding: 3px 0;
+}
+
+a.arrow-cap:after {
+  content: '';
+  display: block;
+  width: 10px; height: 17px;
+  background: transparent url(../icons/arrow-cap-right.svg) center no-repeat;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  margin-top: -8px;
+  transition: right 0.2s;  
+}
+
+a.arrow-cap:hover:after {
+  right: -25px;
+}

@@ -55,6 +55,7 @@ const locale = Astro.currentLocale || "";
             <h2>{usualTextStart}<span class="gradient_span">{gradientText}</span>{usualTextFinish}</h2>
             <h3>{subheading}</h3>
             <p>{text}</p>
+            <p><a href="/longlongride-details" class="arrow-cap">Читать подробнее о целях проекта</a></p>
         </div>
     </div>
 </section>
@@ -125,6 +126,7 @@ const locale = Astro.currentLocale || "";
         --h3-margin-bottom: 1.25rem;
         --p-font-size: 1rem;
         --margin-left: 29.6875rem;
+        margin-bottom: 30px;
     }
 
     section {
@@ -154,7 +156,10 @@ const locale = Astro.currentLocale || "";
         display: block;
         position: relative;
         width: inherit;
-        height: 24rem;
+    }
+
+    .ride_goals__text p {
+        margin-bottom: 10px;
     }
 
     h2 {
@@ -204,7 +209,7 @@ const locale = Astro.currentLocale || "";
             --h3-margin-bottom: 1.25rem;
             --p-font-size: .75rem;
             --margin-left: 23.25rem;
-        }
+        }        
     }
 
     @media (640px <= width < 960px) {
@@ -291,6 +296,12 @@ const locale = Astro.currentLocale || "";
 
         .ride_goals__cards {
             flex-wrap: wrap;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .ride_goals__text p {
+            margin-bottom: 20px;
         }
     }
 </style>
