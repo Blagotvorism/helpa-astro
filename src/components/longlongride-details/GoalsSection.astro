@@ -44,6 +44,8 @@ const locale = Astro.currentLocale || "";
         }
     </p>
 
+    <img src={rollerboardImage.src} alt="" class="illustration image4"/>
+
     <p>
         {locale === "en" &&
             <>The goal of our sports community is to cover a wide range of areas, which facilitates not only sports popularization, but also socialization, support for social and environmental initiatives.</> ||
@@ -59,6 +61,7 @@ const locale = Astro.currentLocale || "";
     </p>
 
     <img src={rollerboardImage.src} alt="" class="illustration image2"/>
+    <img src={streetRunningPeopleImage.src} alt="" class="illustration image6"/>
 
     <p>
         {locale === "en" &&
@@ -74,12 +77,14 @@ const locale = Astro.currentLocale || "";
         }
     </p>
 
+    <img src={streetRunningPeopleImage.src} alt="" class="illustration image5"/>
+
     <p>
         {locale === "en" &&
             <>Creating opportunities for learning and development can include educational programs, seminars, and trainings on various aspects of sports that help to improve the qualifications of volunteers and participants, helping them to develop their skills and career prospects.</> ||
             <>Создание возможностей для обучения и развития — образовательные программы, семинары и тренинги по различным аспектам спорта, которые способствуют повышению квалификации волонтёров и участников, помогая им развивать свои навыки и карьерные перспективы.</>
         }
-    </p>   
+    </p>    
 
     <p>
         {locale === "en" &&
@@ -145,5 +150,125 @@ const locale = Astro.currentLocale || "";
     .image2, .image3 {
         width: 280px; height: 130px;
         margin: 20px 0;
+    }
+
+    .image4, .image5, .image6 {
+        display: none;
+    }
+
+    @media (width >= 480px) {
+        p {
+            font-size: 10px;
+        }
+        .image1 {
+            height: 215px;
+            margin-bottom: 20px;
+        }
+        .image4 + p {
+            clear: left;
+        }
+        .image2 {
+            display: none;
+        }
+        .image3 {
+            display: none;
+        }
+        .image4 {
+            display: block;
+            width: 128px; height: 205px;
+            float: right;
+            clear: both;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        .image2 + p {
+            clear: both;
+        }
+        .image5 {
+            display: block;
+            width: 95px; height: 215px;
+            float: left;
+            margin-right: 10px;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+        }
+        .illustration {
+            border-radius: 30px;
+        }
+        .image1 {
+            width: 219px; height: 257px;
+            margin-right: 20px;
+        }
+        .image4 {
+            width: 298px; height: 378px;
+        }
+        .image5 {
+            display: none;
+        }
+        .image6 {
+            display: block;
+            width: 141px; height: 227px;
+            float: left;
+            margin-right: 20px;
+            clear: both;
+            margin-bottom: 20px;
+        }
+        .image6 + p {
+            clear: right;
+        }
+        .image5 + p {
+            clear: both;
+        }
+    }
+
+    @media (width >= 960px) {
+        .image1 {
+            width: 372px; height: 257px;
+        }
+        .image4 {
+            width: 528px; height: 358px;
+        }
+        .image6 {
+            width: 215px; height: 398px;
+        }
+        .image5 + p {
+            clear: none;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .goals {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            font-size: 48px;
+        }
+        p {
+            font-size: 16px;
+        }
+        p.important {
+            font-size: 24px;
+        }
+        .image1 {
+            width: 455px; height: 314px;
+        }
+        .image4 {
+            width: 645px; height: 388px;
+        }
+        .image6 {
+            width: 265px; height: 526px;
+        }
     }
 </style>
