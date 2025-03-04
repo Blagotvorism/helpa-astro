@@ -4,6 +4,7 @@ import HelpSection from '../components/HelpSection.astro';
 import SocialSection from '../components/SocialSection.astro';
 import RideHeroSection from '../components/longlonfride/RideHeroSection.astro';
 import GoalsSection from '../components/longlongride-details/GoalsSection.astro';
+import TasksSection from '../components/longlongride-details/TasksSection.astro';
 
 const locale = Astro.currentLocale || "";
 ---
@@ -11,6 +12,7 @@ const locale = Astro.currentLocale || "";
     <main>
         <RideHeroSection />
         <GoalsSection />
+        <TasksSection />
         <HelpSection page='ride' />
         <SocialSection 
             tg_link='https://t.me/longlongridechannel' 

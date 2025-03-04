@@ -1,0 +1,237 @@
+---
+const locale = Astro.currentLocale || "";
+---
+<section class="tasks">
+    <h2 class="heading">
+        {locale === "en" &&
+            <>Achieving our goals depends on a <span class="gradient_span">number of objectives</span></> ||
+            <>Достижение наших целей зависит от <span class="gradient_span">ряда задач</span></>
+        }
+    </h2>
+    <p class="important">
+        {locale === "en" &&
+        <>The creation of our sports community fulfills many important objectives aimed at improving health and communication in society, improving the quality of life.</> ||
+        <>Создание нашего спортивного сообщества выполняет множество важных задач, направленных на улучшение здоровья и коммуникации в обществе, повышению качества жизни.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Organizing sports events</> ||
+        <>Организация спортивных мероприятий</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>One of the main objectives is to plan and conduct various sports events, such as races, competitions, and exhibitions. These events not only promote sports, but also provide interaction between participants, coaches, and the audience.</> ||
+        <>Одной из главных задач является планирование и проведение различных спортивных мероприятий, таких как заезды, соревнования и выставки. Эти события не только способствуют популяризации спорта, но и обеспечивают взаимодействие между участниками, тренерами и зрителями.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Educating and preparing athletes</> ||
+        <>Обучение и подготовка спортсменов</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Creating a program for the athletes’ education and preparation, including training, master classes, and seminars. This allows participants to develop their skills and improve their level of training.</> ||
+        <>Создание программы для обучения и подготовки спортсменов, включая тренировки, мастер-классы и семинары. Это позволяет участникам развивать свои навыки и повышать уровень подготовки.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Establishing international parts of the community</> ||
+        <>Создание международных частей сообщества</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Creation of international cells/units can serve as a link between sports and the local community. They can organize community programs aimed at involving young people and other groups in sports activities, which contributes to international cooperation, strengthening social harmony, cohesion, and globalization.</> ||
+        <>Создание международных ячеек может служить связующим звеном между спортом и местным сообществом. Они могут организовать общественные программы, направленные на вовлечение молодёжи и других групп в спортивную деятельность, что способствует международному сотрудничеству, укреплению социальной гармонии, сплочённости и глобализации.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Disseminating information on sports initiatives</> ||
+        <>Распространение информации о спортивных инициативах</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>One of the tasks is to inform the public about sports events and opportunities to participate in them. This may include developing advertising and information materials, an active presence on social networks and participation in local media.</> ||
+        <>Одной из задач является информирование общественности о спортивных мероприятиях и возможностях участия в них. Это может включать разработку рекламных и информационных материалов, активное присутствие в социальных сетях и участие в местных СМИ.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Stimulating physical activity</> ||
+        <>Стимулирование физической активности</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Work aimed at inspiring people for an active lifestyle and playing sports. Promoting a healthy lifestyle and physical activity for all ages.</> ||
+        <>Работа, направленная на вдохновение людей к ведению активного образа жизни и занятиям спортом. Продвижение здорового образа жизни и физической активности для всех возрастных категорий.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Supporting inclusion in sports</> ||
+        <>Поддержка инклюзии в спорте</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>This includes working with vulnerable groups, such as children with disabilities, the elderly, and socially disadvantaged groups. This may include developing programs that allow everyone to participate in sports events.</> ||
+        <>Это включает работу с уязвимыми группами, такими как дети с ограниченными возможностями, старшее поколение и социально незащищённые слои населения. Это может включать в себя разработку программ, позволяющих всем желающим участвовать в спортивных мероприятиях.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Fundraising and resourcing</> ||
+        <>Сбор средств и ресурсное обеспечение</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Attracting funding and resources to support initiatives. This may include organizing charity events, promotion events within local businesses.</> ||
+        <>Привлечение финансирования и ресурсов для поддержки своих инициатив. Это может включать организацию благотворительных мероприятий, продвижение среди местного бизнеса.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Forming a team of volunteers</> ||
+        <>Формирование команды волонтёров</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Training and involving new volunteers is also an important task. Creating a friendly and educational environment will improve the work of the organization and effectively implement projects.</> ||
+        <>Обучение и вовлечение новых волонтёров также является важной задачей. Создание дружелюбной и обучающей среды позволит улучшить работу организации и эффективно реализовывать проекты.</>
+        }
+    </p>
+</section>
+
+<style>
+
+    .tasks {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;;
+    }
+
+    .tasks:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .heading {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 12px;
+        font-weight: 400;
+        width: 50%;
+        float: left;
+        clear: both;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 30px;
+    }
+
+    h3 + p {
+        width: 50%;
+        float: right;
+    }
+
+    img {
+        width: 100%; height: auto;
+        border-radius: 15px;
+    }
+
+    .goals_image {
+        width: 95px; height: 244px;
+        border-radius: 15px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .final_image {
+        width: 280px; height: 130px;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+        h3 {
+            padding-right: 20px;
+        }
+        h3+p {
+            padding-left: 20px;
+        }
+    }
+
+    @media (width >= 640px) {
+        .heading {
+            font-size: 37px;
+        }
+        p {
+            font-size: 14px;
+        }
+        p.important {
+            font-size: 20px;
+            font-weight: 400;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        h3+p {
+            padding-left: 0;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (width >= 960px) {
+        p.important {
+            padding-left: 50%;
+        }
+        h3 {
+            width: 35%;
+        }
+        h3+p {
+            width: 65%;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .tasks {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+        }
+        .heading {
+            font-size: 48px;
+        }
+        p.important {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+        h3 {
+            font-size: 24px;
+        }
+    }
+</style>
