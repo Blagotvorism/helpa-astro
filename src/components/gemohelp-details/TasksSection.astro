@@ -1,0 +1,208 @@
+---
+const locale = Astro.currentLocale || "";
+---
+<section class="tasks">
+    <h2 class="heading">
+        {locale === "en" &&
+            <>Achieving our goals depends on a <span class="gradient_span">number of objectives</span></> ||
+            <>Достижение наших целей зависит от <span class="gradient_span">ряда задач</span></>
+        }
+    </h2>
+    <p class="important">
+        {locale === "en" &&
+        <>Need for Medical Support: oncology diseases require significant financial expenditures for treatment, including chemotherapy and supportive care.</> ||
+        <>Необходимость в медицинской поддержке: Онкологические заболевания требуют значительных финансовых затрат на лечение, включая химиотерапию и поддерживающую терапию.</>
+        }
+    </p>
+    <p>
+        {locale === "en" &&
+        <>Many patients cannot afford to pay for these services without the help of charities. And the efforts of most charities are aimed exclusively at saving children. Often, the younger and older generations fight the enemy alone, getting into debt, or wasting precious time in searching for alternative, but affordable treatment methods.</> ||
+        <>Многие больные не могут позволить себе оплатить эти услуги без помощи благотворительных организаций. А усилия большинства благотворительных организаций направлены на спасение исключительно детей. Часто молодое и старшее поколение сражается с врагом в одиночку, влезая в долги, или в поиске альтернативных, но доступных методов лечения, теряют драгоценное время.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Social isolation prevention and psychological support</> ||
+        <>Устранение социальной изоляции и психологическая поддержка</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Cancer patients often face social isolation and psychological difficulties. Isolation occurs not only naturally, due to the poor condition of the patient or due to hospital treatment. Often it is self-isolation, when the patient does not make contact even during short periods of his satisfactory condition, not wanting to seem weak. Help from charities can include the creation of support groups, providing psychological counseling and organizing events that help them feel less lonely.</> ||
+        <>Онкобольные часто сталкиваются с социальной изоляцией и психологическими трудностями. Изоляция происходит не только естественным путём, ввиду плохого состояния больного или ввиду госпитализированного лечения. Часто это бывает самоизоляция, когда пациент даже в небольшие промежутки своего удовлетворительного состояние не идёт на контакт, не желая показаться слабым. Помощь благотворительных организаций может включать создание групп поддержки, предоставление психологического консультирования и организацию мероприятий, которые помогут им чувствовать себя менее одинокими.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Education and Awareness</> ||
+        <>Образование и осведомлённость</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Educational initiatives aimed at raising awareness about leukemia, its early signs. This can help in detecting the disease at an earlier stage and improving treatment outcomes.</> ||
+        <>Образовательные инициативы, направленные на повышение осведомлённости о лейкемии, его ранних признаках. Это может помочь в выявлении заболевания на более ранних стадиях и улучшении исходов лечения.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Research Support</> ||
+        <>Поддержка научных исследований</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Funding for research and clinical trials focused on developing new treatments and improving the quality of life for cancer patients. This in turn can result in more effective treatments and save lives.</> ||
+        <>Финансирование научных исследований и клинические испытания, сфокусированные на разработке новых методов лечения и улучшения качества жизни для онкобольных. Это в свою очередь может привести к более эффективной терапии и спасению жизней.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Improving Quality of Life</> ||
+        <>Улучшение качества жизни</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>With assistance, cancer patients can access various types of support that will help improve their quality of life during treatment, including rehabilitation programs, care services, and adapting their home to their needs.</> ||
+        <>Благодаря помощи онкобольные могут получить доступ к различным видам поддержки, которые помогут улучшить их качество жизни во время лечения, включая реабилитационные программы, услуги по уходу и адаптацию их дома под их нужды.</>
+        }
+    </p>
+
+    <p class="important">
+        {locale === "en" &&
+        <>Help to cancer patients is critical to supporting and improving the quality of life of those suffering from this devastating disease. A society that participates in such programs essentially creates an insurance company that will, if necessary, help every citizen of this society, including a program participant.</> ||
+        <>Помощь онкобольным является критически важной для поддержки и улучшения качества жизни тех, кто страдает от этой тяжёлой болезни. Общество, принимающее участие в подобных программах, по сути создаёт страховую компанию, которая при случае поможет каждому гражданину этого общества, в том числе и участнику программы.</>
+        }
+    </p>
+</section>
+
+<style>
+
+    .tasks {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;;
+    }
+
+    .tasks:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .heading {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 12px;
+        font-weight: 400;
+        width: 50%;
+        float: left;
+        clear: both;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 30px;
+    }    
+
+    h3 + p {
+        width: 50%;
+        float: right;
+    }
+
+    img {
+        width: 100%; height: auto;
+        border-radius: 15px;
+    }
+
+    .goals_image {
+        width: 95px; height: 244px;
+        border-radius: 15px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .final_image {
+        width: 280px; height: 130px;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+        h3 {
+            padding-right: 20px;
+        }
+        h3+p {
+            padding-left: 20px;
+        }
+    }
+
+    @media (width >= 640px) {
+        .heading {
+            font-size: 37px;
+        }
+        p {
+            font-size: 14px;
+        }
+        p.important {
+            font-size: 20px;
+            font-weight: 400;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        h3+p {
+            padding-left: 0;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (width >= 960px) {
+        p.important {
+            padding-left: 50%;
+        }
+        p.important:last-child {
+            width: 626px;
+            margin: auto;
+            padding-left: 0;
+            clear: both;
+        }
+        h3 {
+            width: 35%;
+        }
+        h3+p {
+            width: 65%;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .tasks {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+        }
+        .heading {
+            font-size: 48px;
+        }
+        p.important {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+        h3 {
+            font-size: 24px;
+        }
+    }
+</style>
