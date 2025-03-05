@@ -1,0 +1,192 @@
+---
+import twoChildrenImage from "/src/images/gemohelp-details/two-children.jpg";
+import holdingHandsImage from "/src/images/gemohelp-details/holding-hands.jpg";
+
+const locale = Astro.currentLocale || "";
+---
+
+<section class="goals">
+    <h2>
+        {locale === "en" &&
+            <><span class="gradient_span">Goals</span> of Gemohelp project</> ||
+            <><span class="gradient_span">Цели проекта</span> Gemohelp</>
+        }
+    </h2>
+
+    <p class="important">
+        {locale === "en" &&
+            <>Oncological diseases have rightfully become the plague of the 20th-21st centuries. A disease that appears out of nowhere, which is impossible to predict and sometimes even diagnose. And any recommendations are only a probability for protection, but not protection from the disease. The study of this problem is so complex and multifaceted that they are trying to connect artificial intelligence to solve this problem.</> ||
+            <>Онкологические заболевания по праву стали чумой 20-21 веков. Болезнь, которая появляется из ниоткуда, которую невозможно предсказать и иногда даже диагностировать. А любые рекомендации являются лишь вероятностью для защиты, но не защитой от болезни. Изучение данного вопроса настолько сложно и многогранно, что для решения этой задачи пытаются подключить искусственный интеллект.</>
+        }
+    </p>
+
+    <img src={twoChildrenImage.src} alt="" class="illustration image1"/>
+
+    <p>
+        {locale === "en" &&
+        <>Leukemia patients face many difficulties during treatment, such as lack of space in wards, quality equipment, chemotherapy drugs, drugs, donors and even such basic things as a suitable catheter of the right size.</> ||
+        <>Больные лейкемией сталкиваются с множеством сложностей во время лечения, такими как недостаток места в палатах, качественного оборудования, химиопрепаратов, лекарств, доноров и даже таких элементарных вещей, как подходящий катетер нужного размера.</>
+        }
+    </p>
+    
+    <p>
+        {locale === "en" &&
+        <>All this does not improve the prognosis of the  disease course, but only aggravates it with additional financial and psychological burden.</> ||
+        <>Всё это не улучшает прогноз течения болезни, а лишь усугубляет его дополнительной финансовой и психологической нагрузкой.</>
+        }
+    </p>
+
+    <img src={holdingHandsImage.src} alt="" class="illustration image3"/>
+    
+    <p>
+        {locale === "en" &&
+        <>The patient never knows if he/she be the lucky one of small percentage of survivors, and moreover, the search for and purchase of missing required drugs falls on the patients and their families. The side effects of the treatment are even worsened when for an hour the nurse unwillingly torments the patient trying to find a vein among those burned by chemotherapy, and a wrong-size catheter may easily pierce though a thin, thread-like vein. And every three days the patient exposes to a great stress waiting on a catheter insertion causing a physical pain.</> ||
+        <>Больной не только не знает, станет ли он счастливчиком из того небольшого процента выживших, но также на его плечи и на плечи его семьи ложится поиск и приобретение недостающих необходимых лекарств. А к побочным эффектам от лечения добавляется и то, что целый час его мучает медицинская сестра тем, что пытается найти вену среди уже немногочисленных выжженных химиотерапией, а когда находит, то протыкает маленькую, как ниточка, вену неподходящим по размеру катетером. И теперь каждые три дня он находится в большом стрессе перед его установкой, в ожидании физических болей.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+        <>To mitigate the factors affecting the course of the disease and the emotional state of the patient, we set ourselves the following tasks.</> ||
+        <>Для смягчения факторов, влияющих на течение болезни и эмоциональное состояние больного, мы ставим перед собой следующие задачи.</>
+        }
+    </p>
+    
+    <img src={holdingHandsImage.src} alt="" class="illustration image2"/>
+</section>
+
+<style>
+
+    .goals {
+        padding-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    .goals:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 10px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    .illustration {
+        display: block;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    .image1 {
+        width: 95px; height: 120px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .image2 {
+        width: 280px; height: 130px;
+        margin: 20px 0;
+    }
+
+    .image3 {
+        display: none;
+    }
+
+    @media (width >= 480px) {
+        p {
+            font-size: 10px;
+        }
+        .image1 {
+            height: 114px;
+            margin-bottom: 20px;
+        }
+        p + p + p {
+            clear: both;
+        }
+        .image2 {
+            display: none;
+        }
+        .image3 {
+            display: block;
+            width: 128px; height: 205px;
+            float: right;
+            clear: both;
+            margin-left: 20px;
+        }
+        .image3 + p {
+            clear: left;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+        }
+        .illustration {
+            border-radius: 30px;
+        }
+        .image1 {
+            width: 219px; height: 257px;
+            margin-right: 20px;
+        }
+        .image3 {
+            width: 298px; height: 378px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .image1 {
+            width: 372px; height: 257px;
+        }
+        .image3 {
+            width: 528px; height: 358px;
+            clear: none;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .goals {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            font-size: 48px;
+        }
+        p {
+            font-size: 16px;
+        }
+        p.important {
+            font-size: 24px;
+        }
+        .image1 {
+            width: 645px; height: 314px;
+            margin-bottom: 50px;
+        }
+        .image3 {
+            width: 645px; height: 430px;
+        }
+    }
+</style>
