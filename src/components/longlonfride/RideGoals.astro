@@ -10,9 +10,10 @@ interface Props {
     usualTextFinish: string;
     subheading: string;
     text: string;
+    detailsHref: string;
 }
 
-const { page, usualTextStart, gradientText, usualTextFinish, subheading, text } = Astro.props;
+const { page, usualTextStart, gradientText, usualTextFinish, subheading, text, detailsHref } = Astro.props;
 
 let textWidth, sectionHeight, containerHeight, headingWidth;
 
@@ -55,7 +56,7 @@ const locale = Astro.currentLocale || "";
             <h2>{usualTextStart}<span class="gradient_span">{gradientText}</span>{usualTextFinish}</h2>
             <h3>{subheading}</h3>
             <p>{text}</p>
-            <p><a href="/longlongride-details" class="arrow-cap">Читать подробнее о целях проекта</a></p>
+            <p><a href={detailsHref} class="arrow-cap">Читать подробнее о целях проекта</a></p>
         </div>
     </div>
 </section>
