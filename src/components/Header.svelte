@@ -57,8 +57,7 @@
         <div class="mobile_nav">
             <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_tokenomika">
                 <img src='/logos/tokenomika_logo.svg' class="header-logo_tokenomika" alt="tokenomika-logo"/>
-            </a>
-            <BurgerMenu links={links} />
+            </a>            
         </div>
         <nav class="nav-lang-switch">
             <ul>
@@ -66,6 +65,7 @@
                 <li class={locale === "en" ? "selected" : ""}><a href={getRelativeLocaleUrl("en", pathname)}>EN</a></li>
             </ul>
         </nav>
+        <BurgerMenu links={links} />
     </div>
 </header>
 
@@ -113,6 +113,7 @@
         display: block;
         width: var(--main-logo-width);
         height: var(--main-logo-width);
+        flex: 1;
     }
 
     .header-logo_tokenomika {
@@ -122,11 +123,12 @@
     }
 
     .nav-links {
-        width: var(--nav-links-width);
+        /* width: var(--nav-links-width); */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-self: center;
+        flex: 1;
     }
 
     .nav-link {
@@ -137,12 +139,14 @@
         font-size: var(--font-size);
         color: var(--dark-grey);
         text-decoration: none;
+        white-space: nowrap;
     }
 
     .nav-lang-switch {
         position: relative;
         font-family: var(--font-inter);
         font-size: var(--font-size);
+        margin-right: 20px;
     }
 
     .nav-lang-switch a {
@@ -182,8 +186,8 @@
         display: none;
     }
 
-    .burger-menu_links {
-        display: none;
+    .mobile_nav {
+        margin-right: 20px;
     }
 
     @media (960px <= width < 1200px) {
@@ -259,29 +263,28 @@
             justify-content: center;
         }
 
-        /* .header_bg {
-            border-radius: 0;
-        } */
-
-        .header-logo_tokenomika {
-            margin-right: 1rem;
-        }
-
         .nav-links {
             display: none;
-        }
-
-        .mobile_nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 3.8rem;
         }
 
         .dropdown-nav {
             display: none;
         }
+    }
 
+    @media (width >= 480px) {
+        .header-logo_main {
+            flex: initial;
+        }
+    }
+
+    @media (width >= 960px) {
+        .header-logo_main {
+            margin-right: 50px;
+        }
+        .mobile_nav {
+            margin-left: 20px;
+        }
     }
 
     @media (width >= 1200px) {
@@ -289,7 +292,7 @@
             width: 1200px;
             left: auto;
             right: auto;
-        }
+        }        
     }
 </style>
     
