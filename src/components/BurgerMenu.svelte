@@ -2,10 +2,16 @@
     import BurgerMenuLogo from "./BurgerMenuLogo.svelte";
     import Cancel from "./Cancel.svelte";
     export let links;
+
+    import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
     let isMenuOpen = false;
 
     const handleClick = () => {
         isMenuOpen = !isMenuOpen;
+        //document.body.classList.toggle("burger-menu-visible", isMenuOpen);
+        isMenuOpen ? dispatch("onmenuopen") : dispatch("onmenuclose");
     }
 
 </script>
@@ -43,6 +49,7 @@
 <style>
     .burger-menu {
         display: none;
+        padding: 0 1px;
     }
 
     button {
@@ -55,7 +62,7 @@
         justify-content: space-between;
         position: absolute;
         z-index: 10;
-        top: 2.25rem;
+        top: 40px;
         left: calc((-100vw + var(--reduced-width)) / 2);
         width: 100vw;
         height: 8rem;

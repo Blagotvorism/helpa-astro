@@ -28,18 +28,26 @@
             scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down
         };
         //window.addEventListener('scroll', handleScroll);
-        console.log('Current innerWidth:', innerWidth);
-        console.log('Current path:', window.location.pathname);
         return () => {
             window.removeEventListener('scroll', handleScroll); // Cleanup
         };
     });
 
+    let menuOpen = false;
+
+    function onMenuOpen() {
+        menuOpen = true;
+    }
+
+    function onMenuClose() {
+        menuOpen = false;
+    }
+
 </script>
 
 <!-- <svelte:window bind:innerWidth /> -->
 
-<header class='header {mainPage && !scrolled ? "" : "header_bg"}' id="main_header">
+<header class='header {mainPage && !scrolled ? "" : "header_bg"} {menuOpen ? 'menu-open' : ''}' id="main_header">
     <div class="header_container">
         <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_main">
             <img src='/logos/logo-grey.svg' class="header-logo_main" alt="helpa-project-logo"/>
@@ -65,7 +73,7 @@
                 <li class={locale === "en" ? "selected" : ""}><a href={getRelativeLocaleUrl("en", pathname)}>EN</a></li>
             </ul>
         </nav>
-        <BurgerMenu links={links} />
+        <BurgerMenu links={links} on:onmenuopen={onMenuOpen} on:onmenuclose={onMenuClose} />
     </div>
 </header>
 
@@ -93,6 +101,10 @@
         height: var(--header-height);
         border-bottom-left-radius: 30px;
         border-bottom-right-radius: 30px;
+    }
+
+    .header.menu-open {
+        border-radius: 0;
     }
 
     .header_container {
