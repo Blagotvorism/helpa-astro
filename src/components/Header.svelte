@@ -27,7 +27,7 @@
             let headerHeight = document.getElementById('main_header').offsetHeight;
             scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down
         };
-        window.addEventListener('scroll', handleScroll);
+        //window.addEventListener('scroll', handleScroll);
         console.log('Current innerWidth:', innerWidth);
         console.log('Current path:', window.location.pathname);
         return () => {
@@ -37,7 +37,7 @@
 
 </script>
 
-<svelte:window bind:innerWidth />
+<!-- <svelte:window bind:innerWidth /> -->
 
 <header class='header {mainPage && !scrolled ? "" : "header_bg"}' id="main_header">
     <div class="header_container">
@@ -89,8 +89,10 @@
         z-index: 99;
         top: 0;
         left: 0;
-        width: 100vw;
+        right: 0;
         height: var(--header-height);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
     }
 
     .header_container {
@@ -98,13 +100,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: var(--header-width);
-        position: fixed;
+        left: 20px; right: 20px;
+        position: absolute;
     }
 
     .header_bg {
         background-color: var(--header-bg-color);
-        border-bottom-right-radius: var(--border-radius);
+        /* border-bottom-right-radius: var(--border-radius); */
     }
 
     .header-logo_main {
@@ -257,9 +259,9 @@
             justify-content: center;
         }
 
-        .header_bg {
+        /* .header_bg {
             border-radius: 0;
-        }
+        } */
 
         .header-logo_tokenomika {
             margin-right: 1rem;
@@ -280,6 +282,14 @@
             display: none;
         }
 
+    }
+
+    @media (width >= 1200px) {
+        .header_container {
+            width: 1200px;
+            left: auto;
+            right: auto;
+        }
     }
 </style>
     
