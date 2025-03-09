@@ -135,14 +135,14 @@ switch (page) {
 		const mainIntroTitle = introSection?.getElementsByTagName("h2")[0];
 		const typed = mainIntroTitle?.querySelector(".typed") as HTMLSpanElement;
 		const untyped = mainIntroTitle?.querySelector(".untyped") as HTMLSpanElement;
-		let untypedString = untyped.innerText;
+		let untypedString = untyped.textContent!;
 		let typingInterval = setInterval(type, 50);
 		function type() {			
 			if (untypedString.length > 0) {
 				const symbol = untypedString[0];
-				typed.innerText += symbol;
+				typed.textContent += symbol;
 				untypedString = untypedString.substring(1);
-				untyped.innerText = untypedString;
+				untyped.textContent = untypedString;
 			} else {
 				clearInterval(typingInterval);
 			}			
