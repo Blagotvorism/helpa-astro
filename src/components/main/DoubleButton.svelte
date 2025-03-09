@@ -13,10 +13,10 @@
     let joinButtonText = (function(locale) {
         switch (locale) {
             case "en":
-                return "Join";
+                return "Purchase";
             case "ru":
             default:
-                return "Присоединиться";            
+                return "Приобрести";            
         }
     })(locale);
 </script>
@@ -71,7 +71,7 @@
 
     /* Button with text */
     .button-simple {
-        background: transparent;
+        background: #fff9;
         color: black;
         cursor: pointer;
         transition: all 0.3s ease;
