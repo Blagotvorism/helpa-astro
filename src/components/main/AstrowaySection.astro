@@ -29,7 +29,8 @@ function toggleButton () {
         <div class="main-cta">
             <!-- <Link href="/" theme='primary' classes="link link_primary" onClick={toggleButton}>Приобрести</Link> -->
             <DoubleButton locale={Astro.currentLocale || ""} client:load />
-            <Link href="/token" theme='text' classes="link link_text"><span class="link-innertext-secondary">{learnMoreButtonText}</span><Icon name="arrowText" /></Link>
+            <!-- <Link href="/token" theme='text' classes="link link_text"><span class="link-innertext-secondary">{learnMoreButtonText}</span><Icon name="arrowText" /></Link> -->
+            <p><a href="/token" class="arrow-cap">{learnMoreButtonText}</a></p>
         </div>
     </div>
 </section>
@@ -77,6 +78,10 @@ function toggleButton () {
         background: transparent;
     }
 
+    p {
+        font-size: 10px;
+    }
+
     .main-cta .split_btn {
         margin-right: 10px;
     }
@@ -106,6 +111,10 @@ function toggleButton () {
             font-size: 12px;
             width: 50%;
         }
+
+        p {
+            font-size: 14px;
+        }
     }
 
     @media (width >= 960px) {
@@ -121,6 +130,10 @@ function toggleButton () {
         .main-cta {
             float: right;
             margin-top: -10px;
+        }
+
+        p {
+            font-size: 14px;
         }
     }
 

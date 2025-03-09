@@ -59,6 +59,7 @@ button, button:hover, button:active, button:visited, button:focus {
   --font-extra-bold: "Lulo-OneBold";
   /* Colors */
   --gradient: linear-gradient(to top, #094A6F, #64C8BD);
+  --gradient-hover: linear-gradient(to top, #002a4f, #44a89d);
   --white: #FFFFFF;
   --light-grey: #ECECEC;
   --dark-grey: #898989;
@@ -126,6 +127,7 @@ li, ul {
 /* Text link with arrow cap */
 
 a.arrow-cap {
+  display: inline-block;
   font-size: inherit;
   background-color: var(--green);
   background-image: var(--gradient);
@@ -149,6 +151,10 @@ a.arrow-cap:after {
   top: 50%;
   margin-top: -8px;
   transition: right 0.2s;  
+}
+
+a.arrow-cap:hover {
+  background-image: var(--gradient-hover);
 }
 
 a.arrow-cap:hover:after {
