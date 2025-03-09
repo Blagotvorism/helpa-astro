@@ -5,6 +5,11 @@
 </div>
 
 <style>
+
+	h3 {
+		font-weight: 400;
+	}
+	
 	.carousel {
 		width: 100%;
 	}

@@ -10,16 +10,16 @@ const {locale} = Astro.props;
 		<RadialGradient topPosition="13.0625rem" leftPosition="-8.375rem" />
         <div class="events_text">
             <div class="events_title">
-                <h4 class="events_heading-1">
+                <p class="events_heading-1">
 					{locale === "en" && "We don't just donate to charities" || "Мы не просто вносим пожертвования в благотворительные организации"}					
-				</h4>
+				</p>
                 <h2 class="events_heading-2 gradient_span">
 					{locale === "en" && "we also hold out own events" || "а также проводим мероприятия самостоятельно"}
 				</h2>
             </div>
             <div class="events_descr">
-                <h3 class="events_heading-3">{locale === "en" && "You can participate in our events without buying or using cryptocurrency." || "Вы можете принять участие в наших событиях без покупки и использования криптовалюты."}</h3>
-                <h4 class="events_heading-4">{locale === "en" && "View the archive of events held and appreciate the scale." || "Посмотрите архив проведенных мероприятий и оцените масштаб."}</h4>
+                <p class="events_heading-3">{locale === "en" && "You can participate in our events without buying or using cryptocurrency." || "Вы можете принять участие в наших событиях без покупки и использования криптовалюты."}</p>
+                <p class="events_heading-4">{locale === "en" && "View the archive of events held and appreciate the scale." || "Посмотрите архив проведенных мероприятий и оцените масштаб."}</p>
             </div>
         </div>
 		<p class="tab_name">Направление</p>
@@ -82,6 +82,7 @@ const {locale} = Astro.props;
 		line-height: var(--headings-1-lh);
 		color: var(--dark-grey);
 		width: var(--headings-1-width);
+		margin-bottom: 10px;
 	}
 	
 	.events_heading-2 {

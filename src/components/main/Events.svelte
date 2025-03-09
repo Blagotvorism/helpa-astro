@@ -101,7 +101,7 @@
                                     <img src={event.imageURL} alt={event.title} class='event_card-img' />
                                 </div>
                                 <div class="event_card-text">
-                                    <h3 class="event_card-title">{event.title}</h3>
+                                    <p class="event_card-title">{event.title}</p>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
                                     <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
@@ -115,7 +115,7 @@
                                     <img src={event.imageURL} alt={event.title} class='event_card-img' />
                                 </div>
                                 <div class="event_card-text">
-                                    <h3 class="event_card-title">{event.title}</h3>
+                                    <p class="event_card-title">{event.title}</p>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
                                     <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
@@ -136,6 +136,11 @@
 </div>
 
 <style>
+
+    h3 {
+        font-weight: 400;
+    }
+
     .cards_container {
         /* Container vars */
         --cards-container-width: var(--reduced-width);
@@ -251,6 +256,7 @@
         color: black;
         font-family: var(--font-inter);
         font-size: var(--event-card-title-font-size);
+        font-weight: 400 !important;
         line-height: var(--event-card-title-line-height);
         margin-left: var(--event-card-title-margin-left);
         margin-bottom: var(--event-card-title-margin-bottom);
