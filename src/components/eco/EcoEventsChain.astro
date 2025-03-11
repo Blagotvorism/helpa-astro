@@ -16,12 +16,9 @@ const locale = Astro.currentLocale || "";
             </h3>
             <h4 class="eco-events-chain__subheading">{locale === "en" && "But it is in our power to stop it!" || "Но в наших силах ее прекратить!"}</h4>
             <div class="link_container">
-                <Link href={getRelativeLocaleUrl(locale, "eco-2")} theme="text" classes="link link_text">
-                    <span class="link_innertext_secondary">
-                        {locale === "en" && "Read more about the effects of pollution" || "Читать подробнее о последствиях загрязнений"}
-                    </span>
-                    <Icon name="arrowText" />
-                </Link>
+                <a href={getRelativeLocaleUrl(locale, "eco-2")} class="arrow-cap">
+                    {locale === "en" && "Read more about the effects of pollution" || "Читать подробнее о последствиях загрязнений"}
+                </a>
             </div>
         </div>
 
