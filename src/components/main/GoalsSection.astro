@@ -29,13 +29,52 @@ const locale = Astro.currentLocale || "";
     </div>
 </section>
 
+<script>
+    const cardsContainer = document.querySelector(".goals_cards") as HTMLDivElement;
+    const cards = cardsContainer.children;
+
+    for (let elem of cards) {
+        const card = elem as HTMLElement;
+        card.style.opacity = "0";
+        card.style.translate = "0 20px";
+        card.style.transition = "opacity 0.4s, translate 0.2s";
+    }
+
+    window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+    function onBodyScroll() {
+        if (isScrolledToContainer()) {
+            window.removeEventListener('scroll', onBodyScroll);
+            startAnimateAppearing();
+        }
+    }
+
+    function isScrolledToContainer() {
+        return cardsContainer!.getBoundingClientRect().top < 2 * window.innerHeight / 3;
+    }
+
+    function startAnimateAppearing() {
+        let cardIndex = 0;
+        animateAppearing(cardIndex++);
+        let interval = setInterval(function() {
+            animateAppearing(cardIndex++);
+            if (cardIndex >= cards.length) clearInterval(interval);
+        }, 300);
+    }
+
+    function animateAppearing(cardIndex) {
+        (cards[cardIndex] as HTMLElement).style.opacity = "initial";
+        (cards[cardIndex] as HTMLElement).style.translate = "none";
+    }
+</script>
+
 <style>
     .main_goals {
         --section-height: 44.8rem;
         --title-width: 49.75rem;
         --title-font-size: 2.5rem;
         --title-margin-bottom: 3.75rem;
-        --cards-height: 28.5rem;
+        --cards-height: 30rem;
         --card-width: 12rem;
     }
 
