@@ -32,8 +32,7 @@ const locale = Astro.currentLocale || "";
                     {locale === "en" && "The paid fees are spent to the development of selected charity areas, and the proceeds from token sale will be directed to the development of the company and economy support. Thus, by saving and increasing your own capital, you help socially disadvantaged strata of society to get back on their feet and move forward into the future of new people and new times, without state borders, language barriers, into a world of tolerance and high intellectual development." || "Комиссия идёт на развитие выбранных направлений в благотворительности, а вырученные средства с реализации токена будут направлены на развитие компании, поддержание экономики. Таким образом, сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, без государственных границ, языковых барьеров, в мир терпимости и высокого интеллектуального развития."}
                 </p>
                 <div class="link_container">
-                    <Link href={getRelativeLocaleUrl(locale, "/token")} theme='text' classes="link link_text"><span class="link_innertext_secondary">
-                        {locale === "en" && "Learn more" || "Узнать подробнее"}</span><Icon name="arrowText" /></Link>
+                    <p><a href={getRelativeLocaleUrl(locale, "/token")} class="arrow-cap">{locale === "en" && "Learn more" || "Узнать подробнее"}</a></p>
                 </div>
             </div>
         </div>

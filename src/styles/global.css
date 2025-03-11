@@ -154,9 +154,9 @@ a.arrow-cap:after {
 }
 
 a.arrow-cap:hover {
-  background-image: var(--gradient-hover);
+  /* background-image: var(--gradient-hover); */
 }
 
 a.arrow-cap:hover:after {
-  right: -25px;
+  right: -30px;
 }
