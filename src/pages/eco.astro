@@ -70,8 +70,9 @@ const locale = Astro.currentLocale || "";
         <!-- <EcoGalery page="eco"/> -->
 
         <section id="gallery" class="gallery">
-            <div class="row">
-                <div class="slide">
+            <div class="slider">
+                <div class="row">
+                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage1.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage4.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage7.src} alt=""/></div>
@@ -84,11 +85,9 @@ const locale = Astro.currentLocale || "";
                     <div class="card"><img src={ecoGalleryCard1.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? "Together" : "Совместными усилиями"}</span></div>
                     <div class="card"><img src={ecoGalleryCard3.src} alt=""/></div>
-                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>                    
+                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="slide">
+                <div class="row">
                     <div class="card"><img src={coastCleaningImage2.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage5.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage8.src} alt=""/></div>
@@ -103,9 +102,8 @@ const locale = Astro.currentLocale || "";
                     <div class="card text"><span>{locale === "en" ? <>We&nbsp;can</> : "Мы сможем"}</span></div>
                     <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>                    
                 </div>
-            </div>
-            <div class="row">
-                <div class="slide">
+                <div class="row">
+                    <div class="card"><img src={ecoGalleryCard6.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage3.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage6.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage9.src} alt=""/></div>
@@ -114,9 +112,9 @@ const locale = Astro.currentLocale || "";
                     <div class="card"><img src={coastCleaningImage18.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage21.src} alt=""/></div>
                     <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>
-                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>
-                    <div class="card"><img src={ecoGalleryCard6.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>                    
                     <div class="card"><img src={ecoGalleryCard5.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage1.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? <>Save our&nbsp;planet</> : "Спасти планету"}</span></div>
                 </div>
             </div>
@@ -137,57 +135,42 @@ const locale = Astro.currentLocale || "";
     // Implement horizontal scrolling for gallery
 
     const galleryElement = document.getElementById('gallery');
-    const slides = galleryElement?.querySelectorAll(".slide");
+    const galleryContainer = galleryElement!.querySelector(".slider") as HTMLElement;
+    const firstRow = galleryContainer!.querySelector(".row ") as HTMLElement;
 
-    const slide0 = slides![0] as HTMLElement;
-    const textCard0 = slide0.querySelector(".card.text") as HTMLElement;
+    const scrollDiff = firstRow.offsetWidth - galleryElement!.offsetWidth;
 
-    const slide1 = slides![1] as HTMLElement;
-    const textCard1 = slide1.querySelector(".card.text") as HTMLElement;
+    const galleryTopTrigger = galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2;
 
-    const slide2 = slides![2] as HTMLElement;
-    const textCard2 = slide2.querySelector(".card.text") as HTMLElement;
-
-    document.documentElement.style.height = document.body.offsetHeight
-        + textCard0.offsetLeft
-        + (textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2)
-        + (textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth)
-        + "px";
+    document.documentElement.style.height = document.body.offsetHeight + scrollDiff + "px";
 
     document.addEventListener("scroll", onScroll, {passive: true});
 
     function onScroll() {
-        if (document.documentElement.scrollTop > galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2) {
-            document.body.style.position = "fixed";
-            document.body.style.top = -(galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2) + "px";
-            let diff = document.documentElement.scrollTop - (galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2);
-            
-            
-            if (diff < textCard0.offsetLeft) {
-                slide0.style.translate = -diff + "px";
-                return;
-            }
-            slide0.style.translate = -textCard0.offsetLeft + "px"; // Final position
-            diff -= textCard0.offsetLeft;
-            
-            if (diff < textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2) {
-                slide1.style.translate = -diff + "px";
-                return;
-            }
-            slide1.style.translate = -(textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2) + "px"; // Final position
-            diff -= textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2;
-            
-            if (diff < textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth) {
-                slide2.style.translate = -diff + "px";
-                return;
-            }
-            slide2.style.translate = -(textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth) + "px"; // Final position
-            document.body.style.position = "absolute";
-            document.body.style.top = textCard0.offsetLeft + (textCard1.offsetLeft - galleryElement!.offsetWidth / 2 + textCard1.offsetWidth / 2) + (textCard2.offsetLeft - galleryElement!.offsetWidth + textCard2.offsetWidth) + "px";
-        } else {
+
+        const scrollTop = document.documentElement.scrollTop;
+
+        if (scrollTop < galleryTopTrigger) {
+            galleryContainer!.style.translate = "none";
             document.body.style.position = "";
-            document.body.style.top = "";
+            document.body.style.top = "";            
+            return;
         }
+
+        if (scrollTop >= galleryTopTrigger && scrollTop < galleryTopTrigger + scrollDiff) {
+            document.body.style.position = "fixed";
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.top = -galleryTopTrigger + "px";
+            const diff = scrollTop - galleryTopTrigger;
+            galleryContainer!.style.translate = -diff + "px";
+            return;
+        }
+
+        galleryContainer!.style.translate = -scrollDiff + "px";
+        document.body.style.position = "relative";
+        document.body.style.top = scrollDiff + "px";
+
     }
 </script>
 
@@ -205,18 +188,29 @@ const locale = Astro.currentLocale || "";
         margin-bottom: 100px;
     }
 
+    .gallery .slider {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .gallery .row {
         display: flex;
+        gap: 20px;
         margin-bottom: 20px;
     }
 
-    .gallery .row .slide {
-        display: flex;
-        gap: 20px;
+    .gallery .row:first-child .card:last-child {
+        display: none;
+    }
+
+    .gallery .row:nth-child(2) {
+        padding-left: 65px;
     }
 
     .gallery .card {
         width: 130px; height: 70px;
+        min-width: 130px; min-height: 70px;
         border-radius: 20px;
         overflow: hidden;
     }
@@ -250,6 +244,11 @@ const locale = Astro.currentLocale || "";
 
         .gallery .card {
             width: 210px; height: 110px;
+            min-width: 210px;
+        }
+
+        .gallery .row:nth-child(2) {
+            padding-left: 115px;
         }
     }
 
@@ -263,12 +262,29 @@ const locale = Astro.currentLocale || "";
         .gallery .card.text {
             font-size: 20px;
         }
+
+        .gallery .row:nth-child(2) {
+            padding-left: 159px;
+        }
     }
 
     @media (width >= 960px) {
 
         .gallery .card {
             width: 293px; height: 165px;
+            min-width: 293px;
+        }
+
+        .gallery .row:first-child .card:first-child {
+            display: none;
+        }
+
+        .gallery .row:first-child .card:last-child {
+            display: initial;
+        }
+
+        .gallery .row:nth-child(2) {
+            padding-left: 0;
         }
     }
 
@@ -282,6 +298,7 @@ const locale = Astro.currentLocale || "";
 
         .gallery .card {
             width: 360px; height: 205px;
+            min-width: 360px;
         }
 
         .gallery .card.text {

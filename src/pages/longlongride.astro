@@ -203,8 +203,6 @@ const locale = Astro.currentLocale || "";
 
     const scrollDiff = galleryContainer.offsetWidth - galleryElement!.offsetWidth;
 
-    console.info('scrollDiff', scrollDiff);
-
     const galleryTopTrigger = galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2;
 
     document.documentElement.style.height = document.body.offsetHeight + scrollDiff + "px";
