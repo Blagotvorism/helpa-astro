@@ -131,7 +131,6 @@
         background: none;
         border: none;
         outline: none;
-        font-family: Inter;
         font-size: 0.625rem;
 
         background-color: #204A53;
