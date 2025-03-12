@@ -20,13 +20,6 @@ const locale = Astro.currentLocale || "";
         }
     </p>
 
-    <p>
-        {locale === "en" &&
-            <></> ||
-            <></>
-        }
-    </p>
-
     <div class="activities">
 
         <div class="activity">
@@ -221,6 +214,7 @@ const locale = Astro.currentLocale || "";
     }
 
     .activity h3 {
+        font-family: 'Inter Variable';
         font-size: 12px;
         font-weight: 400;
         margin-bottom: 30px;        
@@ -295,6 +289,9 @@ const locale = Astro.currentLocale || "";
         }
         .activity {
             width: 360px; height: 341px;
+        }
+        .activity h3 {
+            font-size: 16px;
         }
         .activity p {
             font-size: 14px;
