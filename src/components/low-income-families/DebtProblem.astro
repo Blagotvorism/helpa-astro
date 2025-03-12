@@ -1,7 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
-import Link from '../Link.astro';
 import DebtProblemCard from './DebtProblemCard.astro';
 import RadialGradient from '../RadialGradient.astro';
 
@@ -48,6 +46,48 @@ const locale = Astro.currentLocale || "";
         </div>
     </div>
 </section>
+
+<script>
+
+	const containerElement = document.querySelector(".debt_problem__cards");
+    const animatedChildren = containerElement?.children;
+
+    console.info(animatedChildren);
+
+    for (let c of animatedChildren!) {
+        const child = c as HTMLElement;
+        child.style.opacity = "0";
+        child.style.translate = "0 20px";
+        child.style.transition = "translate 0.2s, opacity 0.5s"
+    }
+
+	window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+	function onBodyScroll() {
+		if (isMostlyVisible()) {
+			window.removeEventListener('scroll', onBodyScroll);
+			animateAppearing();			
+		}
+	}
+
+	function isMostlyVisible() {
+		return containerElement!.getBoundingClientRect().top < 2 * window.innerHeight / 3;
+	}
+
+	function animateAppearing() {
+        let counter = 0;
+        appear(animatedChildren![counter++] as HTMLElement);
+        const interval = setInterval(function() {
+            appear(animatedChildren![counter++] as HTMLElement);
+            if (counter >= animatedChildren!.length) clearInterval(interval);
+        }, 500);
+	}
+
+    function appear(item: HTMLElement) {
+        item.style.opacity = "initial";
+        item.style.translate = "none";
+    }
+</script>
 
 <style>
     .debt_problem {
