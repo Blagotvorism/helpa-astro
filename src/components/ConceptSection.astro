@@ -61,7 +61,9 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             )}
             {subHeading && <h3 class={pagePath !== 'low-income-families' ?  "eco-concept__subheading" : 'eco-concept__subheading low-income-concept__subheading'} set:html={subHeading} />}
             <p class={pagePath !== 'low-income-families' ?  "eco-concept__description" : 'eco-concept__description low-income-concept__description'} set:html={text} />
-            <a href="/low-income-families-2" class="arrow-cap">Читать подробнее о целях проекта</a>
+            {pagePath === "low-income-families" &&
+                <a href="/low-income-families-2" class="arrow-cap">Читать подробнее о целях проекта</a>
+            }
         </div>
         <div class="eco-concept__images">
             <div class="eco-concept__images-1">
