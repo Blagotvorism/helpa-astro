@@ -37,7 +37,9 @@ const locale = Astro.currentLocale || "";
     </div>
 </section>
 
-<script>
+<script define:vars={{locale: locale}}>
+
+    const numberFormat = new Intl.NumberFormat(locale);
 
 	const onScreenDetectorElement = document.querySelector(".transaction_values");
 
@@ -50,9 +52,7 @@ const locale = Astro.currentLocale || "";
 
         const originalValue = parseFloat(counterElement.textContent.replace(",", "."));
 
-        let currentValue = 0;
-
-        counterElement.textContent = "0.0%";
+        counterElement.textContent = counterElement.textContent.replaceAll(/\d/g, "0");
 
         window.addEventListener('scroll', onScroll, {passive: true});
 
@@ -67,10 +67,10 @@ const locale = Astro.currentLocale || "";
             let counter = 0;
             counterElement.textContent = getRandomValue() + "%";
             const interval = setInterval(function() {
-                counterElement.textContent = getRandomValue() + "%";
+                counterElement.textContent = numberFormat.format(getRandomValue()) + "%";
                 if (counter++ === 50) {
                     clearInterval(interval);
-                    counterElement.textContent = originalValue + "%";
+                    counterElement.textContent = numberFormat.format(originalValue) + "%";
                 }
             }, 10);
         }        
