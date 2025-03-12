@@ -61,6 +61,7 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             )}
             {subHeading && <h3 class={pagePath !== 'low-income-families' ?  "eco-concept__subheading" : 'eco-concept__subheading low-income-concept__subheading'} set:html={subHeading} />}
             <p class={pagePath !== 'low-income-families' ?  "eco-concept__description" : 'eco-concept__description low-income-concept__description'} set:html={text} />
+            <a href="/low-income-families-2" class="arrow-cap">Читать подробнее о целях проекта</a>
         </div>
         <div class="eco-concept__images">
             <div class="eco-concept__images-1">
@@ -173,6 +174,10 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         font-family: var(--font-inter);
         font-size: var(--h3-font-size);
         margin-bottom: var(--h3-margin-bottom);
+    }
+
+    .eco-concept__description {
+        margin-bottom: 30px;
     }
 
     p {
