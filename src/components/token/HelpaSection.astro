@@ -14,7 +14,7 @@ const locale = Astro.currentLocale || "";
             <div class="card">
                 <div class="text1">
                     <p class="card_name">{locale === "en" && "Total token supply:" || "Общее количество токена составляет:"}</p>
-                    <p class="card_text-bold"><span class="gradient_span">12345678987654321</span></p>
+                    <p class="card_text-bold token-total-amount"><span class="gradient_span">12345678987654321</span></p>
                 </div>
             </div>
             <div class="card">
@@ -31,7 +31,7 @@ const locale = Astro.currentLocale || "";
             </div>
             <div class="card">
                 <div class="text3">
-                    <p class="card_name-h2"><span class="gradient_span">100%</span></p>
+                    <p class="card_name-h2 token-sell-percent"><span class="gradient_span">100%</span></p>
                     <p class="card_text-black">{locale === "en" && "Full token sale is scheduled for 100 years" || "Полная продажа токена рассчитана на 100 лет"}</p>
                 </div>
             </div>
@@ -168,6 +168,17 @@ const locale = Astro.currentLocale || "";
     .card_text-black {
         color: var(--dark-grey);
         font-size: var(--card-text-black-font-size);
+    }
+
+    .token-sell-percent {
+        font-family: 'Montserrat Variable';
+        font-weight: 700;
+    }
+
+    .token-total-amount {
+        font-family: var(--font-extra-bold);
+        text-align: justify;
+        text-align-last: justify;
     }
 
     @media (960px <= width < 1200px) {
