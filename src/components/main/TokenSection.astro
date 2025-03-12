@@ -1,8 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
-import Link from "../Link.astro";
-import { getRelativeLocaleUrl, getRelativeLocaleUrlList } from 'astro:i18n';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const locale = Astro.currentLocale || "";
 ---
@@ -10,14 +8,12 @@ const locale = Astro.currentLocale || "";
     <div class="main_container">
         <div class="token_container">
             <div class="token_title">
-                <h1 class="gradient_span">Helpa</h1>
-                <h1 class="gradient_span">{locale === "en" && "is" || "-"}</h1>
-                <h1 class="token_heading-3">{locale === "en" && "a" || "это"}</h1>
+                <h1><span class="gradient_span">Helpa {locale === "en" && "is" || "-"}</span> {locale === "en" && "a" || "это"}</h1>
             </div>
             <div class="token_description">
-                <h3 class="token_heading--descr">
+                <p class="token_heading--descr">
                     {locale === "en" && "crypto token created in BEP20 network with a 0.5% fee per transaction, which is spent on the development of charity." || "криптотокен, созданный в сети ВЕР20 и имеющий комиссию 0,5% за транзакцию, которая идет на развитие благотворительности."}
-                </h3>
+                </p>
                 <p class="token_descr">
                     {locale === "en" && "By saving and increasing your own capital, you help socially disadvantaged strata of society to get back on their feet and move on to the future of new people and new times, of tolerance and high intellectual development without state borders, language barriers." || "Сохраняя и приумножая свой собственный капитал, Вы помогаете социально обделённым слоям общества встать на ноги и идти дальше в будущее новых людей и нового времени, терпимости и высокого интеллектуального развития без государственных границ, языковых барьеров."}
                 </p>
@@ -85,13 +81,6 @@ const locale = Astro.currentLocale || "";
         margin-bottom: var(--token-container-margin-bottom);
     }
 
-    .token_title {
-        display: flex;
-        width: var(--title-width);
-        justify-content: space-between;
-        align-self: flex-start;
-    }
-
     h1 {
         font-size: var(--title-font-size);
     }
@@ -106,6 +95,7 @@ const locale = Astro.currentLocale || "";
         font-family: var(--font-inter);
         line-height: var(--heading-descr-line-height);
         font-size: var(--heading-descr-font-size);
+        color: black;
     }
 
     p {
