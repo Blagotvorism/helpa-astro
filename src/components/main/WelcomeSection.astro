@@ -200,7 +200,7 @@ let {locale} = Astro.props;
     @media (320px <= width < 480px) {
         .welcome {
             --welcome-height: 20rem;
-            --welcome-container-height: 19rem;
+            --welcome-container-height: 18rem;
             --welcome-container-width: var(--reduced-width);
             --welcome-container-margin-top: 1.875rem;
             --welcome-container-margin-left: 0;
@@ -212,7 +212,7 @@ let {locale} = Astro.props;
             --welcome-title-margin-bottom: .625rem;
             --welcome-descr-width: 16.7rem;
             --welcome-descr-font-size: .625rem;
-            --welcome-descr-line-height: .75rem;
+            --welcome-descr-line-height: 1.25;
 	    }
 
         .welcome_container {
@@ -226,6 +226,10 @@ let {locale} = Astro.props;
 
         .container_right {
             align-self: center;
+        }
+
+        .welcome_text {
+            margin-bottom: 5px;
         }
 
         .welcome_link {
