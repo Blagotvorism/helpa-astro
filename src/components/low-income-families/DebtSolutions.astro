@@ -92,7 +92,6 @@ const locale = Astro.currentLocale || "";
     h2 {
         display: inline-block;
         /* width: var(--heading-width); */
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
         margin-bottom: var(--heading-margin-bottom);
@@ -104,6 +103,7 @@ const locale = Astro.currentLocale || "";
         height: var(--list-height);
         flex-direction: row;
         column-gap: var(--column-gap);
+        justify-content: space-between;
     }
 
     li {
@@ -176,10 +176,10 @@ const locale = Astro.currentLocale || "";
 
     @media (640px <= width < 960px) {
         .debt_solutions {
-            --section-height: 53.5rem;
+            --section-height: 50rem;
             --container-height: 42.25rem;
             --heading-width: 44.0625rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --heading-margin-bottom: 1rem;
             --list-height: 26rem;
@@ -187,11 +187,11 @@ const locale = Astro.currentLocale || "";
             --number-color: #ECECEC;
             --text-font-size: 1.25rem;
             --text-left: 2.75rem;
-            --text-bottom: 3.5rem;
-            --text-width: 13rem;
+            --text-bottom: 0rem;
+            --text-width: 15rem;
             --first-el-width: 12.5rem;
-            --column-gap: 4.125rem;
-            --li-height: 16.6875rem;
+            --column-gap: 0;
+            --li-height: 13rem;
         }
 
         ul {
@@ -200,7 +200,7 @@ const locale = Astro.currentLocale || "";
         }
 
         li {
-            width: 15.25rem;
+            width: 17rem;
         }
     }
 
@@ -235,7 +235,7 @@ const locale = Astro.currentLocale || "";
             --section-height: 110vw;
             --container-height: 104.375vw;
             --heading-width: var(--reduced-width);
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --heading-line-height: 6.25vw;
             --heading-margin-bottom: 5vw;
             --list-height: 75vw;

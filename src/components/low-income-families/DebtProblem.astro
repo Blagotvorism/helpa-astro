@@ -130,7 +130,6 @@ const locale = Astro.currentLocale || "";
     }
 
     h2 {
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
         margin-bottom: var(--heading-margin-bottom);
@@ -141,6 +140,7 @@ const locale = Astro.currentLocale || "";
         width: var(--subheading-width);
         font-family: var(--font-inter);
         font-size: var(--subheading-font-size);
+        font-weight: normal;
         margin-bottom: var(--subheading-margin-bottom);
     }
 
@@ -180,7 +180,7 @@ const locale = Astro.currentLocale || "";
             --section-height: 77rem;
             --container-height: 65.75rem;
             --text-height: 25.75rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --heading-margin-bottom: 2.5rem;
             --subheading-width: 34.5rem;
@@ -191,6 +191,10 @@ const locale = Astro.currentLocale || "";
             --row-gap: 1rem;
             --margin-top: 5rem;
         }
+
+        .debt_problem__text-link {
+            font-size: 14px;
+        }
     }
 
     @media (480px <= width < 640px) {
@@ -198,7 +202,7 @@ const locale = Astro.currentLocale || "";
             --section-height: 50.875rem;
             --container-height: 45.875rem;
             --text-height: 11.75rem;
-            --heading-font-size: 1rem;
+            --heading-font-size: 15px;
             --heading-line-height: 1.5rem;
             --heading-margin-bottom: 1.25rem;
             --subheading-width: 17.8125rem;
@@ -209,6 +213,10 @@ const locale = Astro.currentLocale || "";
             --row-gap: 1rem;
             --margin-top: 3.75rem;
         }
+
+        h2 {
+            width: 80%;
+        }
     }
 
     @media (320px <= width < 480px) {
@@ -216,7 +224,7 @@ const locale = Astro.currentLocale || "";
             --section-height: 341.25vw;
             --container-height: 309.375vw;
             --text-height: 64.375vw;
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --heading-line-height: 6.25vw;
             --heading-margin-bottom: 1.25rem;
             --subheading-width: 78.125vw;
@@ -226,6 +234,10 @@ const locale = Astro.currentLocale || "";
             --cards-height: 237.5vw;
             --row-gap: 4.375vw;
             --margin-top: 12.5vw;
+        }
+
+        .debt_problem__text-link {
+            font-size: 10px;
         }
     }
 </style>
