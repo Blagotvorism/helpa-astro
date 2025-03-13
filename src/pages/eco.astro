@@ -64,7 +64,7 @@ const locale = Astro.currentLocale || "";
             mainHeading={locale === "en" && "Eco Time Day – people who believe in the future and do everything possible for it." || "Eco Time Day - люди, верящие в будущее и делающие для него всё возможное."}
             text={locale === "en" && "People who are passionate and inspire others with their example. We realize that our common space affects each of us and our descendants, civilization, and therefore our future life, the fortunes of our affairs, experience, discoveries, the fortunes of the information we have discovered and its preservation. This is healthy egoism – become united for a common, useful goal." || "Люди, увлечённые и увлекающие других своим примером. Мы осознаем, что наше общее пространство влияет на каждого из нас и наших потомков, на цивилизацию, а значит и на нашу дальнейшую жизнь, судьбу наших дел, опыта, открытий, судьбу открытой нами информации и её сохранение. Это и есть здоровый эгоизм - объединение ради общей, полезной цели. "}
             containerWidth='53.8rem'
-            containerHeight='21.5rem'
+            containerHeight='16rem'
         />
         <EcoEventsChain />
         <!-- <EcoGalery page="eco"/> -->
@@ -254,6 +254,10 @@ const locale = Astro.currentLocale || "";
 
     @media (width >= 640px) {
 
+        .gallery {
+            margin-bottom: 60px
+        }
+
         .gallery .card {
             width: 298px; height: 165px;
             border-radius: 30px;
@@ -294,6 +298,7 @@ const locale = Astro.currentLocale || "";
             width: 1120px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 90px;
         }
 
         .gallery .card {

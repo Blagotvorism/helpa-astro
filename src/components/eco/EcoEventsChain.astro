@@ -82,7 +82,7 @@ const locale = Astro.currentLocale || "";
     .eco-events-chain {
         width: 280px;
         margin: 0 auto 50px;
-        --card-height: 62px;
+        --card-height: 62px;        
     }
 
     .eco-events-chain__text {
@@ -199,7 +199,8 @@ const locale = Astro.currentLocale || "";
 
         .eco-events-chain {
             width: 440px;
-            --card-height: 68px;            
+            --card-height: 68px;
+            margin-top: 80px;    
         }        
 
         .eco-events-chain__text {
@@ -217,7 +218,7 @@ const locale = Astro.currentLocale || "";
 
         .cards {
             height: calc((var(--card-height) + 30px) * 3);
-            margin-top: -120px;
+            margin-top: -90px;
         }
 
         .card {
@@ -265,6 +266,10 @@ const locale = Astro.currentLocale || "";
         #variety {
             left: auto; top: calc((var(--card-height) + 40px) * 2); right: 0;
         }
+
+        .link_container {
+            margin-right: 30px;
+        }
     }
 
     @media (width >= 640px) {
@@ -287,6 +292,7 @@ const locale = Astro.currentLocale || "";
 
         .cards {
             height: calc((var(--card-height) + 60px) * 3);
+            margin-top: -120px;
         }
 
         .card {
@@ -345,6 +351,7 @@ const locale = Astro.currentLocale || "";
             position: relative;
             width: 920px;
             --card-height: 134px;
+            margin-bottom: 100px;
         }
 
         .eco-events-chain__text {
@@ -445,6 +452,10 @@ const locale = Astro.currentLocale || "";
 
         #variety {
             margin-left: -133px;
+        }
+
+        .link_container {
+            font-size: 14px;
         }
     }
 </style>

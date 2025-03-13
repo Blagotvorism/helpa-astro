@@ -170,41 +170,37 @@ switch (page) {
     .main_intro {
 		position: relative;
 		display: block;
-		width: 100vw;
-		height: var(--section-height);
+		height: auto;
 		background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/main/interBG.jpg');
 		background-size: cover;
-		margin-bottom: 10px;
+		margin-bottom: 80px;
+		padding: 150px 0;
 	}
 	.main_intro__container {
 		display: block;
 		color: white;
 		width: var(--containerWidth);
-		height: var(--containerHeight);
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 		text-align: start;
+		margin: auto;
+		position: relative;		
 	}
+
+	.main_intro__container:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
 	.main_intro__title {
-		display: inline;
 		font-size: var(--font-size-title);
 		line-height: var(--line-height-title);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: inherit;
 	}
 
 	.main_intro__text {
-		display: inline;
 		font-size: 1rem;
 		font-weight: normal;
 		width: var(--textWidth);
-		position: absolute;
-		right: -1rem;
-		bottom: 0;
+		float: right;
 	}
 
 	.untyped {
@@ -216,11 +212,11 @@ switch (page) {
 			--section-height: 542px;
 			--font-size-title: 37px;
 			--line-height-title: 3rem;
+			margin-bottom: 80px;
 		}
 
 		.main_intro__container {
 			width: var(--containerWidth_960);
-			height: var(--containerHeight_960);
 		}
 
 		.main_intro__text {
@@ -235,6 +231,7 @@ switch (page) {
 			--section-height: 51.8125rem;
 			--font-size-title: 37px;
 			--line-height-title: 3rem;
+			margin-bottom: 80px;
 		}
 
 		.main_intro__container {
