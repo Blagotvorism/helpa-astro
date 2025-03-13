@@ -38,7 +38,7 @@ const locale = Astro.currentLocale || "";
 <style>
     .main_token {
         --title-width: 26.375rem;
-        --title-font-size: 2.37rem;
+        --title-font-size: 48px;
         --description-width: 40.3rem;
         --description-margin-top: 1rem;
         --heading-descr-line-height: 1.875rem;
@@ -137,6 +137,10 @@ const locale = Astro.currentLocale || "";
     .link_container {
         display: block;
         width: var(--link-container-width);
+    }
+
+    .link_container p {
+        font-size: 14px;
     }
 
     [data-icon] {
@@ -303,6 +307,10 @@ const locale = Astro.currentLocale || "";
 
         .charity_descr p {
             margin-bottom: 1.25rem;
+        }
+
+        .link_container p {
+            font-size: 10px;
         }
 
     }
