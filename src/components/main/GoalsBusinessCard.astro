@@ -8,8 +8,7 @@ const locale = Astro.currentLocale || "";
 <div class="business-card">
     <div class="business-container">
         <div class="business-title">
-            <h3 class="business-heading">{locale === "en" && "Then we are on the same path!" || "Тогда нам по пути!"}</h3>
-            <h4 class="business-subheading">{locale === "en" && "Do you have similar goals?" || "Имеете схожие цели?"}</h4>
+            <p class="business-subheading">{locale === "en" && "Do you have similar goals? Then we are on the same path!" || "Имеете схожие цели? Тогда нам по пути!"}</p>
         </div>
         <div class="business-card_link">
             <Link href='/' theme='primary' classes="link link_primary">{locale === "en" && "Join" || "Присоединиться"}</Link>
@@ -48,8 +47,7 @@ const locale = Astro.currentLocale || "";
     }
 
     .business-title {
-        display: flex;
-        flex-direction: column-reverse;
+        width: 70%;
         margin-bottom: var(--margin-bottom);
         font-family: var(--font-inter);
         margin-left: var(--margin-left);
@@ -110,7 +108,7 @@ const locale = Astro.currentLocale || "";
             --container-width: 8.8125rem;
             --container-height: 9.125rem;
             --margin-bottom: 1.6875rem;
-            --margin-left: 0.5rem;
+            --margin-left: 0;
             --heading-font-size: 0.75rem;
             --subheading-font-size: 0.625rem;
         }
@@ -136,7 +134,7 @@ const locale = Astro.currentLocale || "";
             --container-width: 13.125rem;
             --container-height: 4.375rem;
             --margin-bottom: 0.75rem;
-            --margin-left: 0.5rem;
+            --margin-left: 0;
             --heading-font-size: 0.75rem;
             --subheading-font-size: 0.625rem;
         }

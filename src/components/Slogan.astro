@@ -3,12 +3,11 @@ import '../styles/global.css';
 import { Image } from 'astro:assets';
 
 interface Props {
-    sloganBG?: string;
-    sloganTitle: string;
+    sloganBG?: ImageMetadata;
     altText?: string;
 }
 
-const { sloganBG, sloganTitle, altText = '' } = Astro.props;
+const { sloganBG, altText = '' } = Astro.props;
 
 let titleWidth_640 = '10rem';
 let titleWidth_480 = '6rem';
@@ -20,7 +19,9 @@ let titleWidth_320 = '5rem';
     ) : (
         <div class="slogan-bgcolor"></div>
     )}
-    <div class={sloganTitle === 'BLAGO TVORISM' ? "slogan-title slogan-title-astroway" : 'slogan-title'}>{sloganTitle}</div>
+    <div class='slogan-title'>
+        <slot/>
+    </div>
 </div>
 
 <style define:vars={{titleWidth_640, titleWidth_480, titleWidth_320}}>

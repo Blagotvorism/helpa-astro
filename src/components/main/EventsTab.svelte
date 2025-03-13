@@ -202,7 +202,7 @@
         .tab_container {
             /* Tab container */
             --tab-container-width: var(--reduced-width);
-            --tab-container-height: 2.5rem;
+            --tab-container-height: 2rem;
             --tab-container-margin-top: 2.5rem;
             --tab-container-margin-bottom: 2.5rem;
 

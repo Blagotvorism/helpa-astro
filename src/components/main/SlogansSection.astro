@@ -8,9 +8,9 @@ const locale = Astro.currentLocale || "";
 ---
 <section class="slogans">
     <div class="slogans_container">
-        <Slogan sloganBG={sloganBG1} sloganTitle={locale === "en" && "Ahead of time" || "Опережая время"} altText='Паутина' />
-        <Slogan sloganTitle='BLAGO TVORISM' />
-        <Slogan sloganBG={sloganBG2} sloganTitle={locale === "en" && "Creating a new world" || "Создавая новый мир"} altText='Иммерсивная выставка' />
+        <Slogan sloganBG={sloganBG1} altText='Паутина'>{locale === "en" && "Ahead of time" || "Опережая время"}</Slogan>
+        <Slogan>BLAGO<br/>TVORISM</Slogan>
+        <Slogan sloganBG={sloganBG2} altText='Иммерсивная выставка'>{locale === "en" && "Creating a new world" || "Создавая новый мир"}</Slogan>
     </div>
 </section>
 

@@ -17,7 +17,7 @@ const {locale} = Astro.props;
                         {locale === "ru" && "О проекте"}
                         {locale === "en" && "About project"}
                     </span>
-                    <span class="gradient_span">BLAGOTVORISM<span class="dash-span">-</span></span>
+                    <span class="gradient_span project_name">BLAGOTVORISM&nbsp;-</span>
                 </h1>
             </div>
             <div class="about-descr">
@@ -129,7 +129,11 @@ const {locale} = Astro.props;
         width: 100%;
         justify-content: space-between;
         /* margin-bottom: var(--margin-bottom-cards); */
-    }    
+    }
+
+    .project_name {
+        font-family: var(--font-extra-bold);
+    }
 
     @media (960px <= width < 1200px) {
         .about-prj {
@@ -138,15 +142,19 @@ const {locale} = Astro.props;
             --descr-width: 32.75rem;
             --margin-top: 7.125rem;
             --margin-bottom-title: 5rem;
-            --margin-top-descr: 4.375rem;
+            --margin-top-descr: 3.6rem;
             --margin-bottom-descr-1: 1.25rem;
-            --heading-font-size: 2.5rem;
-            --heading-line-height: 3.125rem;
-            --dash-font-size: 2.5rem;
+            --heading-font-size: 37px;
+            --heading-line-height: 1.25;
+            --dash-font-size: 37px;
             --descr-1-font-size: 1.25rem;
             --descr-1-line-height: 1.5rem;
             --descr-2-font-size: 0.75rem;
             --descr-2-line-height: 1rem;
+        }
+
+        .project_name {
+            font-size: 30px;
         }
     }
 
@@ -155,11 +163,11 @@ const {locale} = Astro.props;
             --project-height: 66.0625rem;
             --title-width: 23.3125rem;
             --descr-width: 28.375rem;
-            --margin-top: 6.25rem;
+            --margin-top: 3rem;
             --margin-bottom-title: 3.75rem;
             --margin-top-descr: 1.25rem;
             --margin-bottom-descr-1: 1.25rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --dash-font-size: 2.5rem;
             --descr-1-font-size: 1.25rem;
@@ -187,7 +195,7 @@ const {locale} = Astro.props;
             --project-height: 39.5rem;
             --title-width: 9.3125rem;
             --descr-width: 20.3125rem;
-            --margin-top: 6.25rem;
+            --margin-top: 3rem;
             --margin-bottom-title: 2.5rem;
             --margin-top-descr: 0.625rem;
             --margin-bottom-descr-1: 0.625rem;

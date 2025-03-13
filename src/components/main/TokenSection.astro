@@ -148,7 +148,7 @@ const locale = Astro.currentLocale || "";
             --title-width: 21.0625rem;
             --title-font-size: 2.5rem;
             --description-width: 31.75rem;
-            --description-margin-top: 1rem;
+            --description-margin-top: 5px;
             --heading-descr-line-height: 1.5rem;
             --heading-descr-font-size: 1.25rem;
             --descr-font-size: 0.75rem;
@@ -157,16 +157,19 @@ const locale = Astro.currentLocale || "";
             --descr-margin-bottom: 1.25rem;
             --link-container-width: 9.125rem;
             --icon-font-size: 1rem;
-            --section-height: 54.25rem;
+            --section-height: 47rem;
             --container-height: 15rem;
 
-            --main_container-margin-top: 5rem;
+            --main_container-margin-top: 2rem;
             --token-container-margin-bottom: 7.5rem;
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --charity-descr-width: 29.125rem;
             --charity-descr-height: 10.25rem;
             --charity-descr-margin-left: 24.5rem;
             --charity-descr-margin-top: -2rem;
+        }
+        .link_container p {
+            font-size: 14px;
         }
     }
 
@@ -184,16 +187,18 @@ const locale = Astro.currentLocale || "";
             --descr-margin-bottom: 2.5rem;
             --link-container-width: 9.125rem;
             --icon-font-size: 1rem;
-            --section-height: 70.25rem;
+            --section-height: auto;
             --container-height: 19rem;
 
-            --main_container-margin-top: 5rem;
+            --main_container-margin-top: 2rem;
             --token-container-margin-bottom: 6.25rem;
             --h2-font-size: 2.5rem;
             --charity-descr-width: 28.375rem;
             --charity-descr-height: 10rem;
             --charity-descr-margin-left: 9.75rem;
             --charity-descr-margin-top: 1.25rem;
+
+            margin-bottom: 50px;
         }
 
         .token_container {
@@ -204,13 +209,26 @@ const locale = Astro.currentLocale || "";
             margin-left: 9.75rem;
         }
 
+        .token_descr {
+            padding-right: 20%;
+        }
+
+        .link_container p {
+            font-size: 14px;
+        }
+
+        .charity_heading {
+            font-size: 37px;
+            margin-bottom: 30px;            
+        }
+
     }
 
     @media (480px <= width < 640px) {
         .main_token {
             --title-width: 8.4375rem;
             --title-font-size: 1rem;
-            --description-width: 18.3125rem;
+            --description-width: 19rem;
             --description-margin-top: 1.25rem;
             --heading-descr-line-height: 1rem;
             --heading-descr-font-size: 0.75rem;

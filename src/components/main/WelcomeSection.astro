@@ -115,7 +115,7 @@ let {locale} = Astro.props;
         width: var(--welcome-descr-width);
         font-family: var(--font-inter);
         font-size: var(--welcome-descr-font-size);
-        line-height: var(--welcome-descr-line-height);
+        line-height: 1.2;
         color: var(--dark-grey);
     }
 
@@ -134,7 +134,7 @@ let {locale} = Astro.props;
             --welcome-container-margin-left: -3rem;
             --container-left-width: 32rem;
             --container-right-width: 17rem;
-            --welcome-title-font-size: 2.5rem;
+            --welcome-title-font-size: 37px;
             --welcome-title-line-height: 3rem;
             --welcome-title-letter-spacing: 2px;
             --welcome-title-margin-bottom: 1.25rem;
@@ -152,15 +152,19 @@ let {locale} = Astro.props;
             --welcome-container-margin-top: 3.125rem;
             --welcome-container-margin-left: 0;
             --container-left-width: 29rem;
-            --container-right-width: 8.75rem;
+            --container-right-width: 10rem;
             --welcome-title-font-size: 2.29rem;
             --welcome-title-line-height: 2.7rem;
             --welcome-title-letter-spacing: 2px;
             --welcome-title-margin-bottom: 1.25rem;
             --welcome-descr-width: 27.7rem;
-            --welcome-descr-font-size: 0.875rem;
+            --welcome-descr-font-size: 12px;
             --welcome-descr-line-height: 1rem;
 	    }
+
+        .welcome_descr {
+            padding-right: 20%;
+        }
 
         .container_right {
             display: inline-block;
@@ -181,16 +185,16 @@ let {locale} = Astro.props;
     @media (480px <= width < 640px) {
         .welcome {
             --welcome-height: 13.375rem;
-            --welcome-container-height: 11rem;
+            --welcome-container-height: 10rem;
             --welcome-container-width: 27.5rem;
             --welcome-container-margin-top: 2.375rem;
             --welcome-container-margin-left: 0;
             --container-left-width: 16.6875rem;
             --container-right-width: 8.8125rem;
-            --welcome-title-font-size: 1rem;
+            --welcome-title-font-size: 15px;
             --welcome-title-line-height: 1.25rem;
             --welcome-title-letter-spacing: 2px;
-            --welcome-title-margin-bottom: 1.25rem;
+            --welcome-title-margin-bottom: 1rem;
             --welcome-descr-width: 16.6875rem;
             --welcome-descr-font-size: 0.625rem;
             --welcome-descr-line-height: 1rem;

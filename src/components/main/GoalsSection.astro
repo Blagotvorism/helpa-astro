@@ -117,34 +117,43 @@ const locale = Astro.currentLocale || "";
     @media (960px <= width < 1200px) {
         .main_goals {
             --title-width: 36.625rem;
-            --section-height: 39.8125rem;
-            --title-font-size: 2.5rem;
+            --section-height: 36rem;
+            --title-font-size: 37px;
             --title-margin-bottom: 4.5625rem;
             --cards-height: 23.75rem;
             --card-width: 12rem;
         }
-
+        h1 {
+            font-size: 37px;
+        }
     }
 
     @media (640px <= width < 960px) {
         .main_goals {
             --title-width: var(--reduced-width);
             --section-height: 28rem;
-            --title-font-size: 1.65rem;
+            --title-font-size: 37px;
             --title-margin-bottom: 1.5rem;
             --cards-height: 19.25rem;
             --card-width: 8rem;
+        }
+        h1 {
+            font-size: 37px;
         }
     }
 
     @media (480px <= width < 640px) {
         .main_goals {
             --title-width: 15.625rem;
-            --section-height: 26rem;
+            --section-height: auto;
             --title-font-size: 0.7rem;
             --title-margin-bottom: 1.5rem;
             --cards-height: 19.375rem;
             --card-width: 8rem;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 15px;
         }
     }
 
