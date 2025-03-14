@@ -10,7 +10,7 @@ const locale = Astro.currentLocale || "";
 <div class="help__cta">
     <div class="help__cta-1" id="left">
         <h3 class="help__cta-h3" id="left-heading">{locale === "en" && "Purchase HELPA crypto asset" || "Приобрести криптоактив HELPA"}</h3>
-        <p class="help_text" id="left_text">{locale === "en" && "and help the project financially by making transactions." || "и помогать проекту финансово за счет совершения транзакций."}</p>
+        <p class="help_text" id="left_text">{locale === "en" && "and help the project financially by making transactions." || <>и помогать проекту финансово за&nbsp;счет совершения транзакций.</>}</p>
         <Link href={url_buy} theme='primary' classes="link link_primary">{locale === "en" && "Purchase" || "Приобрести"}</Link>
     </div>
     <div class="help__cta-1" id="right">
@@ -41,9 +41,11 @@ const locale = Astro.currentLocale || "";
     }
 
     .help__cta-1 {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: var(--cta-block-width);
-        height: var(--cta-block-height);
+        /* height: var(--cta-block-height); */
     }
 
     .help__cta-h3 {
@@ -63,6 +65,10 @@ const locale = Astro.currentLocale || "";
 
     .hidden {
         visibility: hidden;
+    }
+
+    .help__cta-1 .link {
+        min-height: 50px;
     }
 
     @media (960px <= width < 1200px) {
@@ -117,7 +123,7 @@ const locale = Astro.currentLocale || "";
 
     @media (320px <= width < 480px) {
         .help__cta {
-            --cta-width: 87.5vw;
+            --cta-width: auto;
             --cta-block-width: 46.375vw;
             --cta-block-height: 36.25vw;
 

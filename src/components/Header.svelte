@@ -158,7 +158,6 @@
         position: relative;
         font-family: var(--font-inter);
         font-size: var(--font-size);
-        margin-right: 20px;
     }
 
     .nav-lang-switch a {
@@ -301,7 +300,7 @@
 
     @media (width >= 1200px) {
         .header_container {
-            width: 1200px;
+            width: 1120px;
             left: auto;
             right: auto;
         }        

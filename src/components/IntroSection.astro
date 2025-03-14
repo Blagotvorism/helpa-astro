@@ -169,12 +169,11 @@ switch (page) {
 
     .main_intro {
 		position: relative;
-		display: block;
-		height: auto;
+		display: flex;
+		min-height: 720px;
 		background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/main/interBG.jpg');
 		background-size: cover;
 		margin-bottom: 80px;
-		padding: 110px 0;
 	}
 	.main_intro__container {
 		display: block;
@@ -213,7 +212,7 @@ switch (page) {
 			--section-height: 542px;
 			--font-size-title: 37px;
 			--line-height-title: 3rem;
-			padding: 100px 0;
+			min-height: 540px;
 			margin-bottom: 80px;
 		}
 
@@ -233,7 +232,7 @@ switch (page) {
 			--section-height: 51.8125rem;
 			--font-size-title: 37px;
 			--line-height-title: 3rem;
-			padding: 100px 0;
+			min-height: 720px;
 			margin-bottom: 80px;
 		}
 
@@ -253,12 +252,12 @@ switch (page) {
 			--section-height: 16.25rem;
 			--font-size-title: 15px;
 			--line-height-title: 1.25rem;
-			padding: 35px 0;
+			min-height: 272px;
 			margin-bottom: 70px;
 		}
 
 		.main_intro__container {
-			width: var(--containerWidth_480);
+			width: 272px;
 			height: var(--containerHeight_480);
 		}
 
@@ -279,8 +278,8 @@ switch (page) {
 			--section-height: 30rem;
 			--font-size-title: 15px;
 			--line-height-title: 1.25;
-			padding: 135px 0;
 			margin-bottom: 40px;
+			min-height: 481px;
 		}
 
 		.main_intro__container {

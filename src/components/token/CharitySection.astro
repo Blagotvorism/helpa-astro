@@ -71,7 +71,7 @@ const locale = Astro.currentLocale || "";
     :root {
         --charity-section-height: 36rem;
         --charity-container-height: 26.5625rem;
-        --charity-heading-font-size: 3.125rem;
+        --charity-heading-font-size: 48px;
         --charity-heading-margin-bottom: 5rem;
         --charity-cards-height: 17.5rem;
     }
@@ -92,7 +92,6 @@ const locale = Astro.currentLocale || "";
 
     h2 {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
         font-size: var(--charity-heading-font-size);
         margin-bottom: var(--charity-heading-margin-bottom);
     }
@@ -148,14 +147,18 @@ const locale = Astro.currentLocale || "";
         :root {
             --charity-section-height: 157.5vw;
             --charity-container-height: 138.75vw;
-            --charity-heading-font-size: 5vw;
-            --charity-heading-margin-bottom: 3.25vw;
+            --charity-heading-font-size: 15px;
+            --charity-heading-margin-bottom: 20px;
             --charity-cards-height: 40.625vw;
         }
 
         .charity__cards {
             flex-wrap: wrap;
             row-gap: 3.25vw;
+        }
+
+        .card {
+            border-radius: 20px;
         }
     }
 </style>

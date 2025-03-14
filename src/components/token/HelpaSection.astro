@@ -14,7 +14,7 @@ const locale = Astro.currentLocale || "";
             <div class="card">
                 <div class="text1">
                     <p class="card_name">{locale === "en" && "Total token supply:" || "Общее количество токена составляет:"}</p>
-                    <p class="card_text-bold token-total-amount"><span class="gradient_span">12345678987654321</span></p>
+                    <p class="card_text-bold token-total-amount gradient_span">12345678987654321</p>
                 </div>
             </div>
             <div class="card">
@@ -83,7 +83,6 @@ const locale = Astro.currentLocale || "";
 
     h2 {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
         font-size: var(--helpa-heading-font-size);
         letter-spacing: 1px;
         margin-bottom: var(--helpa-heading-margin-bottom);
@@ -176,9 +175,9 @@ const locale = Astro.currentLocale || "";
     }
 
     .token-total-amount {
-        font-family: var(--font-extra-bold);
-        text-align: justify;
-        text-align-last: justify;
+        font-family: 'Montserrat Variable';
+        font-weight: 700;
+        text-align: center;
     }
 
     @media (960px <= width < 1200px) {
@@ -304,17 +303,17 @@ const locale = Astro.currentLocale || "";
 
     @media (320px <= width < 480px) {
         .helpa {
-            --helpa-section-height: 150.625vw;
+            --helpa-section-height: 146vw;
             --helpa-container-height: 119.375vw;
             --helpa-container-margin-top: 12.5vw;
-            --helpa-heading-font-size: 5vw;
+            --helpa-heading-font-size: 15px;
             --helpa-heading-margin-bottom: 3.125vw;
             --helpa-text-font-size: 3.25vw;
             --helpa-text-margin-bottom: 3.25vw;
             --card-width: 40.625vw;
-            --card-height: 46.875vw;
+            --card-height: 150px;
             --card-name-font-size: 3.75vw;
-            --card-text-bold-font-size: 5vw;
+            --card-text-bold-font-size: 15px;
             --card-text-common-font-size: 3.125vw;
             --card-name-h2-font-size: 5vw;
             --card-name-h2-margin-bottom: 4.375vw;
@@ -334,6 +333,10 @@ const locale = Astro.currentLocale || "";
             row-gap: 1.25rem;
         }
 
+        .card {
+            border-radius: 20px;
+        }
+
         .card:nth-of-type(1) {
             width: 100%;
         }
@@ -346,12 +349,18 @@ const locale = Astro.currentLocale || "";
 
         .card:nth-of-type(1) .text1 {
             height: 4.5rem;
-            width: 71.875vw;
+            width: 70%;
         }
 
         .card_text-common br {
             display: none;
             text-align: center;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .token-total-amount {
+            letter-spacing: 0.2em;
         }
     }
 </style>

@@ -5,7 +5,7 @@ const locale = Astro.currentLocale || "";
     <div class="letters"></div>
     <div class="subheading">
         <div class="subheading_text">
-            <h3>{locale === "en" && "International sports community" || "Международное спортивное сообщество"}</h3>
+            <h3>{locale === "en" && "International sports community" || <>Международное спортивное&nbsp;сообщество</>}</h3>
             <p>{locale === "en" && "Regular races around the world" || "Регулярные заезды по всему миру"}</p>
         </div>
     </div>
@@ -68,6 +68,7 @@ const locale = Astro.currentLocale || "";
         width: var(--h3-width);
         font-family: var(--font-inter);
         font-size: var(--h3-font-size);
+        font-weight: normal;
         margin-bottom: var(--h3-margin-bottom);
         color: black;
     }
@@ -88,6 +89,7 @@ const locale = Astro.currentLocale || "";
             --subheading-top: 28%;
             --subheading-width: 56rem;
             --subheading-height: 15.5rem;
+            --p-font-size: 12px;
         }
 
         .letters {
