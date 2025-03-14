@@ -8,7 +8,7 @@ const locale = Astro.currentLocale || "";
     <h2>
         {locale === "en" &&
             <>Repay <span class="gradient_span">project goals</span></> ||
-            <><span class="gradient_span">Цели проекта</span> Repay</>
+            <><span class="gradient_span">Цели проекта</span><br/> Repay</>
         }
     </h2>
 
@@ -187,7 +187,10 @@ const locale = Astro.currentLocale || "";
             width: 1120px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 100px;
+            margin-bottom: 160px;
+        }
+        h2 {
+            font-size: 48px;
         }
         p {
             font-size: 16px;
@@ -198,9 +201,11 @@ const locale = Astro.currentLocale || "";
         .image1 {
             width: 455px; height: 516px;
             margin-bottom: 50px;
+            border-radius: 30px;
         }
         .image2 {
             width: 645px; height: 442px;
+            border-radius: 30px;
         }
     }
 </style>

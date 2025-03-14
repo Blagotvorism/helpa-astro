@@ -117,7 +117,7 @@ const locale = Astro.currentLocale || "";
     .tasks {
         margin-left: 20px;
         margin-right: 20px;
-        margin-bottom: 50px;;
+        margin-bottom: 50px;
     }
 
     .tasks:after {
@@ -138,6 +138,7 @@ const locale = Astro.currentLocale || "";
         width: 50%;
         float: left;
         clear: both;
+        padding-right: 5px
     }
 
     p {
@@ -156,6 +157,11 @@ const locale = Astro.currentLocale || "";
     h3 + p {
         width: 50%;
         float: right;
+        margin-bottom: 70px;
+    }
+
+    h3 + p:last-child {
+        margin-bottom: 0;
     }
 
     img {
@@ -223,7 +229,7 @@ const locale = Astro.currentLocale || "";
             width: 1120px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 100px;
+            margin-bottom: 200px;
         }
         .heading {
             font-size: 48px;
@@ -234,6 +240,9 @@ const locale = Astro.currentLocale || "";
         }
         h3 {
             font-size: 24px;
+        }
+        h3+p {
+            margin-bottom: 90px;
         }
     }
 </style>

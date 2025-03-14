@@ -338,7 +338,8 @@ const locale = Astro.currentLocale || "";
         font-family: 'Inter Variable';
         font-size: 12px;
         font-weight: 400;
-        margin-bottom: 30px;        
+        margin-bottom: 30px;
+        width: 80%;    
     }
 
     .activities .activity:last-child {
@@ -401,9 +402,26 @@ const locale = Astro.currentLocale || "";
             width: 1120px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 100px;
+        }
+        h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 16px;
+        }
+        p.important {
+            font-size: 24px;
+            width: 80%;
+        }
+        p.important + p {
+            width: 80%;
         }
         .activities {
+            margin-top: 80px;
             width: 1120px; height: 2600px;
+            margin-bottom: 0;
         }
         .activity {
             width: 360px; height: 341px;

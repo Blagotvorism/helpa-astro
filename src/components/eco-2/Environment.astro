@@ -24,14 +24,14 @@ const locale = Astro.currentLocale || "";
         --environment-section-height: 32rem;
         --environment-container-height: 24rem;
         /* Text */
-        --h2-width: 52.25rem;
+        --h2-width: 80%;
         --h2-mb: 2.5rem;
         --h3-width: 51.9rem;
         --h3-mb: 1.25rem;
         --p-width: 41.25rem;
         /* Fonts */
         --container-top: 8.25rem;
-        --h2-fs: 3.125rem;
+        --h2-fs: 48px;
         --h2-lh: 4rem;
         --h3-fs: 1.5rem;
         --p-fs: 1rem;
@@ -56,7 +56,6 @@ const locale = Astro.currentLocale || "";
     }
 
     h2 {
-        font-family: var(--font-lulo-bold);
         font-size: var(--h2-fs);
         line-height: var(--h2-lh);
         width: var(--h2-width);
@@ -66,6 +65,7 @@ const locale = Astro.currentLocale || "";
     h3 {
         font-family: var(--font-inter);
         font-size: var(--h3-fs);
+        font-weight: normal;
         width: var(--h3-width);
         margin-bottom: var(--h3-mb);
     }
@@ -150,7 +150,7 @@ const locale = Astro.currentLocale || "";
             --p-width: 83vw;
             /* Fonts */
             --container-top: 12.5vw;
-            --h2-fs: 5vw;
+            --h2-fs: 15px;
             --h2-lh: 6.25vw;
             --h3-fs: 3.75vw;
             --p-fs: 3.125vw;

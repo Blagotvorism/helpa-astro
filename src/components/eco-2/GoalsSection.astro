@@ -9,7 +9,7 @@ const locale = Astro.currentLocale || "";
     <h2 class="heading">
         {locale === "en" &&
             <><span class="gradient_span">Goals</span> of Eco Time Day project </> ||
-            <><span class="gradient_span">Цели проекта</span> Eco&nbsp;Time&nbsp;Day</>
+            <><span class="gradient_span">Цели проекта</span><br/>Eco&nbsp;Time&nbsp;Day</>
     }</h2>
     <p class="important">
         {locale === "en" &&
@@ -71,7 +71,7 @@ const locale = Astro.currentLocale || "";
     .goals {
         margin-left: 20px;
         margin-right: 20px;
-        margin-bottom: 50px;;
+        margin-bottom: 50px;
     }
 
     .goals:after {
@@ -82,7 +82,7 @@ const locale = Astro.currentLocale || "";
 
     .heading {
         font-size: 15px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     p {
@@ -176,6 +176,7 @@ const locale = Astro.currentLocale || "";
     @media (width >= 960px) {
 
         .heading {
+            font-size: 48px;
             width: 50%;
         }
 
@@ -201,6 +202,7 @@ const locale = Astro.currentLocale || "";
             width: 1120px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 150px;
         }
         p {
             font-size: 16px;

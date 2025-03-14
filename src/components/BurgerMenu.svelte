@@ -52,6 +52,10 @@
         padding: 0 1px;
     }
 
+    .burger-menu_btn {
+        margin-left: 10px;
+    }
+
     button {
         background: none;
         cursor: pointer;
