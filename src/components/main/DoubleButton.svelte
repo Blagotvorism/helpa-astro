@@ -7,7 +7,7 @@
     export let locale;
 
     function toggleButton() {
-    showIcons = !showIcons; // Toggle the state
+        showIcons = !showIcons; // Toggle the state
     }
 
     let joinButtonText = (function(locale) {
@@ -24,7 +24,7 @@
 <div class="split_btn">
     {#if showIcons}
       <!-- Button with icons -->
-        <button class="button-with-icons" on:click={toggleButton}>
+        <button class="button-with-icons" on:mouseleave={toggleButton} on:blur={toggleButton}>
             <div class="icon-wrapper">
                 <a href="https://t.me/astrowayhelpplanet" class="link"><TgSocial /></a>
             <div class="divider"></div>
@@ -33,7 +33,7 @@
       </button>
     {:else}
       <!-- Button with text -->
-      <button class="button-simple" on:click={toggleButton}>
+      <button class="button-simple" on:mouseover={toggleButton} on:focus={toggleButton}>
         {joinButtonText}
       </button>
     {/if}
