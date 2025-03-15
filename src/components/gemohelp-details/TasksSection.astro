@@ -82,7 +82,7 @@ const locale = Astro.currentLocale || "";
     .tasks {
         margin-left: 20px;
         margin-right: 20px;
-        margin-bottom: 50px;;
+        margin-bottom: 30px;;
     }
 
     .tasks:after {
@@ -103,6 +103,8 @@ const locale = Astro.currentLocale || "";
         width: 50%;
         float: left;
         clear: both;
+        margin-bottom: 50px;
+        padding-right: 5px;
     }
 
     p {
@@ -115,11 +117,13 @@ const locale = Astro.currentLocale || "";
         font-size: 12px;
         color: black;
         margin-bottom: 30px;
+        clear: both;
     }    
 
     h3 + p {
         width: 50%;
         float: right;
+        margin-bottom: 50px;
     }
 
     img {
