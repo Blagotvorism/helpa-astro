@@ -52,8 +52,6 @@ const locale = Astro.currentLocale || "";
 	const containerElement = document.querySelector(".debt_problem__cards");
     const animatedChildren = containerElement?.children;
 
-    console.info(animatedChildren);
-
     for (let c of animatedChildren!) {
         const child = c as HTMLElement;
         child.style.opacity = "0";
@@ -171,7 +169,7 @@ const locale = Astro.currentLocale || "";
             --link-width: 13.125rem;
             --cards-height: 34.5rem;
             --row-gap: 1.25rem;
-            --margin-top: 5rem;
+            --margin-top: 6rem;
         }
 
         .debt_problem__text-link {
@@ -207,7 +205,7 @@ const locale = Astro.currentLocale || "";
             --container-height: 45.875rem;
             --text-height: 11.75rem;
             --heading-font-size: 15px;
-            --heading-line-height: 1.5rem;
+            --heading-line-height: 1.4;
             --heading-margin-bottom: 1.25rem;
             --subheading-width: 17.8125rem;
             --subheading-font-size: .75rem;
@@ -220,6 +218,14 @@ const locale = Astro.currentLocale || "";
 
         h2 {
             width: 80%;
+        }
+
+        .debt_problem__text-link {
+            font-size: 10px;
+        }
+
+        .debt_problem__cards {
+            padding-top: 20px;
         }
     }
 

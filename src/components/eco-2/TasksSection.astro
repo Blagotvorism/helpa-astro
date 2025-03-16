@@ -5,7 +5,7 @@ const locale = Astro.currentLocale || "";
     <h2 class="heading">
         {locale === "en" &&
             <>Achieving our goals depends on a <span class="gradient_span">number of objectives</span></> ||
-            <>Достижение наших целей зависит от <span class="gradient_span">ряда задач</span></>
+            <>Достижение наших целей зависит от&nbsp;<span class="gradient_span">ряда задач</span></>
         }
     </h2>
     <p class="important">
@@ -149,7 +149,6 @@ const locale = Astro.currentLocale || "";
 
     p.important {
         font-size: 12px;
-        font-weight: 600;
         color: black;
         margin-bottom: 30px;
     }
@@ -183,24 +182,34 @@ const locale = Astro.currentLocale || "";
     }
 
     @media (width >= 480px) {
+        .heading,
+        .heading + p {
+            width: 90%;
+        }
         h3 {
             padding-right: 20px;
         }
         h3+p {
             padding-left: 20px;
         }
+        p {
+            font-size: 10px;
+        }
     }
 
     @media (width >= 640px) {
         .heading {
             font-size: 37px;
+            margin-bottom: 40px;
         }
         p {
             font-size: 14px;
         }
         p.important {
+            width: 80%;
             font-size: 20px;
             font-weight: 400;
+            margin-bottom: 60px;
         }
         h3 {
             font-size: 20px;
@@ -208,19 +217,28 @@ const locale = Astro.currentLocale || "";
         }
         h3+p {
             padding-left: 0;
-            margin-bottom: 40px;
+            margin-bottom: 55px;
         }
     }
 
     @media (width >= 960px) {
+        .tasks {
+            margin-bottom: 150px;
+        }
+        .heading {
+            margin-bottom: 50px;
+        }
         p.important {
+            width: auto;
             padding-left: 50%;
+            margin-bottom: 90px;
         }
         h3 {
             width: 35%;
         }
         h3+p {
             width: 65%;
+            margin-bottom: 80px;
         }
     }
 

@@ -89,24 +89,6 @@ const locale = Astro.currentLocale || "";
             }
         }
     }
-
-	function _simulateTyping() {
-		/* const mainIntroTitle = introSection?.getElementsByTagName("h2")[0];
-		const typed = mainIntroTitle?.querySelector(".typed") as HTMLSpanElement;
-		const untyped = mainIntroTitle?.querySelector(".untyped") as HTMLSpanElement;
-		let untypedString = untyped.innerText;
-		let typingInterval = setInterval(type, 50);
-		function type() {			
-			if (untypedString.length > 0) {
-				const symbol = untypedString[0];
-				typed.innerText += symbol;
-				untypedString = untypedString.substring(1);
-				untyped.innerText = untypedString;
-			} else {
-				clearInterval(typingInterval);
-			}			
-		} */
-	}
 </script>
 
 <style>
@@ -145,7 +127,7 @@ const locale = Astro.currentLocale || "";
     @media (960px <= width < 1200px) {
         .communication {
             --section-height: 22rem;
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.25rem;
             --h2-margin-bottom: 0;
         }
@@ -154,7 +136,7 @@ const locale = Astro.currentLocale || "";
     @media (640px <= width < 960px) {
         .communication {
             --section-height: 31.25rem;
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.25rem;
             --h2-margin-bottom: 0;
         }
@@ -163,9 +145,12 @@ const locale = Astro.currentLocale || "";
     @media (480px <= width < 640px) {
         .communication {
             --section-height: 11.5rem;
-            --h2-font-size: 1rem;
+            --h2-font-size: 15px;
             --h2-line-height: 1.25rem;
             --h2-margin-bottom: 0;
+        }
+        h2 {
+            width: 85%;
         }
     }
 

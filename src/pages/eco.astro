@@ -56,7 +56,7 @@ const locale = Astro.currentLocale || "";
         <ConceptSection 
             pagePath='eco'
             mainHeading={locale === "en" && "Project concept" || "Концепция проекта"}
-            subHeading={locale === "en" && "Cleaning the coastal area, which is the border of two worlds – terrestrial and aquatic." || "Уборка берегового пространства, являющееся фактически границей двух <br/> миров - земного и водного."}
+            subHeading={locale === "en" && "Cleaning the coastal area, which is the border of two worlds – terrestrial and aquatic." || "Уборка берегового пространства, являющееся фактически границей двух миров - земного и водного."}
             text={locale === "en" && "The pollution of this zone causes tremendous damage to both ecosystems. Volunteers of the project can be called defenders of the natural boundaries of ecosystems and human health, since environmental pollution increases the risk of developing allergies and a number of other diseases, including cancer." || "Последствиями загрязнения этой зоны является колоссальный урон обеим экосистемам. Волонтёров проекта можно назвать защитниками естественных границ экосистем и здоровья людей, так как загрязнение окружающей среды повышает риск развития аллергий и ряда других заболеваний, в том числе онкологических."}
         />
         <IntroSection
@@ -273,6 +273,10 @@ const locale = Astro.currentLocale || "";
     }
 
     @media (width >= 960px) {
+
+        .gallery {
+            margin-bottom: 90px;
+        }
 
         .gallery .card {
             width: 293px; height: 165px;

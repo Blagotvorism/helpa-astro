@@ -8,7 +8,7 @@ const locale = Astro.currentLocale || "";
     <div class="helpa__container">
         <RadialGradient topPosition="-19rem" leftPosition="58.125rem" />
         <RadialGradient topPosition="14.6875rem" leftPosition="-23rem" />
-        <h2 class="helpa__container-heading">HELP PLANET (<span class="gradient_span">HELPA</span>)</h2>
+        <h2 class="helpa__container-heading">HELP PLANET <br/>(<span class="gradient_span">HELPA</span>)</h2>
         <p class="helpa__container-text">{locale === "en" && "Contract" || "Контракт"}: 0x6B8686BDF9DfE41790B0147d4096BF0c44b9c90f</p>
         <div class="helpa__container_cards">
             <div class="card">
@@ -86,6 +86,10 @@ const locale = Astro.currentLocale || "";
         font-size: var(--helpa-heading-font-size);
         letter-spacing: 1px;
         margin-bottom: var(--helpa-heading-margin-bottom);
+    }
+
+    .helpa__container-heading br {
+        display: none;
     }
 
     .helpa__container-text {
@@ -214,13 +218,13 @@ const locale = Astro.currentLocale || "";
 
     @media (640px <= width < 960px) {
         .helpa {
-            --helpa-section-height: 50.75rem;
+            --helpa-section-height: 49rem;
             --helpa-container-height: 40.5rem;
             --helpa-container-margin-top: 5rem;
-            --helpa-heading-font-size: 2.5rem;
+            --helpa-heading-font-size: 37px;
             --helpa-heading-margin-bottom: 1.25rem;
             --helpa-text-font-size: .75rem;
-            --helpa-text-margin-bottom: 2.5rem;
+            --helpa-text-margin-bottom: 3rem;
             --card-width: 18.625rem;
             --card-height: 13.5rem;
             --card-name-font-size: 1.25rem;
@@ -237,6 +241,10 @@ const locale = Astro.currentLocale || "";
             --text2-height: 7.25rem;
             --text2-card-name-margin-bottom: 1.25rem;
             --card-text-common-width: 15.2rem;
+        }
+
+        .helpa__container-heading br {
+            display: initial;
         }
 
         .helpa__container_cards {

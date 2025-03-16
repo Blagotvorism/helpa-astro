@@ -109,13 +109,16 @@ const locale = Astro.currentLocale || "";
     }
 
     @media (width >= 480px) {
+        .goals {
+            padding-top: 0;
+        }
         p {
             font-size: 10px;
         }
         .image1 {
             height: 114px;
             margin-bottom: 20px;
-        }
+        }        
         p + p + p {
             clear: both;
         }
@@ -135,6 +138,10 @@ const locale = Astro.currentLocale || "";
     }
 
     @media (width >= 640px) {
+        .goals {
+            padding-top: 0;
+            margin-bottom: 80px;
+        }
         h2 {
             font-size: 37px;
         }
@@ -151,18 +158,39 @@ const locale = Astro.currentLocale || "";
             width: 219px; height: 257px;
             margin-right: 20px;
         }
+        .image1 + p {
+            padding-top: 40px;
+        }
         .image3 {
             width: 298px; height: 378px;
+        }
+        .image3 + p {
+            padding-top: 40px;
         }
     }
 
     @media (width >= 960px) {
+        .goals {
+            padding-top: 0;
+            margin-bottom: 130px;
+        }
+        p.important {
+            width: 90%;
+            margin-bottom: 40px;
+        }
         .image1 {
             width: 372px; height: 257px;
+        }
+        .image1 + p {
+            padding-top: 40px;
         }
         .image3 {
             width: 528px; height: 358px;
             clear: none;
+            margin-top: -80px;
+        }
+        .image3 + p {
+            padding-top: 20px;
         }
     }
 

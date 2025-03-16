@@ -109,6 +109,10 @@ const locale = Astro.currentLocale || "";
         margin-bottom: 30px;
     }
 
+    .goals_image + p {
+        padding-top: 15px;
+    }
+
     .eco_image + p {
         clear: left;
     }
@@ -118,7 +122,7 @@ const locale = Astro.currentLocale || "";
     }
 
     .final_image {
-        width: 280px; height: 130px;
+        width: 100%; height: 130px;
         object-fit: cover;
     }
 
@@ -131,6 +135,13 @@ const locale = Astro.currentLocale || "";
         .goals_image {
             height: 208px;
             margin-right: 20px;
+        }
+
+        .goals_image + p {
+            display: flex;
+            align-items: center;
+            height: 208px;
+            padding-top: 0;
         }
 
         .eco_image {
@@ -154,6 +165,12 @@ const locale = Astro.currentLocale || "";
 
         .heading {
             font-size: 37px;
+            margin-bottom: 30px;
+        }
+
+        h2 + p {
+            width: 90%;
+            margin-bottom: 30px;
         }
 
         p {
@@ -166,18 +183,36 @@ const locale = Astro.currentLocale || "";
 
         .goals_image {
             width: 219px; height: 257px;
+            border-radius: 30px;
+            margin-bottom: 50px;
+        }
+
+        .goals_image + p {
+            display: flex;
+            align-items: center;
+            height: 257px;
         }
 
         .eco_image {
             width: 300px; height: 378px;
+            border-radius: 30px;
+        }
+
+        .eco_image + p {
+            padding-top: 10px;
         }
     }
 
     @media (width >= 960px) {
 
         .heading {
-            font-size: 48px;
+            font-size: 37px;
             width: 50%;
+        }
+
+        h2 + p {
+            width: 80%;
+            margin-bottom: 50px;
         }
 
         .goals_image {
@@ -195,6 +230,10 @@ const locale = Astro.currentLocale || "";
             width: 528px; height: 358px;
             border-radius: 30px;
         }
+
+        .eco_image + p {
+            padding-top: 40px;
+        }
     }
 
     @media (width >= 1200px) {
@@ -203,6 +242,9 @@ const locale = Astro.currentLocale || "";
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 150px;
+        }
+        .heading {
+            font-size: 48px;
         }
         p {
             font-size: 16px;

@@ -151,6 +151,9 @@ const locale = Astro.currentLocale || "";
         h3+p {
             padding-left: 20px;
         }
+        p {
+            font-size: 10px;
+        }
     }
 
     @media (width >= 640px) {
@@ -158,11 +161,15 @@ const locale = Astro.currentLocale || "";
             font-size: 37px;
         }
         p {
-            font-size: 14px;
+            font-size: 12px;
         }
         p.important {
             font-size: 20px;
             font-weight: 400;
+        }
+        p.important + p {
+            width: 75%;
+            margin-bottom: 50px;
         }
         h3 {
             font-size: 20px;
@@ -170,13 +177,23 @@ const locale = Astro.currentLocale || "";
         }
         h3+p {
             padding-left: 0;
-            margin-bottom: 40px;
+            margin-bottom: 100px;
         }
     }
 
     @media (width >= 960px) {
+        .tasks {
+            margin-bottom: 120px;
+        }
+        .heading {
+            margin-bottom: 50px;            
+        }
         p.important {
-            padding-left: 50%;
+            width: 70%;
+        }
+        p.important + p {
+            width: 75%;
+            margin-bottom: 50px;
         }
         p.important:last-child {
             width: 626px;
@@ -189,6 +206,7 @@ const locale = Astro.currentLocale || "";
         }
         h3+p {
             width: 65%;
+            margin-bottom: 90px;
         }
     }
 
@@ -207,7 +225,6 @@ const locale = Astro.currentLocale || "";
         p.important {
             font-size: 24px;
             margin-bottom: 30px;
-            padding-left: 0;
             width: 75%;
         }
         p.important + p {

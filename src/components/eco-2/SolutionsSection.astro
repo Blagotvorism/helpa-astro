@@ -369,9 +369,13 @@ const locale = Astro.currentLocale || "";
         h2 {
             font-size: 37px;
         }
+        p.important {
+            width: 85%;
+        }
         .activities {
             width: 620px;
-            height: 3650px;
+            height: 3630px;
+            margin-bottom: 10px;
         }
         .activity {
             width: 293px; height: 341px;
@@ -385,9 +389,23 @@ const locale = Astro.currentLocale || "";
     }
 
     @media (width >= 960px) {
+        .solutions {
+            margin-bottom: 90px;
+        }
+        h2 {
+            margin-bottom: 50px;
+        }
+        p.important {
+            width: 90%;
+            margin-bottom: 40px;
+        }
+        p.important + p {
+            width: 80%;
+        }
         .activities {
-            width: 920px; height: 2600px;
-
+            margin-top: 40px;
+            width: 920px; height: 2560px;
+            margin-bottom: 0;
         }
         .activity {
 

@@ -390,6 +390,10 @@ const locale = Astro.currentLocale || "";
         .activities {
             width: 600px;
         }
+        .activities + p,
+        .activities + p + p {
+            width: 80%;
+        }
         .activity {
             width: 293px; height: 341px;
         }        
@@ -399,11 +403,33 @@ const locale = Astro.currentLocale || "";
         p.important {
             font-size: 20px;
         }
+        .activity h3 {
+            font-size: 16px;
+        }
+        .activity p {
+            font-size: 14px;
+        }
     }
 
     @media (width >= 960px) {
+        .solutions {
+            margin-bottom: 140px;
+        }
+        h2 {
+            margin-bottom: 50px;
+        }
+        h2 + p {
+            margin-bottom: 40px;
+            width: 90%;
+        }
         .activities {
             width: 920px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        .activities + p,
+        .activities + p + p {
+            width: 60%;
         }
         .activity {
 

@@ -157,7 +157,7 @@ const locale = Astro.currentLocale || "";
             --section-height: 43.75rem;
             --container-height: 37.5rem;
             --heading-width: 44.0625rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --heading-margin-bottom: 2.5rem;
             --list-height: 24.5rem;
@@ -170,6 +170,9 @@ const locale = Astro.currentLocale || "";
             --first-el-width: 12.5rem;
             --column-gap: 5rem;
             --li-height: 16.75rem;
+        }
+        h2 {
+            width: 90%;
         }
     }
 
@@ -205,12 +208,12 @@ const locale = Astro.currentLocale || "";
 
     @media (480px <= width < 640px) {
         .debt_solutions {
-            --section-height: 27.5rem;
+            --section-height: 24rem;
             --container-height: 18.75rem;
-            --container-margin-top: 5rem;
+            --container-margin-top: 3rem;
             --heading-width: 17.75rem;
-            --heading-font-size: 1rem;
-            --heading-line-height: 1.5rem;
+            --heading-font-size: 15px;
+            --heading-line-height: 1.3;
             --heading-margin-bottom: 1rem;
             --list-height: 13.5rem;
             --number-font-size: 5.625rem;
@@ -226,6 +229,10 @@ const locale = Astro.currentLocale || "";
 
         .debt_solutions__container {
             margin-top: var(--container-margin-top);
+        }
+
+        h2 {
+            width: 70%;
         }
     }
 

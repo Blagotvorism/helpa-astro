@@ -132,9 +132,15 @@ const locale = Astro.currentLocale || "";
             --logo-width: 19.4375rem;
             --logo-height: 16.875rem;
         }
+        section {
+            margin-bottom: 0;
+        }
     }
 
     @media (640px <= width < 960px) {
+        section {
+            margin-bottom: 0;
+        }
         .ride_philosophy {
             --section-height: 35.5rem;
             --container-height: 23rem;
@@ -165,7 +171,7 @@ const locale = Astro.currentLocale || "";
 
     @media (480px <= width < 640px) {
         .ride_philosophy {
-            --section-height: 21.3125rem;
+            --section-height: auto;
             --container-height: 12.5rem;
             --container-margin-top: 3.75rem;
             --text-width: 18.125rem;
@@ -193,8 +199,11 @@ const locale = Astro.currentLocale || "";
     }
 
     @media (320px <= width < 480px) {
+        section {
+            margin-bottom: 60px;
+        }
         .ride_philosophy {
-            --section-height: 146.25vw;
+            --section-height: auto;
             --container-height: 115vw;
             --container-margin-top: 12.5vw;
             --text-width: var(--reduced-width);

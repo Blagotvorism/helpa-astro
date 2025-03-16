@@ -60,39 +60,43 @@ const locale = Astro.currentLocale || "";
     @media (960px <= width < 1200px) {
         .environment_warning {
             --section-height: 29rem;
-            --container-mt: 7.5rem;
+            --container-mt: 6rem;
             --h2-fs: 2.5rem;
             --h2-width: 42.875rem;
             --h2-mb: 1.25rem;
             --p-fs: 1.25rem;
             --p-width: 28.5rem;
-            --ml: 29.5rem;
+            --ml: 29.5rem;            
         }
     }
 
     @media (640px <= width < 960px) {
         .environment_warning {
             --section-height: 25.875rem;
-            --container-mt: 5.75rem;
-            --h2-fs: 2.5rem;
+            --container-mt: 4rem;
+            --h2-fs: 37px;
             --h2-width: 42.875rem;
             --h2-mb: 1.25rem;
             --p-fs: 1.25rem;
             --p-width: 23.5rem;
             --ml: 9.75rem;
+
+            margin-bottom: 110px;
         }
     }
 
     @media (480px <= width < 640px) {
         .environment_warning {
             --section-height: 16.75rem;
-            --container-mt: 5rem;
+            --container-mt: 3rem;
             --h2-fs: 1rem;
             --h2-width: 14.375rem;
             --h2-mb: 1.25rem;
             --p-fs: .75rem;
             --p-width: 25.75rem;
             --ml: 0;
+
+            margin-bottom: 80px;
         }
     }
 
