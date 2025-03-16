@@ -197,17 +197,32 @@ const locale = Astro.currentLocale || "";
             width: 1120px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 100px;
+            margin-bottom: 160px;
         }
         .heading {
             font-size: 48px;
+            width: 80%;
+            margin-bottom: 50px;
         }
         p.important {
             font-size: 24px;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+            padding-left: 0;
+            width: 75%;
+        }
+        p.important + p {
+            width: 58%;
+            margin-bottom: 90px;
         }
         h3 {
             font-size: 24px;
+            margin-bottom: 90px;
+        }
+        h3 + p {
+            margin-bottom: 90px;
+        }
+        p.important:last-child {
+            padding-top: 20px;
         }
     }
 </style>

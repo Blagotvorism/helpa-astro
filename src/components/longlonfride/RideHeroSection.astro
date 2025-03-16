@@ -5,7 +5,7 @@ const locale = Astro.currentLocale || "";
     <div class="letters"></div>
     <div class="subheading">
         <div class="subheading_text">
-            <h3>{locale === "en" && "International sports community" || <>Международное<br>спортивное сообщество</>}</h3>
+            <h3>{locale === "en" && "International sports community" || <>Международное<br/>спортивное сообщество</>}</h3>
             <p>{locale === "en" && "Regular races around the world" || "Регулярные заезды по всему миру"}</p>
         </div>
     </div>
@@ -24,7 +24,6 @@ const locale = Astro.currentLocale || "";
         --subheading-top: 30vh;
         --subheading-width: var(--reduced-width);
         --subheading-height: 42vh;
-
     }
 
     .ride_hero {

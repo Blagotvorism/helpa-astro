@@ -72,7 +72,7 @@ const locale = Astro.currentLocale || "";
 
     h2 {
         font-size: 15px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     p {
@@ -169,8 +169,10 @@ const locale = Astro.currentLocale || "";
     @media (width >= 1200px) {
         .goals {
             width: 1120px;
+            padding-top: 0;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 220px;
         }
         h2 {
             font-size: 48px;
@@ -180,13 +182,20 @@ const locale = Astro.currentLocale || "";
         }
         p.important {
             font-size: 24px;
+            margin-bottom: 40px;
         }
         .image1 {
             width: 645px; height: 314px;
             margin-bottom: 50px;
         }
+        .image1 + p {
+            padding-top: 60px;
+        }
         .image3 {
             width: 645px; height: 430px;
+        }
+        .image3 + p {
+            padding-top: 60px;
         }
     }
 </style>

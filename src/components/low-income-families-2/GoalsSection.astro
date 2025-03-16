@@ -198,6 +198,10 @@ const locale = Astro.currentLocale || "";
         p.important {
             font-size: 24px;
         }
+        h2 + p.important {
+            width: 75%;
+            margin-bottom: 40px;
+        }
         .image1 {
             width: 455px; height: 516px;
             margin-bottom: 50px;
@@ -206,6 +210,10 @@ const locale = Astro.currentLocale || "";
         .image2 {
             width: 645px; height: 442px;
             border-radius: 30px;
+        }
+        .image2 + p {
+            height: auto;
+            padding-top: 30px;
         }
     }
 </style>
