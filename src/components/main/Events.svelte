@@ -137,8 +137,7 @@
                     {locale === "en" &&
                         "Report about past events will be published here soon!" ||
                         "Скоро здесь будет опубликован отчет о прошедших мероприятиях!"
-                    }
-                    
+                    }                    
                 </p>
             </div>
         {/if}

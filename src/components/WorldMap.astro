@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import mapImage from '../images/eco/world-map.png';
 import markerImage from '../images/eco/world-map-marker.svg';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <div class="world-map">
@@ -9,19 +11,19 @@ import markerImage from '../images/eco/world-map-marker.svg';
     <ul class="country-markers">
         <li class="russia">
             <button><Image src={markerImage} alt="Marker"/></button>
-            <span>Россия</span>
+            <span>{locale === "en" && "Russia" || "Россия"}</span>
         </li>
         <li class="georgia">
             <button><Image src={markerImage} alt="Marker"/></button>
-            <span>Грузия</span>
+            <span>{locale === "en" && "Georgia" || "Грузия"}</span>
         </li>
         <li class="israel">
             <button><Image src={markerImage} alt="Marker"/></button>
-            <span>Израиль</span>
+            <span>{locale === "en" && "Israel" || "Израиль"}</span>
         </li>
         <li class="sri-lanka">
             <button><Image src={markerImage} alt="Marker"/></button>
-            <span>Шри-Ланка</span>
+            <span>{locale === "en" && "Sri-Lanka" || "Шри-Ланка"}</span>
         </li>
     </ul>
 </div>

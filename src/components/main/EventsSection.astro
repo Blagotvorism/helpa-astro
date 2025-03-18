@@ -22,7 +22,7 @@ const locale = Astro.currentLocale || "";
                 <p class="events_heading-4">{locale === "en" && "View the archive of events held and appreciate the scale." || "Посмотрите архив проведенных мероприятий и оцените масштаб."}</p>
             </div>
         </div>
-		<p class="tab_name">Направление</p>
+		<p class="tab_name">{locale === "en" && "Area" || "Направление"}</p>
 		<Events locale={locale} client:load />
     </div>
 </section>
