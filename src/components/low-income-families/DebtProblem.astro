@@ -2,6 +2,7 @@
 import '../../styles/global.css';
 import DebtProblemCard from './DebtProblemCard.astro';
 import RadialGradient from '../RadialGradient.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const locale = Astro.currentLocale || "";
 ---
@@ -23,7 +24,12 @@ const locale = Astro.currentLocale || "";
                 }                
             </h3>
             <div class="debt_problem__text-link">
-                <a href="/low-income-families-2" class="arrow-cap">Подробнее о последствиях</a>
+                <a href={getRelativeLocaleUrl(locale, "/low-income-families-2")} class="arrow-cap">
+                    {locale === "en" &&
+                    <>More about consequences</> ||
+                    <>Подробнее о последствиях</>
+                    }
+                </a>
             </div>
         </div>
         <div class="debt_problem__cards">

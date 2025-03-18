@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import imagesData from '../data/concepts.json';
 import RadialGradient from './RadialGradient.astro';
-import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
     mainHeading: string;
@@ -13,6 +13,8 @@ interface Props {
 }
 
 const { mainHeading, subHeading, text, pagePath, usualHeading } = Astro.props;
+
+const locale = Astro.currentLocale || "";
 
 const pageConfig = {
     'eco': {
@@ -62,10 +64,24 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             {subHeading && <h3 class={pagePath !== 'low-income-families' ?  "eco-concept__subheading" : 'eco-concept__subheading low-income-concept__subheading'} set:html={subHeading} />}
             <p class={pagePath !== 'low-income-families' ?  "eco-concept__description" : 'eco-concept__description low-income-concept__description'} set:html={text} />
             {pagePath === "low-income-families" &&
-                <p class="details-link"><a href="/low-income-families-2" class="arrow-cap">Читать подробнее о целях проекта</a></p>
+                <p class="details-link">
+                    <a href={getRelativeLocaleUrl(locale, "/low-income-families-2")} class="arrow-cap">
+                        {locale === "en" &&
+                        <>Read more about project goals</> ||
+                        <>Читать подробнее о целях проекта</>
+                        }
+                    </a>
+                </p>
             }
             {pagePath === "eco" &&
-                <p class="details-link"><a href="/eco-2" class="arrow-cap">Читать подробнее о целях проекта</a></p>
+                <p class="details-link">
+                    <a href={getRelativeLocaleUrl(locale, "/eco-2")} class="arrow-cap">
+                        {locale === "en" &&
+                        <>Read more about project goals</> ||
+                        <>Читать подробнее о целях проекта</>
+                        }
+                    </a>
+                </p>
             }
         </div>
         <div class="eco-concept__images">

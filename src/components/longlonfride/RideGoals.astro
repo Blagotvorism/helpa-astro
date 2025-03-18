@@ -2,6 +2,7 @@
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 import RideGoalCard from './RideGoalCard.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
     page: string;
@@ -56,7 +57,14 @@ const locale = Astro.currentLocale || "";
             <h2>{usualTextStart}<span class="gradient_span">{gradientText}</span>{usualTextFinish}</h2>
             <h3>{subheading}</h3>
             <p>{text}</p>
-            <p><a href={detailsHref} class="arrow-cap">Читать подробнее о целях проекта</a></p>
+            <p>
+                <a href={getRelativeLocaleUrl(locale, detailsHref)} class="arrow-cap">
+                    {locale === "en" &&
+                    <>Read more about project goals</> ||
+                    <>Читать подробнее о целях проекта</>
+                    }
+                </a>
+            </p>
         </div>
     </div>
 </section>
