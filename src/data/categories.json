@@ -1,27 +1,42 @@
 [
     {
         "id": 1,
-        "text": "Все",
+        "text": {
+            "en": "All",
+            "ru": "Все"
+        },
         "category": "all"
     },
     {
         "id": 2,
-        "text": "Защита природы",
+        "text": {
+            "en": "Environmental protection",
+            "ru": "Защита природы"
+        },
         "category": "eco"
     },
     {
         "id": 3,
-        "text": "Помощь онкобольным",
+        "text": {
+            "en": "Cancer patients support",
+            "ru": "Помощь онкобольным"
+        },
         "category": "health"
     },
     {
         "id": 4,
-        "text": "Помощь закредитованным",
+        "text": {
+            "en": "Over-indebted support",
+            "ru": "Помощь закредитованным"
+        },
         "category": "debt"
     },
     {
         "id": 5,
-        "text": "Развитие спорта",
+        "text": {
+            "en": "Sports development",
+            "ru": "Развитие спорта"
+        },
         "category": "sport"
     }
 ]

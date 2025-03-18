@@ -2,6 +2,8 @@
     import Modal from "./main/Modal.svelte";
     export let cards;
 
+    export let locale;
+
     let totalCards;
     let cardsLeft;
     let itemsToShow = 2;
@@ -91,25 +93,32 @@
     {#if totalCards > 0}
         <div class="cards">
             {#each cards.slice(0, itemsToShow) as card}
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <div class="event_card" on:click={() => handleClick(card)}>
                     <img src={card.imageURL} alt={card.title} class='event_card-img' />
                     <div class="event_card-text">
                         <h3 class="event_card-title">{card.title}</h3>
                         <p class="event_card-descr">{card.descriptionShort}</p>
-                        <button on:click={() => handleClick(card)} class="btn-card gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                        <button on:click={() => handleClick(card)} class="btn-card gradient_span">
+                            <span class="btn_innertext_secondary">{locale === "en" && "Details" || "Подробнее"}</span><span class="btn_arrow gradient_span"> ❯ </span>
+                        </button>
                     </div>
                 </div>
             {/each}
             {#if !cardsLeft}
                 <div class="pagination">      
-                    <button on:click={loadMore}>Загрузить еще</button>
+                    <button on:click={loadMore}>{locale === "en" && "Load more" || "Загрузить еще"}</button>
                 </div>
             {/if}
         </div>
     {:else}
         <div class="no_cards">
             <p class="no_cards-p">
-                Скоро здесь будет опубликован отчет о прошедших мероприятиях!
+                {locale === "en" &&
+                    "Report about past events will be published here soon!" ||
+                    "Скоро здесь будет опубликован отчет о прошедших мероприятиях!"
+                }  
             </p>
         </div>
     {/if}

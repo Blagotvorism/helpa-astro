@@ -90,7 +90,7 @@
 
 <div class="cards_container">
     <EventsTab locale={locale} bind:category btnAction={slider} cards={cards} />
-    <SelectDropDown events={events} />
+    <SelectDropDown events={events} locale={locale}/>
     <div class="event_cards">
         {#if findCards(category) !== 0}
             {#key category}
