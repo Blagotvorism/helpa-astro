@@ -4,6 +4,7 @@
     import Modal from './Modal.svelte';
 	import events from '../../data/events.json';
 	import SelectDropDown from '../SelectDropDown.svelte';
+
     let slider;
     let category;
     let cards;
@@ -96,28 +97,33 @@
                 <Carousel bind:this={slider} siemaItems={findCards(category)}>
                     {#if category === 'all'}
                         {#each events as event, index (index)}
-                            <div class="event_card" on:click={() => handleClick(event)}>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <div class="event_card" on:click={() => handleClick(event)} role="button" tabindex="-1">
                                 <div class="event_image">
-                                    <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                    <img src={event.imageURL} alt={typeof(event.title) === 'string' ? event.title : event.title[locale]} class='event_card-img' />
                                 </div>
                                 <div class="event_card-text">
-                                    <p class="event_card-title">{event.title}</p>
+                                    <p class="event_card-title">{typeof(event.title) === 'string' ? event.title : event.title[locale]}</p>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
-                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span">
+                                        <span class="btn_innertext_secondary">{locale === "en" && "Details" || "Подробнее"}</span>
+                                    <span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                         {/each}
                     {:else}
                         {#each events as event, index (index)}
                             {#if category === event.category}
-                            <div class="event_card" on:click={() => handleClick(event)}>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <div class="event_card" on:click={() => handleClick(event)} role="button" tabindex="-1">
                                 <div class="event_image">
-                                    <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                    <img src={event.imageURL} alt={typeof(event.title) === 'string' ? event.title : event.title[locale]} class='event_card-img' />
                                 </div>
                                 <div class="event_card-text">
-                                    <p class="event_card-title">{event.title}</p>
+                                    <p class="event_card-title">{typeof(event.title) === 'string' ? event.title : event.title[locale]}</p>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
-                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span">
+                                        <span class="btn_innertext_secondary">{locale === "en" && "Details" || "Подробнее"}</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                             {/if}
@@ -128,7 +134,11 @@
         {:else}
             <div class="no_cards_container">
                 <p class="no_cards">
-                    Скоро здесь будет опубликован отчет о прошедших мероприятиях!
+                    {locale === "en" &&
+                        "Report about past events will be published here soon!" ||
+                        "Скоро здесь будет опубликован отчет о прошедших мероприятиях!"
+                    }
+                    
                 </p>
             </div>
         {/if}

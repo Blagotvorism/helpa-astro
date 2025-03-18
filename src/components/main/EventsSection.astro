@@ -3,7 +3,7 @@ import Events from "./Events.svelte";
 import '../../styles/global.css';
 import RadialGradient from "../RadialGradient.astro";
 
-const {locale} = Astro.props;
+const locale = Astro.currentLocale || "";
 ---
 <section class="main_events" id="component-container">
     <div class="events_container">
