@@ -2,10 +2,19 @@
     {
         "id": 1,
         "category": "sport",
-        "title": "Начало большой истории",
+        "title": {
+            "en": "The beginning of big story",
+            "ru": "Начало большой истории"
+        },
         "year": "2018",
-        "descriptionShort": "Начало организации наших заездов было положено в 2018 году ...",
-        "descriptionFull": "Начало организации наших заездов было положено в 2018 году, во время окончательного падения популярности лонгбординга, г. Москва.",
+        "descriptionShort": {
+            "en": "The beginning of our races goes back to 2018 ...",
+            "ru": "Начало организации наших заездов было положено в 2018 году ..."
+        },
+        "descriptionFull": {
+            "en": "The beginning of our races goes back to 2018, during the final stage of the first cycle of mass popularity of longboarding, the final decline in popularity.",
+            "ru": "Начало организации наших заездов было положено в 2018 году, во время окончательного падения популярности лонгбординга, г. Москва."
+        },
         "link": "/longlongride",
         "imageURL": "/images/longLongRide/2018/LLR2018.jpg",
         "sliderImages": ["/images/longLongRide/2018/LLR2018.jpg"]
@@ -13,10 +22,19 @@
     {
         "id": 2,
         "category": "sport",
-        "title": "Продолжение большой истории",
+        "title": {
+            "en": "Continuation of big story",
+            "ru": "Продолжение большой истории"
+        },
         "year": "2019",
-        "descriptionShort": "Второй год проведения заездов под нашим руководством.",
-        "descriptionFull": "Второй год проведения заездов под нашим руководством.",
+        "descriptionShort": {
+            "en": "The second year of races under our leadership.",
+            "ru": "Второй год проведения заездов под нашим руководством."
+        },
+        "descriptionFull": {
+            "en": "The second year of races under our leadership.",
+            "ru": "Второй год проведения заездов под нашим руководством."
+        },
         "link": "/longlongride",
         "imageURL": "/images/longLongRide/2019/LLR20191.jpg",
         "sliderImages": [
@@ -30,10 +48,19 @@
     {
         "id": 3,
         "category": "sport",
-        "title": "Первый заезд после пандемии",
+        "title": {
+            "en": "First race after pandemic",
+            "ru": "Первый заезд после пандемии"
+        },
         "year": "2021",
-        "descriptionShort": "Заезд от 6.08.2021. После пандемии 2020 года ...",
-        "descriptionFull": "Заезд от 6.08.2021. После пандемии 2020 года, когда была введена самоизоляция, 2021 год был свежим глотком воздуха. На волне усталости от изоляции люди начали проявлять больший интерес.",
+        "descriptionShort": {
+            "en": "The race on Aug 06, 2021. After the Pandemic 2020 ...",
+            "ru": "Заезд от 6.08.2021. После пандемии 2020 года ..."
+        },
+        "descriptionFull": {
+            "en": "The race on Aug 06, 2021. After the Pandemic 2020 period in self-isolation, the year of 2021 became as a breath of fresh air. On the wave of fatigue from isolation, people began to show more interest.",
+            "ru": "Заезд от 6.08.2021. После пандемии 2020 года, когда была введена самоизоляция, 2021 год был свежим глотком воздуха. На волне усталости от изоляции люди начали проявлять больший интерес."
+        },
         "link": "longlongride",
         "imageURL": "/images/longLongRide/2021/LLR20211.jpg",
         "sliderImages": [
@@ -44,10 +71,19 @@
     {
         "id": 4,
         "category": "sport",
-        "title": "Возрождение лонгборд тренда",
+        "title": {
+            "en": "The revival of the longboard trend",
+            "ru": "Возрождение лонгборд тренда"
+        },
         "year": "2022",
-        "descriptionShort": "Заезды 2022 года продолжились, интерес у людей возрос и достиг результатов ...",
-        "descriptionFull": "2022 г. Заезды продолжились, интерес возрос выше пиковых 2014-15 годов. Если в те годы тренд был определён интересом новизны, то тенденция 2022 года была связана с интересом, связанным с оригинальностью подхода в организации, экспериментами, доступностью для всех уровней подготовки и возрастов. В связи с повышенным интересом, мы начали более тщательно подходить к безопасности. В этом же году мы расширили границы, открыв сообщество в Грузии. В городе Батуми были проведены первые заезды.",
+        "descriptionShort": {
+            "en": "The races continued; interest increased above the peak ...",
+            "ru": "Заезды 2022 года продолжились, интерес у людей возрос и достиг результатов ..."
+        },
+        "descriptionFull": {
+            "en": "2022. The races continued; interest increased above the peak of 2014-15. If in those years the trend was determined by the interest in novelty, the 2022 trend reflected the interest in original approach to organization, experiments, accessibility for all skill levels and ages. Due to this increased interest, we began to approach safety more carefully. In that year, we expanded our borders by having created a community in Georgia. The first races were held in the city of Batumi.",
+            "ru": "2022 г. Заезды продолжились, интерес возрос выше пиковых 2014-15 годов. Если в те годы тренд был определён интересом новизны, то тенденция 2022 года была связана с интересом, связанным с оригинальностью подхода в организации, экспериментами, доступностью для всех уровней подготовки и возрастов. В связи с повышенным интересом, мы начали более тщательно подходить к безопасности. В этом же году мы расширили границы, открыв сообщество в Грузии. В городе Батуми были проведены первые заезды."
+        },
         "link": "longlongride",
         "imageURL": "/images/longLongRide/2022/LLR20221.jpg",
         "sliderImages": [
@@ -61,10 +97,19 @@
     {
         "id": 5,
         "category": "sport",
-        "title": "Появление новых сообществ",
+        "title": {
+            "en": "New communities",
+            "ru": "Появление новых сообществ"
+        },
         "year": "2023",
-        "descriptionShort": "2023 год стал годом появления новых сообществ в направлении массовых заездов ...",
-        "descriptionFull": "2023 год стал годом появления новых сообществ в направлении массовых заездов на лонгборде, что говорит о росте интереса и хотя мода данного вида спорта давно минула, лонгбординг стал закреплять свои позиции среди уже катающихся и понемногу усиливаться за счёт возвратившихся и вновь прибывших. Наше сообщество объединяет и пробуждает интерес к массовым заездам.",
+        "descriptionShort": {
+            "en": "2023 was the year of new communities in mass longboard races ...",
+            "ru": "2023 год стал годом появления новых сообществ в направлении массовых заездов ..."
+        },
+        "descriptionFull": {
+            "en": "2023 was the year of new communities in mass longboard races. It revealed a growing interest and although the fashion for this sport has long passed, the longboarding began to strengthen its position among those already skating and gradually strengthen due to those who returned and newbies. Our community unites and awakens interest in mass races.",
+            "ru": "2023 год стал годом появления новых сообществ в направлении массовых заездов на лонгборде, что говорит о росте интереса и хотя мода данного вида спорта давно минула, лонгбординг стал закреплять свои позиции среди уже катающихся и понемногу усиливаться за счёт возвратившихся и вновь прибывших. Наше сообщество объединяет и пробуждает интерес к массовым заездам."
+        },
         "link": "longlongride",
         "imageURL": "/images/longLongRide/2023/LLR20231.jpg",
         "sliderImages": [
@@ -83,10 +128,19 @@
     {
         "id": 6,
         "category": "sport",
-        "title": "Развитие сообщества",
+        "title": {
+            "en": "Community development",
+            "ru": "Развитие сообщества"
+        },
         "year": "2024",
-        "descriptionShort": "2024 год наше сообщество продолжило организацию костюмированных массовых заездов ...",
-        "descriptionFull": "2024 год наше сообщество продолжило организацию костюмированных массовых заездов. На каждом мероприятии 40%-60% новых людей, что говорит о популяризации катания в обществе. В эпоху индивидуализма и популяризации удаленного взаимодействия индивидов, очень важно чувствовать себя частью чего-то большего. Ведь на самом деле мы живём в социуме, где почти каждый не чувствует себя его частью. Появление таких сообществ решает эту задачу и улучшает психологическое здоровье в условиях современных реалий.",
+        "descriptionShort": {
+            "en": "2024, our community continued to organize cosplay mass races ...",
+            "ru": "2024 год наше сообщество продолжило организацию костюмированных массовых заездов ..."
+        },
+        "descriptionFull": {
+            "en": "2024, our community continued to organize cosplay mass races. At each event, there are 40%-60% of new people, who marks the popularization of skating in society. In the era of individualism and the popularization of remote interaction between individuals, it is very important to feel as a part of something bigger. After all, , we all live in a society where almost everyone does not feel like a part of it. The emergence of such communities solves this problem and improves psychological health in the context of modern realities.",
+            "ru": "2024 год наше сообщество продолжило организацию костюмированных массовых заездов. На каждом мероприятии 40%-60% новых людей, что говорит о популяризации катания в обществе. В эпоху индивидуализма и популяризации удаленного взаимодействия индивидов, очень важно чувствовать себя частью чего-то большего. Ведь на самом деле мы живём в социуме, где почти каждый не чувствует себя его частью. Появление таких сообществ решает эту задачу и улучшает психологическое здоровье в условиях современных реалий."
+        },
         "link": "longlongride",
         "imageURL": "/images/longLongRide/2024/LLR20241.jpg",
         "sliderImages": [
@@ -105,11 +159,20 @@
     {
         "id": 7,
         "category": "eco",
-        "title": "Первая эко акция",
+        "title": {
+            "en": "First environmental campaign",
+            "ru": "Первая эко акция"
+        },
         "year": "14.02.2022",
-        "descriptionShort": "Наша первая экологическая акция прошла 14.02.2022 в Шри-Ланке ...",
-        "descriptionFull": "Наша первая экологическая акция прошла 14.02.2022 в Шри-Ланке, городе Велигама. В акции приняли участие граждане из России, Украины, Белоруссии, а так же местные жители.",
-        "link": "eco",
+        "descriptionShort": {
+            "en": "Our first environmental campaign took place on Feb 14, 2022 in Sri Lanka ...",
+            "ru": "Наша первая экологическая акция прошла 14.02.2022 в Шри-Ланке ..."
+        },
+        "descriptionFull": {
+            "en": "Our first environmental campaign took place on Feb 14, 2022 in Sri Lanka, in Weligama city. Citizens from Russia, Ukraine, Belarus, as well as locals took part in the campaign. In this place, fishermen throw all the garbage directly into the water, which is then washed ashore by the waves. With our campaign, we showed by example how to deal with waste.",
+            "ru": "Наша первая экологическая акция прошла 14.02.2022 в Шри-Ланке, городе Велигама. В акции приняли участие граждане из России, Украины, Белоруссии, а так же местные жители. В этом месте рыбаки кидают весь мусор прямо в воду, который потом прибивает волной на берег. Своей акцией мы на примере показали, как нужно поступать с отходами."
+        },
+            "link": "eco",
         "imageURL": "/images/eco/20220214/14021.jpg",
         "sliderImages": [
                             "/images/eco/20220214/14021.jpg", 
@@ -123,10 +186,19 @@
     {
         "id": 8,
         "category": "eco",
-        "title": "Эко акция в проблемной зоне",
-        "year": "13.11.2022",
-        "descriptionShort": "Первая экологическая акция проведена недалеко от города Батуми, в очень проблемной зоне ...",
-        "descriptionFull": "Первая экологическая акция проведена недалеко от города Батуми, в очень проблемной зоне. После дождей, в этом месте с гор стекает весь мусор, который кидают люди.",
+        "title": {
+            "en": "Campaign in a problematic area",
+            "ru": "Эко акция в проблемной зоне"
+        },
+        "year": "2022",
+        "descriptionShort": {
+            "en": "In a very problematic area near Batumi city, we held an environmental campaign ...",
+            "ru": "Первая экологическая акция проведена недалеко от города Батуми, в очень проблемной зоне ..."
+        },
+        "descriptionFull": {
+            "en": "In a very problematic area near Batumi city,  we held an environmental campaign. After the rains, all the garbage thrown by people, streams down from the mountains in this place.",
+            "ru": "Первая экологическая акция проведена недалеко от города Батуми, в очень проблемной зоне. После дождей, в этом месте с гор стекает весь мусор, который кидают люди."
+        },
         "link": "/eco",
         "imageURL": "/images/eco/20221113/IMG_5371.JPG",
         "sliderImages": [
@@ -137,10 +209,19 @@
     {
         "id": 9,
         "category": "eco",
-        "title": "Международная акция",
-        "year": "20.11.2022",
-        "descriptionShort": "Экологическая акция прошла 20.11.2022 в Грузии, городе Батуми ...",
-        "descriptionFull": "Экологическая акция прошла 20.11.2022 в Грузии, городе Батуми. Акцию посетили люди из разных стран: Грузии, России, Украины и Белоруссии.",
+        "title": {
+            "en": "International campaign",
+            "ru": "Международная акция"
+        },
+        "year": "2022",
+        "descriptionShort": {
+            "en": "The third environmental action in Georgia took place on Nov 20, 2022 in Georgia, in Batumi ...",
+            "ru": "Экологическая акция прошла 20.11.2022 в Грузии, городе Батуми ..."
+        },
+        "descriptionFull": {
+            "en": "The third environmental action in Georgia took place on Nov 20, 2022 in Georgia, in Batumi. The action was attended by people from different countries: Georgia, Russia, Ukraine, and Belarus.",
+            "ru": "Экологическая акция прошла 20.11.2022 в Грузии, городе Батуми. Акцию посетили люди из разных стран: Грузии, России, Украины и Белоруссии."
+        },
         "link": "/eco",
         "imageURL": "/images/eco/20221120/20111.jpg",
         "sliderImages": [
@@ -156,10 +237,19 @@
     {
         "id": 10,
         "category": "eco",
-        "title": "Экологическая акция в Москве",
-        "year": "17.06.2023",
-        "descriptionShort": "Экологическая акция в Москве прошла 17.06.2023, уборка была проведена ...",
-        "descriptionFull": "Экологическая акция в Москве прошла 17.06.2023, уборка была проведена на береговой территории, прилегающей к городской набережной, в районе Нагатинский Затон.",
+        "title": {
+            "en": "Environmental campaign in Moscow",
+            "ru": "Экологическая акция в Москве"
+        },
+        "year": "2023",
+        "descriptionShort": {
+            "en": "An environmental campaign in Moscow took place on Jun 17, 2023 ...",
+            "ru": "Экологическая акция в Москве прошла 17.06.2023, уборка была проведена ..."
+        },
+        "descriptionFull": {
+            "en": "An environmental campaign in Moscow took place on Jun 17, 2023. We cleaned up the coastal area adjacent to the city embankment, in the Nagatinsky Zaton area.",
+            "ru": "Экологическая акция в Москве прошла 17.06.2023, уборка была проведена на береговой территории, прилегающей к городской набережной, в районе Нагатинский Затон."
+        },
         "link": "/eco",
         "imageURL": "/images/eco/20230617/1.png",
         "sliderImages": [
@@ -178,10 +268,19 @@
     {
         "id": 11,
         "category": "eco",
-        "title": "Экологическая акция в Тель-Авив",
-        "year": "29.06.2024",
-        "descriptionShort": "Экологическая акция прошла 29.06.2024 в Израиле, городе Тель-Авив.",
-        "descriptionFull": "Экологическая акция прошла 29.06.2024 в Израиле, городе Тель-Авив.",
+        "title": {
+            "en": "Environmental campaign in Tel Aviv",
+            "ru": "Экологическая акция в Тель-Авив"
+        },
+        "year": "2024",
+        "descriptionShort": {
+            "en": "An environmental action was held on Jun 06, 2024 in Tel Aviv, Israel",
+            "ru": "Экологическая акция прошла 29.06.2024 в Израиле, городе Тель-Авив."
+        },
+        "descriptionFull":{
+            "en": "An environmental action was held on Jun 06, 2024 in Tel Aviv, Israel",
+            "ru": "Экологическая акция прошла 29.06.2024 в Израиле, городе Тель-Авив."
+        },
         "link": "/eco",
         "imageURL": "/images/eco/20240629/1.HEIC",
         "sliderImages": [

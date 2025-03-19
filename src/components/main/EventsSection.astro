@@ -1,9 +1,25 @@
 ---
 import Events from "./Events.svelte";
 import '../../styles/global.css';
+import eventsData from '../../data/events.json';
 import RadialGradient from "../RadialGradient.astro";
+import { getRelativeLocaleUrl, getRelativeLocaleUrlList } from 'astro:i18n';
 
 const locale = Astro.currentLocale || "";
+
+const events = eventsData.map((e) => {
+	return {
+		id: e.id,
+		category: e.category,
+		title: e.title[locale],
+		year: e.year,
+		descriptionShort: e.descriptionShort[locale],
+		descriptionFull: e.descriptionFull[locale],
+		link: getRelativeLocaleUrl(locale, e.link),
+		imageURL: e.imageURL,
+		sliderImages: e.sliderImages
+	}
+});
 ---
 <section class="main_events" id="component-container">
     <div class="events_container">
@@ -22,8 +38,8 @@ const locale = Astro.currentLocale || "";
                 <p class="events_heading-4">{locale === "en" && "View the archive of events held and appreciate the scale." || "Посмотрите архив проведенных мероприятий и оцените масштаб."}</p>
             </div>
         </div>
-		<p class="tab_name">{locale === "en" && "Area" || "Направление"}</p>
-		<Events locale={locale} client:load />
+		<p class="tab_name">{locale === "en" && "Activity" || "Направление"}</p>
+		<Events locale={locale} events={events} client:load />
     </div>
 </section>
 

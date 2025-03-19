@@ -77,10 +77,9 @@
     }
 
     export function handleClick(event) {
-        console.info('handleClick', event);
         let eventCard = event;
         const container = document.getElementById('component-container');
-        renderComponent(container, {event: eventCard, scrollable: scrollable});
+        renderComponent(container, {event: eventCard, scrollable: scrollable, locale: locale});
         scrollIntoView();
         scrollable = false;
     }
@@ -116,7 +115,7 @@
         <div class="no_cards">
             <p class="no_cards-p">
                 {locale === "en" &&
-                    "Report about past events will be published here soon!" ||
+                    "A report on past events is coming soon!" ||
                     "Скоро здесь будет опубликован отчет о прошедших мероприятиях!"
                 }  
             </p>
@@ -130,6 +129,10 @@
         width: 5rem;
         margin: auto;
         margin-top: 1.25rem;
+    }
+
+    h3 {
+        font-weight: 400;
     }
 
     button {
