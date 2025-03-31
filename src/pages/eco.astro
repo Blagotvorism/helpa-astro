@@ -45,6 +45,11 @@ import coastCleaningImage21 from '../images/eco/gallery/coast-cleaning-21.jpg';
 import coastCleaningImage22 from '../images/eco/gallery/coast-cleaning-22.jpg';
 import coastCleaningImage23 from '../images/eco/gallery/coast-cleaning-23.jpg';
 
+import coastCleaningImage24 from '../images/eco/gallery/garbage-cleaning-1.jpeg';
+import coastCleaningImage25 from '../images/eco/gallery/garbage-cleaning-2.jpeg';
+import coastCleaningImage26 from '../images/eco/gallery/garbage-cleaning-3.jpeg';
+import coastCleaningImage27 from '../images/eco/gallery/garbage-cleaning-4.jpeg';
+
 const locale = Astro.currentLocale || "";
 
 ---
@@ -72,8 +77,8 @@ const locale = Astro.currentLocale || "";
         <section id="gallery" class="gallery">
             <div class="slider">
                 <div class="row">
-                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>
-                    <div class="card"><img src={coastCleaningImage1.src} alt=""/></div>
+                    <!-- <div class="card"><img src={coastCleaningImage1.src} alt=""/></div> -->
+                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>                    
                     <div class="card"><img src={coastCleaningImage4.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage7.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage10.src} alt=""/></div>
@@ -85,14 +90,14 @@ const locale = Astro.currentLocale || "";
                     <div class="card"><img src={ecoGalleryCard1.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? "Together" : "Совместными усилиями"}</span></div>
                     <div class="card"><img src={ecoGalleryCard3.src} alt=""/></div>
-                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage25.src} alt=""/></div>
                 </div>
                 <div class="row">
                     <div class="card"><img src={coastCleaningImage2.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage5.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage8.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage11.src} alt=""/></div>
-                    <div class="card"><img src={coastCleaningImage14.src} alt=""/></div>
+                    <!-- <div class="card"><img src={coastCleaningImage14.src} alt=""/></div> -->
                     <div class="card"><img src={coastCleaningImage17.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage20.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage23.src} alt=""/></div>
@@ -103,18 +108,18 @@ const locale = Astro.currentLocale || "";
                     <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>                    
                 </div>
                 <div class="row">
-                    <div class="card"><img src={ecoGalleryCard6.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage27.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>           
                     <div class="card"><img src={coastCleaningImage3.src} alt=""/></div>
+                    <!-- <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>        -->
                     <div class="card"><img src={coastCleaningImage6.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage9.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage12.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage15.src} alt=""/></div>
                     <div class="card"><img src={coastCleaningImage18.src} alt=""/></div>
-                    <div class="card"><img src={coastCleaningImage21.src} alt=""/></div>
-                    <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>
-                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>                    
-                    <div class="card"><img src={ecoGalleryCard5.src} alt=""/></div>
-                    <div class="card"><img src={coastCleaningImage1.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage21.src} alt=""/></div>                              
+                    <div class="card"><img src={coastCleaningImage26.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage24.src} alt=""/></div>
                     <div class="card text"><span>{locale === "en" ? <>Save our&nbsp;planet</> : "Спасти планету"}</span></div>
                 </div>
             </div>
