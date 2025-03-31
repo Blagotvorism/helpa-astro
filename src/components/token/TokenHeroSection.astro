@@ -12,7 +12,7 @@ const locale = Astro.currentLocale || "";
             <div class="token__buttons">
                 <Link href="/" theme='primary' classes="link link_primary">{locale === "en" && "Purchase" || "Приобрести"}</Link>
                 <div class="token_text_link">
-                    <a href="/Blagotrovism.pdf" target="_blank" class="arrow-cap">White paper</a>
+                    <a href={locale === "en" && "/White Paper ENG.pdf" || "/White Paper RUS.pdf"} target="_blank" class="arrow-cap">White paper</a>
                 </div>
             </div>
         </div>

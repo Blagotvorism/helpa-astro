@@ -26,9 +26,9 @@
       <!-- Button with icons -->
         <button class="button-with-icons" on:mouseleave={toggleButton} on:blur={toggleButton}>
             <div class="icon-wrapper">
-                <a href="https://t.me/astrowayhelpplanet" class="link"><TgSocial /></a>
+                <a href="https://t.me/blagotvorism" class="link"><TgSocial /></a>
             <div class="divider"></div>
-                <a href="https://x.com/astrowayhelpa?s=21&t=z0b_ZLWUm1wnD88Rcah7Bg" class="link"><XSocial /></a>
+                <a href="https://x.com/blagotvorism" class="link"><XSocial /></a>
             </div>
       </button>
     {:else}
