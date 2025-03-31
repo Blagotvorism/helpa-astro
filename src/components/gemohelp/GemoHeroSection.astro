@@ -4,143 +4,118 @@ const locale = Astro.currentLocale || "";
 <section class="gemohelp_hero">
     <div class="letters"></div>
     <div class="subheading">
-        <h3>{locale === "en" && "90% of patients in the hematology department are cancer patients" || "90% пациентов в отделении гематологии являются онкобольными"}</h3>
+        <p>{locale === "en" && "90% of patients in the hematology department are cancer patients" || "90% пациентов в отделении гематологии являются онкобольными"}</p>
     </div>
 </section>
 
 <style>
     section {
-        --hero-background-position: calc((100vw - var(--reduced-width)) / 2) 0;
-        --hero-height: 100vh;
-        --h3-font-size: 24px;
-        --h3-width: min(45vh, 37.5rem);
-        --h3-bottom: 0;
-        --h3-left: 5%;
-        --subheading-top: 30vh;
-        --subheading-width: var(--reduced-width);
-        --subheading-height: min(39.5vh, 42rem);
-        margin-bottom: 80px;
-    }
-
-    .gemohelp_hero {
         position: relative;
-        display: block;
-        width: 100vw;
-        height: var(--hero-height);
+        height: 100vh;
         background: url(../../images/gemohelp/gemoCover.jpg) no-repeat;
         background-size: cover;
-        background-position: var(--hero-background-position);
+        overflow: hidden;
+        margin-bottom: 100px;
     }
 
     .letters {
-        display: block;
-        margin: auto;
-        width: var(--reduced-width);
         height: 100%;
-        background: url(../../images/gemohelp/gemoCover.png) no-repeat;
-        background-size: 100% 100%;
+        background: url(../../images/gemohelp/hero-letters.svg) center no-repeat;
+        background-size: cover;
     }
 
     .subheading {
-        display: block;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: var(--subheading-top);
-        width: var(--subheading-width);
-        height: var(--subheading-height);
+        top: 50%; right: 50%; width: 50%;
+        margin-top: 15px;
     }
 
-    h3 {
-        display: inline-block;
-        position: absolute;
-        width: var(--h3-width);
-        font-family: var(--font-inter);
-        font-size: var(--h3-font-size);
-        font-weight: normal;
+    .subheading p {
+        font-size: 12px;
         color: black;
-        left: var(--h3-left);
-        bottom: var(--h3-bottom);
+        padding-left: 16%;
     }
 
-    @media (960px <= width < 1200px) {
+    @media (width >= 480px) {
+
         section {
-            --hero-height: 33.75rem;
-            --h3-font-size: 1.25rem;
-            --h3-bottom: 0%;
-            --h3-left: 3%;
-            --h3-width: 20rem;
-            --subheading-top: 28%;
-            --subheading-width: 56rem;
-            --subheading-height: 15rem;
+            /* height: 262px; */
         }
 
         .letters {
-            background: url(../../images/gemohelp/gemo_letters_960.svg) no-repeat;
-        }
-    }
-
-    @media (640px <= width < 960px) {
-        section {
-            --hero-height: 45rem;
-            --h3-font-size: 1.25rem;
-            --h3-width: 20rem;
-            --h3-bottom: 0%;
-            --h3-left: 6%;
-            --subheading-top: 35%;
-            --subheading-width: 40.25rem;
-            --subheading-height: 13rem;
-        }
-
-        .letters {
-            background: url(../../images/gemohelp/gemo_letters_640.svg) no-repeat;
-        }
-
-        
-    }
-
-    @media (480px <= width < 640px) {
-        section {
-            --hero-height: 16.375rem;
-            --h3-font-size: .75rem;
-            --h3-width: 12.25rem;
-            --h3-bottom: 2%;
-            --h3-left: 5%;
-            --subheading-top: 24%;
-            --subheading-width: 30rem;
-            --subheading-height: 10.25rem;
-
-            margin-bottom: 35px;
-        }
-
-        .letters {
-            background: url(../../images/gemohelp/gemo_letters_480.svg) no-repeat;
-            background-position: -21px 0;
-        }
-    }
-
-    @media (320px <= width < 480px) {
-        section {
-            --hero-height: 30rem;
-            --h3-font-size: .75rem;
-            --h3-width: 8.625rem;
-            --h3-bottom: 0;
-            --h3-left: 2%;
-            --subheading-top: 36%;
-            --subheading-width: 17.5rem;
-            --subheading-height: 7.5rem;
-            margin-bottom: 35px;
-        }
-
-        .letters {
-            background: url(../../images/gemohelp/gemo_letters_320.svg) no-repeat;
-            background-position: -20px 0;
+            /* height: 110%; */
+            /* background-size: 1600px; */
         }
 
         .subheading {
+            margin-top: 50px;
+        }
+    }
+
+    @media (width >= 640px) {
+
+        section {
+            /* height: 720px; */
+        }
+
+        .letters {
+            /* height: 100%; */
+            /* background-size: 2000px; */
+        }
+
+        .subheading {
+            margin-top: 30px;
+        }
+
+        .subheading p {
+            font-size: 20px;
+        }
+    }
+
+    @media (width >= 960px) {
+
+        section {
+            /* height: 539px; */
+        }
+
+        .letters {
+            /* background-size: 3300px; */
+        }
+
+        .subheading {
+            margin-top: 50px;
+            padding-right: 10%;
+        }
+    }
+
+    @media (width >= 1200px) {
+
+        section {
+            /* height: 721px; */
+        }
+
+        .letters {
+            background-size: 1200px;
+            position: relative;
+        }
+
+        .letters:after {
+            content: '';
+            display: block;
             position: absolute;
-            transform: translateX(0);
-            left: 6.25%;
+            left: 0; top: 0; bottom: 0;
+            width: 50%;
+            translate: -600px;
+            background: white;
+        }
+
+        .subheading {
+            width: 600px;
+            margin-top: 80px;
+        }
+
+        .subheading 0 {
+            font-size: 24px;
         }
     }
 </style>

@@ -5,7 +5,7 @@ const locale = Astro.currentLocale || "";
     <div class="letters"></div>
     <div class="subheading">
         <div class="subheading_text">
-            <h3>{locale === "en" && "International sports community" || <>Международное<br/>спортивное сообщество</>}</h3>
+            <h3>{locale === "en" && "International sports community" || <>Международное<br/> спортивное сообщество</>}</h3>
             <p>{locale === "en" && "Regular races around the world" || "Регулярные заезды по всему миру"}</p>
         </div>
     </div>
@@ -13,157 +13,112 @@ const locale = Astro.currentLocale || "";
 
 <style>
     section {
-        --hero-background-position: calc((100vw - var(--reduced-width)) / 2) 0;
-        --hero-height: 100vh;
-        --h3-font-size: min(3vh, 34px);
-        --p-font-size: min(2.2vh, 25px);
-        --h3-width: min(45vh, 550px);
-        --h3-bottom: 0;
-        --h3-left: 5%;
-        --h3-margin-bottom: min(1vh, 11px);
-        --subheading-top: 30vh;
-        --subheading-width: var(--reduced-width);
-        --subheading-height: 42vh;
-    }
-
-    .ride_hero {
         position: relative;
-        display: block;
-        width: 100vw;
-        height: var(--hero-height);
+        height: 100vh;
         background: url(../../images/longLongRide/rideCover.jpg) no-repeat;
         background-size: cover;
-        background-position: var(--hero-background-position);
+        overflow: hidden;
+        margin-bottom: 100px;
     }
 
     .letters {
-        display: block;
-        margin: auto;
-        width: var(--reduced-width);
         height: 100%;
-        background: url(../../images/longLongRide/rideCover.png) no-repeat;
-        background-size: 100% 100%;
+        background: url(../../images/longLongRide/hero-letters.svg) center no-repeat;
+        background-size: cover;
     }
 
     .subheading {
-        display: block;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: var(--subheading-top);
-        width: var(--subheading-width);
-        height: var(--subheading-height);
+        top: 50%; right: 50%; width: 50%;
+        margin-top: 10px;
+        padding-left: 7vw;
     }
 
-    .subheading_text {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: var(--h3-left);
+    .subheading h3,
+    .subheading p {
+        font-family: 'Inter Variable', sans-serif;
+        font-weight: 400;
+        color: black;        
     }
 
-    h3 {
-        display: inline-block;
-        width: var(--h3-width);
-        font-family: var(--font-inter);
-        font-size: var(--h3-font-size);
-        font-weight: normal;
-        margin-bottom: var(--h3-margin-bottom);
-        color: black;
+    .subheading h3 {
+        font-size: 12px;
+        margin-bottom: 10px;
     }
 
-    p {
-        font-family: var(--font-inter);
-        color: var(--dark-grey);
-        font-size: var(--p-font-size);
+    .subheading p {
+        font-size: 10px;
+        color: #898989;
     }
 
-    @media (960px <= width < 1200px) {
-        section {
-            --hero-height: 33.75rem;
-            --h3-font-size: 1.25rem;
-            --h3-bottom: 0%;
-            --h3-left: 2%;
-            --h3-width: 20rem;
-            --subheading-top: 28%;
-            --subheading-width: 56rem;
-            --subheading-height: 15.5rem;
-            --p-font-size: 12px;
-        }
-
+    @media (width >= 480px) {
         .letters {
-            background: url(../../images/longLongRide/ride_letters_960.svg) no-repeat;
-        }
-    }
-
-    @media (640px <= width < 960px) {
-        section {
-            --hero-height: 45rem;
-            --h3-font-size: 1.25rem;
-            --p-font-size: .75rem;
-            --h3-width: 20rem;
-            --h3-bottom: 0%;
-            --h3-left: 6%;
-            --h3-margin-bottom: .625rem;
-            --subheading-top: 35%;
-            --subheading-width: 41rem;
-            --subheading-height: 13.5rem;
-        }
-
-        .letters {
-            background: url(../../images/longLongRide/ride_letters_640.svg) no-repeat;
-        }
-
-        
-    }
-
-    @media (480px <= width < 640px) {
-        section {
-            --hero-height: 16.375rem;
-            --h3-font-size: .75rem;
-            --p-font-size: .625rem;
-            --h3-width: 12.25rem;
-            --h3-margin-bottom: .625rem;
-            --h3-bottom: 2%;
-            --h3-left: 5%;
-            --subheading-top: 24%;
-            --subheading-width: 30rem;
-            --subheading-height: 9.25rem;
-        }
-
-        .letters {
-            background: url(../../images/longLongRide/ride_letters_480.svg) no-repeat;
-            background-position: -21px 0;
-        }
-    }
-
-    @media (320px <= width < 480px) {
-        section {
-            --hero-height: 30rem;
-            --h3-font-size: .75rem;
-            --p-font-size: .625rem;
-            --h3-width: 8rem;
-            --h3-bottom: 0;
-            --h3-left: 2%;
-            --h3-margin-bottom: .625rem;
-            --subheading-top: 36%;
-            --subheading-width: 17.5rem;
-            --subheading-height: 8.5rem;
-        }
-
-        .letters {
-            background: url(../../images/longLongRide/ride_letters_320.svg) no-repeat;
-            background-position: -20px 0;
+            background-image: url(../../images/longLongRide/hero-letters-480.svg);
         }
 
         .subheading {
-            position: absolute;
-            transform: translateX(0);
-            left: 6.25%;
+            margin-top: 15px;
+            padding-left: 4vw;
         }
 
-        p {
-            width: var(--h3-width);
+        h3 br {
+            display: none;
+        }
+    }
+
+    @media (width >= 640px) {
+        .subheading h3 {
+            font-size: 20px;
+        }
+
+        .subheading p {
+            font-size: 12px;
+        }
+
+        h3 br {
+            display: inline;
+        }
+    }
+
+    @media (width >= 960px) {
+        .letters {
+            background-image: url(../../images/longLongRide/hero-letters-960.svg);
+        }
+
+        .subheading {
+            margin-top: 50px;
+            padding-right: 10%;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .letters {
+            background-size: 1200px;
+            position: relative;
+        }
+
+        .letters:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 50%;
+            translate: -600px;
+            background: white;
+        }
+
+        .subheading {
+            width: 600px;
+            margin-top: 70px;
+            padding-left: 40px;
+        }
+
+        .subheading h3 {
+            font-size: 24px;
+        }
+
+        .subheading p {
+            font-size: 16px;
         }
     }
 </style>

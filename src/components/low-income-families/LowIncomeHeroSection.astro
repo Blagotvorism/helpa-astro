@@ -4,70 +4,113 @@
 
 <style>
     section {
-        --hero-background-position: calc((100vw - var(--reduced-width)) / 2) 0;
-        --hero-height: 100vh;
-
-    }
-
-    .eco_hero {
         position: relative;
-        display: block;
-        width: 100vw;
-        height: var(--hero-height);
+        height: 100vh;
         background: url(../../images/lowIncome/heroCover.jpg) no-repeat;
         background-size: cover;
-        background-position: var(--hero-background-position);
+        overflow: hidden;
+        margin-bottom: 100px;
     }
 
     .letters {
-        display: block;
-        margin: auto;
-        width: var(--reduced-width);
         height: 100%;
-        background: url(../../images/lowIncome/heroCover.png) no-repeat;
-        background-size: 100% 100%;
+        background: url(../../images/lowIncome/hero-letters.svg) center no-repeat;
+        background-size: cover;
     }
 
-    @media (960px <= width < 1200px) {
+    .subheading {
+        position: absolute;
+        top: 50%; right: 50%; width: 50%;
+        margin-top: 15px;
+    }
+
+    .subheading p {
+        font-size: 12px;
+        color: black;
+        padding-left: 16%;
+    }
+
+    @media (width >= 480px) {
+
         section {
-            --hero-height: 33.75rem;
+            /* height: 262px; */
         }
 
         .letters {
-            background: url(../../images/lowIncome/heroCover_960.svg) no-repeat;
+            background-image: url(../../images/lowIncome/hero-letters-paddings.svg);
+            /* height: 110%; */
+            /* background-size: 1600px; */
+        }
+
+        .subheading {
+            margin-top: 50px;
         }
     }
 
-    @media (640px <= width < 960px) {
+    @media (width >= 640px) {
+
         section {
-            --hero-height: 45rem;
+            /* height: 720px; */
         }
 
         .letters {
-            background: url(../../images/lowIncome/heroCover_640.svg) no-repeat;
+            /* height: 100%; */
+            /* background-size: 2000px; */
         }
 
-        
+        .subheading {
+            margin-top: 30px;
+        }
+
+        .subheading p {
+            font-size: 20px;
+        }
     }
 
-    @media (480px <= width < 640px) {
+    @media (width >= 960px) {
+
         section {
-            --hero-height: 16.375rem;
+            /* height: 539px; */
         }
 
         .letters {
-            background: url(../../images/lowIncome/heroCover_480.svg) no-repeat;
+            /* background-size: 3300px; */
+        }
+
+        .subheading {
+            margin-top: 50px;
+            padding-right: 10%;
         }
     }
 
-    @media (320px <= width < 480px) {
+    @media (width >= 1200px) {
+
         section {
-            --hero-height: 30rem;
+            /* height: 721px; */
         }
 
         .letters {
-            background: url(../../images/lowIncome/heroCover_320.svg) no-repeat;
-            background-position: -20px 0;
+            background-size: 1200px;
+            position: relative;
+        }
+
+        .letters:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 50%;
+            translate: -600px;
+            background: white;
+        }
+
+        .subheading {
+            width: 600px;
+            margin-top: 80px;
+        }
+
+        .subheading 0 {
+            font-size: 24px;
         }
     }
 </style>

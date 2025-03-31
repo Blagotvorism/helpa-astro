@@ -12,7 +12,7 @@ const locale = Astro.currentLocale || "";
 
     section {
         position: relative;
-        height: 480px;
+        height: 100vh;
         background: url(../../images/eco/ecoCover.jpg) no-repeat;
         background-size: cover;
         overflow: hidden;
@@ -21,6 +21,7 @@ const locale = Astro.currentLocale || "";
     .letters {
         height: 100%;
         background: url(../../images/eco/eco-time-day.svg) center no-repeat;
+        background-size: cover;
     }
 
     .subheading {
@@ -37,12 +38,12 @@ const locale = Astro.currentLocale || "";
     @media (width >= 480px) {
 
         section {
-            height: 262px;
+            /* height: 262px; */
         }
 
         .letters {
-            height: 110%;
-            background-size: 1600px;
+            /* height: 110%; */
+            /* background-size: 1600px; */
         }
 
         .subheading {
@@ -53,12 +54,12 @@ const locale = Astro.currentLocale || "";
     @media (width >= 640px) {
 
         section {
-            height: 720px;
+            /* height: 720px; */
         }
 
         .letters {
-            height: 100%;
-            background-size: 2000px;
+            /* height: 100%; */
+            /* background-size: 2000px; */
         }
 
         .subheading {
@@ -73,11 +74,11 @@ const locale = Astro.currentLocale || "";
     @media (width >= 960px) {
 
         section {
-            height: 539px;
+            /* height: 539px; */
         }
 
         .letters {
-            background-size: 3300px;
+            /* background-size: 3300px; */
         }
 
         .subheading {
@@ -88,12 +89,24 @@ const locale = Astro.currentLocale || "";
     @media (width >= 1200px) {
 
         section {
-            height: 721px;
+            /* height: 721px; */
         }
 
         .letters {
-            background-position: center;
-            background-size: 4000px;
+            /* background-position: center;
+            background-size: 4000px; */
+            background-size: 1200px;
+            position: relative;
+        }
+
+        .letters:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 50%;
+            translate: -600px;
+            background: white;
         }
 
         .subheading {
