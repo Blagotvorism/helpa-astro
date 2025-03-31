@@ -1,8 +1,20 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="environment">
     <div class="environment_container">
+        {locale === "en" &&
+        <>
+        <h2>Environmental protection helps preserve <span class="gradient_span">species diversity</span></h2>
+        <h3>Each species plays its role in the ecosystem and its loss can result in negative consequences for the entire biological diversity.</h3>
+        <p>Environmental pollution can have a negative impact on human health causing a number of diseases and increasing the allergies risk.</p>
+        </> ||
+        <>
         <h2>Защита окружающей среды помогает сохранить <span class="gradient_span">видовое разнообразие</span></h2>
         <h3>Каждый вид имеет свою роль в экосистеме и его исчезновение может привести к негативным последствиям для всего биологического разнообразия.</h3>
         <p>Загрязнение окружающей среды может иметь негативное влияние на здоровье людей, вызывая ряд заболеваний и повышая риск развития аллергий.</p>
+        </>
+        }
     </div>
 </section>
 
@@ -12,14 +24,14 @@
         --environment-section-height: 32rem;
         --environment-container-height: 24rem;
         /* Text */
-        --h2-width: 52.25rem;
+        --h2-width: 80%;
         --h2-mb: 2.5rem;
         --h3-width: 51.9rem;
         --h3-mb: 1.25rem;
         --p-width: 41.25rem;
         /* Fonts */
         --container-top: 8.25rem;
-        --h2-fs: 3.125rem;
+        --h2-fs: 48px;
         --h2-lh: 4rem;
         --h3-fs: 1.5rem;
         --p-fs: 1rem;
@@ -44,7 +56,6 @@
     }
 
     h2 {
-        font-family: var(--font-lulo-bold);
         font-size: var(--h2-fs);
         line-height: var(--h2-lh);
         width: var(--h2-width);
@@ -54,6 +65,7 @@
     h3 {
         font-family: var(--font-inter);
         font-size: var(--h3-fs);
+        font-weight: normal;
         width: var(--h3-width);
         margin-bottom: var(--h3-mb);
     }
@@ -71,14 +83,14 @@
             --environment-section-height: 27rem;
             --environment-container-height: 19.875rem;
             /* Text */
-            --h2-width: 42.875rem;
+            --h2-width: 43rem;
             --h2-mb: 2.5rem;
             --h3-width: 40.375rem;
             --h3-mb: 1.25rem;
             --p-width: 30.375rem;
             /* Fonts */
             --container-top: 6.875rem;
-            --h2-fs: 2.5rem;
+            --h2-fs: 37px;
             --h2-lh: 3.125rem;
             --h3-fs: 1.25rem;
             --p-fs: .75rem;
@@ -98,7 +110,7 @@
             --p-width: 30.375rem;
             /* Fonts */
             --container-top: 6.25rem;
-            --h2-fs: 2.5rem;
+            --h2-fs: 37px;
             --h2-lh: 3.125rem;
             --h3-fs: 1.25rem;
             --p-fs: .75rem;
@@ -138,7 +150,7 @@
             --p-width: 83vw;
             /* Fonts */
             --container-top: 12.5vw;
-            --h2-fs: 5vw;
+            --h2-fs: 15px;
             --h2-lh: 6.25vw;
             --h3-fs: 3.75vw;
             --p-fs: 3.125vw;

@@ -1,12 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
 @font-face {
   font-family: "Lulo-OneBold";
   src: url("/FontsFree-Net-Lulo-Clean-W01-One-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Lulo-Clean";
-  src: url("/Inter-VariableFont_slnt,wght.ttf");
 }
 
 *,
@@ -20,7 +14,6 @@
 html, body {
   font-weight: 400;
   font-size: 16px;
-  width: 100vw;
   overflow-x: hidden;
   line-height: normal;
   -moz-osx-font-smoothing: grayscale !important;
@@ -28,8 +21,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4 {
-  font-weight: normal;
+body {
+  font-family: 'Inter Variable', sans-serif;
+}
+
+h1, h2, h3, h4, .heading {
+  font-family: 'Montserrat Variable', sans-serif;
+  font-weight: 700;
 }
 
 h1, h2 {
@@ -55,11 +53,13 @@ button, button:hover, button:active, button:visited, button:focus {
 
 :root {
   /* Fonts */
-  --font-lulo-clean: Lulo-Clean;
-  --font-lulo-bold: Lulo-OneBold;
-  --font-inter: Inter;
+  /* --font-lulo-clean: Lulo-Clean; */
+  /*--font-lulo-bold: Lulo-OneBold;*/
+  /* --font-inter: Inter; */
+  --font-extra-bold: "Lulo-OneBold";
   /* Colors */
   --gradient: linear-gradient(to top, #094A6F, #64C8BD);
+  --gradient-hover: linear-gradient(to top, #002a4f, #44a89d);
   --white: #FFFFFF;
   --light-grey: #ECECEC;
   --dark-grey: #898989;
@@ -123,3 +123,40 @@ li, ul {
   color: #fff;
   background: #2f8191;
 } */
+
+/* Text link with arrow cap */
+
+a.arrow-cap {
+  display: inline-block;
+  font-size: inherit;
+  background-color: var(--green);
+  background-image: var(--gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  position: relative;
+  padding: 3px 0;
+}
+
+a.arrow-cap:after {
+  content: '';
+  display: block;
+  width: 10px; height: 17px;
+  background: transparent url(../icons/arrow-cap-right.svg) center no-repeat;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  margin-top: -8px;
+  transition: right 0.2s;  
+}
+
+a.arrow-cap:hover {
+  /* background-image: var(--gradient-hover); */
+}
+
+a.arrow-cap:hover:after {
+  right: -30px;
+}

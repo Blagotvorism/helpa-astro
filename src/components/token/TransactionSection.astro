@@ -2,34 +2,84 @@
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="transaction" id="transaction">
     <div class="transaction__container">
         <RadialGradient topPosition="7.875rem" leftPosition="56rem" />
-        <h2><span class="gradient_span">0,6%</span> комиссия за транзакцию:</h2>
+        <h2><span class="gradient_span">0,6%</span> {locale === "en" && "transaction fee:" || "комиссия за транзакцию:"}</h2>
         <div class="transaction__container-box">
             <Icon name='transactionLogo' class='transactionLogo'/>
             <div class="transaction__container-text">
-                <h3>Комиссия за транзакцию в размере 0,5%, выделяющаяся на благотворительность, откладывается в отдельное хранилище.</h3>
-                <p>После чего этот токен будет вновь распродан в конце каждого месяца, а вырученные средства пойдут на развитие выбранных проектов.</p>
+                <h3>
+                    {locale === "en" && "A 0.5% transaction fee allocated to charity is set aside in a separate wallet." || "Комиссия за транзакцию в размере 0,5%, выделяющаяся на благотворительность, откладывается в отдельное хранилище."}
+                </h3>
+                <p>
+                    {locale === "en" && "The token will then be sold again at the end of each month, with proceeds going to the development of selected projects." || "После чего этот токен будет вновь распродан в конце каждого месяца, а вырученные средства пойдут на развитие выбранных проектов."}
+                </p>
             </div>
         </div>
         <div class="transaction_values">
             <div class="transaction_value">
-                <p class="text-bold"><span class="gradient_span">0,1%</span></p>
-                <p class="text_descr">от каждой транзакции сгорает</p>
+                <p class="text-bold"><span class="counter gradient_span">0,1%</span></p>
+                <p class="text_descr">{locale === "en" && "of each transaction is burned" || "от каждой транзакции сгорает"}</p>
             </div>
             <div class="transaction_value">
-                <p class="text-bold"><span class="gradient_span">0,5%</span></p>
-                <p class="text_descr">от каждой транзакции откладывается на благотворительность</p>
+                <p class="text-bold"><span class="counter gradient_span">0,5%</span></p>
+                <p class="text_descr">{locale === "en" && "of each transaction is set aside for charity" || "от каждой транзакции откладывается на благотворительность"}</p>
             </div>
             <div class="transaction_value">
-                <p class="text-bold"><span class="gradient_span">0,1%</span></p>
-                <p class="text_descr">каждая транзакция повышает стоимость токена на 0,1% от транзакции</p>
+                <p class="text-bold"><span class="counter gradient_span">0,1%</span></p>
+                <p class="text_descr">{locale === "en" && "each transaction increases the token value by 0.1% of the transaction" || "каждая транзакция повышает стоимость токена на 0,1% от транзакции"}</p>
             </div>
         </div>
     </div>
 </section>
+
+<script define:vars={{locale: locale}}>
+
+    const numberFormat = new Intl.NumberFormat(locale);
+
+	const onScreenDetectorElement = document.querySelector(".transaction_values");
+
+    if (onScreenDetectorElement) {
+        const counterElements = onScreenDetectorElement.querySelectorAll(".counter");
+        for (let counterElement of counterElements) initCounterElement(counterElement);        
+    }
+
+    function initCounterElement(counterElement) {
+
+        const originalValue = parseFloat(counterElement.textContent.replace(",", "."));
+
+        counterElement.textContent = counterElement.textContent.replaceAll(/\d/g, "0");
+
+        window.addEventListener('scroll', onScroll, {passive: true});
+
+        function onScroll() {
+            if (counterElement.getBoundingClientRect().top < window.innerHeight / 3 * 2) {
+                window.removeEventListener("scroll", onScroll);
+                animateCounting();
+            }
+        }
+
+        function animateCounting() {
+            let counter = 0;
+            counterElement.textContent = getRandomValue() + "%";
+            const interval = setInterval(function() {
+                counterElement.textContent = numberFormat.format(getRandomValue()) + "%";
+                if (counter++ === 50) {
+                    clearInterval(interval);
+                    counterElement.textContent = numberFormat.format(originalValue) + "%";
+                }
+            }, 10);
+        }        
+    }
+
+    function getRandomValue() {
+        return Math.floor(Math.random() * 8 + 1) / 10;
+    }
+</script>
 
 <style>
     .transaction {
@@ -46,7 +96,8 @@ import RadialGradient from '../RadialGradient.astro';
         --transaction-text-height: 10.625rem;
         --transaction-values-width: 100%;
         --transaction-value-width: 21.5625rem;
-        --h3-font-size: 1.5rem;
+        --h2-font-size: 3rem;
+        --h3-font-size: 1.5rem;        
         --text-bold-fs: 5rem;
         --text-bold-margin-bottom: 1.25rem;
         --text-common-font-size: 1rem;
@@ -69,14 +120,15 @@ import RadialGradient from '../RadialGradient.astro';
         height: var(--transaction-container-height);
     }
 
-    h2, .text-bold {
+    .text-bold {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
+        font-family: var(--font-extra-bold);
         font-size: var(--transaction-heading-font-size);
     }
 
     h2 {
         margin-bottom: var(--transaction-heading-margin-bottom);
+        font-size: var(--h2-font-size);
     }
 
     .transaction__container-box {
@@ -105,6 +157,10 @@ import RadialGradient from '../RadialGradient.astro';
         font-family: var(--font-inter);
         font-size: var(--h3-font-size);
         margin-bottom: var(--text-bold-margin-bottom);
+    }
+
+    .transaction__container-text h3 {
+        font-weight: normal;
     }
 
     .transaction__container-text p {
@@ -149,6 +205,7 @@ import RadialGradient from '../RadialGradient.astro';
             --transaction-text-height: 8.75rem;
             --transaction-values-width: 100%;
             --transaction-value-width: 18.875rem;
+            --h2-font-size: 2.5rem;
             --h3-font-size: 1.25rem;
             --text-bold-fs: 4.5rem;
             --text-bold-margin-bottom: 1.25rem;
@@ -168,7 +225,7 @@ import RadialGradient from '../RadialGradient.astro';
             --transaction-container-height: 48.25rem;
             --transaction-container-margin-top: 0;
             --transaction-heading-font-size: 2.5rem;
-            --transaction-heading-margin-bottom: 2.5rem;
+            --transaction-heading-margin-bottom: 3rem;
             --transaction-box-height: 13.375rem;
             --transaction-box-width: var(--reduced-width);
             --transaction-box-margin-bottom: 4rem;
@@ -177,6 +234,7 @@ import RadialGradient from '../RadialGradient.astro';
             --transaction-text-height: 10.375rem;
             --transaction-values-width: 100%;
             --transaction-value-width: 16.375rem;
+            --h2-font-size: 37px;
             --h3-font-size: 1.25rem;
             --text-bold-fs: 4.375rem;
             --text-bold-margin-bottom: 1rem;
@@ -210,6 +268,7 @@ import RadialGradient from '../RadialGradient.astro';
             --transaction-text-height: 5.875rem;
             --transaction-values-width: 100%;
             --transaction-value-width: 33.3%;
+            --h2-font-size: 15px;
             --h3-font-size: .75rem;
             --text-bold-fs: 1.5rem;
             --text-bold-margin-bottom: .625rem;
@@ -223,7 +282,7 @@ import RadialGradient from '../RadialGradient.astro';
         }
     }
 
-    @media (320px <= width < 480px) {
+    @media (320px <= width < 480px) {        
         .transaction {
             --transaction-section-height: 160.75vw;
             --transaction-container-height: 128.75vw;
@@ -238,6 +297,7 @@ import RadialGradient from '../RadialGradient.astro';
             --transaction-text-height: 46.875vw;
             --transaction-values-width: 100%;
             --transaction-value-width: 30vw;
+            --h2-font-size: 15px;
             --h3-font-size: 3.75vw;
             --text-bold-fs: 7.5vw;
             --text-bold-margin-bottom: 3.125vw;

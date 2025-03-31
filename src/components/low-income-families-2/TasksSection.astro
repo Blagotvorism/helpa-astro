@@ -1,0 +1,242 @@
+---
+const locale = Astro.currentLocale || "";
+---
+<section class="tasks">
+    <h2 class="heading">
+        {locale === "en" &&
+           <>Achieving our goals depends on a <span class="gradient_span">number of objectives</span></> ||
+           <>Достижение наших целей зависит от&nbsp;<span class="gradient_span">ряда задач</span></>
+        }
+    </h2>
+    <p class="important">
+        {locale === "en" &&
+        <>Helping low-income, indebted families not only improves their lives, but also contributes to the prosperity of the entire society.</> ||
+        <>Помощь малоимущим закредитованным семьям не только улучшает их жизнь, но и вносит вклад в процветание всего общества.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Debt Reduction</> ||
+        <>Снижение долговой нагрузки</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Over-indebted families often experience stress due to mounting debt loads and the constant pressure to repay loans. Help in the form of financial support or counseling can help reduce this burden, allowing families to begin to rebuild their finances.</> ||
+        <>Закредитованные семьи часто испытывают стресс из-за растущей долговой нагрузки и постоянной необходимости выплачивать кредиты. Помощь в виде финансовой поддержки или консультирования может способствовать уменьшению этой нагрузки, позволяя семьям начать восстанавливать своё финансовое положение.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Psychological Support</> ||
+        <>Психологическая поддержка</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>The psychological burden associated with poverty and debt can lead to stress and depression. Support and counseling can help families cope with psychological issues, increase their self-confidence, and improve their overall well-being.</> ||
+        <>Психологическая нагрузка, связанная с бедностью и долговыми обязательствами, может приводить к стрессу и депрессии. Поддержка и консультации могут помочь семьям справиться с психологическими проблемами, повысить уровень уверенности в своих силах и улучшить общее благополучие.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Financial Literacy Education and Training</> ||
+        <>Образование и обучение финансовой грамотности</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Programs that teach families financial literacy can play an important role in preventing future re-borrowing and debt problems. Teaching families how to manage their budget, save, and use their money responsibly can have a long-term impact on their finances.</> ||
+        <>Программы, направленные на обучение семей финансовой грамотности, могут сыграть важную роль в предотвращении повторного заимствования и долговых проблем в будущем. Обучая семьи управлению своим бюджетом, сбережениям и ответственному кредитованию, можно оказать долгосрочное влияние на их финансовое положение.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Social Inclusion and Community Support</> ||
+        <>Социальная интеграция и поддержка сообщества</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Helping low-income families strengthens the social fabric of society. Creating programs and initiatives that support such families can both bring people together and create networks where participants help each other.</> ||
+        <>Помощь малоимущим семьям способствует укреплению социальной ткани общества. Создание программ и инициатив, направленных на поддержку таких семей, может одновременно объединять людей и создавать сетевые сообщества, где участники помогают друг другу.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Creating opportunities to escape poverty</> ||
+        <>Создание возможностей для выхода из бедности</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Providing access to housing programs, employment, and training can be a decisive factor in choosing a life path that allows families to break the cycle of poverty and debt.</> ||
+        <>Обеспечение доступа к жилищным программам, трудоустройству и обучению может стать решающим фактором в выборе жизненного пути, позволяющим семьям выйти из порочного круга бедности и долгов.</>
+        }
+    </p>
+    <h3>
+        {locale === "en" &&
+        <>Sustainable development of society in whole</> ||
+        <>Устойчивое развитие общества в целом</>
+        }
+    </h3>
+    <p>
+        {locale === "en" &&
+        <>Supporting low-income and indebted families contributes to more sustainable and equitable society. Reducing poverty and debt dependence leads to reduced social tensions, increased economic stability, and a higher standard of living for all citizens.</> ||
+        <>Поддержка малоимущих и закредитованных семей способствует созданию более устойчивого и справедливого общества. Снижение уровня бедности и долговой зависимости ведёт к уменьшению социального напряжения, укреплению экономической стабильности и повышению уровня жизни для всех граждан.</>
+        }
+    </p>
+</section>
+
+<style>
+
+    .tasks {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    .tasks:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .heading {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-family: 'Inter Variable';
+        font-size: 12px;
+        font-weight: 400;
+        width: 50%;
+        float: left;
+        clear: both;
+        padding-right: 5px
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 30px;
+    }
+
+    h3 + p {
+        width: 50%;
+        float: right;
+        margin-bottom: 70px;
+    }
+
+    h3 + p:last-child {
+        margin-bottom: 0;
+    }
+
+    img {
+        width: 100%; height: auto;
+        border-radius: 15px;
+    }
+
+    .goals_image {
+        width: 95px; height: 244px;
+        border-radius: 15px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .final_image {
+        width: 280px; height: 130px;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+        .heading,
+        .heading + p {
+            width: 90%;
+        }
+        h3 {
+            padding-right: 20px;
+        }
+        h3+p {
+            padding-left: 20px;
+        }
+        p {
+            font-size: 10px;
+        }
+    }
+
+    @media (width >= 640px) {
+        .heading {
+            font-size: 37px;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 14px;
+        }
+        p.important {
+            width: 80%;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        h3+p {
+            padding-left: 0;
+            margin-bottom: 55px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .tasks {
+            margin-bottom: 150px;
+        }
+        .heading {
+            margin-bottom: 50px;
+        }
+        p.important {
+            width: auto;
+            padding-left: 50%;
+            margin-bottom: 90px;
+        }
+        h3 {
+            width: 35%;
+        }
+        h3+p {
+            width: 65%;
+            margin-bottom: 80px;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .tasks {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 200px;
+        }
+        .heading {
+            font-size: 48px;
+        }
+        p.important {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+        h3 {
+            font-size: 24px;
+        }
+        h3+p {
+            margin-bottom: 90px;
+        }
+    }
+</style>

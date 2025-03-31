@@ -2,25 +2,76 @@
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 import CharityCard from './CharityCard.astro';
+
+const locale = Astro.currentLocale || "";
+
 ---
 <section class="charity">
     <div class="charity__container">
         <RadialGradient topPosition="-5.25rem" leftPosition="-23.0625rem" />
-        <h2>направления <span class="gradient_span">благотворительности</span></h2>
+        <h2>
+            {locale === "en" &&
+            <>Charity <span class="gradient_span">areas</span></> ||
+            <>направления <span class="gradient_span">благотворительности</span></>
+            }            
+        </h2>
         <div class="charity__cards">
-            <CharityCard id="gemo" heading="gemohelp" subheading="Международный благотворительный проект" text="Помощь больным лейкемией" />
-            <CharityCard id="eco" heading="eco<br>time day" subheading="Международное экологическое сообщество" text="Уборка береговых зон" />
-            <CharityCard id="ride" heading="long<br>long ride" subheading="Международное спортивное сообщество" text="Бесплатные массовые заезды" />
-            <CharityCard id="repay" heading="repay" subheading="Международный благотворительный проект" text="Выкуп долга социально незащищенных" />
+            <CharityCard id="gemo" heading="gemohelp" subheading={locale === "en" && "International charity project" || "Международный благотворительный проект"} text={locale === "en" && "Help for leukemia patients" || "Помощь больным лейкемией"} />
+            <CharityCard id="eco" heading="eco<br>time day" subheading={locale === "en" && "International environmental community" || "Международное экологическое сообщество"} text={locale === "en" && "Coastal cleaning" || "Уборка береговых зон"} />
+            <CharityCard id="ride" heading="long<br>long ride" subheading={locale === "en" && "International sports community " || "Международное спортивное сообщество"} text={locale === "en" && "Free mass races" || "Бесплатные массовые заезды"} />
+            <CharityCard id="repay" heading="repay" subheading={locale === "en" && "International charity project" || "Международный благотворительный проект"} text={locale === "en" && "Buying out debt of socially vulnerable people " || "Выкуп долга социально незащищенных"} />
         </div>
     </div>
 </section>
+
+<script>
+
+	const cardsContainerElement = document.querySelector(".charity__cards");
+
+    if (cardsContainerElement) {
+
+        for (let i = 0; i < cardsContainerElement.children.length; i++) {
+            const item = cardsContainerElement.children[i] as HTMLElement;
+            item.style.opacity = "0";
+            item.style.translate = "0 30px";
+            setTimeout(() => item.style.transition = "opacity 0.5s, translate 0.5s", 0);            
+        }
+
+        window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+        function onBodyScroll() {
+            if (isMostlyVisible()) {
+                window.removeEventListener('scroll', onBodyScroll);
+                animateAppearing();			
+            }
+        }
+
+        function isMostlyVisible() {
+            return cardsContainerElement!.getBoundingClientRect().top < window.innerHeight / 2;
+        }
+
+        function animateAppearing() {
+            const items = cardsContainerElement?.children;
+            let counter = 0;
+            appear(items![counter++]);
+            const interval = setInterval(function() {
+                appear(items![counter++]);
+                if (counter >= items!.length) clearInterval(interval);
+            }, 300);
+        }
+
+        function appear(item) {
+            item.style.opacity = "1";
+            item.style.translate = "0";
+        }
+    }
+</script>
 
 <style>
     :root {
         --charity-section-height: 36rem;
         --charity-container-height: 26.5625rem;
-        --charity-heading-font-size: 3.125rem;
+        --charity-heading-font-size: 48px;
         --charity-heading-margin-bottom: 5rem;
         --charity-cards-height: 17.5rem;
     }
@@ -41,7 +92,6 @@ import CharityCard from './CharityCard.astro';
 
     h2 {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
         font-size: var(--charity-heading-font-size);
         margin-bottom: var(--charity-heading-margin-bottom);
     }
@@ -57,7 +107,7 @@ import CharityCard from './CharityCard.astro';
         :root {
             --charity-section-height: 28.25rem;
             --charity-container-height: 20.75rem;
-            --charity-heading-font-size: 2.5rem;
+            --charity-heading-font-size: 37px;
             --charity-heading-margin-bottom: 2.5rem;
             --charity-cards-height: 13.5rem;
         }
@@ -67,7 +117,7 @@ import CharityCard from './CharityCard.astro';
         :root {
             --charity-section-height: 45.125rem;
             --charity-container-height: 38.875rem;
-            --charity-heading-font-size: 2.5rem;
+            --charity-heading-font-size: 37px;
             --charity-heading-margin-bottom: 2.5rem;
             --charity-cards-height: 13.625rem;
         }
@@ -97,14 +147,18 @@ import CharityCard from './CharityCard.astro';
         :root {
             --charity-section-height: 157.5vw;
             --charity-container-height: 138.75vw;
-            --charity-heading-font-size: 5vw;
-            --charity-heading-margin-bottom: 3.25vw;
+            --charity-heading-font-size: 15px;
+            --charity-heading-margin-bottom: 20px;
             --charity-cards-height: 40.625vw;
         }
 
         .charity__cards {
             flex-wrap: wrap;
             row-gap: 3.25vw;
+        }
+
+        .card {
+            border-radius: 20px;
         }
     }
 </style>

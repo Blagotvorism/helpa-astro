@@ -3,6 +3,8 @@ import '../../styles/global.css';
 import GoalsBusinessCard from './GoalsBusinessCard.astro';
 import GoalsCard from '../GoalsCard.astro';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <section class="main_goals">
@@ -10,30 +12,69 @@ import RadialGradient from '../RadialGradient.astro';
         <RadialGradient topPosition="15.625rem" leftPosition="32.125rem" />
         <RadialGradient topPosition="4.125rem" leftPosition="40.3125rem" />
         <div class="goals_title">
-            <h1 class="goals_heading-1">Наши&nbsp;</h1>
-            <h1 class="gradient_span">долгосрочные&nbsp;</h1>
-            <h1 class="goals_heading-1">цели</h1>
+            <h1 class="goals_heading-1">{locale === "en" && <>Our&nbsp;</> || <>Наши&nbsp;</>}</h1>
+            <h1 class="gradient_span">{locale === "en" && <>long-term</> || <>долгосрочные&nbsp;</>}</h1>
+            <h1 class="goals_heading-1">{locale === "en" && <>goals</> || <>цели</>}</h1>
         </div>
         <div class="goals_cards">
-            <GoalsCard goalsIcon="goalsIcon1" goalsDescr="Развитие цивилизации" />
-            <GoalsCard goalsIcon="goalsIcon2" goalsDescr="Эффективная экономика" />
-            <GoalsCard goalsIcon="goalsIcon3" goalsDescr="Повышение общей грамотности населения" cardId={3} />
-            <GoalsCard goalsIcon="goalsIcon4" goalsDescr="Улучшение качества жизни" />
+            <GoalsCard goalsIcon="goalsIcon1" goalsDescr={locale === "en" && "Development of civilization" || "Развитие цивилизации"} />
+            <GoalsCard goalsIcon="goalsIcon2" goalsDescr={locale === "en" && "Efficient economy" || "Эффективная экономика"} />
+            <GoalsCard goalsIcon="goalsIcon3" goalsDescr={locale === "en" && "Increasing the general literacy of the population" || "Повышение общей грамотности населения"} cardId={3} />
+            <GoalsCard goalsIcon="goalsIcon4" goalsDescr={locale === "en" && "Improving the quality of life" || "Улучшение качества жизни"} />
             <GoalsBusinessCard />
-            <GoalsCard goalsIcon="goalsIcon5" goalsDescr="Чистая среда обитания" />
-            <GoalsCard goalsIcon="goalsIcon6" goalsDescr="Улучшение здоровья" />
-            <GoalsCard goalsIcon="goalsIcon7" goalsDescr="Свободная миграция" />
+            <GoalsCard goalsIcon="goalsIcon5" goalsDescr={locale === "en" && "Clean living environment" || "Чистая среда обитания"} />
+            <GoalsCard goalsIcon="goalsIcon6" goalsDescr={locale === "en" && "Improving health" || "Улучшение здоровья"} />
+            <GoalsCard goalsIcon="goalsIcon7" goalsDescr={locale === "en" && "Free migration" || "Свободная миграция"} />
         </div>
     </div>
 </section>
 
+<script>
+    const cardsContainer = document.querySelector(".goals_cards") as HTMLDivElement;
+    const cards = cardsContainer.children;
+
+    for (let elem of cards) {
+        const card = elem as HTMLElement;
+        card.style.opacity = "0";
+        card.style.translate = "0 20px";
+        card.style.transition = "opacity 0.4s, translate 0.2s";
+    }
+
+    window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+    function onBodyScroll() {
+        if (isScrolledToContainer()) {
+            window.removeEventListener('scroll', onBodyScroll);
+            startAnimateAppearing();
+        }
+    }
+
+    function isScrolledToContainer() {
+        return cardsContainer!.getBoundingClientRect().top < 2 * window.innerHeight / 3;
+    }
+
+    function startAnimateAppearing() {
+        let cardIndex = 0;
+        animateAppearing(cardIndex++);
+        let interval = setInterval(function() {
+            animateAppearing(cardIndex++);
+            if (cardIndex >= cards.length) clearInterval(interval);
+        }, 300);
+    }
+
+    function animateAppearing(cardIndex) {
+        (cards[cardIndex] as HTMLElement).style.opacity = "initial";
+        (cards[cardIndex] as HTMLElement).style.translate = "none";
+    }
+</script>
+
 <style>
     .main_goals {
-        --section-height: 44.8rem;
+        --section-height: 45rem;
         --title-width: 49.75rem;
-        --title-font-size: 2.5rem;
+        --title-font-size: 48px;
         --title-margin-bottom: 3.75rem;
-        --cards-height: 28.5rem;
+        --cards-height: 30rem;
         --card-width: 12rem;
     }
 
@@ -73,37 +114,50 @@ import RadialGradient from '../RadialGradient.astro';
         width: var(--card-width) !important;
     }
 
+    h1 {
+        font-size: 48px;
+    }
+
     @media (960px <= width < 1200px) {
         .main_goals {
             --title-width: 36.625rem;
-            --section-height: 39.8125rem;
-            --title-font-size: 2.5rem;
+            --section-height: 36rem;
+            --title-font-size: 37px;
             --title-margin-bottom: 4.5625rem;
             --cards-height: 23.75rem;
             --card-width: 12rem;
         }
-
+        h1 {
+            font-size: 37px;
+        }
     }
 
     @media (640px <= width < 960px) {
         .main_goals {
             --title-width: var(--reduced-width);
             --section-height: 28rem;
-            --title-font-size: 1.65rem;
+            --title-font-size: 37px;
             --title-margin-bottom: 1.5rem;
             --cards-height: 19.25rem;
             --card-width: 8rem;
+        }
+        h1 {
+            font-size: 37px;
         }
     }
 
     @media (480px <= width < 640px) {
         .main_goals {
             --title-width: 15.625rem;
-            --section-height: 26rem;
+            --section-height: auto;
             --title-font-size: 0.7rem;
             --title-margin-bottom: 1.5rem;
             --cards-height: 19.375rem;
             --card-width: 8rem;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 15px;
         }
     }
 
@@ -111,10 +165,13 @@ import RadialGradient from '../RadialGradient.astro';
         .main_goals {
             --title-width: 78.125vw;
             --section-height: 155vw;
-            --title-font-size: 3.5vw;
+            --title-font-size: 15px;
             --title-margin-bottom: 5vw;
             --cards-height: 125.625vw;
             --card-width: 40vw;
+        }
+        h1 {
+            font-size: 15px;
         }
     }
 </style>

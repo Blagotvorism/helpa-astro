@@ -1,7 +1,14 @@
 ---
+import '@fontsource-variable/montserrat';
+import '@fontsource-variable/inter';
+
 import Header from '../components/Header.svelte';
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import links from "../data/links.json";
+
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 interface Props {
 	title: string;
 	description?: string;
@@ -12,23 +19,34 @@ interface Props {
 const { title, description = "Community", image = "/images/band.jpg", mainPage } = Astro.props;
 let bgIndex;
 mainPage ? bgIndex = true: bgIndex = false;
+
+const localizedLinks = links.map(function(link) {
+	return {
+		id: link.id,
+		text: link.text[Astro.currentLocale || ""],
+		url: getRelativeLocaleUrl(Astro.currentLocale || "", link.url)
+	}
+});
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.currentLocale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen">
-		<Header mainPage={bgIndex} client:load />
+		<Header locale={Astro.currentLocale} links={localizedLinks} pathname={mainPage ? "/" : Astro.url.pathname} mainPage={bgIndex} client:load />
 		<slot />
-		<Footer />
+		<Footer links={localizedLinks}/>
 	</body>
 </html>
 

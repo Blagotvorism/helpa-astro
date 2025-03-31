@@ -6,6 +6,8 @@ import RadialGradient from './RadialGradient.astro';
 
 const {page, img, imgDescr = ''} = Astro.props;
 
+const locale = Astro.currentLocale || "";
+
 let heading_start, heading_gradient, heading_finish;
 let sectionHeight_1200, sectionHeight_960, sectionHeight_640, sectionHeight_480, sectionHeight_320; 
 let headingWidth_1200, headingWidth_960, headingWidth_640, headingWidth_480, headingWidth_320;
@@ -14,31 +16,31 @@ let url_buy, url_join, h3_text = 'Стать участником наших а�
 
 switch(page) {
     case 'eco':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'быть полезным природе, заботиться ';
-        heading_finish = 'о своём доме под названием планета Земля, можно';
+        heading_start = locale === "en" && "To be " || 'Чтобы ';
+        heading_gradient = locale === "en" && "useful to nature, take care " || 'быть полезным природе, заботиться ';
+        heading_finish = locale === "en" && "of our home called planet Earth, you can" || 'о своём доме под названием планета Земля, можно';
         // Section Height
         sectionHeight_1200 = '36rem';
         sectionHeight_960 = '29.375rem';
-        sectionHeight_640 = '35.125rem';
+        sectionHeight_640 = '35rem';
         sectionHeight_480 = '15rem';
         sectionHeight_320 = '75vw';
         // Heading Width Height
-        headingWidth_1200 = '57.5rem';
+        headingWidth_1200 = '65rem';
         headingWidth_960 = '46.5625rem';
         headingWidth_640 = '34.5rem';
-        headingWidth_480 = '18.5rem';
+        headingWidth_480 = '19rem';
         headingWidth_320 = '87.5vw';
         url_buy = '/';
         url_join = 'https://t.me/ecotimeday';
-        h3_text = 'Стать участником наших экологических акций';
-        p_text = 'и принимать непосредственное участие в спасении планеты.';
+        h3_text = locale === "en" && "Participate in our environmental campaigns" || 'Стать участником экологических акций';
+        p_text = locale === "en" && "and take direct part in saving the planet." || 'и принимать непосредственное участие в спасении планеты.';
         break;
     case 'low-income-families':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'быть полезным людям ';
-        heading_finish = 'и поддержать проект, можно';
-        h3_text = 'Стать участником наших акций помощи';
+        heading_start = locale === "en" && "To be " || 'Чтобы ';
+        heading_gradient = locale === "en" && "useful to people " || 'быть полезным людям ';
+        heading_finish = locale === "en" && "and support the project, you can" || 'и поддержать проект, можно';
+        h3_text = locale === "en" && "Become a participant in our helping campaigns" || 'Стать участником наших акций помощи';
         sectionHeight_1200 = '30rem';
         sectionHeight_960 = '21.75rem';
         sectionHeight_640 = '25.7rem';
@@ -54,15 +56,15 @@ switch(page) {
         url_join = 'https://t.me/helparepay';
         break;
     case 'ride':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'сделать мир спортивнее ';
-        heading_finish = 'и поддержать проект, можно';
-        h3_text = 'Стать участником или организатором заезда';
-        p_text = 'и принимать непосредственное участие в мероприятиях.';
+        heading_start = locale === "en" && "To make " || 'Чтобы ';
+        heading_gradient = locale === "en" && "the world friendly and healthy " || 'сделать мир спортивнее ';
+        heading_finish = locale === "en" && "you can support the project" || 'и поддержать проект, можно';
+        h3_text = locale === "en" && "Become a participant or organizer of the race " || 'Стать участником или организатором заезда';
+        p_text = locale === "en" && "and take direct part in the events." || 'и принимать непосредственное участие в мероприятиях.';
         // Section Height
-        sectionHeight_1200 = '27rem';
+        sectionHeight_1200 = '30rem';
         sectionHeight_960 = '21.75rem';
-        sectionHeight_640 = '25.7rem';
+        sectionHeight_640 = '28rem';
         sectionHeight_480 = '12.25rem';
         sectionHeight_320 = '65vw';
         // Heading Width
@@ -76,10 +78,10 @@ switch(page) {
         url_join = 'https://t.me/longlongride';
         break;
     case 'gemo':
-        heading_start = 'Чтобы ';
-        heading_gradient = 'быть полезным людям ';
-        heading_finish = 'и поддержать проект, можно';
-        h3_text = 'Подписаться на социальные сети проекта';
+        heading_start = locale === "en" && "To be " || 'Чтобы ';
+        heading_gradient = locale === "en" && "useful to people " || 'быть полезным людям ';
+        heading_finish = locale === "en" && "and support the project you can" || 'и поддержать проект, можно';
+        h3_text = locale === "en" && "Subscribe to the project's social networks" || 'Подписаться на социальные сети проекта';
         // Section Height
         sectionHeight_1200 = '30rem';
         sectionHeight_960 = '25rem';
@@ -126,7 +128,7 @@ topPosition}}>
 
         /* help img */
         --help-img-bottom: 0;
-        --help-img-bottom-right: -10rem;
+        --help-img-bottom-right: 0;
         --help-img-bottom-height: 22rem;
         --help-img-bottom-width: 13rem;
     }
@@ -151,8 +153,7 @@ topPosition}}>
         display: inline-block;
         width: var(--headingWidth);
         line-height: var(--line-height);
-        font-family: var(--font-lulo-bold);
-        font-size: var(--font-size);
+        font-size: 48px;
         margin-bottom: var(--margin-bottom);
     }
 
@@ -171,7 +172,7 @@ topPosition}}>
             --headingWidth: var(--headingWidth_960);
             --topPosition: 0rem;
             --line-height: 3.25rem;
-            --font-size: 2.5rem;
+            --font-size: 48px;
             --margin-bottom: 3.75rem;
 
             /* help img */
@@ -179,6 +180,10 @@ topPosition}}>
             --help-img-bottom-right: -1rem;
             --help-img-bottom-height: 17.625rem;
             --help-img-bottom-width: 9.375rem;
+        }
+
+        .help__heading {
+            font-size: 37px;
         }
     }
 
@@ -188,7 +193,7 @@ topPosition}}>
             --headingWidth: var(--headingWidth_640);
             --topPosition: 0rem;
             --line-height: 3.25rem;
-            --font-size: 2.5rem;
+            --font-size: 37px;
             --margin-bottom: 1.25rem;
 
             /* help img */
@@ -196,6 +201,10 @@ topPosition}}>
             --help-img-bottom-right: 2rem;
             --help-img-bottom-height: 9.25rem;
             --help-img-bottom-width: 5rem;
+        }
+
+        .help__heading {
+            font-size: 37px;
         }
     }
 
@@ -205,7 +214,7 @@ topPosition}}>
             --headingWidth: var(--headingWidth_480);
             --topPosition: 0rem;
             --line-height: 1.25rem;
-            --font-size: 1rem;
+            --font-size: 15px;
             --margin-bottom: 2.5rem;
 
             /* help img */
@@ -213,6 +222,10 @@ topPosition}}>
             --help-img-bottom-right: 2rem;
             --help-img-bottom-height: 7.875rem;
             --help-img-bottom-width: 4.1875rem;
+        }
+
+        .help__heading {
+            font-size: 15px;
         }
     }
 
@@ -222,7 +235,7 @@ topPosition}}>
             --headingWidth: var(--headingWidth_320);
             --topPosition: 0rem;
             --line-height: 6.25vw;
-            --font-size: 5vw;
+            --font-size: 15px;
             --margin-bottom: 12.5vw;
 
             /* help img */
@@ -230,6 +243,10 @@ topPosition}}>
             --help-img-bottom-right: 2rem;
             --help-img-bottom-height: 7.875rem;
             --help-img-bottom-width: 4.1875rem;
+        }
+
+        .help__heading {
+            font-size: 15px;
         }
 
         .help__img {

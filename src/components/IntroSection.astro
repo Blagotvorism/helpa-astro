@@ -23,7 +23,7 @@ switch (page) {
 		containerWidth_960 = '40.875rem';
 		containerWidth_640 = '27.25rem';
 		containerWidth_480 = '16.3125rem';
-		containerWidth_320 = '8rem';
+		containerWidth_320 = '9.5rem';
 		containerHeight_960 = '9rem';
 		containerHeight_640 = '15rem';
 		containerHeight_480 = '3.9375rem';
@@ -33,7 +33,7 @@ switch (page) {
 		containerWidth_960 = '41.5625rem';
 		containerWidth_640 = '33.5rem';
 		containerWidth_480 = '20.125rem';
-		containerWidth_320 = '87.5vw';
+		containerWidth_320 = '80vw';
 		containerHeight_960 = '16.375rem';
 		containerHeight_640 = '24.375rem';
 		containerHeight_480 = '10.25rem';
@@ -50,7 +50,7 @@ switch (page) {
 		rightPosText_320 = '0';
 		break;
 	case 'low-income':
-		containerWidth_960 = '50rem';
+		containerWidth_960 = '49rem';
 		containerWidth_640 = '38.125rem';
 		containerWidth_480 = '26.875rem';
 		containerWidth_320 = '87.5vw';
@@ -108,11 +108,47 @@ switch (page) {
 <section class="main_intro" id="main_intro">
     <div class="main_intro__container">
         <h2 class="main_intro__title">
-            {mainHeading}
+            <span class="typed"></span><span class="untyped">{mainHeading}</span>
         </h2>
 		{text && <h4 class="main_intro__text">{text}</h4>}
     </div>
 </section>
+
+<script>
+
+	const introSection = document.getElementById("main_intro");	
+
+	window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+	function onBodyScroll() {
+		if (isMostlyVisible()) {
+			window.removeEventListener('scroll', onBodyScroll);
+			simulateTyping();			
+		}
+	}
+
+	function isMostlyVisible() {
+		return introSection!.getBoundingClientRect().top < window.innerHeight / 2;
+	}
+
+	function simulateTyping() {
+		const mainIntroTitle = introSection?.getElementsByTagName("h2")[0];
+		const typed = mainIntroTitle?.querySelector(".typed") as HTMLSpanElement;
+		const untyped = mainIntroTitle?.querySelector(".untyped") as HTMLSpanElement;
+		let untypedString = untyped.textContent!;
+		let typingInterval = setInterval(type, 50);
+		function type() {			
+			if (untypedString.length > 0) {
+				const symbol = untypedString[0];
+				typed.textContent += symbol;
+				untypedString = untypedString.substring(1);
+				untyped.textContent = untypedString;
+			} else {
+				clearInterval(typingInterval);
+			}			
+		}
+	}
+</script>
 
 <style define:vars=
 	{{
@@ -126,61 +162,62 @@ switch (page) {
 	}}>
 	.main_intro {
 		--section-height: 45rem;
-		--font-size-title: 3.125rem;
+		--font-size-title: 48px;
 		--line-height-title: 4rem;
 		--font-size-text: 1rem;
 	}
 
     .main_intro {
 		position: relative;
-		display: block;
-		width: 100vw;
-		height: var(--section-height);
+		display: flex;
+		min-height: 720px;
 		background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/main/interBG.jpg');
 		background-size: cover;
+		margin-bottom: 80px;
 	}
 	.main_intro__container {
 		display: block;
 		color: white;
 		width: var(--containerWidth);
-		height: var(--containerHeight);
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 		text-align: start;
+		margin: auto;
+		position: relative;		
 	}
+
+	.main_intro__container:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
 	.main_intro__title {
-		display: inline;
 		font-size: var(--font-size-title);
 		line-height: var(--line-height-title);
-		font-family: var(--font-lulo-bold);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: inherit;
+		margin-bottom: 10px;
 	}
 
 	.main_intro__text {
-		font-family: var(--font-inter);
-		display: inline;
 		font-size: 1rem;
+		font-weight: normal;
 		width: var(--textWidth);
-		position: absolute;
-		right: -1rem;
-		bottom: 0;
+		float: right;
+	}
+
+	.untyped {
+		opacity: 0;
 	}
 
 	@media (960px <= width < 1200px) {
 		.main_intro {
-			--section-height: 45rem;
-			--font-size-title: 2.5rem;
+			--section-height: 542px;
+			--font-size-title: 37px;
 			--line-height-title: 3rem;
+			min-height: 540px;
+			margin-bottom: 50px;
 		}
 
 		.main_intro__container {
 			width: var(--containerWidth_960);
-			height: var(--containerHeight_960);
 		}
 
 		.main_intro__text {
@@ -193,13 +230,14 @@ switch (page) {
 	@media (640px <= width < 960px) {
 		.main_intro {
 			--section-height: 51.8125rem;
-			--font-size-title: 2.5rem;
+			--font-size-title: 37px;
 			--line-height-title: 3rem;
+			min-height: 720px;
+			margin-bottom: 80px;
 		}
 
 		.main_intro__container {
 			width: var(--containerWidth_640);
-			height: var(--containerHeight_640);
 		}
 
 		.main_intro__text {
@@ -212,8 +250,10 @@ switch (page) {
 	@media (480px <= width < 640px) {
 		.main_intro {
 			--section-height: 16.25rem;
-			--font-size-title: 1rem;
+			--font-size-title: 15px;
 			--line-height-title: 1.25rem;
+			min-height: 272px;
+			margin-bottom: 60px;
 		}
 
 		.main_intro__container {
@@ -223,6 +263,7 @@ switch (page) {
 
 		.main_intro__title {
 			width: var(--headingWidth_480);
+			margin-bottom: 10px;
 		}
 
 		.main_intro__text {
@@ -235,8 +276,10 @@ switch (page) {
 	@media (320px <= width < 480px) {
 		.main_intro {
 			--section-height: 30rem;
-			--font-size-title: 1rem;
-			--line-height-title: 1.25rem;
+			--font-size-title: 15px;
+			--line-height-title: 1.25;
+			margin-bottom: 40px;
+			min-height: 481px;
 		}
 
 		.main_intro__container {
@@ -244,8 +287,12 @@ switch (page) {
 			height: var(--containerHeight_320);
 		}
 
+		.main_intro__title {
+			margin-bottom: 10px;
+		}
+
 		.main_intro__text {
-			font-size: var(--fontSizeText_320);
+			font-size: 10px;
 			width: var(--textWidth_320);
 			right: var(--rightPosText_320);
 		}

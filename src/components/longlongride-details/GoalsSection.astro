@@ -1,0 +1,311 @@
+---
+import byciclistsImage from "/src/images/longlongride-details/byciclists.jpg";
+import rollerboardImage from "/src/images/longlongride-details/rollerboard.jpg";
+import streetRunningPeopleImage from "/src/images/longlongride-details/street-running-people.jpg";
+
+const locale = Astro.currentLocale || "";
+---
+
+<section class="goals">
+    <h2>
+        {locale === "en" &&
+            <><span class="gradient_span">Goals</span> of the Long Long Ride project</> ||
+            <><span class="gradient_span">Цели проекта</span><br/>Long Long Ride</>
+        }
+    </h2>
+
+    <p class="important">
+        {locale === "en" &&
+            <>Promotion of physical activity and health maintenance play an important role in promoting a healthy lifestyle.</> ||
+            <>Стимулирование физической активности и поддержания здоровья играют важную роль в продвижении здорового образа жизни.</>
+        }
+    </p>
+
+    <img src={byciclistsImage.src} alt="" class="illustration image1"/>
+
+    <p>
+        {locale === "en" &&
+            <>Organizing sports events such as tournaments, competitions, and training sessions helps people of different ages and abilities find opportunities to play sports, which contributes to improving public health and reducing disease rate.</> ||
+            <>Организация спортивных мероприятий, таких как турниры, конкурсы и тренировки, помогает людям разных возрастов и умений находить возможности для занятий спортом, что способствует улучшению общественного здоровья и снижению заболеваемости.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Volunteer sports organizations help unite people of different social, economic, and cultural backgrounds. Through sports events, people come together, make new acquaintances, and strengthen social ties, which increases the sense of community and support between its members.</> ||
+            <>Волонтёрские спортивные организации помогают объединять людей из разных социальных, экономических и культурных слоёв. Через спортивные мероприятия люди объединяются, налаживают новые знакомства и укрепляют социальные связи, что усиливает чувство сообщества и поддержку между его членами.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Our project offers a healthy alternative to entertainment and idling. The programs help develop discipline, responsibility, and team spirit in young people.</> ||
+            <>Наш проект предлагает здоровую альтернативу развлечениям и праздному времяпрепровождению. Программы способствуют развитию у молодёжи дисциплины, ответственности и командного духа.</>
+        }
+    </p>
+
+    <img src={rollerboardImage.src} alt="" class="illustration image4"/>
+
+    <p>
+        {locale === "en" &&
+            <>The goal of our sports community is to cover a wide range of areas, which facilitates not only sports popularization, but also socialization, support for social and environmental initiatives.</> ||
+            <>Цель нашего спортивного сообщества — охват широкого спектра направлений, что обусловливает не только популяризацию спорта, но и  социализацию, поддержание социальных и экологических инициатив.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>One of the main goals is to popularize a healthy lifestyle through physical activity. Sports events and competitions for different age groups and skills help involve more people in sports. As social integration, we strive to create different social groups through sports. This may include working with young people, people with disabilities, children from disadvantaged families and other vulnerable groups, creating opportunities for them to participate in sports events and foster team spirit.</> ||
+            <>Одной из главных целей является популяризация здорового образа жизни через физическую активность. Организация спортивных мероприятий, конкурсов для различных возрастных групп и уровней подготовки способствует вовлечению большего числа людей в спорт. В качестве социальной интеграции мы стремимся создать различные социальные группы через спорт. Это может включать работу с молодёжью, людьми с ограниченными возможностями, детьми из неблагополучных семей и другими уязвимыми группами, создавая для них возможности для участия в спортивных событиях и воспитания командного духа.</>
+        }
+    </p>
+
+    <img src={rollerboardImage.src} alt="" class="illustration image2"/>
+    <img src={streetRunningPeopleImage.src} alt="" class="illustration image6"/>
+
+    <p>
+        {locale === "en" &&
+            <>Through sports events and volunteer projects, participants have the chance to develop their leadership skills, learn to work in a team and solve emerging problems. This helps them both in sports and in everyday life. Supporting regional and international communities, which can be achieved through sports events in the area, improves public relations, promotes economic development, and the formation of a positive image of the region.</> ||
+            <>Через спортивные мероприятия и волонтёрские проекты участники имеют шанс развивать свои лидерские качества, научиться работать в команде и решать возникающие проблемы. Это помогает им как в спорте, так и в повседневной жизни. Поддержание региональных и международных сообществ, которое достигается путём организации спортивных мероприятий на территории, улучшают общественные связи, способствуют экономическому развитию и формированию положительного имиджа региона.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Raising awareness of important issues in the sports community, social, environmental, and health issues can contribute to environmental initiatives, inclusion and public health.</> ||
+            <>Повышение осведомлённости о важных вопросах спортивного сообщества, о социальных, экологических и здравоохранительных вопросах могут содействовать экологическим инициативам, инклюзии и укреплению здоровья населения.</>
+        }
+    </p>
+
+    <img src={streetRunningPeopleImage.src} alt="" class="illustration image5"/>
+
+    <p>
+        {locale === "en" &&
+            <>Creating opportunities for learning and development can include educational programs, seminars, and trainings on various aspects of sports that help to improve the qualifications of volunteers and participants, helping them to develop their skills and career prospects.</> ||
+            <>Создание возможностей для обучения и развития — образовательные программы, семинары и тренинги по различным аспектам спорта, которые способствуют повышению квалификации волонтёров и участников, помогая им развивать свои навыки и карьерные перспективы.</>
+        }
+    </p>    
+
+    <p>
+        {locale === "en" &&
+            <>Funding and support of sports programs, competitions, contests, creating own teams to popularize both sports and the organization in whole, creating an image, a company image, attracting volunteers, investments, attention to environmental issues, health care, financial literacy, and the need to solve them.</> ||
+            <>Финансирование и поддержка спортивных программ, соревнований, конкурсов, создание собственных команд для популяризации как спорта, так и организации в целом, создание образа, имиджа компании, привлечение волонтёров, инвестиций, внимания к проблемам экологии, здравоохранения, финансовой грамотности и необходимости их решения.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>By popularizing physical activity, creating social connections, and contributing to the development of positive changes through sports, our community plays an important role both for the health and well-being of individuals and for the whole society, as they contribute to the cohesive, active, and responsible communities.</> ||
+            <>Популяризируя физическую активность, создавая социальные связи и способствуя развитию положительных изменений через спорт, наше сообщество играет важную роль как для здоровья и благосостояния отдельных людей, так и для всего общества, так как они способствуют формированию сплочённых, активных и ответственных сообществ.</>
+        }
+    </p>
+
+    <img src={streetRunningPeopleImage.src} alt="" class="illustration image3"/>
+</section>
+
+<style>
+
+    .goals {
+        padding-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    .goals:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 10px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    .illustration {
+        display: block;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    .image1 {
+        width: 95px; height: 244px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .image2, .image3 {
+        width: 100%; height: 130px;
+        margin: 20px 0;
+    }
+
+    .image4, .image5, .image6 {
+        display: none;
+    }
+
+    @media (width >= 480px) {
+        p {
+            font-size: 10px;
+        }
+        .image1 {
+            height: 215px;
+            margin-bottom: 20px;
+        }
+        .image4 + p {
+            clear: left;
+        }
+        .image2 {
+            display: none;
+        }
+        .image3 {
+            display: none;
+        }
+        .image4 {
+            display: block;
+            width: 128px; height: 205px;
+            float: right;
+            clear: both;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        .image2 + p {
+            clear: both;
+        }
+        .image5 {
+            display: block;
+            width: 95px; height: 215px;
+            float: left;
+            margin-right: 10px;
+        }
+        .image6 + p {
+            clear: both;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+            width: 80%;
+        }
+        .illustration {
+            border-radius: 30px;
+        }
+        .image1 {
+            width: 219px; height: 257px;
+            margin-right: 20px;
+        }
+        .image4 {
+            width: 298px; height: 378px;
+        }
+        .image5 {
+            display: none;
+        }
+        .image6 {
+            display: block;
+            width: 141px; height: 227px;
+            float: left;
+            margin-right: 20px;
+            clear: both;
+            margin-bottom: 20px;
+        }
+        .image6 + p {
+            clear: right;
+        }
+        .image5 + p {
+            clear: both;
+        }
+    }
+
+    @media (width >= 960px) {
+        .goals {
+            padding-top: 70px;
+            margin-bottom: 80px;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        h2 + p {
+            margin-bottom: 40px;
+        }
+        .image1 {
+            width: 372px; height: 257px;
+        }
+        .image1 + p {
+            padding-top: 30px;
+        }
+        .image4 {
+            width: 528px; height: 358px;
+            margin-left: 20px;
+        }
+        .image4 + p {
+            padding-top: 40px;
+        }
+        .image6 {
+            width: 215px; height: 398px;
+        }
+        .image6 + p {
+            padding-top: 40px;
+        }
+        .image5 + p {
+            clear: none;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .goals {
+            width: 1120px;
+            padding-top: 90px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+        }
+        h2 {
+            font-size: 48px;
+        }
+        p {
+            font-size: 16px;
+        }
+        p.important {
+            font-size: 24px;
+        }
+        h2 + p {
+            margin-bottom: 120px;
+        }
+        .image1 {
+            width: 455px; height: 314px;
+            margin-bottom: 60px;
+        }
+        .image4 {
+            width: 645px; height: 388px;
+            margin-bottom: 60px;
+        }
+        .image4 + p {
+            padding-top: 30px;
+        }
+        .image6 {
+            width: 265px; height: 526px;
+        }
+        .image6 + p {
+            padding-top: 40px;
+        }
+    }
+</style>

@@ -1,10 +1,15 @@
 <script>
     import { onMount } from 'svelte';
-    import links from '../data/links.json';
+    //import links from '../data/links.json';
 	import BurgerMenu from './BurgerMenu.svelte';
     import Dropdown from './Dropdown.svelte';
+    import { getRelativeLocaleUrl } from 'astro:i18n';
 
     export let mainPage = false;
+    export let locale;
+    export let links;
+    export let pathname;
+
     let innerWidth = 0;
     let scrolled = 'false';
     onMount(() => {
@@ -22,39 +27,53 @@
             let headerHeight = document.getElementById('main_header').offsetHeight;
             scrolled = window.scrollY > headerHeight; // Set to true if user has scrolled down
         };
-        window.addEventListener('scroll', handleScroll);
-        console.log('Current innerWidth:', innerWidth);
-        console.log('Current path:', window.location.pathname);
+        //window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll); // Cleanup
         };
     });
 
+    let menuOpen = false;
+
+    function onMenuOpen() {
+        menuOpen = true;
+    }
+
+    function onMenuClose() {
+        menuOpen = false;
+    }
+
 </script>
 
-<svelte:window bind:innerWidth />
+<!-- <svelte:window bind:innerWidth /> -->
 
-<header class='header {mainPage && !scrolled ? "" : "header_bg"}' id="main_header">
+<header class='header {mainPage && !scrolled ? "" : "header_bg"} {menuOpen ? 'menu-open' : ''}' id="main_header">
     <div class="header_container">
-        <a href="/" class="header-logo_main">
+        <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_main">
             <img src='/logos/logo-grey.svg' class="header-logo_main" alt="helpa-project-logo"/>
         </a>
         <nav class="nav-links">
             {#each links as link}
                 <a href={link.url} class="nav-link">{link.text}</a>
             {/each}
-        </nav>
+        </nav>        
         <nav class="dropdown-nav">
             <a href={links[0].url} class="nav-link">{links[0].text}</a>
             <Dropdown data={links} text='Направления помощи'/>
             <a href={links[5].url} class="nav-link">{links[5].text}</a>
         </nav>
         <div class="mobile_nav">
-            <a href="/" class="header-logo_tokenomika">
+            <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_tokenomika">
                 <img src='/logos/tokenomika_logo.svg' class="header-logo_tokenomika" alt="tokenomika-logo"/>
-            </a>
-            <BurgerMenu links={links} />
+            </a>            
         </div>
+        <nav class="nav-lang-switch">
+            <ul>
+                <li class={locale === "ru" ? "selected" : ""}><a href={getRelativeLocaleUrl("ru", pathname)}>RU</a></li>
+                <li class={locale === "en" ? "selected" : ""}><a href={getRelativeLocaleUrl("en", pathname)}>EN</a></li>
+            </ul>
+        </nav>
+        <BurgerMenu links={links} on:onmenuopen={onMenuOpen} on:onmenuclose={onMenuClose} />
     </div>
 </header>
 
@@ -78,8 +97,14 @@
         z-index: 99;
         top: 0;
         left: 0;
-        width: 100vw;
+        right: 0;
         height: var(--header-height);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .header.menu-open {
+        border-radius: 0;
     }
 
     .header_container {
@@ -87,19 +112,20 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: var(--header-width);
-        position: fixed;
+        left: 20px; right: 20px;
+        position: absolute;
     }
 
     .header_bg {
         background-color: var(--header-bg-color);
-        border-bottom-right-radius: var(--border-radius);
+        /* border-bottom-right-radius: var(--border-radius); */
     }
 
     .header-logo_main {
         display: block;
         width: var(--main-logo-width);
         height: var(--main-logo-width);
+        flex: 1;
     }
 
     .header-logo_tokenomika {
@@ -109,11 +135,12 @@
     }
 
     .nav-links {
-        width: var(--nav-links-width);
+        /* width: var(--nav-links-width); */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-self: center;
+        flex: 1;
     }
 
     .nav-link {
@@ -124,6 +151,31 @@
         font-size: var(--font-size);
         color: var(--dark-grey);
         text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .nav-lang-switch {
+        position: relative;
+        font-family: var(--font-inter);
+        font-size: var(--font-size);
+    }
+
+    .nav-lang-switch a {
+        font-size: 12px;
+        color: var(--dark-grey);
+    }
+
+    .nav-lang-switch .selected a {
+        color: black;
+    }
+
+    .nav-lang-switch:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0; right: 0; top: 50%;
+        height: 1px;
+        background-color: var(--dark-grey);
     }
 
     a {
@@ -145,8 +197,8 @@
         display: none;
     }
 
-    .burger-menu_links {
-        display: none;
+    .mobile_nav {
+        margin-right: 20px;
     }
 
     @media (960px <= width < 1200px) {
@@ -222,29 +274,36 @@
             justify-content: center;
         }
 
-        .header_bg {
-            border-radius: 0;
-        }
-
-        .header-logo_tokenomika {
-            margin-right: 1rem;
-        }
-
         .nav-links {
             display: none;
-        }
-
-        .mobile_nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 3.8rem;
         }
 
         .dropdown-nav {
             display: none;
         }
+    }
 
+    @media (width >= 480px) {
+        .header-logo_main {
+            flex: initial;
+        }
+    }
+
+    @media (width >= 960px) {
+        .header-logo_main {
+            margin-right: 50px;
+        }
+        .mobile_nav {
+            margin-left: 20px;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .header_container {
+            width: 1120px;
+            left: auto;
+            right: auto;
+        }        
     }
 </style>
     

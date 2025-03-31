@@ -2,6 +2,7 @@
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
 import RideGoalCard from './RideGoalCard.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
     page: string;
@@ -10,11 +11,13 @@ interface Props {
     usualTextFinish: string;
     subheading: string;
     text: string;
+    detailsHref: string;
 }
 
-const { page, usualTextStart, gradientText, usualTextFinish, subheading, text } = Astro.props;
+const { page, usualTextStart, gradientText, usualTextFinish, subheading, text, detailsHref } = Astro.props;
 
 let textWidth, sectionHeight, containerHeight, headingWidth;
+
 switch(page) {
     case 'ride':
         textWidth = 'var(--text-width-ride)';
@@ -29,6 +32,8 @@ switch(page) {
         headingWidth = 'var(--h2-width-gemohelp)'
         break;
 }
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="ride_goals">
     <div class="ride_goals__containers">
@@ -42,19 +47,70 @@ switch(page) {
         {
             page === 'ride' && 
             <div class="ride_goals__cards">
-                <RideGoalCard iconName="rideGoal1" cardText="Привлечение новых участников" />
-                <RideGoalCard iconName="rideGoal2" cardText="Повышение узнаваемости" />
-                <RideGoalCard iconName="rideGoal3" cardText="Информирование масс" />
-                <RideGoalCard iconName="rideGoal4" cardText="Повышение мотивации" />
+                <RideGoalCard iconName="rideGoal1" cardText={locale === "en" && "Attracting new participants" || "Привлечение новых участников"} />
+                <RideGoalCard iconName="rideGoal2" cardText={locale === "en" && "Increasing awareness" || "Повышение узнаваемости"} />
+                <RideGoalCard iconName="rideGoal3" cardText={locale === "en" && "Delivering information to mass" || "Информирование масс"} />
+                <RideGoalCard iconName="rideGoal4" cardText={locale === "en" && "Increasing motivation" || "Повышение мотивации"} />
             </div>
         }
         <div class="ride_goals__text">
             <h2>{usualTextStart}<span class="gradient_span">{gradientText}</span>{usualTextFinish}</h2>
             <h3>{subheading}</h3>
             <p>{text}</p>
+            <p>
+                <a href={getRelativeLocaleUrl(locale, detailsHref)} class="arrow-cap">
+                    {locale === "en" &&
+                    <>Read more about project goals</> ||
+                    <>Читать подробнее о целях проекта</>
+                    }
+                </a>
+            </p>
         </div>
     </div>
 </section>
+
+<script>
+
+	const rideGoalsCardsElement = document.querySelector(".ride_goals__cards");
+
+    if (rideGoalsCardsElement) {
+
+        for (let i = 0; i < rideGoalsCardsElement.children.length; i++) {
+            const item = rideGoalsCardsElement.children[i] as HTMLElement;
+            item.style.opacity = "0";
+            item.style.translate = "0 30px";
+            setTimeout(() => item.style.transition = "opacity 0.5s, translate 0.5s", 0);            
+        }
+
+        window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+        function onBodyScroll() {
+            if (isMostlyVisible()) {
+                window.removeEventListener('scroll', onBodyScroll);
+                animateAppearing();			
+            }
+        }
+
+        function isMostlyVisible() {
+            return rideGoalsCardsElement!.getBoundingClientRect().top < window.innerHeight / 2;
+        }
+
+        function animateAppearing() {
+            const items = rideGoalsCardsElement?.children;
+            let counter = 0;
+            appear(items![counter++]);
+            const interval = setInterval(function() {
+                appear(items![counter++]);
+                if (counter >= items!.length) clearInterval(interval);
+            }, 300);
+        }
+
+        function appear(item) {
+            item.style.opacity = "1";
+            item.style.translate = "0";
+        }
+    }
+</script>
 
 <style define:vars={{sectionHeight, textWidth, containerHeight, headingWidth}}>
     .ride_goals {
@@ -72,13 +128,16 @@ switch(page) {
         /* General configurations */
         --ride-goals-card-height: 13.625rem;
         --ride-goals-card-margin-bottom: 2.5rem;
-        --h2-font-size: 3.125rem;
+        --h2-font-size: 48px;
         --h2-line-height: 4rem;
         --h2-margin-bottom: 2.5rem;
         --h3-font-size: 1.5rem;
         --h3-margin-bottom: 1.25rem;
         --p-font-size: 1rem;
         --margin-left: 29.6875rem;
+        margin-bottom: 130px;
+
+        height: auto;
     }
 
     section {
@@ -94,6 +153,7 @@ switch(page) {
         display: block;
         width: var(--reduced-width);
         height: var(--containerHeight);
+        height: auto;
     }
 
     .ride_goals__cards {
@@ -108,11 +168,13 @@ switch(page) {
         display: block;
         position: relative;
         width: inherit;
-        height: 24rem;
+    }
+
+    .ride_goals__text p {
+        margin-bottom: 10px;
     }
 
     h2 {
-        font-family: var(--font-lulo-bold);
         font-size: var(--h2-font-size);
         width: var(--headingWidth);
         line-height: var(--h2-line-height);
@@ -122,6 +184,7 @@ switch(page) {
     h3, p {
         display: inline-block;
         font-family: var(--font-inter);
+        font-weight: normal;
         width: var(--textWidth);
         margin-left: var(--margin-left);
     }
@@ -147,18 +210,24 @@ switch(page) {
             --text-width-gemohelp: 32.6875rem;
             --container-height-gemohelp: 20rem;
             --section-height-gemohelp:  33.75rem;
-            --h2-width-gemohelp: 39.6875rem;
+            --h2-width-gemohelp: 46rem;
 
             /* General configurations */
             --ride-goals-card-height: 11.25rem;
             --ride-goals-card-margin-bottom: 2.5rem;
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.25rem;
             --h2-margin-bottom: 2.5rem;
             --h3-font-size: 1.25rem;
             --h3-margin-bottom: 1.25rem;
             --p-font-size: .75rem;
             --margin-left: 23.25rem;
+
+            height: auto;
+        }
+
+        .ride_goals__containers {
+            height: auto;
         }
     }
 
@@ -177,8 +246,8 @@ switch(page) {
 
             /* General configurations */
             --ride-goals-card-height: 9.125rem;
-            --ride-goals-card-margin-bottom: 6.25rem;
-            --h2-font-size: 2.5rem;
+            --ride-goals-card-margin-bottom: 5rem;
+            --h2-font-size: 37px;
             --h2-width: var(--reduced-width);
             --h2-line-height: 3.25rem;
             --h2-margin-bottom: 2.5rem;
@@ -186,6 +255,13 @@ switch(page) {
             --h3-margin-bottom: 1.25rem;
             --p-font-size: .75rem;
             --margin-left: 9.875rem;
+
+            margin-bottom: 60px;
+            height: auto;
+        }
+
+        .ride_goals__containers {
+            height: auto;
         }
     }
 
@@ -204,13 +280,20 @@ switch(page) {
 
             /* General configurations */
             --ride-goals-card-margin-bottom: 0rem;
-            --h2-font-size: 1rem;
+            --h2-font-size: 15px;
             --h2-line-height: 1.25rem;
             --h2-margin-bottom: 1.25rem;
             --h3-font-size: .75rem;
             --h3-margin-bottom: .625rem;
             --p-font-size: .625rem;
             --margin-left: 7.25rem;
+
+            margin-bottom: 40px;
+            height: auto;
+        }
+
+        .ride_goals__containers {
+            height: auto;
         }
 
         .ride_goals__cards {
@@ -223,18 +306,18 @@ switch(page) {
             /* Specific page configurations */
             --text-width-ride: var(--reduced-width);
             --container-height-ride: 148.4375vw;
-            --section-height-ride: 180vw;
+            --section-height-ride: 160vw;
             --h2-width-ride: var(--reduced-width);
 
             --text-width-gemohelp: var(--reduced-width);
             --container-height-gemohelp: 78.75vw;
             --section-height-gemohelp:  110.9375vw;
-            --h2-width-gemohelp: var(--reduced-width);
+            --h2-width-gemohelp: 90%;
 
             /* General configurations */
             --ride-goals-card-height: 64.375vw;
             --ride-goals-card-margin-bottom: 3.75rem;
-            --h2-font-size: 5vw;
+            --h2-font-size: 15px;
             --h2-width: 71.875vw;
             --h2-line-height: 6.25vw;
             --h2-margin-bottom: 6.25vw;
@@ -242,10 +325,23 @@ switch(page) {
             --h3-margin-bottom: 3.125vw;
             --p-font-size: 3.125vw;
             --margin-left: 0;
+
+            margin-bottom: 50px;
+            height: auto;
+        }
+
+        .ride_goals__containers {
+            height: auto;
         }
 
         .ride_goals__cards {
             flex-wrap: wrap;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .ride_goals__text p {
+            margin-bottom: 20px;
         }
     }
 </style>

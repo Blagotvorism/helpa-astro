@@ -2,13 +2,16 @@
 	import Carousel from './Carousel.svelte';
     import EventsTab from './EventsTab.svelte';
     import Modal from './Modal.svelte';
-	import events from '../../data/events.json';
 	import SelectDropDown from '../SelectDropDown.svelte';
+
     let slider;
     let category;
     let cards;
     let scrollable = true;
     let myComponent;
+
+    export let events;
+    export let locale;
 
     const wheel = (node, options) => {
         let { scrollable } = options;
@@ -76,7 +79,7 @@
     export function handleClick(event) {
         let eventCard = event;
         const container = document.getElementById('component-container');
-        renderComponent(container, {event: eventCard, scrollable: scrollable});
+        renderComponent(container, {event: eventCard, scrollable: scrollable, locale: locale});
         scrollIntoView();
         scrollable = false;
     }
@@ -86,32 +89,41 @@
 <svelte:window use:wheel={{scrollable}} />
 
 <div class="cards_container">
-    <EventsTab bind:category btnAction={slider} cards={cards} />
-    <SelectDropDown events={events} />
+    <EventsTab locale={locale} bind:category btnAction={slider} cards={cards} />
+    <SelectDropDown events={events} locale={locale}/>
     <div class="event_cards">
         {#if findCards(category) !== 0}
             {#key category}
                 <Carousel bind:this={slider} siemaItems={findCards(category)}>
                     {#if category === 'all'}
                         {#each events as event, index (index)}
-                            <div class="event_card" on:click={() => handleClick(event)}>
-                                <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <div class="event_card" on:click={() => handleClick(event)} role="button" tabindex="-1">
+                                <div class="event_image">
+                                    <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                </div>
                                 <div class="event_card-text">
-                                    <h3 class="event_card-title">{event.title}</h3>
+                                    <p class="event_card-title">{event.title}</p>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
-                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span">
+                                        <span class="btn_innertext_secondary">{locale === "en" && "Details" || "Подробнее"}</span>
+                                    <span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                         {/each}
                     {:else}
                         {#each events as event, index (index)}
                             {#if category === event.category}
-                            <div class="event_card" on:click={() => handleClick(event)}>
-                                <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <div class="event_card" on:click={() => handleClick(event)} role="button" tabindex="-1">
+                                <div class="event_image">
+                                    <img src={event.imageURL} alt={event.title} class='event_card-img' />
+                                </div>
                                 <div class="event_card-text">
-                                    <h3 class="event_card-title">{event.title}</h3>
+                                    <p class="event_card-title">{event.title}</p>
                                     <p class="event_card-descr">{event.descriptionShort}</p>
-                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span"><span class="btn_innertext_secondary">Подробнее</span><span class="btn_arrow gradient_span"> ❯ </span></button>
+                                    <button on:click={() => handleClick(event)} class="btn btn_text btn_event-link gradient_span">
+                                        <span class="btn_innertext_secondary">{locale === "en" && "Details" || "Подробнее"}</span><span class="btn_arrow gradient_span"> ❯ </span></button>
                                 </div>
                             </div>
                             {/if}
@@ -122,7 +134,10 @@
         {:else}
             <div class="no_cards_container">
                 <p class="no_cards">
-                    Скоро здесь будет опубликован отчет о прошедших мероприятиях!
+                    {locale === "en" &&
+                        "A report on past events is coming soon!" ||
+                        "Скоро здесь будет опубликован отчет о прошедших мероприятиях!"
+                    }                    
                 </p>
             </div>
         {/if}
@@ -130,6 +145,11 @@
 </div>
 
 <style>
+
+    h3 {
+        font-weight: 400;
+    }
+
     .cards_container {
         /* Container vars */
         --cards-container-width: var(--reduced-width);
@@ -210,16 +230,26 @@
         background-color: white;
         position: relative;
         border: 1px solid #eee;
+        overflow: hidden;
     }
 
-
-    .event_card-img {
+    .event_card-img,
+    .event_image {
         display: block;
         height: inherit;
         width: var(--event-card-img-width);
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
         object-fit: cover;
+        overflow: hidden;  
+    }
+
+    .event_card-img {
+        transition: transform 0.5s;
+    }
+
+    .event_card:hover .event_card-img {
+        transform: scale(1.1);
     }
 
     .event_card-text {
@@ -235,6 +265,7 @@
         color: black;
         font-family: var(--font-inter);
         font-size: var(--event-card-title-font-size);
+        font-weight: 400 !important;
         line-height: var(--event-card-title-line-height);
         margin-left: var(--event-card-title-margin-left);
         margin-bottom: var(--event-card-title-margin-bottom);

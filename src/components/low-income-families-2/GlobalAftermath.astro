@@ -1,56 +1,117 @@
+---
+const locale = Astro.currentLocale || "";
+---
 <section class="global">
     <div class="global_container">
-        <h2>Глобальные последствия</h2>
+        <h2>{locale === "en" && "Global impact" || "Глобальные последствия"}</h2>
         <div class="global_text_container">
             <div class="text_container usa">
-                <h3 class="gradient_span">США</h3>
+                <h3 class="gradient_span">{locale === "en" && "USA" || "США"}</h3>
                 <div class="p-container">
                     <p class="usa_text usa_text-1">
-                        Ипотечный кризис в США, который начался в 2007 году и достиг своего пика в 2008-2009 годах, является одним из наиболее серьезных экономических кризисов последних десятилетий. Он оказал значительное влияние не только на американскую экономику, но и на мировую экономику в целом.
+                        {locale === "en" &&
+                        <>The US subprime mortgage crisis, which began in 2007 and peaked in 2008-2009, is one of the most serious economic crises of recent decades.
+                        It had a significant impact not only on the US economy, but on the global one. </> ||
+                        <>Ипотечный кризис в США, который начался в 2007 году и достиг своего пика в 2008-2009 годах, является одним из наиболее серьезных экономических кризисов последних десятилетий.
+                        Он оказал значительное влияние не только на американскую экономику, но и на мировую экономику в целом.</>
+                        }                        
                     </p>
                     <p class="usa_text usa_text-2">
-                        Кризис начался с роста дефолтов по ипотечным займам, которые предоставлялись людям со слабой кредитной историей (так называемым "субпрайм" заемщикам). Большинство этих займов имели переменные процентные ставки, что означало, что выплаты должников возрастали при повышении ставок. Когда ставки начали расти, многие заемщики прекратили погашать свои займы, что привело к банкротству множества ипотечных компаний.
+                        {locale === "en" &&
+                        <>The crisis began with a rise in defaults on mortgages that were issued to people with poor credit (so-called “subprime” borrowers).
+                        Most of those loans had variable interest rates, meaning that the borrowers' payments increased as rates rose. When rates began to rise,
+                        many borrowers stopped repaying their loans, and ended up with the bankruptcy of many mortgage companies. </> ||
+                        <>Кризис начался с роста дефолтов по ипотечным займам, которые предоставлялись людям со слабой кредитной историей (так называемым "субпрайм" заемщикам).
+                        Большинство этих займов имели переменные процентные ставки, что означало, что выплаты должников возрастали при повышении ставок.
+                        Когда ставки начали расти, многие заемщики прекратили погашать свои займы, что привело к банкротству множества ипотечных компаний.</>
+                        }
                     </p>
                     <p class="usa_text usa_text-3">
-                        Осложняющим фактором была практика перепродажи ипотечных кредитов различными финансовыми институтами на рынке ценных бумаг. Это привело к созданию сложной структуры финансовых продуктов, в которой было трудно определить реальную стоимость ипотечных активов. В результате, когда цены на недвижимость начали снижаться, многие из этих активов оказались переоцененными или бесценными.
+                        {locale === "en" &&
+                        <>A complicating factor was the practice of reselling mortgages by various financial institutions on the securities market.
+                        This led to a complex structure of financial products in which it was difficult to determine the real value of mortgage assets.
+                        As a result, when property prices began to decline, many of those assets were overvalued or worthless. </> ||
+                        <>Осложняющим фактором была практика перепродажи ипотечных кредитов различными финансовыми институтами на рынке ценных бумаг.
+                        Это привело к созданию сложной структуры финансовых продуктов, в которой было трудно определить реальную стоимость ипотечных активов.
+                        В результате, когда цены на недвижимость начали снижаться, многие из этих активов оказались переоцененными или бесценными.</>
+                        }
                     </p>
                     <p class="usa_text usa_text-4">
-                        Ипотечный кризис в США имел долгосрочные последствия как для отдельных семей, потерявших свои дома или испытавших финансовые трудности, так и для всей экономики. Он подчеркнул уязвимость финансовой системы и показал необходимость жесткого контроля и надзора за кредитными институтами и финансовым регулированием в целом.
+                        {locale === "en" &&
+                        <>The subprime mortgage crisis in the United States had long-term consequences for both individual families who lost their homes or experienced
+                        financial difficulties and for the whole economy. It highlighted the vulnerability of the financial system and demonstrated the need for strict
+                        supervision and oversight of credit institutions and financial regulation in general. </> ||
+                        <>Ипотечный кризис в США имел долгосрочные последствия как для отдельных семей, потерявших свои дома или испытавших финансовые трудности,
+                        так и для всей экономики. Он подчеркнул уязвимость финансовой системы и показал необходимость жесткого контроля и надзора за кредитными
+                        институтами и финансовым регулированием в целом.</>
+                        }
                     </p>
                 </div> 
             </div>
             <div class="text_container latin">
-                <h3 class="gradient_span">Латинская америка</h3>
+                <h3 class="gradient_span">{locale === "en" && "Latin America" || "Латинская америка"}</h3>
                 <div class="p-container">
                     <p class="latin_text">
-                        В ряде стран Латинской Америки, таких как Бразилия и Мексика, наблюдается высокий уровень потребительской задолженности. За счет высоких процентов по кредитам и доступности кредитов со стороны банков, потребительское кредитование может привести к проблемам финансовой устойчивости в длительной перспективе. Студенческий долг также остается одной из проблем в ряде стран Латинской Америки.
+                        {locale === "en" &&
+                        <>A number of Latin American countries, such as Brazil and Mexico, have high levels of consumer debt.
+                        Due to high interest rates and the availability of credit from banks, consumer lending can affect the financial sustainability
+                        in long term. Student debt also remains a problem in several Latin American countries.</> ||
+                        <>В ряде стран Латинской Америки, таких как Бразилия и Мексика, наблюдается высокий уровень потребительской задолженности.
+                        За счет высоких процентов по кредитам и доступности кредитов со стороны банков, потребительское кредитование может привести
+                        к проблемам финансовой устойчивости в длительной перспективе. Студенческий долг также остается одной из проблем в ряде стран Латинской Америки.</>
+                        }
                     </p>
                 </div>
             </div>
             <div class="text_container europe">
-                <h3 class="gradient_span">Европа</h3>
+                <h3 class="gradient_span">{locale == "en" && "Europe" || "Европа"}</h3>
                 <div class="p-container">
                     <p class="europe_text">
-                        В некоторых странах Европы, таких как Великобритания и Германия, процентное соотношение задолженности домохозяйств к доходам достаточно высоко. Заемщики могут сталкиваться с высокими уровнями ипотечных и потребительских кредитов, что может привести к финансовому стрессу и ограничивать возможности сбережений и инвестирования. Отдельные страны Европы сталкиваются с проблемой студенческого долга, который также влияет на финансовое благополучие молодых людей.
+                        {locale === "en" &&
+                        <>In some European countries, such as the United Kingdom and Germany, household debt to income ratios are quite high.
+                        Borrowers may face high levels of mortgages and consumer debt, which can lead to financial stress and limit their ability to save and invest.
+                        Some European countries are facing the problem of student debt, which also affects the financial well-being of young people.</> ||
+                        <>В некоторых странах Европы, таких как Великобритания и Германия, процентное соотношение задолженности домохозяйств к доходам достаточно высоко.
+                        Заемщики могут сталкиваться с высокими уровнями ипотечных и потребительских кредитов, что может привести к финансовому стрессу и ограничивать
+                        возможности сбережений и инвестирования. Отдельные страны Европы сталкиваются с проблемой студенческого долга, который также влияет на финансовое
+                        благополучие молодых людей.</>
+                        }
                     </p>
                 </div>
             </div>
             <div class="text_container asia">
-                <h3 class="gradient_span">азия</h3>
+                <h3 class="gradient_span">{locale === "en" && "Asia" || "азия"}</h3>
                 <div class="p-container">
                     <p class="asia_text">
-                        В некоторых странах Азии, таких как Китай, Индия и Япония, тенденция к увеличению потребительского кредитования среди населения. Особенно в развивающихся странах Азии наблюдается увеличение кредитования населения, связанное с ростом среднего класса и дальнейшей урбанизацией. Потребительский долг и кредиты на недвижимость могут стать источником финансовых рисков для домохозяйств в случае экономической нестабильности.
+                        {locale === "en" &&
+                        <>In some Asian countries as China, India and Japan, there is a trend towards increasing consumer lending among the population.
+                        Especially in developing countries of Asia, there is an increase in consumer lending associated with the growth of the middle class and further urbanization.
+                        Consumer debt and real estate loans can become a source of financial risks for households in case of economic instability. </> ||
+                        <>В некоторых странах Азии, таких как Китай, Индия и Япония, тенденция к увеличению потребительского кредитования среди населения.
+                        Особенно в развивающихся странах Азии наблюдается увеличение кредитования населения, связанное с ростом среднего класса и дальнейшей урбанизацией.
+                        Потребительский долг и кредиты на недвижимость могут стать источником финансовых рисков для домохозяйств в случае экономической нестабильности.</>
+                        }
                     </p>
                 </div>
             </div>
             <div class="text_container russia">
-                <h3 class="gradient_span">россия</h3>
+                <h3 class="gradient_span">{locale === "en" && "Russia" || "россия"}</h3>
                 <div class="p-container">
                     <p class="russia_text russia_text-1">
-                        По данным Центрального банка России (ЦБ), задолженность россиян перед банками на 1 мая 2023 года достигла 30,22 трлн рублей. По итогам I квартала эта цифра составляла менее 28 трлн рублей, а уровень закредитованности находился на уровне 41%.
+                        {locale === "en" &&
+                        <>According to the Central Bank of Russia, the debt of Russians to banks as of May 1, 2023 reached 30.22 trillion rubles.
+                        At the end of the first quarter, this figure was less than 28 trillion rubles, and the level of indebtedness was at 41%.</> ||
+                        <>По данным Центрального банка России (ЦБ), задолженность россиян перед банками на 1 мая 2023 года достигла 30,22 трлн рублей.
+                        По итогам I квартала эта цифра составляла менее 28 трлн рублей, а уровень закредитованности находился на уровне 41%.</>
+                        }
                     </p>
                     <p class="russia_text russia_text-2">
-                        Исследование подготовлено на основе данных Росстата, Центробанка и крупнейших бюро кредитных историй (БКИ). По мнению экспертов, тенденция означает, что II квартал покажет ещё больший рост этих показателей.
+                        {locale === "en" &&
+                        <>The study was prepared based on data provided by Rosstat [Russian Federal State Statistics Service],
+                        the Central Bank of Russia, and the largest credit reporting agencies. Experts say, this tendency will even  increase in the second quarter.</> ||
+                        <>Исследование подготовлено на основе данных Росстата, Центробанка и крупнейших бюро кредитных историй (БКИ).
+                        По мнению экспертов, тенденция означает, что II квартал покажет ещё больший рост этих показателей.</>
+                        }
                     </p>
                 </div>
             </div>
@@ -100,7 +161,6 @@
 
     h2, h3 {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
         text-transform: uppercase;
     }
 
@@ -130,6 +190,7 @@
     p {
         font-family: var(--font-inter);
         font-size: var(--p-font-size);
+        line-height: 1.3;
         color: var(--dark-grey);
     }
 
@@ -139,12 +200,12 @@
 
     @media (960px <= width < 1200px) {
         section {
-            --section-height: 106rem;
+            --section-height: 100rem;
             --global_container-height: 91rem;
-            --global_container-margin-top: 7.5rem;
+            --global_container-margin-top: 5rem;
             --global_text_container-height: 85.125rem;
 
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-margin-bottom: 1.875rem;
             --h3-font-size: 2.5rem;
             --h3-width: 18.375rem;
@@ -159,12 +220,12 @@
 
     @media (640px <= width < 960px) {
         section {
-            --section-height: 100rem;
+            --section-height: 95rem;
             --global_container-height: 88rem;
-            --global_container-margin-top: 7.5rem;
+            --global_container-margin-top: 2rem;
             --global_text_container-height: 81.625rem;
 
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-margin-bottom: 2.5rem;
             --h3-font-size: 1.5rem;
             --h3-width: 10rem;
@@ -204,9 +265,9 @@
             --global_container-margin-top: 3.75rem;
             --global_text_container-height: 400vw;
 
-            --h2-font-size: 5vw;
+            --h2-font-size: 15px;
             --h2-margin-bottom: 6.25vw;
-            --h3-font-size: 5vw;
+            --h3-font-size: 15px;
             --h3-width: 40.625vw;
             --p-font-size: 3.125vw;
             --p-container-margin-top: 3.125vw;

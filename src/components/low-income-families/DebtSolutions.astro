@@ -1,27 +1,66 @@
 ---
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="debt_solutions">
     <div class="debt_solutions__container">
         <RadialGradient topPosition="1rem" leftPosition="57.25rem" />
         <RadialGradient topPosition="33.6875rem" leftPosition="-20.5rem" />
-        <h2>Преодоление проблемы закредитованности требует <span class="gradient_span">системного подхода</span>, включающего в себя</h2>
-        <ul>
-            <li><span class="number">1</span><span class="text first_el">Финансовую грамотность</span></li>
-            <li class="end"><span class="number">2</span><span class="text">Регулирование потребительского кредитования</span></li>
-            <li><span class="number">3</span><span class="text">Предоставление доступных альтернатив для финансирования</span></li>
-            <li class="end ml"><span class="number">4</span><span class="text">Адекватную поддержку заемщиков в трудных ситуациях.</span></li>
+        <h2>
+            {locale === "en" &&
+            <>Overcoming the problem of huge debt load requires <span class="gradient_span">A SYSTEMIC APPROACH</span> including</> ||
+            <>Преодоление проблемы закредитованности требует <span class="gradient_span">системного подхода</span>, включающего в себя</>
+            }            
+        </h2>
+        <ul class="solution_items">
+            <li><span class="number">1</span><span class="text first_el">{locale === "en" && "Financial literacy " || "Финансовую грамотность"}</span></li>
+            <li class="end"><span class="number">2</span><span class="text">{locale === "en" && "Regulation of consumer lending" || "Регулирование потребительского кредитования"}</span></li>
+            <li><span class="number">3</span><span class="text">{locale === "en" && "Providing affordable alternatives for financing " || "Предоставление доступных альтернатив для финансирования"}</span></li>
+            <li class="end ml"><span class="number">4</span><span class="text">{locale === "en" && "Adequate support for borrowers in difficult situations" || "Адекватную поддержку заемщиков в трудных ситуациях."}</span></li>
         </ul>
     </div>
 </section>
+
+<script>
+
+	const solutionItemsElement = document.querySelector(".solution_items");
+
+	window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+	function onBodyScroll() {
+		if (isMostlyVisible()) {
+			window.removeEventListener('scroll', onBodyScroll);
+			animateAppearing();			
+		}
+	}
+
+	function isMostlyVisible() {
+		return solutionItemsElement!.getBoundingClientRect().top < window.innerHeight / 2;
+	}
+
+	function animateAppearing() {
+        const solutionItems = solutionItemsElement?.querySelectorAll("li");
+        let counter = 0;
+        appear(solutionItems![counter++]);
+        const interval = setInterval(function() {
+            appear(solutionItems![counter++]);
+            if (counter >= solutionItems!.length) clearInterval(interval);
+        }, 500);
+	}
+
+    function appear(item) {
+        item.classList.add("appeared");
+    }
+</script>
 
 <style>
     .debt_solutions {
         --section-height: 53.3rem;
         --container-height: 44.4rem;
         --heading-width: 52.2rem;
-        --heading-font-size: 3.125rem;
+        --heading-font-size: 48px;
         --heading-line-height: 4rem;
         --heading-margin-bottom: 3.25rem;
         --list-height: 28.125rem;
@@ -32,7 +71,7 @@ import RadialGradient from '../RadialGradient.astro';
         --text-bottom: 5.125rem;
         --text-width: 18rem;
         --first-el-width: 12.5rem;
-        --column-gap: 8rem;
+        --column-gap: 7rem;
         --li-height: 18.6rem;
     }
 
@@ -52,8 +91,7 @@ import RadialGradient from '../RadialGradient.astro';
 
     h2 {
         display: inline-block;
-        width: var(--heading-width);
-        font-family: var(--font-lulo-bold);
+        /* width: var(--heading-width); */
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
         margin-bottom: var(--heading-margin-bottom);
@@ -78,9 +116,18 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     .number {
-        font-family: var(--font-lulo-bold);
+        display: block;
+        font-family: var(--font-extra-bold);
         font-size: var(--number-font-size);
         color: var(--number-color);
+        opacity: 0;
+        translate: 0 30px;
+        transition: opacity 0.5s, translate 0.5s;
+    }
+
+    .appeared .number {
+        opacity: 1;
+        translate: 0;
     }
 
     .text {
@@ -90,6 +137,15 @@ import RadialGradient from '../RadialGradient.astro';
         left: var(--text-left);
         bottom: var(--text-bottom);
         width: var(--text-width);
+        opacity: 0;
+        translate: 0 30px;
+        transition: opacity 0.5s, translate 0.5s;
+        transition-delay: 0.25s;
+    }
+
+    .appeared .text {
+        opacity: 1;
+        translate: 0;
     }
 
     .first_el {
@@ -101,7 +157,7 @@ import RadialGradient from '../RadialGradient.astro';
             --section-height: 43.75rem;
             --container-height: 37.5rem;
             --heading-width: 44.0625rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --heading-margin-bottom: 2.5rem;
             --list-height: 24.5rem;
@@ -115,14 +171,17 @@ import RadialGradient from '../RadialGradient.astro';
             --column-gap: 5rem;
             --li-height: 16.75rem;
         }
+        h2 {
+            width: 90%;
+        }
     }
 
     @media (640px <= width < 960px) {
         .debt_solutions {
-            --section-height: 53.5rem;
+            --section-height: 50rem;
             --container-height: 42.25rem;
             --heading-width: 44.0625rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --heading-margin-bottom: 1rem;
             --list-height: 26rem;
@@ -130,11 +189,11 @@ import RadialGradient from '../RadialGradient.astro';
             --number-color: #ECECEC;
             --text-font-size: 1.25rem;
             --text-left: 2.75rem;
-            --text-bottom: 3.5rem;
-            --text-width: 13rem;
+            --text-bottom: 0rem;
+            --text-width: 15rem;
             --first-el-width: 12.5rem;
-            --column-gap: 4.125rem;
-            --li-height: 16.6875rem;
+            --column-gap: 0;
+            --li-height: 13rem;
         }
 
         ul {
@@ -143,18 +202,18 @@ import RadialGradient from '../RadialGradient.astro';
         }
 
         li {
-            width: 15.25rem;
+            width: 17rem;
         }
     }
 
     @media (480px <= width < 640px) {
         .debt_solutions {
-            --section-height: 27.5rem;
+            --section-height: 24rem;
             --container-height: 18.75rem;
-            --container-margin-top: 5rem;
+            --container-margin-top: 3rem;
             --heading-width: 17.75rem;
-            --heading-font-size: 1rem;
-            --heading-line-height: 1.5rem;
+            --heading-font-size: 15px;
+            --heading-line-height: 1.3;
             --heading-margin-bottom: 1rem;
             --list-height: 13.5rem;
             --number-font-size: 5.625rem;
@@ -171,6 +230,10 @@ import RadialGradient from '../RadialGradient.astro';
         .debt_solutions__container {
             margin-top: var(--container-margin-top);
         }
+
+        h2 {
+            width: 70%;
+        }
     }
 
     @media (320px <= width < 480px) {
@@ -178,7 +241,7 @@ import RadialGradient from '../RadialGradient.astro';
             --section-height: 110vw;
             --container-height: 104.375vw;
             --heading-width: var(--reduced-width);
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --heading-line-height: 6.25vw;
             --heading-margin-bottom: 5vw;
             --list-height: 75vw;

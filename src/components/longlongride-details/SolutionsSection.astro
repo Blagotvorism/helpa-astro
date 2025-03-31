@@ -1,0 +1,479 @@
+---
+import pedestalStadiumImage from "/src/images/longlongride-details/pedestal-stadium.jpg";
+import volleyBallGirlsImage from "/src/images/longlongride-details/volleyball-girls.jpg";
+import rollerboardersCrowdImage from "/src/images/longlongride-details/rollerboarders-crowd.jpg";
+import skateboardFlyingImage from "/src/images/longlongride-details/skateboard-flying.jpg";
+import climbingChildrenImage from "/src/images/longlongride-details/climbing-children.jpg";
+import photographerImage from "/src/images/eco/photographer.jpg";
+
+const locale = Astro.currentLocale || "";
+---
+<section class="solutions">
+    <h2>
+        {locale === "en" &&
+            <><span class="gradient_span">Planned activities</span> to achieve the objectives</> ||
+            <><span class="gradient_span">Планируемые мероприятия</span> для решения поставленных задач</>
+        }
+    </h2>
+
+    <p class="important">
+        {locale === "en" &&
+            <>To achieve the objectives of our sports community, various activities are planned that will contribute to achieving the goals.</> ||
+            <>Для решения задач, поставленных перед нашим спортивным сообществом, предусмотрены различные мероприятия, которые будут способствовать достижению целей.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Here are some of them:</> ||
+            <>Вот некоторые из них:</>
+        }
+    </p>
+
+    <div class="activities">
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Sports races</> ||
+                <>Спортивные заезды</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Mass organized races of various themes for various categories, beginners and advanced.</> ||
+                <>Массовые организованные заезды различной тематики для различных категорий, начинающих и продвинутых.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Sports tournaments and competitions</> ||
+                <>Спортивные турниры и соревнования</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Local, regional, or even national sports tournaments in various sports. This helps popularize sports and creates a platform for finding talents.</> ||
+                <>Проведение местных, региональных или даже национальных спортивных турниров по различным видам спорта. Это не только способствует популяризации спорта, но и создаёт платформу для выявления талантов.</>
+                }
+            </p>
+        </div>
+        
+        <div class="activity res-default res-960 res-1200">
+            <img src={pedestalStadiumImage.src} alt=""/>
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Open training and master classes</> ||
+                <>Открытые тренировки и мастер-классы</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Organizing training and master classes for different age groups and levels of training, which will help participants improve their skills and share experiences of coaches and athletes.</> ||
+                <>Организация тренировок и мастер-классов для разных возрастных групп и уровней подготовки, что поможет участникам улучшить свои навыки и осуществить обмен опытом между тренерами и спортсменами.</>
+                }
+            </p>
+        </div>
+        
+        <div class="activity res-default">
+            <img src={volleyBallGirlsImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Social events and activities</> ||
+                <>Социальные акции и мероприятия</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Holding events aimed at involving young people and local people in sports activities. This may include a “day of health” while holding free classes and training.</> ||
+                <>Проведение акций, направленных на вовлечение молодёжи и местных жителей в спортивную деятельность. Это может включать в себя «день здоровья», когда проводятся бесплатные занятие и обучение.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity res-480">
+            <img src={pedestalStadiumImage.src} alt=""/>
+        </div>
+        
+        <div class="activity res-default">
+            <img src={rollerboardersCrowdImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Seminars and Lectures</> ||
+                <>Семинары и лекции</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Organizing educational events aimed at raising awareness of the importance of physical activity, proper nutrition, and disease prevention. Experts can share their knowledge about health and the characteristics of different types of riding.</> ||
+                <>Организация образовательных мероприятий, направленных на повышение осведомлённости о важности физической активности, правильного питания и профилактики заболеваний. Эксперты могут поделиться своими знаниями о здоровье и особенностях различных типов катания.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity res-960">
+            <img src={volleyBallGirlsImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Sports inclusion programs</> ||
+                <>Программы инклюзии в спорте</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Conducting specialized training for people with disabilities and special needs, promoting their socialization through sports. For example, adaptive sports classes, where special techniques and equipment are used to support the person’s body with straps to a safety frame on wheels and prevent any falls, for longboarding and skateboarding.</> ||
+                <>Проведение специализированных тренировок для инвалидов и людей с ограниченными возможностями, что способствует их социализации через спорт. Например, занятия адаптивным спортом, где используются специальные техники и оборудование, поддерживающее тело человека ремнями к страховочной раме на колёсах и предотвращающее какое-либо падение, для катания на лонгборде и скейтборде.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity res-480">
+            <img src={volleyBallGirlsImage.src} alt="" />
+        </div>
+
+        <div class="activity res-480">
+            <img src={rollerboardersCrowdImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Charity events and fundraising campaigns</> ||
+                <>Благотворительные мероприятия и акции по сбору средств</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Organizing charity competitions, auctions, or sports evenings, using their results for support of sports programs and initiatives. This can help raise funds to finance the organization and its projects.</> ||
+                <>Организация благотворительных соревнований, аукционов или спортивных вечеров, результаты которых направляются на поддержку спортивных программ и инициатив. Это может помочь собрать средства для финансирования организации и её проектов.</>
+                }
+            </p>
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Volunteer holidays</> ||
+                <>Волонтёрские праздники</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Holding events for volunteers, where they can celebrate their achievements and spend time together. This creates a sense of belonging and cohesion within the volunteer team.</> ||
+                <>Проведение мероприятий для волонтёров, где они смогут отметить свои достижения и провести время вместе. Это создаёт чувство принадлежности и сплочённости внутри команды волонтёров.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity res-960">
+            <img src={rollerboardersCrowdImage.src} alt="" />
+        </div>
+
+        <div class="activity res-default">
+            <img src={skateboardFlyingImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Events aimed at attracting project participants</> ||
+                <>События, направленные на привлечение участников проекта</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Organizing various exhibitions, presentations, or meetings with businessmen to attract funding and resources needed to implement sports programs.</> ||
+                <>Организация различных выставок, презентаций или встречи с бизнесменами для привлечения финансирования и ресурсов, необходимых для реализации спортивных программ.</>
+                }
+            </p>
+        </div>
+        
+        <div class="activity res-480 res-960">
+            <img src={skateboardFlyingImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Conducting surveys and questionnaires</> ||
+                <>Проведение опросов и анкетирования</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Conducting surveys among participants about what kind of events they are most interested in. This will help organizations tailor their programs to community needs.</> ||
+                <>Реализация опросов среди участников о том, какого плана мероприятия их интересуют больше всего. Это поможет организациям адаптировать свои программы в соответствии с потребностями сообщества.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity res-960">
+            <img src={climbingChildrenImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Developing and distributing information materials</> ||
+                <>Разработка и распределение информационных материалов</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>Creating brochures, posters, and online content that informs people about events, the benefits of physical activity and opportunities to participate in sports programs.</> ||
+                <>Создание буклетов, плакатов и онлайн-контента, который информирует людей о мероприятиях, преимуществах физической активности и возможностях участия в спортивных программах.</>
+                }
+            </p>
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Creating sports schools</> ||
+                <>Создание спортивных школ</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>the proceeds from which can be used to train certain categories of citizens for free: children, disabled people. Thus, these schools will be self-supporting units, without the need for additional funds. Only at the initial stage.</> ||
+                <>на выручку от которых можно будет обучать некоторые категории граждан бесплатно: детей, инвалидов. Таким образом, эти школы будут самодостаточными единицами, без надобности дополнительного привлечения средств. Только лишь на начальном этапе.</>
+                }
+            </p>
+        </div>
+        
+        <div class="activity res-default">
+            <img src={climbingChildrenImage.src} alt="" />
+        </div>
+        
+        <div class="activity">
+            <h3>
+                {locale === "en" &&
+                <>Establishing own production of sports equipment</> ||
+                <>Создание собственного производства спортивного снаряжения</>
+                }
+            </h3>
+            <p>
+                {locale === "en" &&
+                <>considering various categories of citizens, which will help attract the maximum number of people to our community and introduce them to an active lifestyle.</> ||
+                <>с учётом различных категорий граждан, что поможет привлечь максимальное количество людей в наше сообщество и приобщить к активному образу жизни.</>
+                }
+            </p>
+        </div>
+
+        <div class="activity res-480">
+            <img src={climbingChildrenImage.src} alt="" />
+        </div>
+    </div>
+        
+    <p class="important">
+        {locale === "en" &&
+        <>These events will allow volunteer sports organizations to effectively solve problems</> ||
+        <>Эти мероприятия позволят волонтёрским спортивным организациям эффективно решать свои задачи</>
+        }
+    </p>
+    
+    <p>
+        {locale === "en" &&
+        <>and achieve goals, promoting active participation and involvement of people in sports initiatives.</> ||
+        <>и достигать поставленных целей, способствуя активному участию и вовлечению людей в спортивные инициативы.</>
+        }
+    </p>
+</section>
+
+<style>
+
+    .solutions {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-size: 10px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;
+        margin-bottom: 10px
+    }
+
+    .activities {
+        margin-bottom: 50px;
+    }
+
+    .activity {
+        border-radius: 30px;
+        box-shadow: var(--box-shadow);
+        padding: 30px;
+        height: 270px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .activity.res-480,
+    .activity.res-960,
+    .activity.res-1200 {
+        display:none;
+    }
+
+    .activity.res-default {
+        display: block;
+    }
+
+    .activity img {
+        display: block;
+        position: absolute;
+        left: 0; top: 0; right: 0; bottom: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
+    .activity h3 {
+        font-family: 'Inter Variable';
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 30px;        
+    }
+
+    @media (width >= 480px) {
+        .activities {
+            width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .activity {
+            width: 210px;
+        }
+        .activity.res-default,
+        .activity.res-1200 {
+            display: none;
+        }
+        .activity.res-480 {
+            display: block;
+        }
+        .activity h3 {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        .activities {
+            width: 600px;
+        }
+        .activities + p,
+        .activities + p + p {
+            width: 80%;
+        }
+        .activity {
+            width: 293px; height: 341px;
+        }        
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+        }
+        .activity h3 {
+            font-size: 16px;
+        }
+        .activity p {
+            font-size: 14px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .solutions {
+            margin-bottom: 140px;
+        }
+        h2 {
+            margin-bottom: 50px;
+        }
+        h2 + p {
+            margin-bottom: 40px;
+            width: 90%;
+        }
+        .activities {
+            width: 920px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        .activities + p,
+        .activities + p + p {
+            width: 60%;
+        }
+        .activity {
+
+        }
+        .activity.res-default,
+        .activity.res-480 {
+            display: none;
+        }
+        .activity.res-960 {
+            display: block;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .solutions {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 110px;
+        }
+        h2 {
+            font-size: 48px;
+            margin-bottom: 60px;
+        }        
+        .solutions > p {
+            font-size: 16px;
+            width: 70%;
+        }
+        .solutions p.important {
+            font-size: 24px;
+            width: 70%;
+        }
+        .activities {
+            width: 1120px;
+            margin-top: 60px;
+        }
+        .activity {
+            width: 360px; height: 341px;
+        }
+        .activity h3 {
+            font-size: 16px;
+        }
+        .activity p {
+            font-size: 14px;
+        }
+    }
+</style>

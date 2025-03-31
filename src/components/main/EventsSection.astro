@@ -1,23 +1,45 @@
 ---
 import Events from "./Events.svelte";
 import '../../styles/global.css';
+import eventsData from '../../data/events.json';
 import RadialGradient from "../RadialGradient.astro";
+import { getRelativeLocaleUrl, getRelativeLocaleUrlList } from 'astro:i18n';
+
+const locale = Astro.currentLocale || "";
+
+const events = eventsData.map((e) => {
+	return {
+		id: e.id,
+		category: e.category,
+		title: e.title[locale],
+		year: e.year,
+		descriptionShort: e.descriptionShort[locale],
+		descriptionFull: e.descriptionFull[locale],
+		link: getRelativeLocaleUrl(locale, e.link),
+		imageURL: e.imageURL,
+		sliderImages: e.sliderImages
+	}
+});
 ---
 <section class="main_events" id="component-container">
     <div class="events_container">
 		<RadialGradient topPosition="13.0625rem" leftPosition="-8.375rem" />
         <div class="events_text">
             <div class="events_title">
-                <h4 class="events_heading-1">Мы не просто вносим пожертвования в благотворительные организации</h4>
-                <h2 class="events_heading-2 gradient_span">а также проводим мероприятия самостоятельно</h2>
+                <p class="events_heading-1">
+					{locale === "en" && "We don't just donate to charities" || "Мы не просто вносим пожертвования в благотворительные организации"}					
+				</p>
+                <h2 class="events_heading-2 gradient_span">
+					{locale === "en" && "we also hold out own events" || "а также проводим мероприятия самостоятельно"}
+				</h2>
             </div>
             <div class="events_descr">
-                <h3 class="events_heading-3">Вы можете принять участие в наших событиях без покупки и использования криптовалюты.</h3>
-                <h4 class="events_heading-4">Посмотрите архив проведенных мероприятий и оцените масштаб.</h4>
+                <p class="events_heading-3">{locale === "en" && "You can participate in our events without buying or using cryptocurrency." || "Вы можете принять участие в наших событиях без покупки и использования криптовалюты."}</p>
+                <p class="events_heading-4">{locale === "en" && "View the archive of events held and appreciate the scale." || "Посмотрите архив проведенных мероприятий и оцените масштаб."}</p>
             </div>
         </div>
-		<p class="tab_name">Направление</p>
-		<Events client:load />
+		<p class="tab_name">{locale === "en" && "Activity" || "Направление"}</p>
+		<Events locale={locale} events={events} client:load />
     </div>
 </section>
 
@@ -32,8 +54,8 @@ import RadialGradient from "../RadialGradient.astro";
 		--headings-1-fs: 1rem;
 		--headings-1-lh: 1.25rem;
 		--headings-1-width: 19.2rem;
-		--headings-2-width: 59.375rem;
-		--headings-2-font-size: 3.125rem;
+		--headings-2-width: auto;
+		--headings-2-font-size: 48px;
 		--headings-2-line-height: 3.5rem;
 		--headings-3-font-size: 1.5rem;
 		--headings-3-line-height: 1.75rem;
@@ -76,12 +98,12 @@ import RadialGradient from "../RadialGradient.astro";
 		line-height: var(--headings-1-lh);
 		color: var(--dark-grey);
 		width: var(--headings-1-width);
+		margin-bottom: 10px;
 	}
 	
 	.events_heading-2 {
 		display: inline-block;
 		width: var(--headings-2-width);
-		font-family: var(--font-lulo-bold);
 		font-size: var(--headings-2-font-size);
 		line-height: var(--headings-2-line-height);
 	}
@@ -112,7 +134,7 @@ import RadialGradient from "../RadialGradient.astro";
 			--events-container-height: 41.5625rem;
 
 			/* Events container */
-			--events-container-mt: 9.375rem;
+			--events-container-mt: 8rem;
 			--events-text-width: 53.9375rem;
 
 			/* Events description */
@@ -146,7 +168,7 @@ import RadialGradient from "../RadialGradient.astro";
 			--events-container-height: 45.4375rem;
 
 			/* Events container */
-			--events-container-mt: 6.6875rem;
+			--events-container-mt: 3rem;
 			--events-text-width: 53.9375rem;
 
 			/* Events description */
@@ -159,7 +181,7 @@ import RadialGradient from "../RadialGradient.astro";
 			--headings-1-lh: 1rem;
 			--headings-1-width: 16.2rem;
 			--headings-2-width: var(--reduced-width);
-			--headings-2-font-size: 2.5rem;
+			--headings-2-font-size: 37px;
 			--headings-2-line-height: 3rem;
 			--headings-3-font-size: 1.25rem;
 			--headings-3-line-height: 1.5rem;
@@ -180,7 +202,7 @@ import RadialGradient from "../RadialGradient.astro";
 			--events-container-height: 30.25rem;
 
 			/* Events container */
-			--events-container-mt: 5rem;
+			--events-container-mt: 1rem;
 			--events-text-width: var(--reduced-width);
 
 			/* Events description */
@@ -214,7 +236,7 @@ import RadialGradient from "../RadialGradient.astro";
 			--events-container-height: 36.9375rem; */
 
 			/* Events container */
-			--events-container-mt: 3.75rem;
+			--events-container-mt: 2.75rem;
 			--events-text-width: var(--reduced-width);
 
 			/* Events description */

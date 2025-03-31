@@ -3,8 +3,9 @@ import { Image } from 'astro:assets';
 import BSCScanLogo from '../images/logos/BSCScan.png';
 import coinMarketCapLogo from '../images/logos/CoinMarketCap.png';
 import pancakeswapLogo from '../images/logos/pancakeswap.png';
-import links from '../data/links.json';
 import "../styles/global.css";
+
+const { links } = Astro.props;
 ---
 <footer>
     <div class="full-footer">
@@ -28,7 +29,7 @@ import "../styles/global.css";
                 </a>
             </div>
         </div>
-        <p class="cr">© <span id="year">2025</span> Astroway</p>
+        <p class="cr">© <span id="year">2025</span> Blagotvorism</p>
     </div>
 </footer>
 
@@ -138,6 +139,10 @@ import "../styles/global.css";
             --logo-height: 2.5rem;
             --cr-margin-top: 4.4375rem;
         }
+        .cr {
+            font-size: 12px;
+        }
+
     }
 
     @media (640px <= width < 960px) {
@@ -159,6 +164,10 @@ import "../styles/global.css";
         .full-footer {
             transform: translateX(-50%);
         }
+
+        .cr {
+            font-size: 12px;
+        }
     }
 
     @media (480px <= width < 640px) {
@@ -179,6 +188,9 @@ import "../styles/global.css";
 
         .full-footer {
             transform: translateX(-50%);
+        }
+        .cr {
+            font-size: 10px;
         }
     }
 
@@ -218,6 +230,9 @@ import "../styles/global.css";
 
         .logo-link-container {
             height: var(--logo-height);
+        }
+        .cr {
+            font-size: 10px;
         }
     }
 

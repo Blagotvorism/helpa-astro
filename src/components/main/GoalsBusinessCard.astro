@@ -1,19 +1,20 @@
 ---
 import '../../styles/global.css';
 import Link from '../Link.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <div class="business-card">
     <div class="business-container">
         <div class="business-title">
-            <h3 class="business-heading">Тогда нам по пути!</h3>
-            <h4 class="business-subheading">Имеете схожие цели?</h4>
+            <p class="business-subheading">{locale === "en" && "Do you have similar goals? Then we are on the same path!" || "Имеете схожие цели? Тогда нам по пути!"}</p>
         </div>
         <div class="business-card_link">
-            <Link href='/' theme='primary' classes="link link_primary">Присоединиться</Link>
+            <Link href='https://t.me/blagotvorism' theme='primary' classes="link link_primary">{locale === "en" && "Join" || "Присоединиться"}</Link>
         </div>
         <div class="business-card_link-small">
-            <a href='https://x.com/astrowayhelpa?s=21&t=z0b_ZLWUm1wnD88Rcah7Bg' class="link link_primary">Присоединиться</a>
+            <a href='https://x.com/blagotvorism' class="link link_primary">{locale === "en" && "Join" || "Присоединиться"}</a>
         </div>
     </div>
 </div>
@@ -46,8 +47,7 @@ import Link from '../Link.astro';
     }
 
     .business-title {
-        display: flex;
-        flex-direction: column-reverse;
+        width: 70%;
         margin-bottom: var(--margin-bottom);
         font-family: var(--font-inter);
         margin-left: var(--margin-left);
@@ -108,7 +108,7 @@ import Link from '../Link.astro';
             --container-width: 8.8125rem;
             --container-height: 9.125rem;
             --margin-bottom: 1.6875rem;
-            --margin-left: 0.5rem;
+            --margin-left: 0;
             --heading-font-size: 0.75rem;
             --subheading-font-size: 0.625rem;
         }
@@ -134,7 +134,7 @@ import Link from '../Link.astro';
             --container-width: 13.125rem;
             --container-height: 4.375rem;
             --margin-bottom: 0.75rem;
-            --margin-left: 0.5rem;
+            --margin-left: 0;
             --heading-font-size: 0.75rem;
             --subheading-font-size: 0.625rem;
         }

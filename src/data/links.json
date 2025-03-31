@@ -1,32 +1,50 @@
 [
     {
         "id": 1,
-        "text": "Главная",
+        "text": {
+            "ru": "Главная",
+            "en": "Home"
+        },
         "url": "/"
     },
     {
         "id": 2,
-        "text": "Защита природы",
-        "url": "/eco"
+        "text": {
+            "ru": "Защита природы",
+            "en": "Environmental protection"
+        },
+        "url": "eco"
     },
     {
         "id": 3,
-        "text": "Помощь онкобольным",
-        "url": "/gemohelp"
+        "text": {
+            "ru": "Помощь онкобольным",
+            "en": "Cancer patients support"
+        },
+        "url": "gemohelp"
     },
     {
         "id": 4,
-        "text": "Помощь закредитованным",
-        "url": "/low-income-families"
+        "text": {
+            "ru": "Помощь закредитованным",
+            "en": "Over-indebted support"
+        },
+        "url": "low-income-families"
     },
     {
         "id": 5,
-        "text": "Развитие спорта",
-        "url": "/longlongride"
+        "text": {
+            "ru": "Развитие спорта",
+            "en": "Sports development"
+        },
+        "url": "longlongride"
     },
     {
         "id": 6,
-        "text": "Токеномика",
-        "url": "/token"
+        "text": {
+            "ru": "Токеномика",
+            "en": "Tokenomics"
+        },
+        "url": "token"
     }
 ]

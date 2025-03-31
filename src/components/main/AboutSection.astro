@@ -2,6 +2,9 @@
 import AboutCard from "../../components/main/AboutCard.astro";
 import '../../styles/global.css';
 import RadialGradient from "../RadialGradient.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const {locale} = Astro.props;
 ---
 <section class="about-prj">
     <div class="about-container">
@@ -10,34 +13,50 @@ import RadialGradient from "../RadialGradient.astro";
         <div class="about-text">
             <div class="about-title">
                 <h1 class="about-heading">
-                    <span class="about-heading-1">О проекте</span>
-                    <span class="gradient_span">ASTROWAY<span class="dash-span">-</span></span>
+                    <span class="about-heading-1">
+                        {locale === "ru" && "О проекте"}
+                        {locale === "en" && "About project"}
+                    </span>
+                    <span class="gradient_span project_name">BLAGOTVORISM&nbsp;-</span>
                 </h1>
             </div>
             <div class="about-descr">
-                <p class="about-descr-1">благотворительное криптофутурологическое сообщество, 
+                <p class="about-descr-1">
+                    {locale === "en" && <>
+                    is a charity cryptofuturological community that changes the world through the latest technological
+                    achievements of mankind and in-house economic models and strategies. 
+                    </> || <>
+                    благотворительное криптофутурологическое сообщество, 
                     меняющее мир, используя последние технические достижения человечества и собственные 
-                    экономические модели и стратегии.</p>
-                <p class="about-descr-2">Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:</p>
+                    экономические модели и стратегии.
+                    </>}
+                    </p>
+                <p class="about-descr-2">
+                    {locale === "en" && <>
+                    Our community issues HELPA crypto token and directs the proceeds to the development of four main areas:
+                    </> || <>
+                    Наше сообщество выпускает криптотокен HELPA, а вырученные средства направляет на развитие четырёх основных направлений:
+                    </>}                    
+                </p>
             </div>
         </div>
         <div class="about-cards">
-            <AboutCard href="/eco" cardDescription='Защита природы' imagePath='forestCard' imageDescription='Лес на хребте горы' />
-            <AboutCard href="/gemohelp" cardDescription='Помощь онкобольным' imagePath='medicalCard' imageDescription='Два человека держат руки' /> 
-            <AboutCard href="/low-income-families" cardDescription='Помощь закредитованным <br/> малоимущим семьям' imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
-            <AboutCard href="/longlongride" cardDescription='Развитие спорта' imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на фоне заката' />
+            <AboutCard href={getRelativeLocaleUrl(locale, "/eco")} cardDescription={locale === "en" ? "Nature protection" : "Защита природы"} imagePath='forestCard' imageDescription='Лес на хребте горы' />
+            <AboutCard href={getRelativeLocaleUrl(locale, "/gemohelp")} cardDescription={locale === "en" ? "Cancer patients support" : "Помощь онкобольным"} imagePath='medicalCard' imageDescription='Два человека держат руки' /> 
+            <AboutCard href={getRelativeLocaleUrl(locale, "/low-income-families")} cardDescription={locale === "en" ? "Indebted low-income families support" : "Помощь закредитованным <br/> малоимущим семьям"} imagePath='loanCard' imageDescription='Семья из 4-ех человек играет в настольные игры' />
+            <AboutCard href={getRelativeLocaleUrl(locale, "/longlongride")} cardDescription={locale === "en" ? "Sports development" : "Развитие спорта"} imagePath='sportCard' imageDescription='Велосепедист стоит на краю горы на фоне заката' />
         </div>
     </div>
 </section>
 
 <style>
     .about-prj {
-        --project-height: 58.75rem;
+        --project-height: 55rem;
         --title-width: 29.125rem;
         --descr-width: 40.3rem;
-        --margin-top: 7rem;
+        --margin-top: 3rem;
         --margin-bottom-title: 5rem;
-        --margin-top-descr: 4.75rem;
+        --margin-top-descr: 5.5rem;
         --margin-bottom-descr-1: 1.25rem;
         --heading-font-size: 3.125rem;
         --heading-line-height: 4.2rem;
@@ -76,7 +95,6 @@ import RadialGradient from "../RadialGradient.astro";
     }
 
     .about-heading {
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
     }
@@ -113,6 +131,10 @@ import RadialGradient from "../RadialGradient.astro";
         /* margin-bottom: var(--margin-bottom-cards); */
     }
 
+    .project_name {
+        /* font-family: var(--font-extra-bold); */
+    }
+
     @media (960px <= width < 1200px) {
         .about-prj {
             --project-height: 44rem;
@@ -120,15 +142,19 @@ import RadialGradient from "../RadialGradient.astro";
             --descr-width: 32.75rem;
             --margin-top: 7.125rem;
             --margin-bottom-title: 5rem;
-            --margin-top-descr: 4.375rem;
+            --margin-top-descr: 3.6rem;
             --margin-bottom-descr-1: 1.25rem;
-            --heading-font-size: 2.5rem;
-            --heading-line-height: 3.125rem;
-            --dash-font-size: 2.5rem;
+            --heading-font-size: 37px;
+            --heading-line-height: 1.25;
+            --dash-font-size: 37px;
             --descr-1-font-size: 1.25rem;
             --descr-1-line-height: 1.5rem;
             --descr-2-font-size: 0.75rem;
             --descr-2-line-height: 1rem;
+        }
+
+        .project_name {
+            font-size: 30px;
         }
     }
 
@@ -137,11 +163,11 @@ import RadialGradient from "../RadialGradient.astro";
             --project-height: 66.0625rem;
             --title-width: 23.3125rem;
             --descr-width: 28.375rem;
-            --margin-top: 6.25rem;
+            --margin-top: 3rem;
             --margin-bottom-title: 3.75rem;
             --margin-top-descr: 1.25rem;
             --margin-bottom-descr-1: 1.25rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.125rem;
             --dash-font-size: 2.5rem;
             --descr-1-font-size: 1.25rem;
@@ -169,7 +195,7 @@ import RadialGradient from "../RadialGradient.astro";
             --project-height: 39.5rem;
             --title-width: 9.3125rem;
             --descr-width: 20.3125rem;
-            --margin-top: 6.25rem;
+            --margin-top: 3rem;
             --margin-bottom-title: 2.5rem;
             --margin-top-descr: 0.625rem;
             --margin-bottom-descr-1: 0.625rem;
@@ -205,11 +231,11 @@ import RadialGradient from "../RadialGradient.astro";
             --project-height: 285vw;
             --title-width: 46.5625vw;
             --descr-width: var(--reduced-width);
-            --margin-top: 3.75rem;
+            --margin-top: 2rem;
             --margin-bottom-title: 7.5vw;
             --margin-top-descr: 3.125vw;
             --margin-bottom-descr-1: 3.125vw;
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --heading-line-height: 6.25vw;
             --dash-font-size: 5vw;
             --descr-1-font-size: 3.75vw;

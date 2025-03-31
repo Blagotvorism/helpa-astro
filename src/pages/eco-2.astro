@@ -7,6 +7,9 @@ import Environment from "../components/eco-2/Environment.astro";
 import EnvironmentWarning from "../components/eco-2/EnvironmentWarning.astro";
 import EcoConceptSecondary from "../components/eco-2/EcoConceptSecondary.astro";
 import EcoHeroSection from "../components/eco/EcoHeroSection.astro";
+import GoalsSection from "../components/eco-2/GoalsSection.astro";
+import TasksSection from "../components/eco-2/TasksSection.astro";
+import SolutionsSection from "../components/eco-2/SolutionsSection.astro";
 ---
 
 <Layout title="ECO">
@@ -15,7 +18,10 @@ import EcoHeroSection from "../components/eco/EcoHeroSection.astro";
         <Environment />
         <EcoConceptSecondary />
         <EnvironmentWarning />
-        <HelpSection page='eco' />
+        <GoalsSection />
+        <TasksSection />
+        <SolutionsSection />
+        <HelpSection page='eco' />        
         <!-- <HelpSection page='eco' img={ecoHelpImg} imgDescr='Знак мира в виде рогатки' /> -->
         <SocialSection 
             page="eco" 

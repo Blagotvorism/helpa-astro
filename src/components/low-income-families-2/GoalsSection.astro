@@ -1,0 +1,243 @@
+---
+import handsCountingMoneyImage from "/src/images/lowIncome/hands-counting-money.jpg";
+import threePoorChildrenImage from "/src/images/lowIncome/three-poor-children.jpg";
+const locale = Astro.currentLocale || "";
+---
+<section class="goals">
+    
+    <h2>
+        {locale === "en" &&
+            <>Repay <span class="gradient_span">project goals</span></> ||
+            <><span class="gradient_span">Цели проекта</span><br/> Repay</>
+        }
+    </h2>
+
+    <p class="important">
+        {locale === "en" &&
+            <>The goal of our project is to contain and mitigate risks to the development of human civilization. To achieve this, we have defined the following objectives.</> ||
+            <>Целью нашего проекта является сдерживание и устранение рисков для развития человеческой цивилизации. Для её достижения мы определили следующие задачи.</>
+        }
+    </p>
+
+    <img src={handsCountingMoneyImage.src} alt="" class="image1"/>
+
+    <p>
+        {locale === "en" &&
+            <>Financial illiteracy of the population can cause many serious problems for both individuals and society. Inappropriate use of credit and debt worsens the financial situation. People may find themselves in a situation where they cannot pay off their debts and have to take out new loans to pay off old ones, which leads to a debt trap. Ultimately, this result in increased poverty in society, stagnation, recession, and economic crisis.</> ||
+            <>Финансовая безграмотность населения может привести ко множеству серьёзных проблем как для отдельных индивидов, так и для общества в целом. Неуместное использование кредитов и долгов усугубляет финансовое положение. Люди могут оказаться в ситуации, когда они не могут погасить свои долги и для погашения старых им приходится брать новые кредиты, что приводит к долговой яме. В конечном итоге это ведёт к усилению бедности общества, стагнации, рецессии и экономическому кризису.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>People with excessive debts are most often limited in their spending, which reduces overall consumption. This affects the economic growth. Constant financial pressure can cause high levels of stress, anxiety, and depression. People in a credit trap may experience a sense of hopelessness, which negatively affects their health. In addition, excessive debts often lead to conflicts in the family and in society. Financial pproblems can cause divorces, family discord, and other social problems that contribute to disintegration. At first glance, such a problem may seem insignificant, however, in long term such processes will cause serious demographic decrease. Reducing the quality of life of entire generations, leading to psychological problems. These factors, combined with a low standard of living and a large socio-economic gap between social groups, cause the next problem, namely, the rise in crime. People who find themselves under debts pressure may use illegal methods to solve their financial problems.</> ||
+            <>Население с непосильными долгами чаще всего ограничено в своих расходах, что снижает общее потребление. Это негативно сказывается на экономическом росте. Постоянное финансовое давление может вызывать высокий уровень стресса, тревожности и депрессии. Люди, находящиеся в кредитной ловушке, могут испытывать чувство безысходности, что негативно сказывается на их здоровье. Кроме того, непосильные долги часто могут приводить к конфликтам в семье, в обществе. Проблемы, связанные с финансами, могут стать причиной разводов, семейных разногласий и других социальных проблем, способствующих дезинтеграции. На первый взгляд такая проблема может смотреться ничтожно, однако, при отдалении временной шкалы, такие процессы дадут серьёзные демографические просадки. Снижая качество жизни целых поколений, приводя к психологическим проблемам. Эти факторы в совокупности с низким уровнем жизни и большим социально-экономическим разрывом между социальными группами ведут к следующей проблеме — увеличение преступности. Люди, оказавшиеся под давлением долгов, могут прибегать к незаконным методам для решения своих финансовых проблем, что приводит к росту преступности.</>
+        }
+    </p>
+
+    <img src={threePoorChildrenImage.src} alt="" class="image2"/>
+
+    <p>
+        {locale === "en" &&
+            <>Financially illiterate people often refuse medical care due to fear of accumulating more debt. This can lead to deteriorating health and chronic diseases that require expensive treatment. And this in turn will lead to an increase in the burden on social services.</> ||
+            <>Финансово безграмотные люди часто отказываются от медицинской помощи из-за страха накопить больше долгов. Это может привести к ухудшению здоровья и к хроническим заболеваниям, которые требуют дорогостоящего лечения. Что приведёт к увеличение нагрузки на социальные службы.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Aggravation of problems related to poverty and financial instability can lead to more requests for help from social services. This creates an additional burden on government resources and public organizations.</> ||
+            <>Обострение проблем, связанных с бедностью и финансовой нестабильностью, может привести к большему числу обращений за помощью в социальные службы. Это создаёт дополнительную нагрузку на государственные ресурсы и общественные организации.</>
+        }
+    </p>
+
+    <p>
+        {locale === "en" &&
+            <>Thus, financial illiteracy and unbearable debts pose a serious threat both to individuals and the whole society, disrupting social and economic structures.</> ||
+            <>Таким образом, финансовая безграмотность и непосильные долги представляют собой серьёзную угрозу не только для отдельных людей, но и для общества в целом, нарушая социальные и экономические структуры.</>
+        }
+    </p>
+
+    <img src={threePoorChildrenImage.src} alt="" class="image3"/>
+</section>
+
+<style>
+
+    .goals {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+
+    .goals:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 8px;
+        color: #898989;
+        margin-bottom: 20px;
+    }
+
+    p.important {
+        font-size: 12px;
+        color: black;        
+    }
+
+    .image1 {
+        display: block;
+        width: 95px; height: 144px;
+        object-fit: cover;
+        border-radius: 15px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .image1 + p + p {
+        clear: both;
+    }
+
+    .image2 {
+        display: none;
+    }
+
+    .image3 {
+        display: block;
+        width: 100%; height: 130px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    @media (width >= 480px) {
+        p {
+            font-size: 10px;
+        }
+        .image1 + p {
+            height: 144px;
+            display: flex;
+            align-items: center;
+        }
+        .image2 {
+            display: block;
+            width: 128px; height: 130px;
+            object-fit: cover;
+            border-radius: 15px;
+            float: right;
+            margin-left: 40px;
+        }
+        .image2 + p {
+            height: 130px;
+            display: flex;
+            align-items: center;
+        }
+        .image3 {
+            display: none;
+        }
+    }
+
+    @media (width >= 640px) {
+        h2 {
+            font-size: 37px;
+        }
+        h2 + p.important {
+            width: 85%;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 12px;
+        }
+        p.important {
+            font-size: 20px;
+        }
+        .image1 {
+            width: 219px; height: 257px;
+            border-radius: 30px;
+        }
+        .image1+p {
+            height: 257px;
+        }
+        .image2 {
+            width: 300px; height: 378px;
+            border-radius: 30px;
+        }
+    }
+
+    @media (width >= 960px) {
+        .goals {
+            margin-bottom: 120px;
+        }
+        h2 {
+            margin-bottom: 40px;
+        }
+        h2 + p.important {
+            width: 75%;
+            margin-bottom: 40px;
+        }
+        .image1 {
+            width: 372px; height: 414px;
+            border-radius: 30px;
+        }
+        .image1+p {
+            height: auto;
+            padding-top: 40px;
+        }
+        .image1+p+p {
+            clear: none;
+        }
+        .image2 {
+            width: 528px; height: 358px;
+            clear: both;
+            border-radius: 30px;
+        }
+        .image2+p {
+            display: block;
+            height: auto;
+            clear: left;
+            padding-top: 40px;
+        }
+    }
+
+    @media (width >= 1200px) {
+        .goals {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 160px;
+        }
+        h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+        }
+        p.important {
+            font-size: 24px;
+        }
+        h2 + p.important {
+            width: 75%;
+            margin-bottom: 40px;
+        }
+        .image1 {
+            width: 455px; height: 516px;
+            margin-bottom: 50px;
+            border-radius: 30px;
+        }
+        .image2 {
+            width: 645px; height: 442px;
+            border-radius: 30px;
+        }
+        .image2 + p {
+            height: auto;
+            padding-top: 30px;
+        }
+    }
+</style>

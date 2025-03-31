@@ -2,18 +2,34 @@
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="ride_philosophy">
     <div class="ride_philosophy__container">
         <RadialGradient topPosition="-9.3125rem" leftPosition="59.875rem" />
         <RadialGradient topPosition="9.4375rem" leftPosition="-23.1875rem" />
         <div class="ride_philosophy__text">
-            <h2><span class="gradient_span">философия проекта </span>заключается</h2>
-            <h3>в безграничной интернациональной дружбе на основе интереса, любви к спорту и доступности каждому, 
-                а значит предполагает бесплатный характер мероприятий.
+            <h2>
+                {locale === "en" &&
+                <><span class="gradient_span">The philosophy of the project </span>is</> ||
+                <><span class="gradient_span">философия проекта </span>заключается</>
+                }                
+            </h2>
+            <h3>
+                {locale === "en" &&
+                <>in boundless international friendship based on interest, love for sports and accessibility to everyone, which means the events are free.</> ||
+                <>в безграничной интернациональной дружбе на основе интереса, любви к спорту и доступности каждому, 
+                а значит предполагает бесплатный характер мероприятий.</>
+                }
             </h3>
-            <p>Каждый участник даёт сообществу то, что он может, делая вклад в популяризацию спорта, здоровья, дружбы и взаимопомощи, 
-                а следовательно мира, эффективной коммуникации и как результат - развитие человеческой цивилизации. 
+            <p>
+                {locale === "en" &&
+                <>Every participant gives the community what they can, contributing to the popularization of sports, health, friendship,
+                and mutual assistance, and therefore peace, effective communication and, as a result, the development of human civilization. </> ||
+                <>Каждый участник даёт сообществу то, что он может, делая вклад в популяризацию спорта, здоровья, дружбы и взаимопомощи, 
+                а следовательно мира, эффективной коммуникации и как результат - развитие человеческой цивилизации. </>
+                }
             </p>
         </div>
         <div class="ride_philosophy__logo">
@@ -27,8 +43,8 @@ import RadialGradient from '../RadialGradient.astro';
         --section-height: 34.625rem;
         --container-height: 25rem;
         --container-margin-top: 5rem;
-        --text-width: 38.5rem;
-        --h2-font-size: 3.125rem;
+        --text-width: 40rem;
+        --h2-font-size: 48px;
         --h2-line-height: 4rem;
         --h2-margin-bottom: 2.5rem;
         --h3-font-size: 1.5rem;
@@ -46,6 +62,7 @@ import RadialGradient from '../RadialGradient.astro';
         width: 100vw;
         height: var(--section-height);
         justify-content: center;
+        margin-bottom: 90px;
     }
 
     .ride_philosophy__container {
@@ -70,7 +87,6 @@ import RadialGradient from '../RadialGradient.astro';
     h2 {
         display: inline-block;
         width: inherit;
-        font-family: var(--font-lulo-bold);
         font-size: var(--h2-font-size);
         line-height: var(--h2-line-height);
         margin-bottom: var(--h2-margin-bottom);
@@ -79,6 +95,7 @@ import RadialGradient from '../RadialGradient.astro';
     h3 {
         font-family: var(--font-inter);
         font-size: var(--h3-font-size);
+        font-weight: normal;
         line-height: var(--h3-line-height);
         margin-bottom: var(--h3-margin-bottom);
     }
@@ -103,7 +120,7 @@ import RadialGradient from '../RadialGradient.astro';
             --container-height: 21.625rem;
             --container-margin-top: 6.25rem;
             --text-width: 33.5rem;
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.125rem;
             --h2-margin-bottom: 2.5rem;
             --h3-font-size: 1.25rem;
@@ -115,15 +132,21 @@ import RadialGradient from '../RadialGradient.astro';
             --logo-width: 19.4375rem;
             --logo-height: 16.875rem;
         }
+        section {
+            margin-bottom: 0;
+        }
     }
 
     @media (640px <= width < 960px) {
+        section {
+            margin-bottom: 0;
+        }
         .ride_philosophy {
             --section-height: 35.5rem;
             --container-height: 23rem;
             --container-margin-top: 6.25rem;
             --text-width: 22.625rem;
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.125rem;
             --h2-margin-bottom: 2.5rem;
             --h3-font-size: 1.25rem;
@@ -148,11 +171,11 @@ import RadialGradient from '../RadialGradient.astro';
 
     @media (480px <= width < 640px) {
         .ride_philosophy {
-            --section-height: 21.3125rem;
+            --section-height: auto;
             --container-height: 12.5rem;
             --container-margin-top: 3.75rem;
             --text-width: 18.125rem;
-            --h2-font-size: 1rem;
+            --h2-font-size: 15px;
             --h2-line-height: 1.25rem;
             --h2-margin-bottom: 1.25rem;
             --h3-font-size: .75rem;
@@ -176,12 +199,15 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     @media (320px <= width < 480px) {
+        section {
+            margin-bottom: 60px;
+        }
         .ride_philosophy {
-            --section-height: 146.25vw;
+            --section-height: auto;
             --container-height: 115vw;
             --container-margin-top: 12.5vw;
             --text-width: var(--reduced-width);
-            --h2-font-size: 5vw;
+            --h2-font-size: 15px;
             --h2-line-height: 6.25vw;
             --h2-margin-bottom: 6.25vw;
             --h3-font-size: 3.75vw;

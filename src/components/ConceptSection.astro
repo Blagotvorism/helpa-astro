@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import imagesData from '../data/concepts.json';
 import RadialGradient from './RadialGradient.astro';
-import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
     mainHeading: string;
@@ -13,6 +13,8 @@ interface Props {
 }
 
 const { mainHeading, subHeading, text, pagePath, usualHeading } = Astro.props;
+
+const locale = Astro.currentLocale || "";
 
 const pageConfig = {
     'eco': {
@@ -55,12 +57,32 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         {pagePath === 'longlongride' && <RadialGradient topPosition="17.1875rem" leftPosition="25.1875rem" />}
         <div class="eco-concept__text">
             {usualHeading ? (
-                <h2 class="eco-concept__heading">{usualHeading}<span class="gradient_span">{mainHeading}</span></h2>
+                <h2 class="eco-concept__heading">{usualHeading}<br/> <span class="gradient_span">{mainHeading}</span></h2>
             ) : (
                 <h2 class="eco-concept__heading"><span class="gradient_span">{mainHeading}</span></h2>
             )}
             {subHeading && <h3 class={pagePath !== 'low-income-families' ?  "eco-concept__subheading" : 'eco-concept__subheading low-income-concept__subheading'} set:html={subHeading} />}
             <p class={pagePath !== 'low-income-families' ?  "eco-concept__description" : 'eco-concept__description low-income-concept__description'} set:html={text} />
+            {pagePath === "low-income-families" &&
+                <p class="details-link">
+                    <a href={getRelativeLocaleUrl(locale, "/low-income-families-2")} class="arrow-cap">
+                        {locale === "en" &&
+                        <>Read more about project goals</> ||
+                        <>Читать подробнее о целях проекта</>
+                        }
+                    </a>
+                </p>
+            }
+            {pagePath === "eco" &&
+                <p class="details-link">
+                    <a href={getRelativeLocaleUrl(locale, "/eco-2")} class="arrow-cap">
+                        {locale === "en" &&
+                        <>Read more about project goals</> ||
+                        <>Читать подробнее о целях проекта</>
+                        }
+                    </a>
+                </p>
+            }
         </div>
         <div class="eco-concept__images">
             <div class="eco-concept__images-1">
@@ -119,7 +141,7 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         --horizontal-img-height-low-income-families: 8.8rem;
         --horizontal-img-height-longlongride: 12.1rem;
 
-        --h2-font-size: 3.125rem;
+        --h2-font-size: 48px;
         --h2-line-height: 3.5rem;
         --h2-margin-bottom: 2.5rem;
 
@@ -127,7 +149,7 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         --h3-margin-bottom: 1.25rem;
         --h3-width: 34.6rem;
 
-        --text-width: 37.5rem;
+        --text-width: 38rem;
 
         --images-width: 28.5rem;
         --images-1-width: 16.6rem;
@@ -137,20 +159,16 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
     .eco-concept {
         display: block;
         position: relative;
-        width: 100vw;
-        height: var(--sectionHeight);
+        margin: auto;
+        margin-bottom: 100px;
     }
 
     .eco-concept__container {
-        position: absolute;
-        top: var(--topPosition);
-        left: 50%;
-        transform: translateX(-50%);
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
         width: var(--reduced-width);
-        height: var(--containerHeight);
+        margin: auto;
     }
 
     .eco-concept__text {
@@ -160,19 +178,27 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
     }
 
     h2 {
-        font-family: var(--font-lulo-bold);
         font-size: var(--h2-font-size);
         line-height: var(--h2-line-height);
         margin-bottom: var(--h2-margin-bottom);
         color: black;
     }
 
+    .low-income-concept__container h2 br { /* Only for specific page as this component is shared between pages */
+        display: none;
+    }
+
     h3 {
         display: inline-block;
         width: var(--h3-width);
         font-family: var(--font-inter);
+        font-weight: normal;
         font-size: var(--h3-font-size);
         margin-bottom: var(--h3-margin-bottom);
+    }
+
+    .eco-concept__description {
+        margin-bottom: 30px;
     }
 
     p {
@@ -190,6 +216,8 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         justify-content: space-between;
         width: var(--images-width);
         height: var(--imgContainerHeight);
+        position: relative;
+        top: 11px;
     }
 
     .eco-concept__images-1 {
@@ -241,6 +269,11 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
         border-radius: inherit;
     }
 
+    .details-link {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
     @media (960px <= width < 1200px) {
         .eco-concept {       
             /* Sizes */
@@ -270,19 +303,21 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             --horizontal-img-height-low-income-families: 7.9rem;
             --horizontal-img-height-longlongride: 9rem;
 
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.125rem;
             --h2-margin-bottom: 2.5rem;
 
             --h3-font-size: 1.25rem;
             --h3-margin-bottom: 1.5rem;
-            --h3-width: 28.125rem;
+            --h3-width: auto;
 
-            --text-width: 29.25rem;
+            --text-width: 32rem;
 
             --images-width: 23.25rem;
             --images-1-width: 13.4375rem;
             --images-2-width: 8.5625rem;
+
+            margin-bottom: 50px;
         }
 
         .low-income-concept__container {
@@ -297,12 +332,21 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             width: 30.25rem;
             font-size: 1.25rem;
         }
+
+        .eco-concept__images {
+            top: 12px;
+        }
+
+        .details-link {
+            font-size: 12px;
+            margin-bottom: 40px;
+        }
     }
 
     @media (640px <= width < 960px) {
         .eco-concept {       
             /* Sizes */
-            --section-height-eco: 37.5rem;
+            --section-height-eco: 41rem;
             --section-height-low-income-families: 44rem;
             --section-height-longlongride: 41.6875rem;
 
@@ -328,15 +372,15 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             --horizontal-img-height-low-income-families: 7.625rem;
             --horizontal-img-height-longlongride: 7.625rem;
 
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-line-height: 3.125rem;
             --h2-margin-bottom: 2.5rem;
 
             --h3-font-size: 1.25rem;
             --h3-margin-bottom: 1.25rem;
-            --h3-width: 28.125rem;
+            --h3-width: auto;
 
-            --text-width: 29.25rem;
+            --text-width: 80%;
 
             --images-width: var(--reduced-width);
             --images-1-width: 18.5rem;
@@ -345,6 +389,10 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
 
         .eco-concept__container {
             display: block;
+        }
+
+        .eco-concept__images {
+            top: auto;
         }
 
         .eco-concept__text {
@@ -360,12 +408,17 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             width: var(--reduced-width);
             font-size: 1.25rem;
         }
+
+        .details-link {
+            font-size: 12px;
+            margin-bottom: 40px;
+        }
     }
 
     @media (480px <= width < 640px) {
         .eco-concept {       
             /* Sizes */
-            --section-height-eco: 25rem;
+            --section-height-eco: 30rem;
             --section-height-low-income-families: 29.625rem;
             --section-height-longlongride: 27.625rem;
 
@@ -397,25 +450,46 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
 
             --h3-font-size: 0.75rem;
             --h3-margin-bottom: .625rem;
-            --h3-width: 17.5rem;
+            --h3-width: auto;
 
-            --text-width: 22.25rem;
+            --text-width: 24rem;
 
             --images-width: var(--reduced-width);
             --images-1-width: 13.125rem;
             --images-2-width: 13.125rem;
         }
 
+        .eco-concept {
+            margin-bottom: 60px;
+        }
+
         .eco-concept__container {
             display: block;
         }
 
+        .eco-concept__images {
+            top: auto;
+        }
+
+        .eco-concept__description {
+            margin-bottom: 20px;
+        }
+
         .low-income-concept__container h2 {
-            width: 12rem;
+            width: auto;
+        }
+
+        .eco-concept__images-1 {
+            border-radius: 20px;
         }
 
         p {
             margin-bottom: 1.25rem;
+        }
+
+        .details-link {
+            font-size: 10px;
+            margin-bottom: 25px;
         }
     }
 
@@ -448,7 +522,7 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             --horizontal-img-height-low-income-families: 37.5vw;
             --horizontal-img-height-longlongride: 37.5vw;
 
-            --h2-font-size: 5vw;
+            --h2-font-size: 15px;
             --h2-line-height: 6.25vw;
             --h2-margin-bottom: 1.25rem;
 
@@ -461,10 +535,24 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
             --images-width: var(--reduced-width);
             --images-1-width: 40.625vw;
             --images-2-width: 40.625vw;
+
+            margin-bottom: 50px;
         }
 
         .eco-concept__container {
             display: block;
+        }
+
+        .eco-concept__images {
+            top: auto;
+        }
+
+        .eco-concept__description {
+            margin-bottom: 10px;
+        }
+
+        .details-link {
+            margin-bottom: 25px;
         }
 
         .low-income-concept__container h2 {
@@ -473,6 +561,10 @@ const config = pageConfig[pagePath] || pageConfig['eco'];
 
         p {
             margin-bottom: 1.25rem;
+        }
+
+        .eco-concept__text {
+            margin-bottom: 10px;
         }
     }
 </style>

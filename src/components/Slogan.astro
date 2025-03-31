@@ -3,12 +3,11 @@ import '../styles/global.css';
 import { Image } from 'astro:assets';
 
 interface Props {
-    sloganBG?: string;
-    sloganTitle: string;
+    sloganBG?: ImageMetadata;
     altText?: string;
 }
 
-const { sloganBG, sloganTitle, altText = '' } = Astro.props;
+const { sloganBG, altText = '' } = Astro.props;
 
 let titleWidth_640 = '10rem';
 let titleWidth_480 = '6rem';
@@ -20,7 +19,9 @@ let titleWidth_320 = '5rem';
     ) : (
         <div class="slogan-bgcolor"></div>
     )}
-    <h1 class={sloganTitle === 'ASTROWAY' ? "slogan-title slogan-title-astroway" : 'slogan-title'}>{sloganTitle}</h1>
+    <div class='slogan-title'>
+        <slot/>
+    </div>
 </div>
 
 <style define:vars={{titleWidth_640, titleWidth_480, titleWidth_320}}>
@@ -29,8 +30,8 @@ let titleWidth_320 = '5rem';
         --slogan-height: 37.5rem;
         --slogan-title-width: 18.5rem;
         --slogan-title-font-size: 2.25rem;
-        --slogan-title-letter-spacing: 2px;
         --slogan-title-color: white;
+        font-family: "Montserrat Variable";
     }
 
     .slogan-part {
@@ -63,13 +64,17 @@ let titleWidth_320 = '5rem';
         position: absolute;
         color: var(--slogan-title-color);
         display: inline-block;
-        font-family: var(--font-lulo-bold);
         font-size: var(--slogan-title-font-size);
-        letter-spacing: var(--slogan-title-letter-spacing);
+        font-weight: 700;
+        text-transform: uppercase;
         width: var(--slogan-title-width);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .slogan-title-astroway {
+        word-break: break-word;
     }
 
     @media (960px <= width < 1200px) {
@@ -78,7 +83,6 @@ let titleWidth_320 = '5rem';
             --slogan-height: 33.625rem;
             --slogan-title-width: 18.5rem;
             --slogan-title-font-size: 1.875rem;
-            --slogan-title-letter-spacing: 2px;
             --slogan-title-color: white;
         }
     }
@@ -89,12 +93,11 @@ let titleWidth_320 = '5rem';
             --slogan-height: 39.0625rem;
             --slogan-title-width: 11.875rem;
             --slogan-title-font-size: 1.625rem;
-            --slogan-title-letter-spacing: 2px;
             --slogan-title-color: white;
         }
 
         .slogan-title-astroway {
-            word-break: break-all;
+            word-break: break-word;
             width: var(--titleWidth_640);
         }
     }
@@ -105,12 +108,11 @@ let titleWidth_320 = '5rem';
             --slogan-height: 16rem;
             --slogan-title-width: 7.125rem;
             --slogan-title-font-size: 1rem;
-            --slogan-title-letter-spacing: 1px;
             --slogan-title-color: white;
         }
 
         .slogan-title-astroway {
-            word-break: break-all;
+            word-break: break-word;
             width: var(--titleWidth_480);
         }
     }
@@ -120,13 +122,12 @@ let titleWidth_320 = '5rem';
             --slogan-width: calc(100vw / 3);
             --slogan-height: 18.4375rem;
             --slogan-title-width: 5.5rem;
-            --slogan-title-font-size: 0.75rem;
-            --slogan-title-letter-spacing: 1px;
+            --slogan-title-font-size: 14px;
             --slogan-title-color: white;
         }
 
         .slogan-title-astroway {
-            word-break: break-all;
+            word-break: break-word;
             width: var(--titleWidth_320);
         }
     }

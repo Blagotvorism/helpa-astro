@@ -1,7 +1,8 @@
 ---
 import '../../styles/global.css';
-import { Image } from 'astro:assets';
-import mapImage from '../../images/eco/map.png';
+import WorldMap from '../WorldMap.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 
 <section class="eco_about">
@@ -9,16 +10,16 @@ import mapImage from '../../images/eco/map.png';
         <!-- <RadialGradient topPosition="40.625rem" leftPosition="-25.25rem" />
         <RadialGradient topPosition="25rem" leftPosition="63.25rem" /> -->
         <h2 class="eco_about__heading">
-            <span class="gradient_span">ECO TIME DAY - </span>
-            это обособленный проект по защите окружающей среды, не имеющий государственных границ
+            <span class="gradient_span">{locale === "en" && "Eco Time Day is" || "ECO TIME DAY - "}</span>
+            {locale === "en" && "an independent environmental protection project without state borders" || "это обособленный проект по защите окружающей среды, не имеющий государственных границ"}
         </h2>
         <h3 class="eco_about__subheading">
-            Первая экологическая акция была проведена 14.02.2022 в Шри-Ланке, г. Велигама.
+            {locale === "en" && "The first environmental action was held on Feb 14,2022 in Sri Lanka, Weligama." || "Первая экологическая акция была проведена 14.02.2022 в Шри-Ланке, г. Велигама."}
         </h3>
         <p class="eco_about__text">
-            Последующие акции в Грузии, России, Израиле.
+            {locale === "en" && "Following actions in Georgia, Russia, Israel, and other countries." || "Последующие акции в Грузии, России, Израиле."}
         </p>
-        <Image src={mapImage} alt='Карта мира' class='eco_about_image' loading='eager'/>
+        <WorldMap/>
     </div>
 </section>
 
@@ -27,7 +28,7 @@ import mapImage from '../../images/eco/map.png';
         --eco-about-height: 76.2rem;
         --container-top: 5rem;
         --heading-width: var(--reduced-width);
-        --heading-font-size: 3.125rem;
+        --heading-font-size: 48px;
         --heading-line-height: 4rem;
         --subheading-width: 34.5rem;
         --subheading-font-size: 1.2rem;
@@ -42,9 +43,8 @@ import mapImage from '../../images/eco/map.png';
 
     .eco_about {
         display: flex;
-        height: var(--eco-about-height);
-        width: 100vw;
         justify-content: center;
+        margin-bottom: 160px;
     }
 
     .eco_about__container {
@@ -60,7 +60,6 @@ import mapImage from '../../images/eco/map.png';
     } 
 
     .eco_about__heading {
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
         margin-bottom: var(--margin-bottom-heading);
@@ -69,6 +68,7 @@ import mapImage from '../../images/eco/map.png';
 
     .eco_about__subheading {
         width: var(--subheading-width);
+        font-weight: normal;
         font-family: var(--font-inter);
         font-size: var(--subheading-font-size);
         line-height: var(--subheading-line-height);
@@ -94,7 +94,7 @@ import mapImage from '../../images/eco/map.png';
             --eco-about-height: 63.875rem;
             --container-top: 7.5rem;
             --heading-width: var(--reduced-width);
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3.25rem;
             --subheading-width: 34.5rem;
             --subheading-font-size: 1.25rem;
@@ -105,6 +105,10 @@ import mapImage from '../../images/eco/map.png';
             --margin-bottom-heading: 2.5rem;
             --margin-bottom-subheading: 1.25rem;
             --margin-bottom-text: 4rem;
+            margin-bottom: 100px;
+        }
+        .eco_about__heading {
+            width: 90%;
         }
     }
 
@@ -113,7 +117,7 @@ import mapImage from '../../images/eco/map.png';
             --eco-about-height: 58rem;
             --container-top: 6.25rem;
             --heading-width: var(--reduced-width);
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 38px;
             --heading-line-height: 3.25rem;
             --subheading-width: 34.5rem;
             --subheading-font-size: 1.25rem;
@@ -121,9 +125,10 @@ import mapImage from '../../images/eco/map.png';
             --text-fs: 0.75rem;
             --image-width: 32.1875rem;
             --image-height: 17.625rem;
-            --margin-bottom-heading: 2.5rem;
+            --margin-bottom-heading: 0;
             --margin-bottom-subheading: 1.25rem;
             --margin-bottom-text: 3.75rem;
+            margin-bottom: 10px;
         }
     }
 
@@ -132,7 +137,7 @@ import mapImage from '../../images/eco/map.png';
             --eco-about-height: 31.5625rem;
             --container-top: 4rem;
             --heading-width: 24.5rem;
-            --heading-font-size: 1rem;
+            --heading-font-size: 15px;
             --heading-line-height: 1.25rem;
             --subheading-width: 17.8125rem;
             --subheading-font-size: 0.75rem;
@@ -143,6 +148,7 @@ import mapImage from '../../images/eco/map.png';
             --margin-bottom-heading: 1.25rem;
             --margin-bottom-subheading: 0.625rem;
             --margin-bottom-text: 2.5rem;
+            margin-bottom: 50px;
         }
     }
 
@@ -151,7 +157,7 @@ import mapImage from '../../images/eco/map.png';
             --eco-about-height: 139.375vw;
             --container-top: 2.5rem;
             --heading-width: 75vw;
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --heading-line-height: 6.25vw;
             --subheading-width: 89vw;
             --subheading-font-size: 3.75vw;
@@ -162,6 +168,7 @@ import mapImage from '../../images/eco/map.png';
             --margin-bottom-heading: 1.25rem;
             --margin-bottom-subheading: 0.625rem;
             --margin-bottom-text: 2.5rem;
+            margin-bottom: 10px;
         }
     }
 

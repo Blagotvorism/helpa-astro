@@ -1,39 +1,73 @@
 ---
 import { Image } from "astro:assets";
-import horizontalImg1 from '../../images/eco/ecoGaleryCard2.JPG';
-import horizontalImg2 from '../../images/eco/ecoGaleryCard5.JPG';
-import horizontalImg3 from '../../images/eco/ecoGaleryCard3.JPG';
+import horizontalImg1 from '../../images/eco/gallery-card-2.jpg';
+import horizontalImg2 from '../../images/eco/gallery-card-5.jpg';
+import horizontalImg3 from '../../images/eco/gallery-card-3.jpg';
 import horizontalImg4 from '../../images/eco/eco_concept4.jpg';
-import vertticalImg1 from '../../images/eco/ecoGaleryCard8.JPG';
-import vertticalImg2 from '../../images/eco/ecoGaleryCard6.JPG';
+import vertticalImg1 from '../../images/eco/gallery-card-8.jpg';
+import vertticalImg2 from '../../images/eco/gallery-card-6.jpg';
 
 const altImg = 'conceptImg';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="eco_concept__secondary">
     <div class="eco_concept__secondary-container">
-        <h2>Каждый год</h2>
+        <h2>{locale === "en" && "Every year" || "Каждый год"}</h2>
         <div class="subheading-container">
             <div class="subheading-1">
-                <h3 class="subheading-h3-1"><span class="gradient_span">Более <br/>8 млн тонн</span></h3>
-                <p class="subheading-text-1">пластика попадает в океаны, что является серьезной угрозой для морского животного мира.</p>
+                <h3 class="subheading-h3-1">
+                    <span class="gradient_span">
+                        {locale === "en" &&
+                            <>More than <br/>8 million tons</>
+                            ||
+                            <>Более <br/>8 млн тонн</>
+                        }
+                    </span>
+                </h3>
+                <p class="subheading-text-1">
+                    {locale === "en" && "of plastic ends up in the oceans, which is a serious threat to marine wildlife. " || "пластика попадает в океаны, что является серьезной угрозой для морского животного мира."}
+                </p>
             </div>
             <div class="subheading-2">
-                <h3 class="subheading-h3-2"><span class="gradient_span">Более <br/>700 видов</span></h3>
-                <p class="subheading-text-2">морских птиц и животных подвержены опасности от свалявшегося мусора.</p>
+                <h3 class="subheading-h3-2">
+                    <span class="gradient_span">
+                        {locale === "en" &&
+                            <>More than <br/>700 species</>                            
+                            ||
+                            <>Более <br/>700 видов</>
+                        }
+                    </span>
+                </h3>
+                <p class="subheading-text-2">
+                    {locale === "en" && "of seabirds and animals are at risk from matted garbage." || "морских птиц и животных подвержены опасности от свалявшегося мусора."}
+                </p>
             </div>
         </div>
         <div class="main_text_container">
             <div class="main_text-1">
                 <div class="text-1">
-                    <h4>Загрязнение водоемов вредит рыбным ресурсам, так как токсичные вещества из промышленных выбросов и домашних стоков отравляют воды.</h4>
+                    <h4>{locale === "en" && "Water pollution harms fish resources, as toxic substances from industrial emissions and household waste poison the water." || "Загрязнение водоемов вредит рыбным ресурсам, так как токсичные вещества из промышленных выбросов и домашних стоков отравляют воды."}</h4>
                     <p class="first-p">
-                        Это вызывает проблемы с размножением и выживаемостью рыб, что в свою очередь влияет на пищевую цепь и угрожает экосистеме в целом. 
+                        {locale === "en" &&
+                        <>This causes problems with the reproduction and survival of fish, which in turn affects the food chain and threatens the whole ecosystem.
+                        Birds and aquatic organisms that feed in polluted waters may suffer from reduced reproductive success and toxic levels in their bodies,
+                        which can ultimately lead to population declines and even extinction of some species.</>
+                        ||
+                        <>Это вызывает проблемы с размножением и выживаемостью рыб, что в свою очередь влияет на пищевую цепь и угрожает экосистеме в целом. 
                         У птиц и водных организмов, питающихся в загрязненных водоемах, может наблюдаться пониженная репродуктивная способность 
-                        и содержание токсинов в организме, что в конечном итоге может привести к снижению популяций и даже исчезновению некоторых видов.
+                        и содержание токсинов в организме, что в конечном итоге может привести к снижению популяций и даже исчезновению некоторых видов.</>
+                        }
                     </p>
                     <p>
-                        Влияние загрязнения водоемов на морских млекопитающих, таких как дельфины и киты, является особенно серьезным. 
-                        Предлагаемые выбросы нефтепродуктов и звуковое загрязнение от нефтяной промышленности и судоходства создают угрозу для их выживаемости.
+                        {locale === "en" &&
+                        <>The impact of water pollution on marine mammals such as dolphins and whales is particularly serious.
+                        Proposed oil spills and sound pollution from the oil industry and shipping threaten their survival.</>
+                        ||
+                        <>Влияние загрязнения водоемов на морских млекопитающих, таких как дельфины и киты, является особенно серьезным. 
+                        Предлагаемые выбросы нефтепродуктов и звуковое загрязнение от нефтяной промышленности и судоходства создают угрозу для их выживаемости.</>
+                        }
+                        
                     </p>
                 </div>
                 <div class="images_container">
@@ -48,12 +82,27 @@ const altImg = 'conceptImg';
             </div>
             <div class="main_text-2">
                 <div class="text-2">
-                    <h4>Загрязнение водоемов также влияет на водные растения и водоросли, которые играют важную роль в поддержании здоровья экосистемы.</h4>
+                    <h4>
+                        {locale === "en" &&
+                        <>Water pollution also affects aquatic plants and algae, which play an important role in maintaining a healthy ecosystem.</>
+                        ||
+                        <>Загрязнение водоемов также влияет на водные растения и водоросли, которые играют важную роль в поддержании здоровья экосистемы.</>
+                        }                        
+                    </h4>
                     <p class="first-p">
-                        Излишнее наличие питательных веществ, водорослей и водных растений вызывает проблему эвтрофикации и приводит к нарушению баланса в водных системах.
+                        {locale === "en" &&
+                        <>Excessive nutrients, algae and aquatic plants cause eutrophication problems and lead to imbalances in aquatic systems.</>
+                        ||
+                        <>Излишнее наличие питательных веществ, водорослей и водных растений вызывает проблему эвтрофикации и приводит к нарушению баланса в водных системах.</>
+                        }
                     </p>
                     <p>
-                        Все эти факторы угрожают разнообразию и равновесию животного мира, а также оказывают негативное влияние на человека, который зависит от здоровых водных экосистем для питья, пищи и рекреации.
+                        {locale === "en" &&
+                        <>All these factors threaten the diversity and balance of animal life, and have a negative impact on humans, who depend on healthy aquatic ecosystems for drinking, food and recreation. </>
+                        ||
+                        <>Все эти факторы угрожают разнообразию и равновесию животного мира, а также оказывают негативное влияние на человека, который зависит от здоровых водных экосистем для питья, пищи и рекреации.</>
+                        }
+                        
                     </p>
                 </div>
                 <div class="images_container images_container-reverse">
@@ -76,7 +125,7 @@ const altImg = 'conceptImg';
         --eco_concept__secondary-container-height: 64.875rem;
         --eco_concept__secondary-container-margin-top: 9.375rem;
 
-        --h2-font-size: 3.125rem;
+        --h2-font-size: 48px;
         --h2-margin-bottom: 2.5rem;
 
         --subheading-container-width: 54.875rem;
@@ -84,7 +133,7 @@ const altImg = 'conceptImg';
         --subheading-1-width: 21.25rem;
         --subheading-2-width: 19.25rem;
 
-        --h3-font-size: 2.5rem;
+        --h3-font-size: 36px;
         --h3-margin-bottom: .625rem;
         --p-font-size: 1rem;
 
@@ -121,10 +170,6 @@ const altImg = 'conceptImg';
         width: var(--reduced-width);
         height: var(--eco_concept__secondary-container-height);
         margin-top: var(--eco_concept__secondary-container-margin-top);
-    }
-
-    h2, h3 {
-        font-family: var(--font-lulo-bold);
     }
 
     h4, p {
@@ -201,6 +246,7 @@ const altImg = 'conceptImg';
 
     h4 {
         font-size: var(--h4-font-size);
+        font-weight: normal;
         margin-bottom: var(--h4-margin-bottom);
     }
 
@@ -296,7 +342,7 @@ const altImg = 'conceptImg';
             --eco_concept__secondary-container-height: 93rem;
             --eco_concept__secondary-container-margin-top: 6.25rem;
 
-            --h2-font-size: 2.5rem;
+            --h2-font-size: 37px;
             --h2-margin-bottom: 2.5rem;
 
             --subheading-container-width: 32.625rem;
@@ -422,7 +468,7 @@ const altImg = 'conceptImg';
             --eco_concept__secondary-container-height: 427.5vw;
             --eco_concept__secondary-container-margin-top: 18.75vw;
 
-            --h2-font-size: 5vw;
+            --h2-font-size: 15px;
             --h2-margin-bottom: 6.25vw;
 
             --subheading-container-width: 81.875vw;
@@ -430,7 +476,7 @@ const altImg = 'conceptImg';
             --subheading-1-width: 40.625vw;
             --subheading-2-width: 35vw;
 
-            --h3-font-size: 5vw;
+            --h3-font-size: 15px;
             --h3-margin-bottom: 3.125vw;
             --p-font-size: 2.5vw;
 

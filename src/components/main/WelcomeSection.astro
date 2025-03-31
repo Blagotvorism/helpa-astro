@@ -3,23 +3,37 @@ import { Image } from 'astro:assets';
 import '../../styles/global.css';
 import Link from "../Link.astro";
 import welomePng from '../../images/main/welcome.png';
+
+let {locale} = Astro.props;
+
 ---
 <section class="welcome">
     <div class="welcome_container">
         <div class="container_left">
             <div class="welcome_text">
                 <h1 class="welcome_title">
-                    <span class="gradient_span">добро пожаловать</span>
-                    <span class="community_span">в наше сообщество</span>
+                    <span class="gradient_span">
+                        {locale === "en" && "Welcome" || "Добро пожаловать"}
+                    </span>
+                    <span class="community_span">{locale === "en" && "to our community" || "в наше сообщество"}</span>
                 </h1>
                 <p class="welcome_descr">
+                    {locale === "ru" && <>
                     экоактивистов, криптоэнтузиастов, спортсменов, 
                     интеллектуалов, волонтёров, меценатов, философов, 
-                    предпринимателей, учёных, деятелей искусств <br/> и свободных людей. 
+                    предпринимателей, учёных, деятелей искусств <br/> и свободных людей.
+                    </>}
+                    {locale === "en" && <>
+                    of eco-activists, crypto enthusiasts, athletes, intellectuals, volunteers,
+                    philanthropists, philosophers, entrepreneurs, scientists, artists, and free people.
+                    </>}
                 </p>
             </div>
             <div class="welcome_link">
-                <Link href="https://t.me/astrowayhelpplanet" theme='primary' classes="link link_primary">Присоединиться</Link>
+                <Link href="https://t.me/blagotvorism" theme='primary' classes="link link_primary">
+                    {locale === "ru" && "Присоединиться"}
+                    {locale === "en" && "Join"}
+                </Link>
             </div>  
         </div>
         <div class="container_right">
@@ -32,7 +46,7 @@ import welomePng from '../../images/main/welcome.png';
 	/* variables.css */
 	.welcome {
 		--welcome-height: 30.7rem;
-		--welcome-container-height: 22.1rem;
+		--welcome-container-height: 20rem;
         --welcome-container-width: 66.375rem;
 		--welcome-container-margin-top: 4.375rem;
         --welcome-container-margin-left: -2rem;
@@ -88,10 +102,9 @@ import welomePng from '../../images/main/welcome.png';
     }
 
     .welcome_title {
-        font-family: var(--font-lulo-bold);
         font-size: var(--welcome-title-font-size);
         line-height: var(--welcome-title-line-height);
-        letter-spacing: var(--welcome-title-letter-spacing);
+        /* letter-spacing: var(--welcome-title-letter-spacing); */
         display: flex;
         flex-direction: column;
         margin-bottom: var(--welcome-title-margin-bottom);
@@ -102,7 +115,7 @@ import welomePng from '../../images/main/welcome.png';
         width: var(--welcome-descr-width);
         font-family: var(--font-inter);
         font-size: var(--welcome-descr-font-size);
-        line-height: var(--welcome-descr-line-height);
+        line-height: 1.2;
         color: var(--dark-grey);
     }
 
@@ -121,7 +134,7 @@ import welomePng from '../../images/main/welcome.png';
             --welcome-container-margin-left: -3rem;
             --container-left-width: 32rem;
             --container-right-width: 17rem;
-            --welcome-title-font-size: 2.5rem;
+            --welcome-title-font-size: 37px;
             --welcome-title-line-height: 3rem;
             --welcome-title-letter-spacing: 2px;
             --welcome-title-margin-bottom: 1.25rem;
@@ -139,15 +152,19 @@ import welomePng from '../../images/main/welcome.png';
             --welcome-container-margin-top: 3.125rem;
             --welcome-container-margin-left: 0;
             --container-left-width: 29rem;
-            --container-right-width: 8.75rem;
+            --container-right-width: 10rem;
             --welcome-title-font-size: 2.29rem;
             --welcome-title-line-height: 2.7rem;
             --welcome-title-letter-spacing: 2px;
             --welcome-title-margin-bottom: 1.25rem;
             --welcome-descr-width: 27.7rem;
-            --welcome-descr-font-size: 0.875rem;
+            --welcome-descr-font-size: 12px;
             --welcome-descr-line-height: 1rem;
 	    }
+
+        .welcome_descr {
+            padding-right: 20%;
+        }
 
         .container_right {
             display: inline-block;
@@ -168,16 +185,16 @@ import welomePng from '../../images/main/welcome.png';
     @media (480px <= width < 640px) {
         .welcome {
             --welcome-height: 13.375rem;
-            --welcome-container-height: 11rem;
+            --welcome-container-height: 10rem;
             --welcome-container-width: 27.5rem;
             --welcome-container-margin-top: 2.375rem;
             --welcome-container-margin-left: 0;
             --container-left-width: 16.6875rem;
             --container-right-width: 8.8125rem;
-            --welcome-title-font-size: 1rem;
+            --welcome-title-font-size: 15px;
             --welcome-title-line-height: 1.25rem;
             --welcome-title-letter-spacing: 2px;
-            --welcome-title-margin-bottom: 1.25rem;
+            --welcome-title-margin-bottom: 1rem;
             --welcome-descr-width: 16.6875rem;
             --welcome-descr-font-size: 0.625rem;
             --welcome-descr-line-height: 1rem;
@@ -187,7 +204,7 @@ import welomePng from '../../images/main/welcome.png';
     @media (320px <= width < 480px) {
         .welcome {
             --welcome-height: 20rem;
-            --welcome-container-height: 19rem;
+            --welcome-container-height: 18rem;
             --welcome-container-width: var(--reduced-width);
             --welcome-container-margin-top: 1.875rem;
             --welcome-container-margin-left: 0;
@@ -199,7 +216,7 @@ import welomePng from '../../images/main/welcome.png';
             --welcome-title-margin-bottom: .625rem;
             --welcome-descr-width: 16.7rem;
             --welcome-descr-font-size: .625rem;
-            --welcome-descr-line-height: .75rem;
+            --welcome-descr-line-height: 1.25;
 	    }
 
         .welcome_container {
@@ -213,6 +230,10 @@ import welomePng from '../../images/main/welcome.png';
 
         .container_right {
             align-self: center;
+        }
+
+        .welcome_text {
+            margin-bottom: 5px;
         }
 
         .welcome_link {

@@ -2,32 +2,64 @@
 import '../../styles/global.css';
 import PolutionCard from '../GoalsCard.astro';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="eco-pollutions">
     <div class="eco-pollutions__container">
         <RadialGradient topPosition="1rem" leftPosition="43.75rem" />
         <div class="eco-pollutions__text">
             <h2 class="eco-pollutions__heading">
-                Основными
-                <span class="gradient_span">
-                    областями загрязнения
-                </span>
+                {locale === "en" && <>The main <span class="gradient_span">areas of pollution</span></> || <>Основными <span class="gradient_span">областями загрязнения</span></>}
             </h2>
-            <h3 class="eco-pollutions__subheading">окружающей среды являются:</h3>
+            <h3 class="eco-pollutions__subheading">{locale === "en" && "of the environment are" || "окружающей среды являются:"}</h3>
         </div>
         <div class="eco-pollutions__cards">
             <div class="card_box">
-                <PolutionCard goalsIcon='Air' goalsDescr='Воздух' />
+                <PolutionCard goalsIcon='Air' goalsDescr={locale === "en" && "Air" || "Воздух"} />
             </div>
             <div class="card_box">
-                <PolutionCard goalsIcon='Water' goalsDescr='Вода' />
+                <PolutionCard goalsIcon='Water' goalsDescr={locale === "en" && "Water" || "Вода"} />
             </div>
             <div class="card_box">
-                <PolutionCard goalsIcon='Ground' goalsDescr='Почва' />
+                <PolutionCard goalsIcon='Ground' goalsDescr={locale === "en" && "Soil" || "Почва"} />
             </div>
         </div>
     </div>
 </section>
+
+<script>
+
+    const cardsContainer = document.querySelector(".eco-pollutions__cards") as HTMLDivElement;
+    const cards = document.querySelectorAll(".card_box");
+    console.info('cards.length', cards.length);
+
+    window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+    function onBodyScroll() {
+        if (isMostlyVisible()) {
+            window.removeEventListener('scroll', onBodyScroll);
+            startAnimateAppearing();
+        }
+    }
+
+    function isMostlyVisible() {
+        return cardsContainer!.getBoundingClientRect().top < window.innerHeight / 2 + 50;
+    }
+
+    function startAnimateAppearing() {
+        let cardIndex = 0;
+        animateAppearing(cardIndex++);
+        let interval = setInterval(function() {
+            animateAppearing(cardIndex++);
+            if (cardIndex >= cards.length) clearInterval(interval);
+        }, 400);
+    }
+
+    function animateAppearing(cardIndex) {
+        cards[cardIndex].classList.add("appeared");
+    }
+</script>
 
 <style>
     .eco-pollutions {
@@ -62,12 +94,12 @@ import RadialGradient from '../RadialGradient.astro';
     }
 
     .eco-pollutions__heading {
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         margin-bottom: var(--margin-bottom-heading);
     }
 
     .eco-pollutions__subheading {
+        font-weight: normal;
         font-family: var(--font-inter);
         font-size: var(--subheading-font-size);
         margin-bottom: var(--margin-bottom-subheading);
@@ -79,11 +111,22 @@ import RadialGradient from '../RadialGradient.astro';
         width: var(--cards-width);
     }
 
+    .card_box {
+        opacity: 0;
+        translate: 0 30px;
+        transition: translate 0.3s, opacity 0.3s;
+    }
+
+    .card_box.appeared {
+        opacity: 1;
+        translate: 0;
+    }
+
     @media (960px <= width < 1200px) {
         .eco-pollutions {
             --section-height: 29.625rem;
             --container-height: 22.125rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --subheading-font-size: 1.25rem;
             --cards-width: 42.8125rem;
             --margin-bottom-heading: 1.25rem;
@@ -95,7 +138,7 @@ import RadialGradient from '../RadialGradient.astro';
         .eco-pollutions {
             --section-height: 27.875rem;
             --container-height: 21.625rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --subheading-font-size: 1.25rem;
             --cards-width: var(--reduced-width);
             --margin-bottom-heading: 1.25rem;
@@ -131,7 +174,7 @@ import RadialGradient from '../RadialGradient.astro';
         .eco-pollutions {
             --section-height: 68.75vw;
             --container-height: 50vw;
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --subheading-font-size: 3.75vw;
             --cards-width: var(--reduced-width);
             --margin-bottom-heading: 0.625rem;

@@ -4,6 +4,8 @@
     export let btnAction;
     export let cards;
 
+    export let locale;
+
     let rotate = true;
 </script>
 
@@ -15,7 +17,7 @@
                     class={category === 'all' ? 'active btn btn_tab-link' : 'btn btn_tab-link'} 
                     on:click={() => (category = 'all')}
                 >
-                    Все
+                    {locale === "en" && "All" || "Все"}
                 </button>
             </li>
             <li class="tab-item" id="nature_tab">
@@ -23,7 +25,7 @@
                     class={category === 'eco' ? 'active btn btn_tab-link' : 'btn btn_tab-link'} 
                     on:click={() => (category = 'eco')}
                 >
-                    Защита природы
+                    {locale === "en" && "Environmental protection" || "Защита природы"}
                 </button>
             </li>
             <li class="tab-item" id="healthcare_tab">
@@ -31,7 +33,7 @@
                     class={category === 'health' ? 'active btn btn_tab-link' : 'btn btn_tab-link'} 
                     on:click={() => (category = 'health')}
                 >
-                    Помощь онкобольным
+                {locale === "en" && "Cancer patients support" || "Помощь онкобольным"}
                 </button>
             </li>
             <li class="tab-item" id="loan_tab">
@@ -39,7 +41,7 @@
                     class={category === 'debt' ? 'active btn btn_tab-link' : 'btn btn_tab-link'} 
                     on:click={() => (category = 'debt')}
                 >
-                    Помощь закредитованным
+                {locale === "en" && "Over-indebted support" || "Помощь закредитованным"}
                 </button>
             </li>
             <li class="tab-item" id="sport_tab">
@@ -47,7 +49,7 @@
                     class={category === 'sport' ? 'active btn btn_tab-link' : 'btn btn_tab-link'} 
                     on:click={() => (category = 'sport')}
                 >
-                    Развитие спорта
+                {locale === "en" && "Sports development" || "Развитие спорта"}                    
                 </button>
             </li>
         </ul>
@@ -134,6 +136,7 @@
         padding: var(--btn-tab-link-padding);
         background-color: transparent;
         cursor: pointer;
+        white-space: nowrap;
     }
 
     .active {
@@ -199,7 +202,7 @@
         .tab_container {
             /* Tab container */
             --tab-container-width: var(--reduced-width);
-            --tab-container-height: 2.5rem;
+            --tab-container-height: 2rem;
             --tab-container-margin-top: 2.5rem;
             --tab-container-margin-bottom: 2.5rem;
 

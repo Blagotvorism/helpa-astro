@@ -12,6 +12,8 @@ import FbSocial from './icons/FbSocial.svelte';
 import XSocial from './icons/XSocial.svelte';
 
 const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astro.props;
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="social">
     <div class="social__container">
@@ -21,8 +23,13 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
             {page && <Image src={ecoLogo} alt='Логотип проекта эко день' loading='lazy' class="main-logo" />}
         </div>
         <div class="social__text">
-            <h2 class="social__heading"><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</h2>
-            <h3 class="social__subheading">чтобы быть в курсе самых свежих новостей и предстоящих мероприятий</h3>
+            <h2 class="social__heading">
+                {locale === "en" &&
+                <><span class="gradient_span">Follow us</span> on social media</> ||
+                <><span class="gradient_span">Подписывайтесь</span> на наши социальные сети</>
+                }
+            </h2>
+            <h3 class="social__subheading">{locale === "en" && "to stay tuned with the latest news and upcoming events" || "чтобы быть в курсе самых свежих новостей и предстоящих мероприятий"}</h3>
             <div class="social__logos">
                {tg_link && <a href={tg_link} aria-label="логотип телеграма"><TgSocial /></a>}
                 {yt_link && <a href={yt_link} aria-label="логотип ютуба"><YoutubeSocial /></a>}
@@ -37,7 +44,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
 
 <style>
     .social {
-        --section-height: 38.5rem;
+        --section-height: 35rem;
         --container-width: 68.25rem;
         --container-height: 33.125rem;
         --container-top: 3.375rem;
@@ -48,7 +55,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
         --main-logo-size: 11.875rem;
         --text-width: 34.375rem;
         --text-height: 21.9rem;
-        --heading-font-size: 3.125rem;
+        --heading-font-size: 48px;
         --heading-line-height: 4rem;
         --subheading-font-size: 1.5rem;
         --logos-width: 15rem;
@@ -66,6 +73,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
         display: block;
         width: 100vw;
         height: var(--section-height);
+        margin-bottom: 60px;
     }
 
     .social__container {
@@ -109,7 +117,6 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
     }
 
     h2 {
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         line-height: var(--heading-line-height);
         margin-bottom: var(--h2-margin-bottom);
@@ -118,6 +125,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
     h3 {
         font-family: var(--font-inter);
         font-size: var(--subheading-font-size);
+        font-weight: normal;
         margin-bottom: var(--h3-margin-bottom);
     }
 
@@ -141,25 +149,25 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
 
     @media (960px <= width < 1200px) {
         .social {
-            --section-height: 31.5625rem;
+            --section-height: 25rem;
             --container-width: 47.6875rem;
             --container-height: 28rem;
-            --container-top: 3.375rem;
+            --container-top: 6rem;
             --container-left: 20px;
             --white-round-size: 13.4375rem;
             --white-round-left: 0rem;
-            --white-round-top: 8.7rem;
+            --white-round-top: 3rem;
             --main-logo-size: 11.875rem;
             --logo-mb: 3.75rem;
             --text-width: 27.5rem;
             --text-height: 21.9rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3rem;
             --subheading-font-size: 1.25rem;
             --logos-width: 15rem;
             --logos-height: 2.5rem;
             --logo-size: 2.5rem;
-            --social-text-top: 6.125rem;
+            --social-text-top: 2;
             --social-text-right: 0;
             --h2-margin-bottom: 1.25rem;
             --h3-margin-bottom: 2.5rem;
@@ -172,10 +180,10 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
 
     @media (640px <= width < 960px) {
         .social {
-            --section-height: 25.375rem;
+            --section-height: 25rem;
             --container-width: var(--reduced-width);
             --container-height: 19.125rem;
-            --container-top: 3rem;
+            --container-top: 2rem;
             --container-left: 20px;
             --white-round-size: 7.9375rem;
             --white-round-left: 0rem;
@@ -183,7 +191,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
             --main-logo-size: 7.9375rem;
             --text-width: 27.3125rem;
             --text-height: 19.125rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-line-height: 3rem;
             --subheading-font-size: 1.25rem;
             --logos-width: 15rem;
@@ -225,6 +233,7 @@ const { page, tg_link, yt_link, inst_link, x_link, tiktok_link, fb_link } = Astr
             --social-text-right: 4rem;
             --h2-margin-bottom: .625rem;
             --h3-margin-bottom: 1.25rem;
+            margin-bottom: 0;
         }
 
         .social__container {

@@ -5,6 +5,8 @@ import galeryData from '../../data/galery.json';
 
 const { page } = Astro.props;
 
+const locale = Astro.currentLocale || "";
+
 const ecoRows = {
     row1: galeryData.filter(card => card.id < 4 && card.category === page),
     row2: galeryData.filter(card => [4, 5, 6, 7].includes(card.id) && card.category === page),
@@ -36,7 +38,7 @@ const rows = page === 'eco' ? ecoRows : rideRows;
                 {rows[row].map(card => (
                     <EcoGaleryCard 
                         cardImage={card.imgPath} 
-                        cardText={card.cardText} 
+                        cardText={card.text && card.text[locale]} 
                         imgDescr={card.imgDescr} 
                         fontSize={card.fontSize} 
                     />

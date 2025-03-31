@@ -3,39 +3,21 @@
 	import ArrowUp from './ArrowUp.svelte';
 	import CardsPagination from './CardsPagination.svelte';
 
-    let categoryText= 'Все';
-    let category = 'all';
-    let isDropdownOpen = false;
-
+    export let locale;
     export let events;
     export let cards;
+
+    let categoryText = locale === "en" ? "All" : 'Все';
+    let category = 'all';
+    let isDropdownOpen = false;    
+    
     let paginatedCards;
     let totalCardsCount;
 
-    const handleClickMainButton = (text) => {
+    const handleClickMainButton = (categorySlug) => {
         isDropdownOpen = !isDropdownOpen;
-        categoryText = text;
-        switch(categoryText) {
-            case 'Все':
-                category = 'all';
-                break;
-            case 'Защита природы':
-                category = 'eco';
-                break;
-            case 'Помощь онкобольным':
-                category = 'health';
-                break;
-            case 'Помощь закредитованным':
-                category = 'debt';
-                break;
-            case 'Развитие спорта':
-                category = 'sport';
-                break;
-            default:
-                category = 'all';
-        }
-
-        return category;
+        categoryText = categories.find((category) => category.category === categorySlug).text[locale];
+        category = categorySlug;
     }
 
     export function findCards(category) {
@@ -46,21 +28,21 @@
 
 <div class="event_cards">
     <div class="dropdown_categories">
-        <div class="dropdown_categories-btn" 
-            on:click={() => isDropdownOpen = !isDropdownOpen}
-        >
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="dropdown_categories-btn" on:click={() => isDropdownOpen = !isDropdownOpen}>
             <span class="text">{categoryText}</span>
             <ArrowUp rotate />
         </div>
         <ul class={isDropdownOpen ? "dropdown_categories-list": 'hidden'}>
             {#each categories as category}
-                <li class="dropdown_categories_item" 
-                    on:click={() => handleClickMainButton(category.text)}
-                >{category.text}</li>
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+                <li class="dropdown_categories_item" on:click={() => handleClickMainButton(category.category)}>{category.text[locale]}</li>
             {/each}
         </ul>
     </div>
-    <CardsPagination cards={findCards(category)} />
+    <CardsPagination cards={findCards(category)} locale={locale} />
 </div>
 
 <style>
@@ -93,7 +75,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 0.3125rem 0.625rem;
-        font-family: Inter;
+        font-family: Inter Variable;
         font-size: 2.5vw;
         cursor: pointer;
     }
@@ -124,7 +106,7 @@
         margin-left: .8rem;
         text-align: start;
         width: 100%;
-        font-family: Inter;
+        font-family: Inter Variable;
         font-size: 2.5vw;
     }
 

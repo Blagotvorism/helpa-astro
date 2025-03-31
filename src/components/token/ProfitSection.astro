@@ -1,43 +1,95 @@
 ---
 import '../../styles/global.css';
 import RadialGradient from '../RadialGradient.astro';
+
+const locale = Astro.currentLocale || "";
 ---
 <section class="profit">
     <div class="profit__container">
         <RadialGradient topPosition="var(--radial-gradient-top1)" leftPosition="var(--radial-gradient-left1)" />
         <RadialGradient topPosition="var(--radial-gradient-top2)" leftPosition="var(--radial-gradient-left2)" />
-        <h2>ваша <span class="gradient_span">польза</span></h2>
+        <h2>
+            {locale === "en" &&
+            <>your <span class="gradient_span">benefit</span></> ||
+            <>ваша <span class="gradient_span">польза</span></>
+            }
+        </h2>
         <div class="profit__cards">
             <div class="profit_row row-center">
                 <div class="card">
-                    <p>Возможность участия в проектах без приобретения токена в качестве волонтера</p>
+                    <p>{locale === "en" && "Possibility to participate in projects without purchasing a token as a volunteer" || "Возможность участия в проектах без приобретения токена в качестве волонтера"}</p>
                 </div>
                 <div class="card">
-                    <p>Позитивный эффект на окружающую среду от реализации проектов</p>
+                    <p>{locale === "en" && "Positive effect on the environment by  implementing the projects " || "Позитивный эффект на окружающую среду от реализации проектов"}</p>
                 </div>
             </div>
             <div class="profit_row row-middle">
                 <div class="card" id="card3">
-                    <p>Создание благоприятной социальной среды</p>
+                    <p>{locale === "en" && "Creation of a favorable social environment " || "Создание благоприятной социальной среды"}</p>
                 </div>
                 <div class="card">
-                    <p>Сохранение и приумножение капитала</p>
+                    <p>{locale === "en" && "Preservation and increase of capital " || "Сохранение и приумножение капитала"}</p>
                 </div>
                 <div class="card">
-                    <p>Позитивный эффект на экономическую систему</p>
+                    <p>{locale === "en" && "Positive effect on the economic system " || "Позитивный эффект на экономическую систему"}</p>
                 </div>
             </div>
             <div class="profit_row row-center">
                 <div class="card">
-                    <p>Благотворительность без специальной траты времени и средств</p>
+                    <p>{locale === "en" && "Charity without spending dedicated time and money" || "Благотворительность без специальной траты времени и средств"}</p>
                 </div>
                 <div class="card">
-                    <p>Резонирование позитивного эффекта за счет трансляции положительного примера поведения</p>
+                    <p>{locale === "en" && "Resonance of the positive effect by broadcasting a positive behavioral model" || "Резонирование позитивного эффекта за счет трансляции положительного примера поведения"}</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+
+	const cardsContainerElement = document.querySelector(".profit__cards");
+
+    if (cardsContainerElement) {
+
+        let cards = cardsContainerElement.querySelectorAll(".profit_row > .card");
+
+        for (let i = 0; i < cards.length; i++) {
+            const item = cards[i] as HTMLElement;
+            item.style.opacity = "0";
+            item.style.translate = "0 30px";
+            setTimeout(() => item.style.transition = "opacity 0.5s, translate 0.5s", 0);            
+        }
+
+        window.addEventListener('scroll', onBodyScroll, {passive: true});
+
+        function onBodyScroll() {
+            if (isMostlyVisible()) {
+                window.removeEventListener('scroll', onBodyScroll);
+                animateAppearing();			
+            }
+        }
+
+        function isMostlyVisible() {
+            return cardsContainerElement!.getBoundingClientRect().top < window.innerHeight / 2;
+        }
+
+        function animateAppearing() {
+            const items = cards;
+            let counter = 0;
+            appear(items![counter++]);
+            const interval = setInterval(function() {
+                appear(items![counter++]);
+                if (counter >= items!.length) clearInterval(interval);
+            }, 200);
+        }
+
+        function appear(item) {
+            item.style.opacity = "1";
+            item.style.translate = "0";
+        }
+    }
+</script>
 
 <style>
     .profit {
@@ -47,7 +99,7 @@ import RadialGradient from '../RadialGradient.astro';
         --radial-gradient-left2: -7.9375rem;
         --section-height: 54.6875rem;
         --container-height: 50rem;
-        --heading-font-size: 3.125rem;
+        --heading-font-size: 48px;
         --heading-margin-bottom: 5rem;
         --cards-height: 41rem;
         --row-height: 12.8125rem;
@@ -73,7 +125,6 @@ import RadialGradient from '../RadialGradient.astro';
 
     h2 {
         display: inline-block;
-        font-family: var(--font-lulo-bold);
         font-size: var(--heading-font-size);
         margin-bottom: var(--heading-margin-bottom);
     }
@@ -124,7 +175,7 @@ import RadialGradient from '../RadialGradient.astro';
         .profit {
             --section-height: 40rem;
             --container-height: 39.25rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-margin-bottom: 2.5rem;
             --cards-height: 33.5rem;
             --row-height: 10.375rem;
@@ -132,13 +183,19 @@ import RadialGradient from '../RadialGradient.astro';
             --p-width: 11rem;
             --p-font-size: .75rem;
         }
+        section {
+            height: auto;
+        }
     }
 
     @media (640px <= width < 960px) {
+        section {
+            margin-bottom: 60px;
+        }
         .profit {
             --section-height: 38.625rem;
             --container-height: 38.625rem;
-            --heading-font-size: 2.5rem;
+            --heading-font-size: 37px;
             --heading-margin-bottom: 2.5rem;
             --cards-height: 32.875rem;
             --row-height: 10.375rem;
@@ -182,7 +239,7 @@ import RadialGradient from '../RadialGradient.astro';
         .profit {
             --section-height: 130.625vw;
             --container-height: 130.625vw;
-            --heading-font-size: 5vw;
+            --heading-font-size: 15px;
             --heading-margin-bottom: 6.25vw;
             --cards-height: 118.125vw;
             --row-height: 36.875vw;

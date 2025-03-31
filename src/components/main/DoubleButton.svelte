@@ -4,25 +4,37 @@
 
     let showIcons = false; // Reactive variable to toggle button design
 
+    export let locale;
+
     function toggleButton() {
-    showIcons = !showIcons; // Toggle the state
+        showIcons = !showIcons; // Toggle the state
     }
+
+    let joinButtonText = (function(locale) {
+        switch (locale) {
+            case "en":
+                return "Purchase";
+            case "ru":
+            default:
+                return "Приобрести";            
+        }
+    })(locale);
 </script>
 
 <div class="split_btn">
     {#if showIcons}
       <!-- Button with icons -->
-        <button class="button-with-icons" on:click={toggleButton}>
+        <button class="button-with-icons" on:mouseleave={toggleButton} on:blur={toggleButton}>
             <div class="icon-wrapper">
-                <a href="https://t.me/astrowayhelpplanet" class="link"><TgSocial /></a>
+                <a href="https://t.me/blagotvorism" class="link"><TgSocial /></a>
             <div class="divider"></div>
-                <a href="https://x.com/astrowayhelpa?s=21&t=z0b_ZLWUm1wnD88Rcah7Bg" class="link"><XSocial /></a>
+                <a href="https://x.com/blagotvorism" class="link"><XSocial /></a>
             </div>
       </button>
     {:else}
       <!-- Button with text -->
-      <button class="button-simple" on:click={toggleButton}>
-        Присоединиться
+      <button class="button-simple" on:mouseover={toggleButton} on:focus={toggleButton}>
+        {joinButtonText}
       </button>
     {/if}
   </div>
@@ -59,7 +71,7 @@
 
     /* Button with text */
     .button-simple {
-        background: transparent;
+        background: #fff9;
         color: black;
         cursor: pointer;
         transition: all 0.3s ease;

@@ -11,27 +11,120 @@ import HelpSection from '../components/HelpSection.astro';
 import ecoHelpImg from '../images/eco/ecoHelp.png';
 import SocialSection from '../components/SocialSection.astro';
 import EcoHeroSection from '../components/eco/EcoHeroSection.astro';
+
+import ecoGalleryCard1 from '../images/eco/gallery-card-1.jpg';
+import ecoGalleryCard2 from '../images/eco/gallery-card-2.jpg';
+import ecoGalleryCard3 from '../images/eco/gallery-card-3.jpg';
+import ecoGalleryCard4 from '../images/eco/gallery-card-4.jpg';
+import ecoGalleryCard5 from '../images/eco/gallery-card-5.jpg';
+import ecoGalleryCard6 from '../images/eco/gallery-card-6.jpg';
+import ecoGalleryCard7 from '../images/eco/gallery-card-7.jpg';
+import ecoGalleryCard8 from '../images/eco/gallery-card-8.jpg';
+
+import coastCleaningImage1 from '../images/eco/gallery/coast-cleaning-1.jpg';
+import coastCleaningImage2 from '../images/eco/gallery/coast-cleaning-2.jpg';
+import coastCleaningImage3 from '../images/eco/gallery/coast-cleaning-3.jpg';
+import coastCleaningImage4 from '../images/eco/gallery/coast-cleaning-4.jpg';
+import coastCleaningImage5 from '../images/eco/gallery/coast-cleaning-5.jpg';
+import coastCleaningImage6 from '../images/eco/gallery/coast-cleaning-6.jpg';
+import coastCleaningImage7 from '../images/eco/gallery/coast-cleaning-7.jpg';
+import coastCleaningImage8 from '../images/eco/gallery/coast-cleaning-8.jpg';
+import coastCleaningImage9 from '../images/eco/gallery/coast-cleaning-9.jpg';
+import coastCleaningImage10 from '../images/eco/gallery/coast-cleaning-10.jpg';
+import coastCleaningImage11 from '../images/eco/gallery/coast-cleaning-11.jpg';
+import coastCleaningImage12 from '../images/eco/gallery/coast-cleaning-12.jpg';
+import coastCleaningImage13 from '../images/eco/gallery/coast-cleaning-13.jpg';
+import coastCleaningImage14 from '../images/eco/gallery/coast-cleaning-14.jpg';
+import coastCleaningImage15 from '../images/eco/gallery/coast-cleaning-15.jpg';
+import coastCleaningImage16 from '../images/eco/gallery/coast-cleaning-16.jpg';
+import coastCleaningImage17 from '../images/eco/gallery/coast-cleaning-17.jpg';
+import coastCleaningImage18 from '../images/eco/gallery/coast-cleaning-18.jpg';
+import coastCleaningImage19 from '../images/eco/gallery/coast-cleaning-19.jpg';
+import coastCleaningImage20 from '../images/eco/gallery/coast-cleaning-20.jpg';
+import coastCleaningImage21 from '../images/eco/gallery/coast-cleaning-21.jpg';
+import coastCleaningImage22 from '../images/eco/gallery/coast-cleaning-22.jpg';
+import coastCleaningImage23 from '../images/eco/gallery/coast-cleaning-23.jpg';
+
+import coastCleaningImage24 from '../images/eco/gallery/garbage-cleaning-1.jpeg';
+import coastCleaningImage25 from '../images/eco/gallery/garbage-cleaning-2.jpeg';
+import coastCleaningImage26 from '../images/eco/gallery/garbage-cleaning-3.jpeg';
+import coastCleaningImage27 from '../images/eco/gallery/garbage-cleaning-4.jpeg';
+
+const locale = Astro.currentLocale || "";
+
 ---
-<Layout title="ECO">
-    <main>
+<Layout title="Eco Time Day">
+    <main id="main">
         <EcoHeroSection />
         <EcoAbout />
         <EcoPolutionSection />
         <ConceptSection 
             pagePath='eco'
-            mainHeading="Концепция проекта"
-            subHeading='Уборка берегового пространства, являющееся фактически границей двух <br/> миров - земного и водного.'
-            text='Последствиями загрязнения этой зоны является колоссальный урон обеим экосистемам. Волонтёров проекта можно назвать защитниками естественных границ экосистем и здоровья людей, так как загрязнение окружающей среды повышает риск развития аллергий и ряда других заболеваний, в том числе онкологических.'
+            mainHeading={locale === "en" && "Project concept" || "Концепция проекта"}
+            subHeading={locale === "en" && "Cleaning the coastal area, which is the border of two worlds – terrestrial and aquatic." || "Уборка берегового пространства, являющееся фактически границей двух миров - земного и водного."}
+            text={locale === "en" && "The pollution of this zone causes tremendous damage to both ecosystems. Volunteers of the project can be called defenders of the natural boundaries of ecosystems and human health, since environmental pollution increases the risk of developing allergies and a number of other diseases, including cancer." || "Последствиями загрязнения этой зоны является колоссальный урон обеим экосистемам. Волонтёров проекта можно назвать защитниками естественных границ экосистем и здоровья людей, так как загрязнение окружающей среды повышает риск развития аллергий и ряда других заболеваний, в том числе онкологических."}
         />
         <IntroSection
             page='eco' 
-            mainHeading='Eco Time Day - люди, верящие в будущее и делающие для него всё возможное.' 
-            text='Люди, увлечённые и увлекающие других своим примером. Мы осознаем, что наше общее пространство влияет на каждого из нас и наших потомков, на цивилизацию, а значит и на нашу дальнейшую жизнь, судьбу наших дел, опыта, открытий, судьбу открытой нами информации и её сохранение. Это и есть здоровый эгоизм - объединение ради общей, полезной цели. '
-            containerWidth='53.8rem' 
-            containerHeight='21.5rem'
+            mainHeading={locale === "en" && "Eco Time Day – people who believe in the future and do everything possible for it." || "Eco Time Day - люди, верящие в будущее и делающие для него всё возможное."}
+            text={locale === "en" && "People who are passionate and inspire others with their example. We realize that our common space affects each of us and our descendants, civilization, and therefore our future life, the fortunes of our affairs, experience, discoveries, the fortunes of the information we have discovered and its preservation. This is healthy egoism – become united for a common, useful goal." || "Люди, увлечённые и увлекающие других своим примером. Мы осознаем, что наше общее пространство влияет на каждого из нас и наших потомков, на цивилизацию, а значит и на нашу дальнейшую жизнь, судьбу наших дел, опыта, открытий, судьбу открытой нами информации и её сохранение. Это и есть здоровый эгоизм - объединение ради общей, полезной цели. "}
+            containerWidth='53.8rem'
+            containerHeight='16rem'
         />
         <EcoEventsChain />
-        <EcoGalery page="eco"/>
+        <!-- <EcoGalery page="eco"/> -->
+
+        <section id="gallery" class="gallery">
+            <div class="slider">
+                <div class="row">
+                    <!-- <div class="card"><img src={coastCleaningImage1.src} alt=""/></div> -->
+                    <div class="card"><img src={ecoGalleryCard4.src} alt=""/></div>                    
+                    <div class="card"><img src={coastCleaningImage4.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage7.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage10.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage13.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage16.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage19.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage22.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard2.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard1.src} alt=""/></div>
+                    <div class="card text"><span>{locale === "en" ? "Together" : "Совместными усилиями"}</span></div>
+                    <div class="card"><img src={ecoGalleryCard3.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage25.src} alt=""/></div>
+                </div>
+                <div class="row">
+                    <div class="card"><img src={coastCleaningImage2.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage5.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage8.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage11.src} alt=""/></div>
+                    <!-- <div class="card"><img src={coastCleaningImage14.src} alt=""/></div> -->
+                    <div class="card"><img src={coastCleaningImage17.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage20.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage23.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard5.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard6.src} alt=""/></div>           
+                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>
+                    <div class="card text"><span>{locale === "en" ? <>We&nbsp;can</> : "Мы сможем"}</span></div>
+                    <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>                    
+                </div>
+                <div class="row">
+                    <div class="card"><img src={coastCleaningImage27.src} alt=""/></div>
+                    <div class="card"><img src={ecoGalleryCard7.src} alt=""/></div>           
+                    <div class="card"><img src={coastCleaningImage3.src} alt=""/></div>
+                    <!-- <div class="card"><img src={ecoGalleryCard8.src} alt=""/></div>        -->
+                    <div class="card"><img src={coastCleaningImage6.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage9.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage12.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage15.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage18.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage21.src} alt=""/></div>                              
+                    <div class="card"><img src={coastCleaningImage26.src} alt=""/></div>
+                    <div class="card"><img src={coastCleaningImage24.src} alt=""/></div>
+                    <div class="card text"><span>{locale === "en" ? <>Save our&nbsp;planet</> : "Спасти планету"}</span></div>
+                </div>
+            </div>
+        </section>
+
         <HelpSection page='eco' img={ecoHelpImg} imgDescr='Знак мира в виде рогатки' />
         <SocialSection 
             page="eco" 
@@ -42,6 +135,50 @@ import EcoHeroSection from '../components/eco/EcoHeroSection.astro';
     </main>
 </Layout>
 
+<script>
+
+    // Implement horizontal scrolling for gallery
+
+    const galleryElement = document.getElementById('gallery');
+    const galleryContainer = galleryElement!.querySelector(".slider") as HTMLElement;
+    const firstRow = galleryContainer!.querySelector(".row ") as HTMLElement;
+
+    const scrollDiff = firstRow.offsetWidth - galleryElement!.offsetWidth;
+
+    const galleryTopTrigger = galleryElement!.offsetTop - window.innerHeight / 2 + galleryElement!.offsetHeight / 2;
+
+    document.documentElement.style.height = document.body.offsetHeight + scrollDiff + "px";
+
+    document.addEventListener("scroll", onScroll, {passive: true});
+
+    function onScroll() {
+
+        const scrollTop = document.documentElement.scrollTop;
+
+        if (scrollTop < galleryTopTrigger) {
+            galleryContainer!.style.translate = "none";
+            document.body.style.position = "";
+            document.body.style.top = "";            
+            return;
+        }
+
+        if (scrollTop >= galleryTopTrigger && scrollTop < galleryTopTrigger + scrollDiff) {
+            document.body.style.position = "fixed";
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.top = -galleryTopTrigger + "px";
+            const diff = scrollTop - galleryTopTrigger;
+            galleryContainer!.style.translate = -diff + "px";
+            return;
+        }
+
+        galleryContainer!.style.translate = -scrollDiff + "px";
+        document.body.style.position = "relative";
+        document.body.style.top = scrollDiff + "px";
+
+    }
+</script>
+
 <style>
 	main {
 		position: relative;
@@ -49,4 +186,137 @@ import EcoHeroSection from '../components/eco/EcoHeroSection.astro';
 		width: 100%;
 		height: auto;
 	}
+
+    .gallery {
+        margin-left: 20px;
+        margin-right: 20px;;
+        margin-bottom: 30px;
+    }
+
+    .gallery .slider {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .gallery .row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .row:first-child .card:last-child {
+        display: none;
+    }
+
+    .gallery .row:nth-child(2) {
+        padding-left: 65px;
+    }
+
+    .gallery .card {
+        width: 130px; height: 70px;
+        min-width: 130px; min-height: 70px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .gallery .card.text {
+        display: flex;        
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat Variable";
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;        
+        box-shadow: var(--box-shadow);
+    }
+
+    .gallery .card.text span {
+        flex: 0;
+        background-color: var(--green);
+        background-image: var(--gradient);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gallery .card img {
+        display: block;
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
+    @media (width >= 480px) {
+
+        .gallery .card {
+            width: 210px; height: 110px;
+            min-width: 210px;
+        }
+
+        .gallery .row:nth-child(2) {
+            padding-left: 115px;
+        }
+    }
+
+    @media (width >= 640px) {
+
+        .gallery {
+            margin-bottom: 60px
+        }
+
+        .gallery .card {
+            width: 298px; height: 165px;
+            border-radius: 30px;
+        }
+
+        .gallery .card.text {
+            font-size: 20px;
+        }
+
+        .gallery .row:nth-child(2) {
+            padding-left: 159px;
+        }
+    }
+
+    @media (width >= 960px) {
+
+        .gallery {
+            margin-bottom: 90px;
+        }
+
+        .gallery .card {
+            width: 293px; height: 165px;
+            min-width: 293px;
+        }
+
+        .gallery .row:first-child .card:first-child {
+            display: none;
+        }
+
+        .gallery .row:first-child .card:last-child {
+            display: initial;
+        }
+
+        .gallery .row:nth-child(2) {
+            padding-left: 0;
+        }
+    }
+
+    @media (width >= 1200px) {
+    
+        .gallery {
+            width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 120px;
+        }
+
+        .gallery .card {
+            width: 360px; height: 205px;
+            min-width: 360px;
+        }
+
+        .gallery .card.text {
+            font-size: 35px;
+        }
+    }
 </style>

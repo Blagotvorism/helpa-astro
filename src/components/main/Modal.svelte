@@ -16,6 +16,7 @@
     export let event;
     export let slider;
     export let disabledScroll;
+    export let locale;
 
     let rotate = true;
 </script>
@@ -28,9 +29,8 @@
         <div class="modal_text">
             <h2 class="gradient_span">{event.year}</h2>
             <p class="modal_descr">{event.descriptionFull}</p>
-            <a href={event.link} class="link link_text btn_event-link gradient_span">
-                <span class="btn_innertext_secondary">Подробнее о направлении</span>
-                <span class="btn_arrow gradient_span"> ❯ </span>
+            <a href={event.link} class="link link_text btn_event-link gradient_span arrow-cap">
+                {locale === "en" && "More about the activity" || "Подробнее о направлении"}
             </a>
         </div>
         <div class="modal_slider">
@@ -171,8 +171,6 @@
         margin: 0;
         padding: 0;
         height: auto;
-        width: var(--link-width);
-        display: flex;
         justify-content: space-between;
         cursor: pointer;
         font-family: var(--font-inter);
