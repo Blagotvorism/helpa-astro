@@ -6,13 +6,15 @@ import RadialGradient from './RadialGradient.astro';
 
 const {page, img, imgDescr = ''} = Astro.props;
 
+import { purchaseTokenTelegramBotUrl } from "../data/constants";
+
 const locale = Astro.currentLocale || "";
 
 let heading_start, heading_gradient, heading_finish;
 let sectionHeight_1200, sectionHeight_960, sectionHeight_640, sectionHeight_480, sectionHeight_320; 
 let headingWidth_1200, headingWidth_960, headingWidth_640, headingWidth_480, headingWidth_320;
 let topPosition = '0rem';
-let url_buy, url_join, h3_text = 'Стать участником наших акций', p_text='';
+let url_join, h3_text = 'Стать участником наших акций', p_text='';
 
 switch(page) {
     case 'eco':
@@ -31,7 +33,6 @@ switch(page) {
         headingWidth_640 = '34.5rem';
         headingWidth_480 = '19rem';
         headingWidth_320 = '87.5vw';
-        url_buy = '/';
         url_join = 'https://t.me/ecotimeday';
         h3_text = locale === "en" && "Participate in our environmental campaigns" || 'Стать участником экологических акций';
         p_text = locale === "en" && "and take direct part in saving the planet." || 'и принимать непосредственное участие в спасении планеты.';
@@ -52,7 +53,6 @@ switch(page) {
         headingWidth_480 = '19.0625rem';
         headingWidth_320 = '87.5vw';
         topPosition = '0';
-        url_buy = '/';
         url_join = 'https://t.me/helparepay';
         break;
     case 'ride':
@@ -74,7 +74,6 @@ switch(page) {
         headingWidth_480 = '19.0625rem';
         headingWidth_320 = '87.5vw';
         topPosition = '0';
-        url_buy = '/';
         url_join = 'https://t.me/longlongride';
         break;
     case 'gemo':
@@ -94,7 +93,6 @@ switch(page) {
         headingWidth_480 = '19.0625rem';
         headingWidth_320 = '87.5vw';
         topPosition = '3.25rem';
-        url_buy = '/';
         url_join = 'https://t.me/gemohelpa';
         break;
 }
@@ -110,7 +108,7 @@ switch(page) {
             </>
         }
         {heading_start && <h2 class="help__heading">{heading_start}<span class="gradient_span">{heading_gradient}</span>{heading_finish}</h2>}
-        <HelpCTA url_buy={url_buy} url_join={url_join} h3_text={h3_text} p_text={p_text} />
+        <HelpCTA url_buy={purchaseTokenTelegramBotUrl} url_join={url_join} h3_text={h3_text} p_text={p_text} />
         {img && <Image src={img} alt={imgDescr} class='help__img' loading='lazy'/>}
     </div>
 </section>
