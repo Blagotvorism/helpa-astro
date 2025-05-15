@@ -63,7 +63,7 @@
             <a href={links[5].url} class="nav-link">{links[5].text}</a>
         </nav>
         <div class="mobile_nav">
-            <a href={getRelativeLocaleUrl(locale, "/")} class="header-logo_tokenomika">
+            <a href="http://t.me/HelpPlanetSourceBot" class="header-logo_tokenomika">
                 <img src='/logos/tokenomika_logo.svg' class="header-logo_tokenomika" alt="tokenomika-logo"/>
             </a>            
         </div>

@@ -1,0 +1,1 @@
+export const purchaseTokenTelegramBotUrl = "http://t.me/HelpPlanetSourceBot";

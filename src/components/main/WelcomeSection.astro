@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import '../../styles/global.css';
 import Link from "../Link.astro";
 import welomePng from '../../images/main/welcome.png';
+import DoubleButton from './DoubleButton.svelte';
 
 let {locale} = Astro.props;
 
@@ -30,10 +31,7 @@ let {locale} = Astro.props;
                 </p>
             </div>
             <div class="welcome_link">
-                <Link href="https://t.me/blagotvorism" theme='primary' classes="link link_primary">
-                    {locale === "ru" && "Присоединиться"}
-                    {locale === "en" && "Join"}
-                </Link>
+                <DoubleButton locale={Astro.currentLocale || ""} client:load />                
             </div>  
         </div>
         <div class="container_right">

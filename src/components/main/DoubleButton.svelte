@@ -13,10 +13,10 @@
     let joinButtonText = (function(locale) {
         switch (locale) {
             case "en":
-                return "Purchase";
+                return "Join";
             case "ru":
             default:
-                return "Приобрести";            
+                return "Присоединиться";            
         }
     })(locale);
 </script>

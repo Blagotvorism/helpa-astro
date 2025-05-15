@@ -10,6 +10,8 @@ import blagotvorismImage from "../../images/blagotvorism.svg";
 const {mainBackgroundImage, mainLogo, mainDescriptionTitle, mainDescriptionText, learnMoreButtonText} = Astro.props;
 let showIcons = false;
 
+let locale = Astro.currentLocale || "en";
+
 function toggleButton () {
     showIcons = !showIcons;
 }
@@ -27,9 +29,10 @@ function toggleButton () {
             </div>
         </div>
         <div class="main-cta">
-            <!-- <Link href="/" theme='primary' classes="link link_primary" onClick={toggleButton}>Приобрести</Link> -->
-            <DoubleButton locale={Astro.currentLocale || ""} client:load />
-            <!-- <Link href="/token" theme='text' classes="link link_text"><span class="link-innertext-secondary">{learnMoreButtonText}</span><Icon name="arrowText" /></Link> -->
+            <Link href="http://t.me/HelpPlanetSourceBot" theme='primary' classes="link link_primary">
+                {locale === "ru" && "Приобрести"}
+                {locale === "en" && "Purchase"}
+            </Link>
             <p><a href="/token" class="arrow-cap">{learnMoreButtonText}</a></p>
         </div>
     </div>
